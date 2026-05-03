@@ -389,6 +389,33 @@ export function useScraper() {
         results: cached,
         progress: prev.progress.map((p) => ({ ...p, status: 'completed' as const })),
       }))
+
+      // 本地缓存命中后，若云端无缓存，也尝试补上传到 Supabase
+      if (isSupabaseConfigured()) {
+        try {
+          const cloudExists = await fetchCloudLogo(query)
+          if (!cloudExists) {
+            let svgResult = cached.find((r) => r.format === 'svg' || r.convertedSvg)
+            // 若本地缓存是 PNG 且无 convertedSvg，尝试现场转换
+            if (!svgResult) {
+              const pngResult = cached.find((r) => r.dataUrl)
+              if (pngResult) {
+                const converted = await tryConvertToSvg(pngResult.dataUrl!, pngResult.title)
+                if (converted) {
+                  svgResult = { ...pngResult, convertedSvg: converted }
+                }
+              }
+            }
+            if (svgResult) {
+              pushLog('info', `[CLOUD] 本地缓存补上传到 Supabase...`, 'done')
+              await saveCloudLogo(query, guessDomains(query), svgResult)
+              pushLog('success', `[CLOUD] SVG 已压缩并上传至云端`, 'done')
+            }
+          }
+        } catch (e) {
+          pushLog('warn', `[CLOUD] 补上传失败: ${(e as Error).message}`, 'done')
+        }
+      }
       return
     }
 
