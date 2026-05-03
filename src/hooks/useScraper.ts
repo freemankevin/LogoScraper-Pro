@@ -456,8 +456,8 @@ export function useScraper() {
 
   const downloadAsSvg = useCallback((result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
-    // 优先用 convertedSvg（压缩后的），否则用原始 dataUrl
-    let svgContent: string | null = result.convertedSvg || null
+    // 优先用 convertedSvg，但必须先校验是否为有效 SVG（避免 WASM 返回畸形内容）
+    let svgContent: string | null = isValidSvg(result.convertedSvg) ? result.convertedSvg : null
     if (!svgContent && result.format === 'svg' && result.dataUrl) {
       try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
     }
@@ -483,7 +483,7 @@ export function useScraper() {
 
   const downloadAsPng = useCallback(async (result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
-    let svgContent: string | null = result.convertedSvg || null
+    let svgContent: string | null = isValidSvg(result.convertedSvg) ? result.convertedSvg : null
     if (!svgContent && result.format === 'svg' && result.dataUrl) {
       try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
     }

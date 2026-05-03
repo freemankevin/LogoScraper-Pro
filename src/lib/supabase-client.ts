@@ -128,7 +128,7 @@ export async function saveCloudLogo(
       } catch {
         svgText = null
       }
-    } else if (result.convertedSvg) {
+    } else if (result.convertedSvg && result.convertedSvg.trim().startsWith('<svg')) {
       svgText = result.convertedSvg
     }
     if (!svgText) return
