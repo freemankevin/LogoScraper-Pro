@@ -12,21 +12,36 @@ import { minifySvg } from './svg-minify'
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 
+/** 清理 Supabase URL，去除多余的路径部分（SDK 会自动添加 /rest/v1/） */
+function cleanSupabaseUrl(rawUrl: string): string {
+  let url = rawUrl.trim()
+  // 去除尾部斜杠
+  if (url.endsWith('/')) url = url.slice(0, -1)
+  // 去除多余的 /rest/v1 路径（SDK 会自动添加）
+  if (url.endsWith('/rest/v1')) url = url.slice(0, -8)
+  return url
+}
+
 function getCredentials(): { url: string | null; key: string | null } {
-  const url = ENV_URL || (typeof window !== 'undefined' ? localStorage.getItem('ls_supabase_url') : null)
+  const rawUrl = ENV_URL || (typeof window !== 'undefined' ? localStorage.getItem('ls_supabase_url') : null)
   const key = ENV_KEY || (typeof window !== 'undefined' ? localStorage.getItem('ls_supabase_key') : null)
-  return { url: url || null, key: key || null }
+  const url = rawUrl ? cleanSupabaseUrl(rawUrl) : null
+  return { url, key: key || null }
 }
 
 export { getCredentials }
 
 let _client: SupabaseClient | null = null
 
+function normalizeSupabaseUrl(url: string): string {
+  return url.trim().replace(/\/+$/, '')
+}
+
 function getClient(): SupabaseClient | null {
   if (_client) return _client
   const { url, key } = getCredentials()
   if (!url || !key) return null
-  _client = createClient(url, key)
+  _client = createClient(normalizeSupabaseUrl(url), key.trim())
   return _client
 }
 
@@ -36,9 +51,11 @@ export function isSupabaseConfigured(): boolean {
 }
 
 export function setSupabaseCredentials(url: string, key: string): void {
-  localStorage.setItem('ls_supabase_url', url)
-  localStorage.setItem('ls_supabase_key', key)
-  _client = createClient(url, key)
+  const cleanUrl = normalizeSupabaseUrl(url)
+  const cleanKey = key.trim()
+  localStorage.setItem('ls_supabase_url', cleanUrl)
+  localStorage.setItem('ls_supabase_key', cleanKey)
+  _client = createClient(cleanUrl, cleanKey)
 }
 
 export function clearSupabaseCredentials(): void {
