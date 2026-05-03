@@ -66,7 +66,21 @@ function LogoCard({
   onDownloadPng: (r: LogoResult) => void
 }) {
   const hasSvg = result.format === 'svg' || !!result.convertedSvg
-  const previewUrl = result.dataUrl || result.url
+  
+  // 优先展示 SVG（转换后的或原始的），不展示 PNG
+  let previewUrl: string
+  if (result.convertedSvg) {
+    // PNG 转换后的 SVG
+    previewUrl = `data:image/svg+xml;base64,${btoa(result.convertedSvg)}`
+  } else if (result.format === 'svg' && result.dataUrl) {
+    // 原始 SVG
+    previewUrl = result.dataUrl
+  } else if (result.dataUrl) {
+    // 只有 PNG，展示 PNG（用于下载，但不作为主要展示）
+    previewUrl = result.dataUrl
+  } else {
+    previewUrl = result.url
+  }
 
   return (
     <div
@@ -108,46 +122,6 @@ function LogoCard({
             filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            top: 12,
-            right: 12,
-            display: 'flex',
-            gap: '0.4rem',
-          }}
-        >
-          <span
-            style={{
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              color: '#0a0a0f',
-              background: '#00e5ff',
-              padding: '0.2rem 0.5rem',
-              borderRadius: '4px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-            }}
-          >
-            SVG
-          </span>
-          {result.format !== 'svg' && (
-            <span
-              style={{
-                fontSize: '0.65rem',
-                fontWeight: 700,
-                color: '#0a0a0f',
-                background: result.format === 'png' ? '#00e676' : '#ffb300',
-                padding: '0.2rem 0.5rem',
-                borderRadius: '4px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-              }}
-            >
-              {result.format.toUpperCase()}
-            </span>
-          )}
-        </div>
       </div>
 
       {/* Info */}

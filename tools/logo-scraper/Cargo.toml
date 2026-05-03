@@ -17,7 +17,7 @@ path = "src/bin/cli.rs"
 required-features = ["cli"]
 
 [features]
-default = ["cli"]
+default = []
 cli = ["dep:reqwest", "dep:tokio"]
 wasm = ["dep:wasm-bindgen", "dep:js-sys", "dep:web-sys"]
 
