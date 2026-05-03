@@ -1,6 +1,6 @@
 /**
  * Supabase 客户端封装
- * - SVG 直接存在数据库 text 字段，不走 Storage
+ * - SVG 上传到 Storage Bucket（logos），不走数据库表
  * - 优先从环境变量读取，否则尝试 localStorage
  * - 未配置时所有操作静默回退
  */
@@ -11,14 +11,16 @@ import { minifySvg } from './svg-minify'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+const BUCKET_NAME = 'logos'
 
-/** 清理 Supabase URL，去除多余的路径部分（SDK 会自动添加 /rest/v1/） */
+/** 清理 Supabase URL，去除多余的路径部分（SDK 会自动添加 /rest/v1/ 等） */
 function cleanSupabaseUrl(rawUrl: string): string {
   let url = rawUrl.trim()
   // 去除尾部斜杠
   if (url.endsWith('/')) url = url.slice(0, -1)
-  // 去除多余的 /rest/v1 路径（SDK 会自动添加）
-  if (url.endsWith('/rest/v1')) url = url.slice(0, -8)
+  // 去除多余的 /rest/v1、/storage/v1、/auth/v1 路径（SDK 会自动添加）
+  url = url.replace(/\/(rest|storage|auth)\/v1$/i, '')
+  if (url.endsWith('/')) url = url.slice(0, -1)
   return url
 }
 
@@ -33,15 +35,11 @@ export { getCredentials }
 
 let _client: SupabaseClient | null = null
 
-function normalizeSupabaseUrl(url: string): string {
-  return url.trim().replace(/\/+$/, '')
-}
-
 function getClient(): SupabaseClient | null {
   if (_client) return _client
   const { url, key } = getCredentials()
   if (!url || !key) return null
-  _client = createClient(normalizeSupabaseUrl(url), key.trim())
+  _client = createClient(url, key.trim())
   return _client
 }
 
@@ -51,7 +49,7 @@ export function isSupabaseConfigured(): boolean {
 }
 
 export function setSupabaseCredentials(url: string, key: string): void {
-  const cleanUrl = normalizeSupabaseUrl(url)
+  const cleanUrl = cleanSupabaseUrl(url)
   const cleanKey = key.trim()
   localStorage.setItem('ls_supabase_url', cleanUrl)
   localStorage.setItem('ls_supabase_key', cleanKey)
@@ -64,45 +62,35 @@ export function clearSupabaseCredentials(): void {
   _client = null
 }
 
-// ---------- Database: software_logos table ----------
-
-interface DbLogoRecord {
-  query: string
-  domains: string[]
-  svg_content: string | null
-  source: string
-  source_type: string
-  width: number | null
-  height: number | null
-  created_at: string
+/** 把查询词转成安全的 Storage 文件名 */
+function queryToPath(query: string): string {
+  // 只允许字母、数字、下划线、中划线、点号
+  const safe = query.toLowerCase().trim().replace(/[^a-z0-9._-]/g, '_')
+  return `${safe}.svg`
 }
 
-/** 从数据库查询缓存的 Logo */
+/** 从云端缓存查询 Logo（从 Storage 下载） */
 export async function fetchCloudLogo(query: string): Promise<LogoResult | null> {
   const sb = getClient()
   if (!sb) return null
   try {
-    const { data, error } = await sb
-      .from('software_logos')
-      .select('*')
-      .eq('query', query.toLowerCase().trim())
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .single()
+    const path = queryToPath(query)
+    const { data, error } = await sb.storage.from(BUCKET_NAME).download(path)
     if (error || !data) return null
 
-    const record = data as DbLogoRecord
-    if (!record.svg_content) return null
+    const blob = data
+    const text = await blob.text()
+    if (!text) return null
 
     return {
       id: `cloud-${query}`,
-      source: `${record.source} (云端缓存)`,
-      sourceType: record.source_type as LogoResult['sourceType'],
+      source: `Supabase Storage (云端缓存)`,
+      sourceType: 'cloud',
       format: 'svg',
       url: '',
-      dataUrl: `data:image/svg+xml;base64,${btoa(record.svg_content)}`,
-      width: record.width ?? 512,
-      height: record.height ?? 512,
+      dataUrl: `data:image/svg+xml;base64,${btoa(text)}`,
+      width: 512,
+      height: 512,
       title: query,
     }
   } catch {
@@ -110,14 +98,16 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
   }
 }
 
-/** 保存 Logo 到云端（只存 SVG，直接写数据库 text 字段） */
+/** 保存 Logo 到云端（上传 SVG 到 Storage bucket） */
 export async function saveCloudLogo(
   query: string,
-  domains: string[],
+  _domains: string[],
   result: LogoResult
 ): Promise<void> {
   const sb = getClient()
-  if (!sb) return
+  if (!sb) {
+    throw new Error('Supabase 客户端未初始化，请检查配置')
+  }
 
   try {
     // 获取 SVG 字符串
@@ -132,21 +122,13 @@ export async function saveCloudLogo(
 
     // 压缩 SVG
     const minified = minifySvg(svgText)
+    const blob = new Blob([minified], { type: 'image/svg+xml' })
+    const path = queryToPath(query)
 
-    // 直接写入数据库
-    const { error } = await sb.from('software_logos').upsert(
-      {
-        query: query.toLowerCase().trim(),
-        domains,
-        svg_content: minified,
-        source: result.source,
-        source_type: result.sourceType,
-        width: result.width ?? 512,
-        height: result.height ?? 512,
-        created_at: new Date().toISOString(),
-      },
-      { onConflict: 'query' }
-    )
+    const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
+      upsert: true,
+      contentType: 'image/svg+xml',
+    })
     if (error) throw error
   } catch (err) {
     console.error('[Supabase] saveCloudLogo error:', err)
@@ -159,10 +141,10 @@ export async function getCloudStats(): Promise<{ logoCount: number; softwareCoun
   const sb = getClient()
   if (!sb) return { logoCount: 0, softwareCount: 0 }
   try {
-    const { count: logoCount } = await sb
-      .from('software_logos')
-      .select('*', { count: 'exact', head: true })
-    return { logoCount: logoCount ?? 0, softwareCount: logoCount ?? 0 }
+    const { data, error } = await sb.storage.from(BUCKET_NAME).list('', { limit: 1000 })
+    if (error || !data) return { logoCount: 0, softwareCount: 0 }
+    const count = data.filter((item) => item.name.endsWith('.svg')).length
+    return { logoCount: count, softwareCount: count }
   } catch {
     return { logoCount: 0, softwareCount: 0 }
   }

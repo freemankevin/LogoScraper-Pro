@@ -24,7 +24,7 @@ export interface LogoFormatInfo {
 export interface LogoResult {
   id: string
   source: string
-  sourceType: 'clearbit' | 'github' | 'favicon' | 'wikipedia' | 'direct' | 'converted'
+  sourceType: 'clearbit' | 'github' | 'favicon' | 'wikipedia' | 'direct' | 'converted' | 'cloud'
   format: 'svg' | 'png' | 'jpg' | 'webp'
   url: string
   dataUrl?: string
