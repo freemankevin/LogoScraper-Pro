@@ -8,7 +8,7 @@
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { LogoResult } from '../types/scraper'
-import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from './utils'
+import { sanitizeDownloadName, svgToDataUrl, dataUrlToText, isValidSvg } from './utils'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -127,7 +127,7 @@ export async function saveCloudLogo(
       } catch {
         svgText = null
       }
-    } else if (result.convertedSvg && result.convertedSvg.trim().startsWith('<svg')) {
+    } else if (isValidSvg(result.convertedSvg)) {
       svgText = result.convertedSvg
     }
     if (!svgText) return

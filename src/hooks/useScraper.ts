@@ -6,7 +6,7 @@ import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
 import { getCachedResults, saveCachedResults, saveCachedSoftware } from '../lib/logo-cache'
 import { fetchCloudLogo, saveCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
 import { downloadSvgAsPng } from '../lib/svg-to-png'
-import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from '../lib/utils'
+import { sanitizeDownloadName, svgToDataUrl, dataUrlToText, isValidSvg } from '../lib/utils'
 
 let logIdCounter = 0
 function generateId() {
@@ -356,10 +356,6 @@ function blobToDataUrl(blob: Blob): Promise<string> {
     reader.onerror = () => reject(new Error('Failed to read blob as data URL'))
     reader.readAsDataURL(blob)
   })
-}
-
-function isValidSvg(s: string | null | undefined): s is string {
-  return typeof s === 'string' && s.trim().startsWith('<svg')
 }
 
 async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string | null> {
@@ -966,7 +962,7 @@ export function useScraper() {
           pushLog('info', `[CONVERT] 将 #${i + 1} (${result.format.toUpperCase()}) 转换为 SVG...`, 'convert')
           try {
             const svg = await tryConvertToSvg(result.dataUrl!, result.title)
-            if (svg) {
+            if (isValidSvg(svg)) {
               result.convertedSvg = svg
               pushLog('success', `[CONVERT] #${i + 1} 矢量化完成 — ${svg.length} bytes`, 'convert')
             } else {

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { LogoResult } from '../types/scraper'
+import { isValidSvg } from '../lib/utils'
 
 interface LogoResultsProps {
   results: LogoResult[]
@@ -55,10 +56,6 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: L
       </div>
     </div>
   )
-}
-
-function isValidSvg(s: string | undefined): boolean {
-  return typeof s === 'string' && s.trim().startsWith('<svg')
 }
 
 function getPreviewUrls(result: LogoResult): string[] {
