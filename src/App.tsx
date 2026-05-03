@@ -5,9 +5,10 @@ import TerminalPanel from './sections/TerminalPanel'
 import LogoResults from './sections/LogoResults'
 import ApiDocs from './sections/ApiDocs'
 import { useScraper } from './hooks/useScraper'
+import { isSupabaseConfigured } from './lib/supabase-client'
 
 export default function App() {
-  const { state, runScraper, downloadAsSvg, downloadAsPng, setMode } = useScraper()
+  const { state, runScraper, downloadAsSvg, downloadAsPng, forceUploadToCloud, setMode } = useScraper()
 
   const handleSearch = useCallback((query: string) => {
     if (state.isRunning) return
@@ -48,6 +49,8 @@ export default function App() {
             results={state.results}
             onDownloadSvg={downloadAsSvg}
             onDownloadPng={downloadAsPng}
+            onForceUpload={forceUploadToCloud}
+            isSupabaseConfigured={isSupabaseConfigured()}
           />
         )}
 

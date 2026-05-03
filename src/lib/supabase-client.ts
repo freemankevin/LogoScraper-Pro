@@ -162,6 +162,20 @@ export async function saveCloudLogo(
   }
 }
 
+/** 删除云端缓存（用于清理错误上传的文件） */
+export async function deleteCloudLogo(query: string): Promise<void> {
+  const sb = getClient()
+  if (!sb) return
+  try {
+    const path = queryToPath(query)
+    const { error } = await sb.storage.from(BUCKET_NAME).remove([path])
+    if (error) throw error
+  } catch (err) {
+    console.error('[Supabase] deleteCloudLogo error:', err)
+    throw err
+  }
+}
+
 /** 获取云端缓存统计 */
 export async function getCloudStats(): Promise<{ logoCount: number; softwareCount: number }> {
   const sb = getClient()
