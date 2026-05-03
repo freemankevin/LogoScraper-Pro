@@ -1,0 +1,817 @@
+{
+  "amazon": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "walmart": {
+    "domains": [
+      "walmart.com"
+    ]
+  },
+  "target": {
+    "domains": [
+      "target.com"
+    ]
+  },
+  "costco": {
+    "domains": [
+      "costco.com"
+    ]
+  },
+  "samsclub": {
+    "domains": [
+      "samsclub.com"
+    ]
+  },
+  "sam's club": {
+    "domains": [
+      "samsclub.com"
+    ]
+  },
+  "kroger": {
+    "domains": [
+      "kroger.com"
+    ]
+  },
+  "albertsons": {
+    "domains": [
+      "albertsons.com"
+    ]
+  },
+  "publix": {
+    "domains": [
+      "publix.com"
+    ]
+  },
+  "wholefoods": {
+    "domains": [
+      "wholefoodsmarket.com"
+    ]
+  },
+  "whole foods": {
+    "domains": [
+      "wholefoodsmarket.com"
+    ]
+  },
+  "traderjoes": {
+    "domains": [
+      "traderjoes.com"
+    ]
+  },
+  "trader joe's": {
+    "domains": [
+      "traderjoes.com"
+    ]
+  },
+  "aldi": {
+    "domains": [
+      "aldi.com"
+    ]
+  },
+  "lidl": {
+    "domains": [
+      "lidl.com"
+    ]
+  },
+  "carrefour": {
+    "domains": [
+      "carrefour.com"
+    ]
+  },
+  "tesco": {
+    "domains": [
+      "tesco.com"
+    ]
+  },
+  "sainsburys": {
+    "domains": [
+      "sainsburys.co.uk"
+    ]
+  },
+  "sainsbury's": {
+    "domains": [
+      "sainsburys.co.uk"
+    ]
+  },
+  "asda": {
+    "domains": [
+      "asda.com"
+    ]
+  },
+  "morrisons": {
+    "domains": [
+      "morrisons.com"
+    ]
+  },
+  "waitrose": {
+    "domains": [
+      "waitrose.com"
+    ]
+  },
+  "coop": {
+    "domains": [
+      "coop.co.uk"
+    ]
+  },
+  "spar": {
+    "domains": [
+      "spar.com"
+    ]
+  },
+  "rewe": {
+    "domains": [
+      "rewe.de"
+    ]
+  },
+  "edeka": {
+    "domains": [
+      "edeka.de"
+    ]
+  },
+  "kaufland": {
+    "domains": [
+      "kaufland.de"
+    ]
+  },
+  "metro": {
+    "domains": [
+      "metroag.de"
+    ]
+  },
+  "makro": {
+    "domains": [
+      "makro.co.za"
+    ]
+  },
+  "auchan": {
+    "domains": [
+      "auchan.com"
+    ]
+  },
+  "intermarche": {
+    "domains": [
+      "intermarche.com"
+    ]
+  },
+  "intermarché": {
+    "domains": [
+      "intermarche.com"
+    ]
+  },
+  "leclerc": {
+    "domains": [
+      "e-leclerc.com"
+    ]
+  },
+  "e.leclerc": {
+    "domains": [
+      "e-leclerc.com"
+    ]
+  },
+  "casino": {
+    "domains": [
+      "casino.fr"
+    ]
+  },
+  "monoprix": {
+    "domains": [
+      "monoprix.fr"
+    ]
+  },
+  "fnac": {
+    "domains": [
+      "fnac.com"
+    ]
+  },
+  "darty": {
+    "domains": [
+      "darty.com"
+    ]
+  },
+  "boulanger": {
+    "domains": [
+      "boulanger.com"
+    ]
+  },
+  "mediamarkt": {
+    "domains": [
+      "mediamarkt.de"
+    ]
+  },
+  "media markt": {
+    "domains": [
+      "mediamarkt.de"
+    ]
+  },
+  "saturn": {
+    "domains": [
+      "saturn.de"
+    ]
+  },
+  "elgiganten": {
+    "domains": [
+      "elgiganten.se"
+    ]
+  },
+  "elkjop": {
+    "domains": [
+      "elkjop.no"
+    ]
+  },
+  "power": {
+    "domains": [
+      "power.no"
+    ]
+  },
+  "expert": {
+    "domains": [
+      "expert.de"
+    ]
+  },
+  "coolblue": {
+    "domains": [
+      "coolblue.nl"
+    ]
+  },
+  "bol": {
+    "domains": [
+      "bol.com"
+    ]
+  },
+  "wehkamp": {
+    "domains": [
+      "wehkamp.nl"
+    ]
+  },
+  "hema": {
+    "domains": [
+      "hema.com"
+    ]
+  },
+  "blokker": {
+    "domains": [
+      "blokker.nl"
+    ]
+  },
+  "kruidvat": {
+    "domains": [
+      "kruidvat.nl"
+    ]
+  },
+  "etos": {
+    "domains": [
+      "etos.nl"
+    ]
+  },
+  "dirk": {
+    "domains": [
+      "dirk.nl"
+    ]
+  },
+  "jumbo": {
+    "domains": [
+      "jumbo.com"
+    ]
+  },
+  "albertheijn": {
+    "domains": [
+      "ah.nl"
+    ]
+  },
+  "albert heijn": {
+    "domains": [
+      "ah.nl"
+    ]
+  },
+  "ah": {
+    "domains": [
+      "ah.nl"
+    ]
+  },
+  "plus": {
+    "domains": [
+      "plus.nl"
+    ]
+  },
+  "action": {
+    "domains": [
+      "action.com"
+    ]
+  },
+  "zeeman": {
+    "domains": [
+      "zeeman.com"
+    ]
+  },
+  "primark": {
+    "domains": [
+      "primark.com"
+    ]
+  },
+  "penneys": {
+    "domains": [
+      "primark.com"
+    ]
+  },
+  "tkmaxx": {
+    "domains": [
+      "tkmaxx.com"
+    ]
+  },
+  "tk maxx": {
+    "domains": [
+      "tkmaxx.com"
+    ]
+  },
+  "tjmaxx": {
+    "domains": [
+      "tjmaxx.com"
+    ]
+  },
+  "tj maxx": {
+    "domains": [
+      "tjmaxx.com"
+    ]
+  },
+  "marshalls": {
+    "domains": [
+      "marshalls.com"
+    ]
+  },
+  "ross": {
+    "domains": [
+      "rossstores.com"
+    ]
+  },
+  "ross stores": {
+    "domains": [
+      "rossstores.com"
+    ]
+  },
+  "burlington": {
+    "domains": [
+      "burlington.com"
+    ]
+  },
+  "burlington coat factory": {
+    "domains": [
+      "burlington.com"
+    ]
+  },
+  "nordstromrack": {
+    "domains": [
+      "nordstromrack.com"
+    ]
+  },
+  "nordstrom rack": {
+    "domains": [
+      "nordstromrack.com"
+    ]
+  },
+  "lastcall": {
+    "domains": [
+      "neimanmarcuslastcall.com"
+    ]
+  },
+  "last call": {
+    "domains": [
+      "neimanmarcuslastcall.com"
+    ]
+  },
+  "saksoff5th": {
+    "domains": [
+      "saksoff5th.com"
+    ]
+  },
+  "saks off 5th": {
+    "domains": [
+      "saksoff5th.com"
+    ]
+  },
+  "outnet": {
+    "domains": [
+      "theoutnet.com"
+    ]
+  },
+  "yoox": {
+    "domains": [
+      "yoox.com"
+    ]
+  },
+  "temu": {
+    "domains": [
+      "temu.com"
+    ]
+  },
+  "shein": {
+    "domains": [
+      "shein.com"
+    ]
+  },
+  "aliexpress": {
+    "domains": [
+      "aliexpress.com"
+    ]
+  },
+  "alibaba": {
+    "domains": [
+      "alibaba.com"
+    ]
+  },
+  "1688": {
+    "domains": [
+      "1688.com"
+    ]
+  },
+  "taobao": {
+    "domains": [
+      "taobao.com"
+    ]
+  },
+  "tmall": {
+    "domains": [
+      "tmall.com"
+    ]
+  },
+  "jd": {
+    "domains": [
+      "jd.com"
+    ]
+  },
+  "jingdong": {
+    "domains": [
+      "jd.com"
+    ]
+  },
+  "pinduoduo": {
+    "domains": [
+      "pinduoduo.com"
+    ]
+  },
+  "suning": {
+    "domains": [
+      "suning.com"
+    ]
+  },
+  "vipshop": {
+    "domains": [
+      "vip.com"
+    ]
+  },
+  "vip": {
+    "domains": [
+      "vip.com"
+    ]
+  },
+  "kaola": {
+    "domains": [
+      "kaola.com"
+    ]
+  },
+  "xiaohongshu": {
+    "domains": [
+      "xiaohongshu.com"
+    ]
+  },
+  "douyin": {
+    "domains": [
+      "douyin.com"
+    ]
+  },
+  "tiktokshop": {
+    "domains": [
+      "tiktok.com"
+    ]
+  },
+  "tiktok shop": {
+    "domains": [
+      "tiktok.com"
+    ]
+  },
+  "shopee": {
+    "domains": [
+      "shopee.com"
+    ]
+  },
+  "lazada": {
+    "domains": [
+      "lazada.com"
+    ]
+  },
+  "tokopedia": {
+    "domains": [
+      "tokopedia.com"
+    ]
+  },
+  "bukalapak": {
+    "domains": [
+      "bukalapak.com"
+    ]
+  },
+  "blibli": {
+    "domains": [
+      "blibli.com"
+    ]
+  },
+  "rakuten": {
+    "domains": [
+      "rakuten.co.jp"
+    ]
+  },
+  "yahoojapan": {
+    "domains": [
+      "yahoo.co.jp"
+    ]
+  },
+  "yahoo japan": {
+    "domains": [
+      "yahoo.co.jp"
+    ]
+  },
+  "mercari": {
+    "domains": [
+      "mercari.com"
+    ]
+  },
+  "qoo10": {
+    "domains": [
+      "qoo10.jp"
+    ]
+  },
+  "zozotown": {
+    "domains": [
+      "zozotown.com"
+    ]
+  },
+  "zozo": {
+    "domains": [
+      "zozotown.com"
+    ]
+  },
+  "magaseek": {
+    "domains": [
+      "magaseek.com"
+    ]
+  },
+  "dinos": {
+    "domains": [
+      "dinos.co.jp"
+    ]
+  },
+  "bellemaison": {
+    "domains": [
+      "bellemaison.jp"
+    ]
+  },
+  "nissen": {
+    "domains": [
+      "nissen.co.jp"
+    ]
+  },
+  "fashionwalker": {
+    "domains": [
+      "fashionwalker.com"
+    ]
+  },
+  "stylife": {
+    "domains": [
+      "stylife.jp"
+    ]
+  },
+  "visvim": {
+    "domains": [
+      "visvim.tv"
+    ]
+  },
+  "beams": {
+    "domains": [
+      "beams.co.jp"
+    ]
+  },
+  "ships": {
+    "domains": [
+      "ships.co.jp"
+    ]
+  },
+  "nano universe": {
+    "domains": [
+      "nanouniverse.jp"
+    ]
+  },
+  "nanouniverse": {
+    "domains": [
+      "nanouniverse.jp"
+    ]
+  },
+  "urban research": {
+    "domains": [
+      "urban-research.com"
+    ]
+  },
+  "urbanresearch": {
+    "domains": [
+      "urban-research.com"
+    ]
+  },
+  "journal standard": {
+    "domains": [
+      "journal-standard.com"
+    ]
+  },
+  "journalstandard": {
+    "domains": [
+      "journal-standard.com"
+    ]
+  },
+  "baycrew's": {
+    "domains": [
+      "baycrews.co.jp"
+    ]
+  },
+  "baycrews": {
+    "domains": [
+      "baycrews.co.jp"
+    ]
+  },
+  "global work": {
+    "domains": [
+      "globalwork.jp"
+    ]
+  },
+  "globalwork": {
+    "domains": [
+      "globalwork.jp"
+    ]
+  },
+  "lowrys farm": {
+    "domains": [
+      "lowrysfarm.com"
+    ]
+  },
+  "lowrysfarm": {
+    "domains": [
+      "lowrysfarm.com"
+    ]
+  },
+  "heather": {
+    "domains": [
+      "heather.jp"
+    ]
+  },
+  "apuweiser riche": {
+    "domains": [
+      "apuweiser-riche.com"
+    ]
+  },
+  "apuweiserriche": {
+    "domains": [
+      "apuweiser-riche.com"
+    ]
+  },
+  "mystrada": {
+    "domains": [
+      "mystrada.com"
+    ]
+  },
+  "jusglitty": {
+    "domains": [
+      "jusglitty.com"
+    ]
+  },
+  "rirandture": {
+    "domains": [
+      "rirandture.com"
+    ]
+  },
+  "willselection": {
+    "domains": [
+      "willselection.com"
+    ]
+  },
+  "will selection": {
+    "domains": [
+      "willselection.com"
+    ]
+  },
+  "mercuryduo": {
+    "domains": [
+      "mercuryduo.com"
+    ]
+  },
+  "mercury duo": {
+    "domains": [
+      "mercuryduo.com"
+    ]
+  },
+  "snidel": {
+    "domains": [
+      "snidel.com"
+    ]
+  },
+  "lilybrown": {
+    "domains": [
+      "lilybrown.com"
+    ]
+  },
+  "lily brown": {
+    "domains": [
+      "lilybrown.com"
+    ]
+  },
+  "frayid": {
+    "domains": [
+      "fray-id.com"
+    ]
+  },
+  "fray id": {
+    "domains": [
+      "fray-id.com"
+    ]
+  },
+  "milaowen": {
+    "domains": [
+      "milaowen.com"
+    ]
+  },
+  "mila owen": {
+    "domains": [
+      "milaowen.com"
+    ]
+  },
+  "gelatopique": {
+    "domains": [
+      "gelatopique.com"
+    ]
+  },
+  "gelato pique": {
+    "domains": [
+      "gelatopique.com"
+    ]
+  },
+  "peachjohn": {
+    "domains": [
+      "peachjohn.com"
+    ]
+  },
+  "peach john": {
+    "domains": [
+      "peachjohn.com"
+    ]
+  },
+  "tutuanna": {
+    "domains": [
+      "tutuanna.co.jp"
+    ]
+  },
+  "aimerfeel": {
+    "domains": [
+      "aimerfeel.com"
+    ]
+  },
+  "wacoal": {
+    "domains": [
+      "wacoal-america.com"
+    ]
+  },
+  "triumph": {
+    "domains": [
+      "triumph.com"
+    ]
+  },
+  "chantelle": {
+    "domains": [
+      "chantelle.com"
+    ]
+  },
+  "simone perele": {
+    "domains": [
+      "simoneperele.com"
+    ]
+  },
+  "simoneperele": {
+    "domains": [
+      "simoneperele.com"
+    ]
+  },
+  "maisonlejaby": {
+    "domains": [
+      "maisonlejaby.com"
+    ]
+  },
+  "maison lejaby": {
+    "domains": [
+      "maisonlejaby.com"
+    ]
+  },
+  "lingeriestudio": {
+    "domains": [
+      "lingeriestudio.com"
+    ]
+  },
+  "lingerie studio": {
+    "domains": [
+      "lingeriestudio.com"
+    ]
+  }
+}

@@ -1,0 +1,1172 @@
+{
+  "visa": {
+    "domains": [
+      "visa.com"
+    ]
+  },
+  "mastercard": {
+    "domains": [
+      "mastercard.com"
+    ]
+  },
+  "americanexpress": {
+    "domains": [
+      "americanexpress.com"
+    ]
+  },
+  "american express": {
+    "domains": [
+      "americanexpress.com"
+    ]
+  },
+  "amex": {
+    "domains": [
+      "americanexpress.com"
+    ]
+  },
+  "discover": {
+    "domains": [
+      "discover.com"
+    ]
+  },
+  "jcb": {
+    "domains": [
+      "global.jcb"
+    ]
+  },
+  "unionpay": {
+    "domains": [
+      "unionpay.com"
+    ]
+  },
+  "union pay": {
+    "domains": [
+      "unionpay.com"
+    ]
+  },
+  "银联": {
+    "domains": [
+      "unionpay.com"
+    ]
+  },
+  "paypal": {
+    "domains": [
+      "paypal.com"
+    ]
+  },
+  "stripe": {
+    "domains": [
+      "stripe.com"
+    ]
+  },
+  "square": {
+    "domains": [
+      "squareup.com"
+    ]
+  },
+  "adyen": {
+    "domains": [
+      "adyen.com"
+    ]
+  },
+  "worldpay": {
+    "domains": [
+      "worldpay.com"
+    ]
+  },
+  "checkout": {
+    "domains": [
+      "checkout.com"
+    ]
+  },
+  "klarna": {
+    "domains": [
+      "klarna.com"
+    ]
+  },
+  "affirm": {
+    "domains": [
+      "affirm.com"
+    ]
+  },
+  "afterpay": {
+    "domains": [
+      "afterpay.com"
+    ]
+  },
+  "sezzle": {
+    "domains": [
+      "sezzle.com"
+    ]
+  },
+  "quadpay": {
+    "domains": [
+      "quadpay.com"
+    ]
+  },
+  "zip": {
+    "domains": [
+      "zip.co"
+    ]
+  },
+  "venmo": {
+    "domains": [
+      "venmo.com"
+    ]
+  },
+  "cashapp": {
+    "domains": [
+      "cash.app"
+    ]
+  },
+  "cash app": {
+    "domains": [
+      "cash.app"
+    ]
+  },
+  "zelle": {
+    "domains": [
+      "zellepay.com"
+    ]
+  },
+  "wise": {
+    "domains": [
+      "wise.com"
+    ]
+  },
+  "revolut": {
+    "domains": [
+      "revolut.com"
+    ]
+  },
+  "n26": {
+    "domains": [
+      "n26.com"
+    ]
+  },
+  "monzo": {
+    "domains": [
+      "monzo.com"
+    ]
+  },
+  "starling": {
+    "domains": [
+      "starlingbank.com"
+    ]
+  },
+  "starling bank": {
+    "domains": [
+      "starlingbank.com"
+    ]
+  },
+  "chime": {
+    "domains": [
+      "chime.com"
+    ]
+  },
+  "sofi": {
+    "domains": [
+      "sofi.com"
+    ]
+  },
+  "robinhood": {
+    "domains": [
+      "robinhood.com"
+    ]
+  },
+  "webull": {
+    "domains": [
+      "webull.com"
+    ]
+  },
+  "etoro": {
+    "domains": [
+      "etoro.com"
+    ]
+  },
+  "coinbase": {
+    "domains": [
+      "coinbase.com"
+    ]
+  },
+  "binance": {
+    "domains": [
+      "binance.com"
+    ]
+  },
+  "kraken": {
+    "domains": [
+      "kraken.com"
+    ]
+  },
+  "gemini": {
+    "domains": [
+      "gemini.com"
+    ]
+  },
+  "bitstamp": {
+    "domains": [
+      "bitstamp.net"
+    ]
+  },
+  "okx": {
+    "domains": [
+      "okx.com"
+    ]
+  },
+  "bybit": {
+    "domains": [
+      "bybit.com"
+    ]
+  },
+  "kucoin": {
+    "domains": [
+      "kucoin.com"
+    ]
+  },
+  "huobi": {
+    "domains": [
+      "htx.com"
+    ]
+  },
+  "gateio": {
+    "domains": [
+      "gate.io"
+    ]
+  },
+  "gate.io": {
+    "domains": [
+      "gate.io"
+    ]
+  },
+  "bitfinex": {
+    "domains": [
+      "bitfinex.com"
+    ]
+  },
+  "bittrex": {
+    "domains": [
+      "bittrex.com"
+    ]
+  },
+  "poloniex": {
+    "domains": [
+      "poloniex.com"
+    ]
+  },
+  "ftx": {
+    "domains": [
+      "ftx.com"
+    ]
+  },
+  "blockfi": {
+    "domains": [
+      "blockfi.com"
+    ]
+  },
+  "celsius": {
+    "domains": [
+      "celsius.network"
+    ]
+  },
+  "nexo": {
+    "domains": [
+      "nexo.com"
+    ]
+  },
+  "crypto.com": {
+    "domains": [
+      "crypto.com"
+    ]
+  },
+  "cryptocom": {
+    "domains": [
+      "crypto.com"
+    ]
+  },
+  "ledger": {
+    "domains": [
+      "ledger.com"
+    ]
+  },
+  "trezor": {
+    "domains": [
+      "trezor.io"
+    ]
+  },
+  "metamask": {
+    "domains": [
+      "metamask.io"
+    ]
+  },
+  "phantom": {
+    "domains": [
+      "phantom.app"
+    ]
+  },
+  "phantom wallet": {
+    "domains": [
+      "phantom.app"
+    ]
+  },
+  "trustwallet": {
+    "domains": [
+      "trustwallet.com"
+    ]
+  },
+  "trust wallet": {
+    "domains": [
+      "trustwallet.com"
+    ]
+  },
+  "exodus": {
+    "domains": [
+      "exodus.com"
+    ]
+  },
+  "exodus wallet": {
+    "domains": [
+      "exodus.com"
+    ]
+  },
+  "atomic": {
+    "domains": [
+      "atomicwallet.io"
+    ]
+  },
+  "atomic wallet": {
+    "domains": [
+      "atomicwallet.io"
+    ]
+  },
+  "1inch": {
+    "domains": [
+      "1inch.io"
+    ]
+  },
+  "uniswap": {
+    "domains": [
+      "uniswap.org"
+    ]
+  },
+  "sushiswap": {
+    "domains": [
+      "sushi.com"
+    ]
+  },
+  "pancakeswap": {
+    "domains": [
+      "pancakeswap.finance"
+    ]
+  },
+  "curve": {
+    "domains": [
+      "curve.fi"
+    ]
+  },
+  "aave": {
+    "domains": [
+      "aave.com"
+    ]
+  },
+  "compound": {
+    "domains": [
+      "compound.finance"
+    ]
+  },
+  "makerdao": {
+    "domains": [
+      "makerdao.com"
+    ]
+  },
+  "maker dao": {
+    "domains": [
+      "makerdao.com"
+    ]
+  },
+  "dai": {
+    "domains": [
+      "makerdao.com"
+    ]
+  },
+  "tether": {
+    "domains": [
+      "tether.to"
+    ]
+  },
+  "usdt": {
+    "domains": [
+      "tether.to"
+    ]
+  },
+  "circle": {
+    "domains": [
+      "circle.com"
+    ]
+  },
+  "usdc": {
+    "domains": [
+      "circle.com"
+    ]
+  },
+  "chainlink": {
+    "domains": [
+      "chain.link"
+    ]
+  },
+  "synthetix": {
+    "domains": [
+      "synthetix.io"
+    ]
+  },
+  "yearn": {
+    "domains": [
+      "yearn.fi"
+    ]
+  },
+  "yearn finance": {
+    "domains": [
+      "yearn.fi"
+    ]
+  },
+  "lido": {
+    "domains": [
+      "lido.fi"
+    ]
+  },
+  "rocketpool": {
+    "domains": [
+      "rocketpool.net"
+    ]
+  },
+  "rocket pool": {
+    "domains": [
+      "rocketpool.net"
+    ]
+  },
+  "stakewise": {
+    "domains": [
+      "stakewise.io"
+    ]
+  },
+  "stake wise": {
+    "domains": [
+      "stakewise.io"
+    ]
+  },
+  "frax": {
+    "domains": [
+      "frax.finance"
+    ]
+  },
+  "frax finance": {
+    "domains": [
+      "frax.finance"
+    ]
+  },
+  "convex": {
+    "domains": [
+      "convexfinance.com"
+    ]
+  },
+  "convex finance": {
+    "domains": [
+      "convexfinance.com"
+    ]
+  },
+  "balancer": {
+    "domains": [
+      "balancer.fi"
+    ]
+  },
+  "dydx": {
+    "domains": [
+      "dydx.exchange"
+    ]
+  },
+  "gmx": {
+    "domains": [
+      "gmx.io"
+    ]
+  },
+  "perpetual": {
+    "domains": [
+      "perp.com"
+    ]
+  },
+  "perp": {
+    "domains": [
+      "perp.com"
+    ]
+  },
+  "opyn": {
+    "domains": [
+      "opyn.co"
+    ]
+  },
+  "ribbon": {
+    "domains": [
+      "ribbon.finance"
+    ]
+  },
+  "ribbon finance": {
+    "domains": [
+      "ribbon.finance"
+    ]
+  },
+  "lyra": {
+    "domains": [
+      "lyra.finance"
+    ]
+  },
+  "dopex": {
+    "domains": [
+      "dopex.io"
+    ]
+  },
+  "hegic": {
+    "domains": [
+      "hegic.co"
+    ]
+  },
+  "premia": {
+    "domains": [
+      "premia.finance"
+    ]
+  },
+  "friktion": {
+    "domains": [
+      "friktion.fi"
+    ]
+  },
+  "katana": {
+    "domains": [
+      "katana.so"
+    ]
+  },
+  "zetaswap": {
+    "domains": [
+      "zetaswap.com"
+    ]
+  },
+  "jpmorgan": {
+    "domains": [
+      "jpmorgan.com"
+    ]
+  },
+  "jp morgan": {
+    "domains": [
+      "jpmorgan.com"
+    ]
+  },
+  "j.p. morgan": {
+    "domains": [
+      "jpmorgan.com"
+    ]
+  },
+  "chase": {
+    "domains": [
+      "chase.com"
+    ]
+  },
+  "bankofamerica": {
+    "domains": [
+      "bankofamerica.com"
+    ]
+  },
+  "bank of america": {
+    "domains": [
+      "bankofamerica.com"
+    ]
+  },
+  "boa": {
+    "domains": [
+      "bankofamerica.com"
+    ]
+  },
+  "wellsfargo": {
+    "domains": [
+      "wellsfargo.com"
+    ]
+  },
+  "wells fargo": {
+    "domains": [
+      "wellsfargo.com"
+    ]
+  },
+  "citi": {
+    "domains": [
+      "citibank.com"
+    ]
+  },
+  "citibank": {
+    "domains": [
+      "citibank.com"
+    ]
+  },
+  "goldmansachs": {
+    "domains": [
+      "goldmansachs.com"
+    ]
+  },
+  "goldman sachs": {
+    "domains": [
+      "goldmansachs.com"
+    ]
+  },
+  "morganstanley": {
+    "domains": [
+      "morganstanley.com"
+    ]
+  },
+  "morgan stanley": {
+    "domains": [
+      "morganstanley.com"
+    ]
+  },
+  "blackrock": {
+    "domains": [
+      "blackrock.com"
+    ]
+  },
+  "blackstone": {
+    "domains": [
+      "blackstone.com"
+    ]
+  },
+  "vanguard": {
+    "domains": [
+      "vanguard.com"
+    ]
+  },
+  "fidelity": {
+    "domains": [
+      "fidelity.com"
+    ]
+  },
+  "schwab": {
+    "domains": [
+      "schwab.com"
+    ]
+  },
+  "charlesschwab": {
+    "domains": [
+      "schwab.com"
+    ]
+  },
+  "charles schwab": {
+    "domains": [
+      "schwab.com"
+    ]
+  },
+  "tdameritrade": {
+    "domains": [
+      "tdameritrade.com"
+    ]
+  },
+  "td ameritrade": {
+    "domains": [
+      "tdameritrade.com"
+    ]
+  },
+  "eTrade": {
+    "domains": [
+      "etrade.com"
+    ]
+  },
+  "etrade": {
+    "domains": [
+      "etrade.com"
+    ]
+  },
+  "interactivebrokers": {
+    "domains": [
+      "interactivebrokers.com"
+    ]
+  },
+  "interactive brokers": {
+    "domains": [
+      "interactivebrokers.com"
+    ]
+  },
+  "ibkr": {
+    "domains": [
+      "interactivebrokers.com"
+    ]
+  },
+  "degiro": {
+    "domains": [
+      "degiro.com"
+    ]
+  },
+  "trade republic": {
+    "domains": [
+      "traderepublic.com"
+    ]
+  },
+  "traderepublic": {
+    "domains": [
+      "traderepublic.com"
+    ]
+  },
+  "scalerobin": {
+    "domains": [
+      "scalable.capital"
+    ]
+  },
+  "scalable capital": {
+    "domains": [
+      "scalable.capital"
+    ]
+  },
+  "tradegate": {
+    "domains": [
+      "tradegate.com"
+    ]
+  },
+  "flatex": {
+    "domains": [
+      "flatex.de"
+    ]
+  },
+  "comdirect": {
+    "domains": [
+      "comdirect.de"
+    ]
+  },
+  "ing": {
+    "domains": [
+      "ing.com"
+    ]
+  },
+  "dbs": {
+    "domains": [
+      "dbs.com.sg"
+    ]
+  },
+  "dbs bank": {
+    "domains": [
+      "dbs.com.sg"
+    ]
+  },
+  "ocbc": {
+    "domains": [
+      "ocbc.com"
+    ]
+  },
+  "ocbc bank": {
+    "domains": [
+      "ocbc.com"
+    ]
+  },
+  "uob": {
+    "domains": [
+      "uob.com.sg"
+    ]
+  },
+  "uob bank": {
+    "domains": [
+      "uob.com.sg"
+    ]
+  },
+  "hsbc": {
+    "domains": [
+      "hsbc.com"
+    ]
+  },
+  "hsbc bank": {
+    "domains": [
+      "hsbc.com"
+    ]
+  },
+  "barclays": {
+    "domains": [
+      "barclays.co.uk"
+    ]
+  },
+  "natwest": {
+    "domains": [
+      "natwest.com"
+    ]
+  },
+  "lloyds": {
+    "domains": [
+      "lloydsbank.com"
+    ]
+  },
+  "lloyds bank": {
+    "domains": [
+      "lloydsbank.com"
+    ]
+  },
+  "santander": {
+    "domains": [
+      "santander.com"
+    ]
+  },
+  "bbva": {
+    "domains": [
+      "bbva.com"
+    ]
+  },
+  "bnpparibas": {
+    "domains": [
+      "bnpparibas.com"
+    ]
+  },
+  "bnp paribas": {
+    "domains": [
+      "bnpparibas.com"
+    ]
+  },
+  "societegenerale": {
+    "domains": [
+      "societegenerale.com"
+    ]
+  },
+  "societe generale": {
+    "domains": [
+      "societegenerale.com"
+    ]
+  },
+  "creditagricole": {
+    "domains": [
+      "credit-agricole.com"
+    ]
+  },
+  "credit agricole": {
+    "domains": [
+      "credit-agricole.com"
+    ]
+  },
+  "deutschebank": {
+    "domains": [
+      "db.com"
+    ]
+  },
+  "deutsche bank": {
+    "domains": [
+      "db.com"
+    ]
+  },
+  "commerzbank": {
+    "domains": [
+      "commerzbank.com"
+    ]
+  },
+  "unicredit": {
+    "domains": [
+      "unicreditgroup.eu"
+    ]
+  },
+  "intesa": {
+    "domains": [
+      "intesasanpaolo.com"
+    ]
+  },
+  "intesa sanpaolo": {
+    "domains": [
+      "intesasanpaolo.com"
+    ]
+  },
+  "allianz": {
+    "domains": [
+      "allianz.com"
+    ]
+  },
+  "axa": {
+    "domains": [
+      "axa.com"
+    ]
+  },
+  "munichre": {
+    "domains": [
+      "munichre.com"
+    ]
+  },
+  "munich re": {
+    "domains": [
+      "munichre.com"
+    ]
+  },
+  "swissre": {
+    "domains": [
+      "swissre.com"
+    ]
+  },
+  "swiss re": {
+    "domains": [
+      "swissre.com"
+    ]
+  },
+  "generali": {
+    "domains": [
+      "generali.com"
+    ]
+  },
+  "prudential": {
+    "domains": [
+      "prudential.com"
+    ]
+  },
+  "metlife": {
+    "domains": [
+      "metlife.com"
+    ]
+  },
+  "aig": {
+    "domains": [
+      "aig.com"
+    ]
+  },
+  "statefarm": {
+    "domains": [
+      "statefarm.com"
+    ]
+  },
+  "state farm": {
+    "domains": [
+      "statefarm.com"
+    ]
+  },
+  "geico": {
+    "domains": [
+      "geico.com"
+    ]
+  },
+  "progressive": {
+    "domains": [
+      "progressive.com"
+    ]
+  },
+  "allstate": {
+    "domains": [
+      "allstate.com"
+    ]
+  },
+  "farmers": {
+    "domains": [
+      "farmers.com"
+    ]
+  },
+  "nationwide": {
+    "domains": [
+      "nationwide.com"
+    ]
+  },
+  "travelers": {
+    "domains": [
+      "travelers.com"
+    ]
+  },
+  "libertymutual": {
+    "domains": [
+      "libertymutual.com"
+    ]
+  },
+  "liberty mutual": {
+    "domains": [
+      "libertymutual.com"
+    ]
+  },
+  "berkshirehathaway": {
+    "domains": [
+      "berkshirehathaway.com"
+    ]
+  },
+  "berkshire hathaway": {
+    "domains": [
+      "berkshirehathaway.com"
+    ]
+  },
+  "bloomberg": {
+    "domains": [
+      "bloomberg.com"
+    ]
+  },
+  "reuters": {
+    "domains": [
+      "reuters.com"
+    ]
+  },
+  "factset": {
+    "domains": [
+      "factset.com"
+    ]
+  },
+  "refinitiv": {
+    "domains": [
+      "refinitiv.com"
+    ]
+  },
+  "morningstar": {
+    "domains": [
+      "morningstar.com"
+    ]
+  },
+  "spglobal": {
+    "domains": [
+      "spglobal.com"
+    ]
+  },
+  "s&p global": {
+    "domains": [
+      "spglobal.com"
+    ]
+  },
+  "moodys": {
+    "domains": [
+      "moodys.com"
+    ]
+  },
+  "moody's": {
+    "domains": [
+      "moodys.com"
+    ]
+  },
+  "fitch": {
+    "domains": [
+      "fitchratings.com"
+    ]
+  },
+  "fitch ratings": {
+    "domains": [
+      "fitchratings.com"
+    ]
+  },
+  "dunandbradstreet": {
+    "domains": [
+      "dnb.com"
+    ]
+  },
+  "dun and bradstreet": {
+    "domains": [
+      "dnb.com"
+    ]
+  },
+  "experian": {
+    "domains": [
+      "experian.com"
+    ]
+  },
+  "equifax": {
+    "domains": [
+      "equifax.com"
+    ]
+  },
+  "transunion": {
+    "domains": [
+      "transunion.com"
+    ]
+  },
+  "nielsen": {
+    "domains": [
+      "nielsen.com"
+    ]
+  },
+  " Kantar": {
+    "domains": [
+      "kantar.com"
+    ]
+  },
+  "kantar": {
+    "domains": [
+      "kantar.com"
+    ]
+  },
+  "ipsos": {
+    "domains": [
+      "ipsos.com"
+    ]
+  },
+  "gfk": {
+    "domains": [
+      "gfk.com"
+    ]
+  },
+  "gfk group": {
+    "domains": [
+      "gfk.com"
+    ]
+  },
+  "mintel": {
+    "domains": [
+      "mintel.com"
+    ]
+  },
+  "euromonitor": {
+    "domains": [
+      "euromonitor.com"
+    ]
+  },
+  "euromonitor international": {
+    "domains": [
+      "euromonitor.com"
+    ]
+  },
+  "gartner": {
+    "domains": [
+      "gartner.com"
+    ]
+  },
+  "forrester": {
+    "domains": [
+      "forrester.com"
+    ]
+  },
+  "idc": {
+    "domains": [
+      "idc.com"
+    ]
+  },
+  "pitchbook": {
+    "domains": [
+      "pitchbook.com"
+    ]
+  },
+  "crunchbase": {
+    "domains": [
+      "crunchbase.com"
+    ]
+  },
+  "cb insights": {
+    "domains": [
+      "cbinsights.com"
+    ]
+  },
+  "cbinsights": {
+    "domains": [
+      "cbinsights.com"
+    ]
+  },
+  "tracxn": {
+    "domains": [
+      "tracxn.com"
+    ]
+  },
+  "dealroom": {
+    "domains": [
+      "dealroom.co"
+    ]
+  },
+  "s&p capital iq": {
+    "domains": [
+      "capitaliq.com"
+    ]
+  },
+  "capitaliq": {
+    "domains": [
+      "capitaliq.com"
+    ]
+  },
+  "capital iq": {
+    "domains": [
+      "capitaliq.com"
+    ]
+  },
+  "bloomberg terminal": {
+    "domains": [
+      "bloomberg.com"
+    ]
+  }
+}

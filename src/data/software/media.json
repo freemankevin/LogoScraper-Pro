@@ -1,0 +1,922 @@
+{
+  "netflix": {
+    "domains": [
+      "netflix.com"
+    ]
+  },
+  "youtube": {
+    "domains": [
+      "youtube.com"
+    ]
+  },
+  "spotify": {
+    "domains": [
+      "spotify.com"
+    ]
+  },
+  "applemusic": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "apple music": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "amazonmusic": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "amazon music": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "tidal": {
+    "domains": [
+      "tidal.com"
+    ]
+  },
+  "deezer": {
+    "domains": [
+      "deezer.com"
+    ]
+  },
+  "soundcloud": {
+    "domains": [
+      "soundcloud.com"
+    ]
+  },
+  "bandcamp": {
+    "domains": [
+      "bandcamp.com"
+    ]
+  },
+  "pandora": {
+    "domains": [
+      "pandora.com"
+    ]
+  },
+  "iheartradio": {
+    "domains": [
+      "iheart.com"
+    ]
+  },
+  "iheart radio": {
+    "domains": [
+      "iheart.com"
+    ]
+  },
+  "tunein": {
+    "domains": [
+      "tunein.com"
+    ]
+  },
+  "siriusxm": {
+    "domains": [
+      "siriusxm.com"
+    ]
+  },
+  "sirius xm": {
+    "domains": [
+      "siriusxm.com"
+    ]
+  },
+  "audible": {
+    "domains": [
+      "audible.com"
+    ]
+  },
+  "kindle": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "kobo": {
+    "domains": [
+      "kobo.com"
+    ]
+  },
+  "scribd": {
+    "domains": [
+      "scribd.com"
+    ]
+  },
+  "applebooks": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "apple books": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "googleplaybooks": {
+    "domains": [
+      "play.google.com"
+    ]
+  },
+  "google play books": {
+    "domains": [
+      "play.google.com"
+    ]
+  },
+  "barnesandnoble": {
+    "domains": [
+      "barnesandnoble.com"
+    ]
+  },
+  "barnes and noble": {
+    "domains": [
+      "barnesandnoble.com"
+    ]
+  },
+  "waterstones": {
+    "domains": [
+      "waterstones.com"
+    ]
+  },
+  "fnac": {
+    "domains": [
+      "fnac.com"
+    ]
+  },
+  "rakutenkobo": {
+    "domains": [
+      "kobo.com"
+    ]
+  },
+  "rakuten kobo": {
+    "domains": [
+      "kobo.com"
+    ]
+  },
+  "disneyplus": {
+    "domains": [
+      "disneyplus.com"
+    ]
+  },
+  "disney+": {
+    "domains": [
+      "disneyplus.com"
+    ]
+  },
+  "disney plus": {
+    "domains": [
+      "disneyplus.com"
+    ]
+  },
+  "hulu": {
+    "domains": [
+      "hulu.com"
+    ]
+  },
+  "hbomax": {
+    "domains": [
+      "max.com"
+    ]
+  },
+  "hbo max": {
+    "domains": [
+      "max.com"
+    ]
+  },
+  "max": {
+    "domains": [
+      "max.com"
+    ]
+  },
+  "hbo": {
+    "domains": [
+      "hbo.com"
+    ]
+  },
+  "paramountplus": {
+    "domains": [
+      "paramountplus.com"
+    ]
+  },
+  "paramount+": {
+    "domains": [
+      "paramountplus.com"
+    ]
+  },
+  "paramount plus": {
+    "domains": [
+      "paramountplus.com"
+    ]
+  },
+  "peacock": {
+    "domains": [
+      "peacocktv.com"
+    ]
+  },
+  "crave": {
+    "domains": [
+      "crave.ca"
+    ]
+  },
+  "stan": {
+    "domains": [
+      "stan.com.au"
+    ]
+  },
+  "bilibili": {
+    "domains": [
+      "bilibili.com"
+    ]
+  },
+  "iqiyi": {
+    "domains": [
+      "iqiyi.com"
+    ]
+  },
+  "iq.com": {
+    "domains": [
+      "iq.com"
+    ]
+  },
+  "youku": {
+    "domains": [
+      "youku.com"
+    ]
+  },
+  "tencentvideo": {
+    "domains": [
+      "v.qq.com"
+    ]
+  },
+  "tencent video": {
+    "domains": [
+      "v.qq.com"
+    ]
+  },
+  "mango tv": {
+    "domains": [
+      "mgtv.com"
+    ]
+  },
+  "mgtv": {
+    "domains": [
+      "mgtv.com"
+    ]
+  },
+  "xigua": {
+    "domains": [
+      "ixigua.com"
+    ]
+  },
+  "ixigua": {
+    "domains": [
+      "ixigua.com"
+    ]
+  },
+  "kuaishou": {
+    "domains": [
+      "kuaishou.com"
+    ]
+  },
+  "kwai": {
+    "domains": [
+      "kwai.com"
+    ]
+  },
+  "vimeo": {
+    "domains": [
+      "vimeo.com"
+    ]
+  },
+  "dailymotion": {
+    "domains": [
+      "dailymotion.com"
+    ]
+  },
+  "twitch": {
+    "domains": [
+      "twitch.tv"
+    ]
+  },
+  "kick": {
+    "domains": [
+      "kick.com"
+    ]
+  },
+  "rumble": {
+    "domains": [
+      "rumble.com"
+    ]
+  },
+  "odysee": {
+    "domains": [
+      "odysee.com"
+    ]
+  },
+  "bitchute": {
+    "domains": [
+      "bitchute.com"
+    ]
+  },
+  "veoh": {
+    "domains": [
+      "veoh.com"
+    ]
+  },
+  "metacafe": {
+    "domains": [
+      "metacafe.com"
+    ]
+  },
+  "break": {
+    "domains": [
+      "break.com"
+    ]
+  },
+  "liveleak": {
+    "domains": [
+      "liveleak.com"
+    ]
+  },
+  "worldstarhiphop": {
+    "domains": [
+      "worldstarhiphop.com"
+    ]
+  },
+  "worldstar": {
+    "domains": [
+      "worldstarhiphop.com"
+    ]
+  },
+  "complex": {
+    "domains": [
+      "complex.com"
+    ]
+  },
+  "hotnewhiphop": {
+    "domains": [
+      "hotnewhiphop.com"
+    ]
+  },
+  "hnhh": {
+    "domains": [
+      "hotnewhiphop.com"
+    ]
+  },
+  "xxl": {
+    "domains": [
+      "xxlmag.com"
+    ]
+  },
+  "billboard": {
+    "domains": [
+      "billboard.com"
+    ]
+  },
+  "rollingstone": {
+    "domains": [
+      "rollingstone.com"
+    ]
+  },
+  "rolling stone": {
+    "domains": [
+      "rollingstone.com"
+    ]
+  },
+  "nme": {
+    "domains": [
+      "nme.com"
+    ]
+  },
+  "pitchfork": {
+    "domains": [
+      "pitchfork.com"
+    ]
+  },
+  "stereogum": {
+    "domains": [
+      "stereogum.com"
+    ]
+  },
+  "consequenceofsound": {
+    "domains": [
+      "consequenceofsound.net"
+    ]
+  },
+  "consequence of sound": {
+    "domains": [
+      "consequenceofsound.net"
+    ]
+  },
+  "cos": {
+    "domains": [
+      "consequenceofsound.net"
+    ]
+  },
+  "spin": {
+    "domains": [
+      "spin.com"
+    ]
+  },
+  "thefader": {
+    "domains": [
+      "thefader.com"
+    ]
+  },
+  "the fader": {
+    "domains": [
+      "thefader.com"
+    ]
+  },
+  "noisey": {
+    "domains": [
+      "vice.com"
+    ]
+  },
+  "pigeonsandplanes": {
+    "domains": [
+      "pigeonsandplanes.com"
+    ]
+  },
+  "pigeons and planes": {
+    "domains": [
+      "pigeonsandplanes.com"
+    ]
+  },
+  "genius": {
+    "domains": [
+      "genius.com"
+    ]
+  },
+  "rapgenius": {
+    "domains": [
+      "genius.com"
+    ]
+  },
+  "rap genius": {
+    "domains": [
+      "genius.com"
+    ]
+  },
+  "lyricfind": {
+    "domains": [
+      "lyricfind.com"
+    ]
+  },
+  "musixmatch": {
+    "domains": [
+      "musixmatch.com"
+    ]
+  },
+  "shazam": {
+    "domains": [
+      "shazam.com"
+    ]
+  },
+  "soundhound": {
+    "domains": [
+      "soundhound.com"
+    ]
+  },
+  "lastfm": {
+    "domains": [
+      "last.fm"
+    ]
+  },
+  "last.fm": {
+    "domains": [
+      "last.fm"
+    ]
+  },
+  "discogs": {
+    "domains": [
+      "discogs.com"
+    ]
+  },
+  "rateyourmusic": {
+    "domains": [
+      "rateyourmusic.com"
+    ]
+  },
+  "rate your music": {
+    "domains": [
+      "rateyourmusic.com"
+    ]
+  },
+  "rym": {
+    "domains": [
+      "rateyourmusic.com"
+    ]
+  },
+  "allmusic": {
+    "domains": [
+      "allmusic.com"
+    ]
+  },
+  "all music": {
+    "domains": [
+      "allmusic.com"
+    ]
+  },
+  "musicbrainz": {
+    "domains": [
+      "musicbrainz.org"
+    ]
+  },
+  "music brainz": {
+    "domains": [
+      "musicbrainz.org"
+    ]
+  },
+  "imdb": {
+    "domains": [
+      "imdb.com"
+    ]
+  },
+  "rottentomatoes": {
+    "domains": [
+      "rottentomatoes.com"
+    ]
+  },
+  "rotten tomatoes": {
+    "domains": [
+      "rottentomatoes.com"
+    ]
+  },
+  "metacritic": {
+    "domains": [
+      "metacritic.com"
+    ]
+  },
+  "letterboxd": {
+    "domains": [
+      "letterboxd.com"
+    ]
+  },
+  "trakt": {
+    "domains": [
+      "trakt.tv"
+    ]
+  },
+  "tvtime": {
+    "domains": [
+      "tvtime.com"
+    ]
+  },
+  "tv time": {
+    "domains": [
+      "tvtime.com"
+    ]
+  },
+  "justwatch": {
+    "domains": [
+      "justwatch.com"
+    ]
+  },
+  "just watch": {
+    "domains": [
+      "justwatch.com"
+    ]
+  },
+  "reelgood": {
+    "domains": [
+      "reelgood.com"
+    ]
+  },
+  "canistreamit": {
+    "domains": [
+      "canistream.it"
+    ]
+  },
+  "can i stream it": {
+    "domains": [
+      "canistream.it"
+    ]
+  },
+  "tvguide": {
+    "domains": [
+      "tvguide.com"
+    ]
+  },
+  "tv guide": {
+    "domains": [
+      "tvguide.com"
+    ]
+  },
+  "tvcom": {
+    "domains": [
+      "tv.com"
+    ]
+  },
+  "eonline": {
+    "domains": [
+      "eonline.com"
+    ]
+  },
+  "e online": {
+    "domains": [
+      "eonline.com"
+    ]
+  },
+  "people": {
+    "domains": [
+      "people.com"
+    ]
+  },
+  "usweekly": {
+    "domains": [
+      "usmagazine.com"
+    ]
+  },
+  "us weekly": {
+    "domains": [
+      "usmagazine.com"
+    ]
+  },
+  "tmz": {
+    "domains": [
+      "tmz.com"
+    ]
+  },
+  "perezhilton": {
+    "domains": [
+      "perezhilton.com"
+    ]
+  },
+  "perez hilton": {
+    "domains": [
+      "perezhilton.com"
+    ]
+  },
+  "buzzfeed": {
+    "domains": [
+      "buzzfeed.com"
+    ]
+  },
+  "vice": {
+    "domains": [
+      "vice.com"
+    ]
+  },
+  "viceland": {
+    "domains": [
+      "vice.com"
+    ]
+  },
+  "vice land": {
+    "domains": [
+      "vice.com"
+    ]
+  },
+  "huffpost": {
+    "domains": [
+      "huffpost.com"
+    ]
+  },
+  "huffington post": {
+    "domains": [
+      "huffpost.com"
+    ]
+  },
+  "medium": {
+    "domains": [
+      "medium.com"
+    ]
+  },
+  "substack": {
+    "domains": [
+      "substack.com"
+    ]
+  },
+  "ghost": {
+    "domains": [
+      "ghost.org"
+    ]
+  },
+  "wordpress": {
+    "domains": [
+      "wordpress.com"
+    ]
+  },
+  "tumblr": {
+    "domains": [
+      "tumblr.com"
+    ]
+  },
+  "reddit": {
+    "domains": [
+      "reddit.com"
+    ]
+  },
+  "quora": {
+    "domains": [
+      "quora.com"
+    ]
+  },
+  "stackexchange": {
+    "domains": [
+      "stackexchange.com"
+    ]
+  },
+  "stack exchange": {
+    "domains": [
+      "stackexchange.com"
+    ]
+  },
+  "stackoverflow": {
+    "domains": [
+      "stackoverflow.com"
+    ]
+  },
+  "stack overflow": {
+    "domains": [
+      "stackoverflow.com"
+    ]
+  },
+  "discord": {
+    "domains": [
+      "discord.com"
+    ]
+  },
+  "slack": {
+    "domains": [
+      "slack.com"
+    ]
+  },
+  "telegram": {
+    "domains": [
+      "telegram.org"
+    ]
+  },
+  "signal": {
+    "domains": [
+      "signal.org"
+    ]
+  },
+  "whatsapp": {
+    "domains": [
+      "whatsapp.com"
+    ]
+  },
+  "wechat": {
+    "domains": [
+      "wechat.com"
+    ]
+  },
+  "qq": {
+    "domains": [
+      "qq.com"
+    ]
+  },
+  "weibo": {
+    "domains": [
+      "weibo.com"
+    ]
+  },
+  "twitter": {
+    "domains": [
+      "x.com"
+    ]
+  },
+  "x": {
+    "domains": [
+      "x.com"
+    ]
+  },
+  "facebook": {
+    "domains": [
+      "facebook.com"
+    ]
+  },
+  "instagram": {
+    "domains": [
+      "instagram.com"
+    ]
+  },
+  "linkedin": {
+    "domains": [
+      "linkedin.com"
+    ]
+  },
+  "pinterest": {
+    "domains": [
+      "pinterest.com"
+    ]
+  },
+  "snapchat": {
+    "domains": [
+      "snapchat.com"
+    ]
+  },
+  "tiktok": {
+    "domains": [
+      "tiktok.com"
+    ]
+  },
+  "triller": {
+    "domains": [
+      "triller.co"
+    ]
+  },
+  "dubsmash": {
+    "domains": [
+      "dubsmash.com"
+    ]
+  },
+  "likee": {
+    "domains": [
+      "likee.video"
+    ]
+  },
+  "zynn": {
+    "domains": [
+      "zynn.app"
+    ]
+  },
+  "flipagram": {
+    "domains": [
+      "flipagram.com"
+    ]
+  },
+  "funimate": {
+    "domains": [
+      "funimate.com"
+    ]
+  },
+  "vigo": {
+    "domains": [
+      "vigovideo.net"
+    ]
+  },
+  "hypstar": {
+    "domains": [
+      "hypstar.com"
+    ]
+  },
+  "cheez": {
+    "domains": [
+      "cheez.app"
+    ]
+  },
+  "firework": {
+    "domains": [
+      "fireworktv.com"
+    ]
+  },
+  "firework tv": {
+    "domains": [
+      "fireworktv.com"
+    ]
+  },
+  "tango": {
+    "domains": [
+      "tango.me"
+    ]
+  },
+  "bigolive": {
+    "domains": [
+      "bigo.tv"
+    ]
+  },
+  "bigo live": {
+    "domains": [
+      "bigo.tv"
+    ]
+  },
+  "up live": {
+    "domains": [
+      "up.live"
+    ]
+  },
+  "uplive": {
+    "domains": [
+      "up.live"
+    ]
+  },
+  "livu": {
+    "domains": [
+      "livu.me"
+    ]
+  },
+  "mico": {
+    "domains": [
+      "micous.com"
+    ]
+  },
+  "yalla": {
+    "domains": [
+      "yalla.live"
+    ]
+  },
+  "streamkar": {
+    "domains": [
+      "streamkar.com"
+    ]
+  },
+  "tango live": {
+    "domains": [
+      "tango.me"
+    ]
+  }
+}

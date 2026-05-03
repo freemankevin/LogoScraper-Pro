@@ -1,105 +1,662 @@
 {
-  "ubuntu": { "domains": ["ubuntu.com"], "github": "canonical/ubuntu" },
-  "debian": { "domains": ["debian.org"], "github": "debian" },
-  "centos": { "domains": ["centos.org"], "github": "CentOS" },
-  "fedora": { "domains": ["fedoraproject.org"], "github": "fedora-infra" },
-  "redhat": { "domains": ["redhat.com"], "github": "RedHatOfficial" },
-  "rhel": { "domains": ["redhat.com/en/technologies/linux-platforms/enterprise-linux"], "clearbitDomains": ["redhat.com"], "github": "RedHatOfficial" },
-  "opensuse": { "domains": ["opensuse.org"], "github": "openSUSE" },
-  "archlinux": { "domains": ["archlinux.org"], "github": "archlinux" },
-  "arch": { "domains": ["archlinux.org"], "clearbitDomains": ["archlinux.org"], "github": "archlinux" },
-  "gentoo": { "domains": ["gentoo.org"], "github": "gentoo" },
-  "voidlinux": { "domains": ["voidlinux.org"], "github": "void-linux" },
-  "nixos": { "domains": ["nixos.org"], "github": "NixOS" },
-  "nix": { "domains": ["nixos.org"], "clearbitDomains": ["nixos.org"], "github": "NixOS/nix" },
-  "alpine": { "domains": ["alpinelinux.org"], "github": "alpinelinux" },
-  "coreos": { "domains": ["coreos.com"], "github": "coreos" },
-  "flatcar": { "domains": ["flatcar-linux.org"], "github": "flatcar-linux" },
-  "silverblue": { "domains": ["silverblue.fedoraproject.org"], "clearbitDomains": ["fedoraproject.org"], "github": "fedora-silverblue" },
-  "kinoite": { "domains": ["kinoite.fedoraproject.org"], "clearbitDomains": ["fedoraproject.org"], "github": "fedora-kinoite" },
-  "freebsd": { "domains": ["freebsd.org"], "github": "freebsd" },
-  "openbsd": { "domains": ["openbsd.org"], "github": "openbsd" },
-  "netbsd": { "domains": ["netbsd.org"], "github": "NetBSD" },
-  "dragonflybsd": { "domains": ["dragonflybsd.org"], "github": "DragonFlyBSD" },
-  "haiku": { "domains": ["haiku-os.org"], "github": "haiku" },
-  "reactos": { "domains": ["reactos.org"], "github": "reactos" },
-  "templeos": { "domains": ["templeos.org"], "github": "templeos" },
-  "plan9": { "domains": ["9p.io"], "github": "0intro/plan9" },
-  "inferno": { "domains": ["inferno-os.org"], "github": " Inferno-os" },
-  "minix": { "domains": ["minix3.org"], "github": "minix3" },
-  "linux": { "domains": ["kernel.org"], "github": "torvalds/linux" },
-  "windows": { "domains": ["microsoft.com/windows"], "clearbitDomains": ["microsoft.com"], "github": "microsoft" },
-  "macos": { "domains": ["apple.com/macos"], "clearbitDomains": ["apple.com"], "github": "apple" },
-  "ios": { "domains": ["apple.com/ios"], "clearbitDomains": ["apple.com"], "github": "apple" },
-  "android": { "domains": ["android.com"], "github": "aosp-mirror" },
-  "chromeos": { "domains": ["google.com/chromebook"], "clearbitDomains": ["google.com"], "github": "googlechrome" },
-  "chrome os": { "domains": ["google.com/chromebook"], "clearbitDomains": ["google.com"], "github": "googlechrome" },
-  "fuchsia": { "domains": ["fuchsia.dev"], "github": "fuchsia-mirror" },
-  "harmonyos": { "domains": ["harmonyos.com"], "github": "huawei" },
-  "serenityos": { "domains": ["serenityos.org"], "github": "SerenityOS/serenity" },
-  "kolibrios": { "domains": ["kolibrios.org"], "github": "KolibriOS" },
-  "menuetos": { "domains": ["menuetos.net"], "github": "menuetos" },
-  "illumos": { "domains": ["illumos.org"], "github": "illumos" },
-  "smartos": { "domains": ["joyent.com/smartos"], "clearbitDomains": ["joyent.com"], "github": "joyent" },
-  "omnios": { "domains": ["omnios.org"], "github": "omniosorg" },
-  "tribblix": { "domains": ["tribblix.org"], "github": "tribblix" },
-  "dilos": { "domains": ["dilos.org"], "github": "dilos" },
-  "manjaro": { "domains": ["manjaro.org"], "github": "manjaro" },
-  "endeavouros": { "domains": ["endeavouros.com"], "github": "endeavouros-team" },
-  "garuda": { "domains": ["garudalinux.org"], "github": "Garuda-linux" },
-  "arcolinux": { "domains": ["arcolinux.com"], "github": "arcolinux" },
-  "popos": { "domains": ["pop.system76.com"], "clearbitDomains": ["system76.com"], "github": "pop-os" },
-  "elementary": { "domains": ["elementary.io"], "github": "elementary" },
-  "linuxmint": { "domains": ["linuxmint.com"], "github": "linuxmint" },
-  "zorin": { "domains": ["zorin.com"], "github": "zorinos" },
-  "kubuntu": { "domains": ["kubuntu.org"], "github": "kubuntu" },
-  "xubuntu": { "domains": ["xubuntu.org"], "github": "xubuntu" },
-  "lubuntu": { "domains": ["lubuntu.net"], "github": "lubuntu-team" },
-  "mate": { "domains": ["mate-desktop.org"], "github": "mate-desktop" },
-  "cinnamon": { "domains": ["linuxmint.com"], "clearbitDomains": ["linuxmint.com"], "github": "linuxmint/cinnamon" },
-  "budgie": { "domains": ["buddiesofbudgie.org"], "github": "BuddiesOfBudgie" },
-  "deepin": { "domains": ["deepin.org"], "github": "linuxdeepin" },
-  "ubuntukylin": { "domains": ["ubuntukylin.com"], "github": "ubuntukylin" },
-  "parrot": { "domains": ["parrotsec.org"], "github": "ParrotSec" },
-  "kali": { "domains": ["kali.org"], "github": "offensive-security" },
-  "tails": { "domains": ["tails.boum.org"], "clearbitDomains": ["boum.org"], "github": "tails-team" },
-  "qubes": { "domains": ["qubes-os.org"], "github": "QubesOS" },
-  "whonix": { "domains": ["whonix.org"], "github": "Whonix" },
-  "hardenedbsd": { "domains": ["hardenedbsd.org"], "github": "HardenedBSD" },
-  "openwrt": { "domains": ["openwrt.org"], "github": "openwrt" },
-  "ddwrt": { "domains": ["dd-wrt.com"], "github": "mirrors" },
-  "tomato": { "domains": ["tomatousb.org"], "github": "tomatoanon" },
-  "vyos": { "domains": ["vyos.io"], "github": "vyos" },
-  "opnsense": { "domains": ["opnsense.org"], "github": "opnsense" },
-  "pfsense": { "domains": ["pfsense.org"], "github": "pfsense" },
-  "ipfire": { "domains": ["ipfire.org"], "github": "ipfire" },
-  "rockylinux": { "domains": ["rockylinux.org"], "github": "rocky-linux" },
-  "almalinux": { "domains": ["almalinux.org"], "github": "AlmaLinux" },
-  "oracle linux": { "domains": ["oracle.com/linux"], "clearbitDomains": ["oracle.com"], "github": "oracle" },
-  "scientific linux": { "domains": ["scientificlinux.org"], "github": "scientific-linux" },
-  "springdale": { "domains": ["springdale.princeton.edu"], "clearbitDomains": ["princeton.edu"], "github": "springdalelinux" },
-  "clear linux": { "domains": ["clearlinux.org"], "github": "clearlinux" },
-  "suse": { "domains": ["suse.com"], "github": "SUSE" },
-  "sles": { "domains": ["suse.com/products/server"], "clearbitDomains": ["suse.com"], "github": "SUSE" },
-  "mageia": { "domains": ["mageia.org"], "github": "mageia" },
-  "rosa": { "domains": ["rosalinux.ru"], "github": "ROSA-linux" },
-  "pclinuxos": { "domains": ["pclinuxos.com"], "github": "pclinuxos" },
-  "slackware": { "domains": ["slackware.com"], "github": "volkerdi" },
-  "crux": { "domains": ["crux.nu"], "github": "crux-linux" },
-  "solus": { "domains": ["getsol.us"], "github": "getsolus" },
-  "clearos": { "domains": ["clearos.com"], "github": "clearos" },
-  "nix": { "domains": ["nixos.org"], "clearbitDomains": ["nixos.org"], "github": "NixOS/nix" },
-  "guix": { "domains": ["guix.gnu.org"], "clearbitDomains": ["gnu.org"], "github": "guix-mirror" },
-  "dragora": { "domains": ["dragora.org"], "github": "dragora-linux" },
-  "hyperbola": { "domains": ["hyperbola.info"], "github": "hyperbola-linux" },
-  "parabola": { "domains": ["parabola.nu"], "github": "parabola-linux" },
-  "artix": { "domains": ["artixlinux.org"], "github": "artix-linux" },
-  "hyperbola": { "domains": ["hyperbola.info"], "github": "hyperbola-linux" },
-  "kaos": { "domains": ["kaosx.us"], "github": "KaOSx" },
-  "peppermint": { "domains": ["peppermintos.com"], "github": "PeppermintOS" },
-  "lxle": { "domains": ["lxle.net"], "github": "lxle" },
-  "antix": { "domains": ["antixlinux.com"], "github": "antiX-Linux" },
-  "mxlinux": { "domains": ["mxlinux.org"], "github": "MX-Linux" },
-  "pearl": { "domains": ["pearllinux.com"], "github": "Pearl-Linux" },
-  "rebornos": { "domains": ["rebornos.org"], "github": "RebornOS-Developers" }
+  "ubuntu": {
+    "domains": [
+      "ubuntu.com"
+    ],
+    "github": "canonical/ubuntu"
+  },
+  "debian": {
+    "domains": [
+      "debian.org"
+    ],
+    "github": "debian"
+  },
+  "centos": {
+    "domains": [
+      "centos.org"
+    ],
+    "github": "CentOS"
+  },
+  "fedora": {
+    "domains": [
+      "fedoraproject.org"
+    ],
+    "github": "fedora-infra"
+  },
+  "redhat": {
+    "domains": [
+      "redhat.com"
+    ],
+    "github": "RedHatOfficial"
+  },
+  "rhel": {
+    "domains": [
+      "redhat.com"
+    ],
+    "clearbitDomains": [
+      "redhat.com"
+    ],
+    "github": "RedHatOfficial"
+  },
+  "opensuse": {
+    "domains": [
+      "opensuse.org"
+    ],
+    "github": "openSUSE"
+  },
+  "archlinux": {
+    "domains": [
+      "archlinux.org"
+    ],
+    "github": "archlinux"
+  },
+  "arch": {
+    "domains": [
+      "archlinux.org"
+    ],
+    "clearbitDomains": [
+      "archlinux.org"
+    ],
+    "github": "archlinux"
+  },
+  "gentoo": {
+    "domains": [
+      "gentoo.org"
+    ],
+    "github": "gentoo"
+  },
+  "voidlinux": {
+    "domains": [
+      "voidlinux.org"
+    ],
+    "github": "void-linux"
+  },
+  "nixos": {
+    "domains": [
+      "nixos.org"
+    ],
+    "github": "NixOS"
+  },
+  "nix": {
+    "domains": [
+      "nixos.org"
+    ],
+    "clearbitDomains": [
+      "nixos.org"
+    ],
+    "github": "NixOS/nix"
+  },
+  "alpine": {
+    "domains": [
+      "alpinelinux.org"
+    ],
+    "github": "alpinelinux"
+  },
+  "coreos": {
+    "domains": [
+      "coreos.com"
+    ],
+    "github": "coreos"
+  },
+  "flatcar": {
+    "domains": [
+      "flatcar-linux.org"
+    ],
+    "github": "flatcar-linux"
+  },
+  "silverblue": {
+    "domains": [
+      "silverblue.fedoraproject.org"
+    ],
+    "clearbitDomains": [
+      "fedoraproject.org"
+    ],
+    "github": "fedora-silverblue"
+  },
+  "kinoite": {
+    "domains": [
+      "kinoite.fedoraproject.org"
+    ],
+    "clearbitDomains": [
+      "fedoraproject.org"
+    ],
+    "github": "fedora-kinoite"
+  },
+  "freebsd": {
+    "domains": [
+      "freebsd.org"
+    ],
+    "github": "freebsd"
+  },
+  "openbsd": {
+    "domains": [
+      "openbsd.org"
+    ],
+    "github": "openbsd"
+  },
+  "netbsd": {
+    "domains": [
+      "netbsd.org"
+    ],
+    "github": "NetBSD"
+  },
+  "dragonflybsd": {
+    "domains": [
+      "dragonflybsd.org"
+    ],
+    "github": "DragonFlyBSD"
+  },
+  "haiku": {
+    "domains": [
+      "haiku-os.org"
+    ],
+    "github": "haiku"
+  },
+  "reactos": {
+    "domains": [
+      "reactos.org"
+    ],
+    "github": "reactos"
+  },
+  "templeos": {
+    "domains": [
+      "templeos.org"
+    ],
+    "github": "templeos"
+  },
+  "plan9": {
+    "domains": [
+      "9p.io"
+    ],
+    "github": "0intro/plan9"
+  },
+  "inferno": {
+    "domains": [
+      "inferno-os.org"
+    ],
+    "github": " Inferno-os"
+  },
+  "minix": {
+    "domains": [
+      "minix3.org"
+    ],
+    "github": "minix3"
+  },
+  "linux": {
+    "domains": [
+      "kernel.org"
+    ],
+    "github": "torvalds/linux"
+  },
+  "windows": {
+    "domains": [
+      "microsoft.com"
+    ],
+    "clearbitDomains": [
+      "microsoft.com"
+    ],
+    "github": "microsoft"
+  },
+  "macos": {
+    "domains": [
+      "apple.com"
+    ],
+    "clearbitDomains": [
+      "apple.com"
+    ],
+    "github": "apple"
+  },
+  "ios": {
+    "domains": [
+      "apple.com"
+    ],
+    "clearbitDomains": [
+      "apple.com"
+    ],
+    "github": "apple"
+  },
+  "android": {
+    "domains": [
+      "android.com"
+    ],
+    "github": "aosp-mirror"
+  },
+  "chromeos": {
+    "domains": [
+      "google.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "googlechrome"
+  },
+  "chrome os": {
+    "domains": [
+      "google.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "googlechrome"
+  },
+  "fuchsia": {
+    "domains": [
+      "fuchsia.dev"
+    ],
+    "github": "fuchsia-mirror"
+  },
+  "harmonyos": {
+    "domains": [
+      "harmonyos.com"
+    ],
+    "github": "huawei"
+  },
+  "serenityos": {
+    "domains": [
+      "serenityos.org"
+    ],
+    "github": "SerenityOS/serenity"
+  },
+  "kolibrios": {
+    "domains": [
+      "kolibrios.org"
+    ],
+    "github": "KolibriOS"
+  },
+  "menuetos": {
+    "domains": [
+      "menuetos.net"
+    ],
+    "github": "menuetos"
+  },
+  "illumos": {
+    "domains": [
+      "illumos.org"
+    ],
+    "github": "illumos"
+  },
+  "smartos": {
+    "domains": [
+      "joyent.com"
+    ],
+    "clearbitDomains": [
+      "joyent.com"
+    ],
+    "github": "joyent"
+  },
+  "omnios": {
+    "domains": [
+      "omnios.org"
+    ],
+    "github": "omniosorg"
+  },
+  "tribblix": {
+    "domains": [
+      "tribblix.org"
+    ],
+    "github": "tribblix"
+  },
+  "dilos": {
+    "domains": [
+      "dilos.org"
+    ],
+    "github": "dilos"
+  },
+  "manjaro": {
+    "domains": [
+      "manjaro.org"
+    ],
+    "github": "manjaro"
+  },
+  "endeavouros": {
+    "domains": [
+      "endeavouros.com"
+    ],
+    "github": "endeavouros-team"
+  },
+  "garuda": {
+    "domains": [
+      "garudalinux.org"
+    ],
+    "github": "Garuda-linux"
+  },
+  "arcolinux": {
+    "domains": [
+      "arcolinux.com"
+    ],
+    "github": "arcolinux"
+  },
+  "popos": {
+    "domains": [
+      "pop.system76.com"
+    ],
+    "clearbitDomains": [
+      "system76.com"
+    ],
+    "github": "pop-os"
+  },
+  "elementary": {
+    "domains": [
+      "elementary.io"
+    ],
+    "github": "elementary"
+  },
+  "linuxmint": {
+    "domains": [
+      "linuxmint.com"
+    ],
+    "github": "linuxmint"
+  },
+  "zorin": {
+    "domains": [
+      "zorin.com"
+    ],
+    "github": "zorinos"
+  },
+  "kubuntu": {
+    "domains": [
+      "kubuntu.org"
+    ],
+    "github": "kubuntu"
+  },
+  "xubuntu": {
+    "domains": [
+      "xubuntu.org"
+    ],
+    "github": "xubuntu"
+  },
+  "lubuntu": {
+    "domains": [
+      "lubuntu.net"
+    ],
+    "github": "lubuntu-team"
+  },
+  "mate": {
+    "domains": [
+      "mate-desktop.org"
+    ],
+    "github": "mate-desktop"
+  },
+  "cinnamon": {
+    "domains": [
+      "linuxmint.com"
+    ],
+    "clearbitDomains": [
+      "linuxmint.com"
+    ],
+    "github": "linuxmint/cinnamon"
+  },
+  "budgie": {
+    "domains": [
+      "buddiesofbudgie.org"
+    ],
+    "github": "BuddiesOfBudgie"
+  },
+  "deepin": {
+    "domains": [
+      "deepin.org"
+    ],
+    "github": "linuxdeepin"
+  },
+  "ubuntukylin": {
+    "domains": [
+      "ubuntukylin.com"
+    ],
+    "github": "ubuntukylin"
+  },
+  "parrot": {
+    "domains": [
+      "parrotsec.org"
+    ],
+    "github": "ParrotSec"
+  },
+  "kali": {
+    "domains": [
+      "kali.org"
+    ],
+    "github": "offensive-security"
+  },
+  "tails": {
+    "domains": [
+      "tails.boum.org"
+    ],
+    "clearbitDomains": [
+      "boum.org"
+    ],
+    "github": "tails-team"
+  },
+  "qubes": {
+    "domains": [
+      "qubes-os.org"
+    ],
+    "github": "QubesOS"
+  },
+  "whonix": {
+    "domains": [
+      "whonix.org"
+    ],
+    "github": "Whonix"
+  },
+  "hardenedbsd": {
+    "domains": [
+      "hardenedbsd.org"
+    ],
+    "github": "HardenedBSD"
+  },
+  "openwrt": {
+    "domains": [
+      "openwrt.org"
+    ],
+    "github": "openwrt"
+  },
+  "ddwrt": {
+    "domains": [
+      "dd-wrt.com"
+    ],
+    "github": "mirrors"
+  },
+  "tomato": {
+    "domains": [
+      "tomatousb.org"
+    ],
+    "github": "tomatoanon"
+  },
+  "vyos": {
+    "domains": [
+      "vyos.io"
+    ],
+    "github": "vyos"
+  },
+  "opnsense": {
+    "domains": [
+      "opnsense.org"
+    ],
+    "github": "opnsense"
+  },
+  "pfsense": {
+    "domains": [
+      "pfsense.org"
+    ],
+    "github": "pfsense"
+  },
+  "ipfire": {
+    "domains": [
+      "ipfire.org"
+    ],
+    "github": "ipfire"
+  },
+  "rockylinux": {
+    "domains": [
+      "rockylinux.org"
+    ],
+    "github": "rocky-linux"
+  },
+  "almalinux": {
+    "domains": [
+      "almalinux.org"
+    ],
+    "github": "AlmaLinux"
+  },
+  "oracle linux": {
+    "domains": [
+      "oracle.com"
+    ],
+    "clearbitDomains": [
+      "oracle.com"
+    ],
+    "github": "oracle"
+  },
+  "scientific linux": {
+    "domains": [
+      "scientificlinux.org"
+    ],
+    "github": "scientific-linux"
+  },
+  "springdale": {
+    "domains": [
+      "springdale.princeton.edu"
+    ],
+    "clearbitDomains": [
+      "princeton.edu"
+    ],
+    "github": "springdalelinux"
+  },
+  "clear linux": {
+    "domains": [
+      "clearlinux.org"
+    ],
+    "github": "clearlinux"
+  },
+  "suse": {
+    "domains": [
+      "suse.com"
+    ],
+    "github": "SUSE"
+  },
+  "sles": {
+    "domains": [
+      "suse.com"
+    ],
+    "clearbitDomains": [
+      "suse.com"
+    ],
+    "github": "SUSE"
+  },
+  "mageia": {
+    "domains": [
+      "mageia.org"
+    ],
+    "github": "mageia"
+  },
+  "rosa": {
+    "domains": [
+      "rosalinux.ru"
+    ],
+    "github": "ROSA-linux"
+  },
+  "pclinuxos": {
+    "domains": [
+      "pclinuxos.com"
+    ],
+    "github": "pclinuxos"
+  },
+  "slackware": {
+    "domains": [
+      "slackware.com"
+    ],
+    "github": "volkerdi"
+  },
+  "crux": {
+    "domains": [
+      "crux.nu"
+    ],
+    "github": "crux-linux"
+  },
+  "solus": {
+    "domains": [
+      "getsol.us"
+    ],
+    "github": "getsolus"
+  },
+  "clearos": {
+    "domains": [
+      "clearos.com"
+    ],
+    "github": "clearos"
+  },
+  "guix": {
+    "domains": [
+      "guix.gnu.org"
+    ],
+    "clearbitDomains": [
+      "gnu.org"
+    ],
+    "github": "guix-mirror"
+  },
+  "dragora": {
+    "domains": [
+      "dragora.org"
+    ],
+    "github": "dragora-linux"
+  },
+  "hyperbola": {
+    "domains": [
+      "hyperbola.info"
+    ],
+    "github": "hyperbola-linux"
+  },
+  "parabola": {
+    "domains": [
+      "parabola.nu"
+    ],
+    "github": "parabola-linux"
+  },
+  "artix": {
+    "domains": [
+      "artixlinux.org"
+    ],
+    "github": "artix-linux"
+  },
+  "kaos": {
+    "domains": [
+      "kaosx.us"
+    ],
+    "github": "KaOSx"
+  },
+  "peppermint": {
+    "domains": [
+      "peppermintos.com"
+    ],
+    "github": "PeppermintOS"
+  },
+  "lxle": {
+    "domains": [
+      "lxle.net"
+    ],
+    "github": "lxle"
+  },
+  "antix": {
+    "domains": [
+      "antixlinux.com"
+    ],
+    "github": "antiX-Linux"
+  },
+  "mxlinux": {
+    "domains": [
+      "mxlinux.org"
+    ],
+    "github": "MX-Linux"
+  },
+  "pearl": {
+    "domains": [
+      "pearllinux.com"
+    ],
+    "github": "Pearl-Linux"
+  },
+  "rebornos": {
+    "domains": [
+      "rebornos.org"
+    ],
+    "github": "RebornOS-Developers"
+  }
 }

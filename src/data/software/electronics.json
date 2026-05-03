@@ -1,0 +1,1512 @@
+{
+  "apple": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "samsung": {
+    "domains": [
+      "samsung.com"
+    ]
+  },
+  "sony": {
+    "domains": [
+      "sony.com"
+    ]
+  },
+  "lg": {
+    "domains": [
+      "lg.com"
+    ]
+  },
+  "panasonic": {
+    "domains": [
+      "panasonic.com"
+    ]
+  },
+  "sharp": {
+    "domains": [
+      "sharp.com"
+    ]
+  },
+  "toshiba": {
+    "domains": [
+      "toshiba.com"
+    ]
+  },
+  "philips": {
+    "domains": [
+      "philips.com"
+    ]
+  },
+  "bosch": {
+    "domains": [
+      "bosch.com"
+    ]
+  },
+  "siemens": {
+    "domains": [
+      "siemens.com"
+    ]
+  },
+  "miele": {
+    "domains": [
+      "miele.com"
+    ]
+  },
+  "whirlpool": {
+    "domains": [
+      "whirlpool.com"
+    ]
+  },
+  "electrolux": {
+    "domains": [
+      "electrolux.com"
+    ]
+  },
+  "kitchenaid": {
+    "domains": [
+      "kitchenaid.com"
+    ]
+  },
+  "dyson": {
+    "domains": [
+      "dyson.com"
+    ]
+  },
+  "irobot": {
+    "domains": [
+      "irobot.com"
+    ]
+  },
+  "ecovacs": {
+    "domains": [
+      "ecovacs.com"
+    ]
+  },
+  "roborock": {
+    "domains": [
+      "roborock.com"
+    ]
+  },
+  "xiaomi": {
+    "domains": [
+      "mi.com"
+    ]
+  },
+  "huawei": {
+    "domains": [
+      "huawei.com"
+    ]
+  },
+  "oppo": {
+    "domains": [
+      "oppo.com"
+    ]
+  },
+  "vivo": {
+    "domains": [
+      "vivo.com"
+    ]
+  },
+  "oneplus": {
+    "domains": [
+      "oneplus.com"
+    ]
+  },
+  "realme": {
+    "domains": [
+      "realme.com"
+    ]
+  },
+  "honor": {
+    "domains": [
+      "honor.com"
+    ]
+  },
+  "nothing": {
+    "domains": [
+      "nothing.tech"
+    ]
+  },
+  "fairphone": {
+    "domains": [
+      "fairphone.com"
+    ]
+  },
+  "motorola": {
+    "domains": [
+      "motorola.com"
+    ]
+  },
+  "nokia": {
+    "domains": [
+      "nokia.com"
+    ]
+  },
+  "lenovo": {
+    "domains": [
+      "lenovo.com"
+    ]
+  },
+  "dell": {
+    "domains": [
+      "dell.com"
+    ]
+  },
+  "hp": {
+    "domains": [
+      "hp.com"
+    ]
+  },
+  "acer": {
+    "domains": [
+      "acer.com"
+    ]
+  },
+  "asus": {
+    "domains": [
+      "asus.com"
+    ]
+  },
+  "msi": {
+    "domains": [
+      "msi.com"
+    ]
+  },
+  "razer": {
+    "domains": [
+      "razer.com"
+    ]
+  },
+  "alienware": {
+    "domains": [
+      "alienware.com"
+    ]
+  },
+  "corsair": {
+    "domains": [
+      "corsair.com"
+    ]
+  },
+  "logitech": {
+    "domains": [
+      "logitech.com"
+    ]
+  },
+  "steelseries": {
+    "domains": [
+      "steelseries.com"
+    ]
+  },
+  "hyperx": {
+    "domains": [
+      "hyperx.com"
+    ]
+  },
+  "keychron": {
+    "domains": [
+      "keychron.com"
+    ]
+  },
+  "anker": {
+    "domains": [
+      "anker.com"
+    ]
+  },
+  "ugreen": {
+    "domains": [
+      "ugreen.com"
+    ]
+  },
+  "baseus": {
+    "domains": [
+      "baseus.com"
+    ]
+  },
+  "belkin": {
+    "domains": [
+      "belkin.com"
+    ]
+  },
+  "nomad": {
+    "domains": [
+      "nomadgoods.com"
+    ]
+  },
+  "peakdesign": {
+    "domains": [
+      "peakdesign.com"
+    ]
+  },
+  "peak design": {
+    "domains": [
+      "peakdesign.com"
+    ]
+  },
+  "moment": {
+    "domains": [
+      "shopmoment.com"
+    ]
+  },
+  "dji": {
+    "domains": [
+      "dji.com"
+    ]
+  },
+  "gopro": {
+    "domains": [
+      "gopro.com"
+    ]
+  },
+  "insta360": {
+    "domains": [
+      "insta360.com"
+    ]
+  },
+  "canon": {
+    "domains": [
+      "canon.com"
+    ]
+  },
+  "nikon": {
+    "domains": [
+      "nikon.com"
+    ]
+  },
+  "fujifilm": {
+    "domains": [
+      "fujifilm.com"
+    ]
+  },
+  "leica": {
+    "domains": [
+      "leica.com"
+    ]
+  },
+  "hasselblad": {
+    "domains": [
+      "hasselblad.com"
+    ]
+  },
+  "olympus": {
+    "domains": [
+      "olympus.com"
+    ]
+  },
+  "pentax": {
+    "domains": [
+      "pentax.com"
+    ]
+  },
+  "ricoh": {
+    "domains": [
+      "ricoh.com"
+    ]
+  },
+  "tamron": {
+    "domains": [
+      "tamron.com"
+    ]
+  },
+  "sigma": {
+    "domains": [
+      "sigmaphoto.com"
+    ]
+  },
+  "zeiss": {
+    "domains": [
+      "zeiss.com"
+    ]
+  },
+  "rode": {
+    "domains": [
+      "rode.com"
+    ]
+  },
+  "shure": {
+    "domains": [
+      "shure.com"
+    ]
+  },
+  "sennheiser": {
+    "domains": [
+      "sennheiser.com"
+    ]
+  },
+  "audiotechnica": {
+    "domains": [
+      "audio-technica.com"
+    ]
+  },
+  "audio technica": {
+    "domains": [
+      "audio-technica.com"
+    ]
+  },
+  "beyerdynamic": {
+    "domains": [
+      "beyerdynamic.com"
+    ]
+  },
+  "akg": {
+    "domains": [
+      "akg.com"
+    ]
+  },
+  "focal": {
+    "domains": [
+      "focal.com"
+    ]
+  },
+  "klipsch": {
+    "domains": [
+      "klipsch.com"
+    ]
+  },
+  "sonos": {
+    "domains": [
+      "sonos.com"
+    ]
+  },
+  "bose": {
+    "domains": [
+      "bose.com"
+    ]
+  },
+  "beats": {
+    "domains": [
+      "beatsbydre.com"
+    ]
+  },
+  "beatsbydre": {
+    "domains": [
+      "beatsbydre.com"
+    ]
+  },
+  "beats by dre": {
+    "domains": [
+      "beatsbydre.com"
+    ]
+  },
+  "jbl": {
+    "domains": [
+      "jbl.com"
+    ]
+  },
+  "harmankardon": {
+    "domains": [
+      "harmankardon.com"
+    ]
+  },
+  "harman kardon": {
+    "domains": [
+      "harmankardon.com"
+    ]
+  },
+  "denon": {
+    "domains": [
+      "denon.com"
+    ]
+  },
+  "marantz": {
+    "domains": [
+      "marantz.com"
+    ]
+  },
+  "onkyo": {
+    "domains": [
+      "onkyo.com"
+    ]
+  },
+  "pioneer": {
+    "domains": [
+      "pioneer.com"
+    ]
+  },
+  "yamaha": {
+    "domains": [
+      "yamaha.com"
+    ]
+  },
+  "bangolufsen": {
+    "domains": [
+      "bang-olufsen.com"
+    ]
+  },
+  "bang and olufsen": {
+    "domains": [
+      "bang-olufsen.com"
+    ]
+  },
+  "bang & olufsen": {
+    "domains": [
+      "bang-olufsen.com"
+    ]
+  },
+  "bowerswilkins": {
+    "domains": [
+      "bowerswilkins.com"
+    ]
+  },
+  "bowers and wilkins": {
+    "domains": [
+      "bowerswilkins.com"
+    ]
+  },
+  "bowers & wilkins": {
+    "domains": [
+      "bowerswilkins.com"
+    ]
+  },
+  "kef": {
+    "domains": [
+      "kef.com"
+    ]
+  },
+  "dynaudio": {
+    "domains": [
+      "dynaudio.com"
+    ]
+  },
+  "devialet": {
+    "domains": [
+      "devialet.com"
+    ]
+  },
+  "naim": {
+    "domains": [
+      "naimaudio.com"
+    ]
+  },
+  "naim audio": {
+    "domains": [
+      "naimaudio.com"
+    ]
+  },
+  "meridian": {
+    "domains": [
+      "meridian-audio.com"
+    ]
+  },
+  "tidal": {
+    "domains": [
+      "tidal.com"
+    ]
+  },
+  "astellkern": {
+    "domains": [
+      "astellnkern.com"
+    ]
+  },
+  "astell&kern": {
+    "domains": [
+      "astellnkern.com"
+    ]
+  },
+  "fiio": {
+    "domains": [
+      "fiio.com"
+    ]
+  },
+  "ibasso": {
+    "domains": [
+      "ibasso.com"
+    ]
+  },
+  "hiby": {
+    "domains": [
+      "hiby.com"
+    ]
+  },
+  "audeze": {
+    "domains": [
+      "audeze.com"
+    ]
+  },
+  "meze": {
+    "domains": [
+      "mezeaudio.com"
+    ]
+  },
+  "meze audio": {
+    "domains": [
+      "mezeaudio.com"
+    ]
+  },
+  "hifiman": {
+    "domains": [
+      "hifiman.com"
+    ]
+  },
+  "danclark": {
+    "domains": [
+      "danclarkaudio.com"
+    ]
+  },
+  "dan clark audio": {
+    "domains": [
+      "danclarkaudio.com"
+    ]
+  },
+  "campfireaudio": {
+    "domains": [
+      "campfireaudio.com"
+    ]
+  },
+  "campfire audio": {
+    "domains": [
+      "campfireaudio.com"
+    ]
+  },
+  "64audio": {
+    "domains": [
+      "64audio.com"
+    ]
+  },
+  "64 audio": {
+    "domains": [
+      "64audio.com"
+    ]
+  },
+  "nobleaudio": {
+    "domains": [
+      "nobleaudio.com"
+    ]
+  },
+  "noble audio": {
+    "domains": [
+      "nobleaudio.com"
+    ]
+  },
+  "empireears": {
+    "domains": [
+      "empireears.com"
+    ]
+  },
+  "empire ears": {
+    "domains": [
+      "empireears.com"
+    ]
+  },
+  "jhaudio": {
+    "domains": [
+      "jhaudio.com"
+    ]
+  },
+  "jh audio": {
+    "domains": [
+      "jhaudio.com"
+    ]
+  },
+  "ultimateears": {
+    "domains": [
+      "ultimateears.com"
+    ]
+  },
+  "ultimate ears": {
+    "domains": [
+      "ultimateears.com"
+    ]
+  },
+  "westone": {
+    "domains": [
+      "westone.com"
+    ]
+  },
+  "etymotic": {
+    "domains": [
+      "etymotic.com"
+    ]
+  },
+  "moondrop": {
+    "domains": [
+      "moondroplab.com"
+    ]
+  },
+  "tinhifi": {
+    "domains": [
+      "tinhifi.com"
+    ]
+  },
+  "tin hifi": {
+    "domains": [
+      "tinhifi.com"
+    ]
+  },
+  "kz": {
+    "domains": [
+      "kz-audio.com"
+    ]
+  },
+  "knowledge zenith": {
+    "domains": [
+      "kz-audio.com"
+    ]
+  },
+  "trn": {
+    "domains": [
+      "trn-audio.com"
+    ]
+  },
+  "blon": {
+    "domains": [
+      "linsoul.com"
+    ]
+  },
+  "tanchjim": {
+    "domains": [
+      "tanchjim.com"
+    ]
+  },
+  "dunu": {
+    "domains": [
+      "dunutopsound.com"
+    ]
+  },
+  "letshuoer": {
+    "domains": [
+      "letshuoer.com"
+    ]
+  },
+  "thieaudio": {
+    "domains": [
+      "thieaudio.com"
+    ]
+  },
+  "symphonium": {
+    "domains": [
+      "symphoniumaudio.com"
+    ]
+  },
+  "softears": {
+    "domains": [
+      "softears.net"
+    ]
+  },
+  "kiwiears": {
+    "domains": [
+      "kiwiears.com"
+    ]
+  },
+  "kiwi ears": {
+    "domains": [
+      "kiwiears.com"
+    ]
+  },
+  "tripowin": {
+    "domains": [
+      "tripowin.com"
+    ]
+  },
+  "nicehck": {
+    "domains": [
+      "nicehck.net"
+    ]
+  },
+  "blackmagic": {
+    "domains": [
+      "blackmagicdesign.com"
+    ]
+  },
+  "blackmagic design": {
+    "domains": [
+      "blackmagicdesign.com"
+    ]
+  },
+  "aja": {
+    "domains": [
+      "aja.com"
+    ]
+  },
+  "atomos": {
+    "domains": [
+      "atomos.com"
+    ]
+  },
+  "smallhd": {
+    "domains": [
+      "smallhd.com"
+    ]
+  },
+  "red": {
+    "domains": [
+      "red.com"
+    ]
+  },
+  "arri": {
+    "domains": [
+      "arri.com"
+    ]
+  },
+  "zcam": {
+    "domains": [
+      "z-cam.com"
+    ]
+  },
+  "z cam": {
+    "domains": [
+      "z-cam.com"
+    ]
+  },
+  "kinefinity": {
+    "domains": [
+      "kinefinity.com"
+    ]
+  },
+  "laowa": {
+    "domains": [
+      "venuslens.net"
+    ]
+  },
+  "sirui": {
+    "domains": [
+      "sirui.com"
+    ]
+  },
+  "viltrox": {
+    "domains": [
+      "viltrox.com"
+    ]
+  },
+  "neewer": {
+    "domains": [
+      "neewer.com"
+    ]
+  },
+  "godox": {
+    "domains": [
+      "godox.com"
+    ]
+  },
+  "profoto": {
+    "domains": [
+      "profoto.com"
+    ]
+  },
+  "broncolor": {
+    "domains": [
+      "broncolor.ch"
+    ]
+  },
+  "elinchrom": {
+    "domains": [
+      "elinchrom.com"
+    ]
+  },
+  "aputure": {
+    "domains": [
+      "aputure.com"
+    ]
+  },
+  "nanlite": {
+    "domains": [
+      "nanlite.com"
+    ]
+  },
+  "amaran": {
+    "domains": [
+      "amaran.com"
+    ]
+  },
+  "roku": {
+    "domains": [
+      "roku.com"
+    ]
+  },
+  "vizio": {
+    "domains": [
+      "vizio.com"
+    ]
+  },
+  "firetv": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "fire tv": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "chromecast": {
+    "domains": [
+      "google.com"
+    ]
+  },
+  "nvidiashield": {
+    "domains": [
+      "nvidia.com"
+    ]
+  },
+  "nvidia shield": {
+    "domains": [
+      "nvidia.com"
+    ]
+  },
+  "tcl": {
+    "domains": [
+      "tcl.com"
+    ]
+  },
+  "hisense": {
+    "domains": [
+      "hisense.com"
+    ]
+  },
+  "changhong": {
+    "domains": [
+      "changhong.com.cn"
+    ]
+  },
+  "skyworth": {
+    "domains": [
+      "skyworth.com"
+    ]
+  },
+  "konka": {
+    "domains": [
+      "konka.com"
+    ]
+  },
+  "thomson": {
+    "domains": [
+      "thomson-tv.com"
+    ]
+  },
+  "blaupunkt": {
+    "domains": [
+      "blaupunkt.com"
+    ]
+  },
+  "metz": {
+    "domains": [
+      "metz.com"
+    ]
+  },
+  "grundig": {
+    "domains": [
+      "grundig.com"
+    ]
+  },
+  "loewe": {
+    "domains": [
+      "loewe.tv"
+    ]
+  },
+  "hitachi": {
+    "domains": [
+      "hitachi.com"
+    ]
+  },
+  "jvc": {
+    "domains": [
+      "jvc.com"
+    ]
+  },
+  "teac": {
+    "domains": [
+      "teac.com"
+    ]
+  },
+  "tascam": {
+    "domains": [
+      "tascam.com"
+    ]
+  },
+  "zoom": {
+    "domains": [
+      "zoom-na.com"
+    ]
+  },
+  "roland": {
+    "domains": [
+      "roland.com"
+    ]
+  },
+  "korg": {
+    "domains": [
+      "korg.com"
+    ]
+  },
+  "casio": {
+    "domains": [
+      "casio.com"
+    ]
+  },
+  "nord": {
+    "domains": [
+      "nordkeyboards.com"
+    ]
+  },
+  "moog": {
+    "domains": [
+      "moogmusic.com"
+    ]
+  },
+  "arturia": {
+    "domains": [
+      "arturia.com"
+    ]
+  },
+  "nativeinstruments": {
+    "domains": [
+      "native-instruments.com"
+    ]
+  },
+  "native instruments": {
+    "domains": [
+      "native-instruments.com"
+    ]
+  },
+  "ableton": {
+    "domains": [
+      "ableton.com"
+    ]
+  },
+  "steinberg": {
+    "domains": [
+      "steinberg.net"
+    ]
+  },
+  "presonus": {
+    "domains": [
+      "presonus.com"
+    ]
+  },
+  "focusrite": {
+    "domains": [
+      "focusrite.com"
+    ]
+  },
+  "universalaudio": {
+    "domains": [
+      "uaudio.com"
+    ]
+  },
+  "universal audio": {
+    "domains": [
+      "uaudio.com"
+    ]
+  },
+  "apogee": {
+    "domains": [
+      "apogeedigital.com"
+    ]
+  },
+  "rme": {
+    "domains": [
+      "rme-audio.de"
+    ]
+  },
+  "motu": {
+    "domains": [
+      "motu.com"
+    ]
+  },
+  "wacom": {
+    "domains": [
+      "wacom.com"
+    ]
+  },
+  "huion": {
+    "domains": [
+      "huion.com"
+    ]
+  },
+  "xp-pen": {
+    "domains": [
+      "xp-pen.com"
+    ]
+  },
+  "xppen": {
+    "domains": [
+      "xp-pen.com"
+    ]
+  },
+  "gaomon": {
+    "domains": [
+      "gaomon.net"
+    ]
+  },
+  "veikk": {
+    "domains": [
+      "veikk.com"
+    ]
+  },
+  "parblo": {
+    "domains": [
+      "parblo.com"
+    ]
+  },
+  "kamvas": {
+    "domains": [
+      "huion.com"
+    ]
+  },
+  "reMarkable": {
+    "domains": [
+      "remarkable.com"
+    ]
+  },
+  "remarkable": {
+    "domains": [
+      "remarkable.com"
+    ]
+  },
+  "onyx boox": {
+    "domains": [
+      "onyxboox.com"
+    ]
+  },
+  "onyxboox": {
+    "domains": [
+      "onyxboox.com"
+    ]
+  },
+  "supernote": {
+    "domains": [
+      "supernote.com"
+    ]
+  },
+  "quaderno": {
+    "domains": [
+      "fujitsu.com"
+    ]
+  },
+  "boox": {
+    "domains": [
+      "onyxboox.com"
+    ]
+  },
+  "meebook": {
+    "domains": [
+      "meebook.com"
+    ]
+  },
+  "pocketbook": {
+    "domains": [
+      "pocketbook.com"
+    ]
+  },
+  "tolino": {
+    "domains": [
+      "tolino.de"
+    ]
+  },
+  "kobo": {
+    "domains": [
+      "kobo.com"
+    ]
+  },
+  "kindle": {
+    "domains": [
+      "amazon.com"
+    ]
+  },
+  "nook": {
+    "domains": [
+      "barnesandnoble.com"
+    ]
+  },
+  "garmin": {
+    "domains": [
+      "garmin.com"
+    ]
+  },
+  "suunto": {
+    "domains": [
+      "suunto.com"
+    ]
+  },
+  "polar": {
+    "domains": [
+      "polar.com"
+    ]
+  },
+  "coros": {
+    "domains": [
+      "coros.com"
+    ]
+  },
+  "amazfit": {
+    "domains": [
+      "amazfit.com"
+    ]
+  },
+  "fitbit": {
+    "domains": [
+      "fitbit.com"
+    ]
+  },
+  "whoop": {
+    "domains": [
+      "whoop.com"
+    ]
+  },
+  "oura": {
+    "domains": [
+      "ouraring.com"
+    ]
+  },
+  "oura ring": {
+    "domains": [
+      "ouraring.com"
+    ]
+  },
+  "withings": {
+    "domains": [
+      "withings.com"
+    ]
+  },
+  "therabody": {
+    "domains": [
+      "therabody.com"
+    ]
+  },
+  "theragun": {
+    "domains": [
+      "therabody.com"
+    ]
+  },
+  "hyperice": {
+    "domains": [
+      "hyperice.com"
+    ]
+  },
+  "normatec": {
+    "domains": [
+      "hyperice.com"
+    ]
+  },
+  "compex": {
+    "domains": [
+      "compex.com"
+    ]
+  },
+  "powerdot": {
+    "domains": [
+      "powerdot.com"
+    ]
+  },
+  "tens": {
+    "domains": [
+      "tenscare.co.uk"
+    ]
+  },
+  "omron": {
+    "domains": [
+      "omron.com"
+    ]
+  },
+  "ring": {
+    "domains": [
+      "ring.com"
+    ]
+  },
+  "nest": {
+    "domains": [
+      "nest.com"
+    ]
+  },
+  "ecobee": {
+    "domains": [
+      "ecobee.com"
+    ]
+  },
+  "philips hue": {
+    "domains": [
+      "philips-hue.com"
+    ]
+  },
+  "philipshue": {
+    "domains": [
+      "philips-hue.com"
+    ]
+  },
+  "lifx": {
+    "domains": [
+      "lifx.com"
+    ]
+  },
+  "nanoleaf": {
+    "domains": [
+      "nanoleaf.me"
+    ]
+  },
+  "yeelight": {
+    "domains": [
+      "yeelight.com"
+    ]
+  },
+  "aqara": {
+    "domains": [
+      "aqara.com"
+    ]
+  },
+  "aqara home": {
+    "domains": [
+      "aqara.com"
+    ]
+  },
+  "tuya": {
+    "domains": [
+      "tuya.com"
+    ]
+  },
+  "smartlife": {
+    "domains": [
+      "tuya.com"
+    ]
+  },
+  "sonoff": {
+    "domains": [
+      "sonoff.tech"
+    ]
+  },
+  "ewelink": {
+    "domains": [
+      "ewelink.cc"
+    ]
+  },
+  "broadlink": {
+    "domains": [
+      "broadlink.com.cn"
+    ]
+  },
+  "orvibo": {
+    "domains": [
+      "orvibo.com"
+    ]
+  },
+  "wyze": {
+    "domains": [
+      "wyze.com"
+    ]
+  },
+  "blink": {
+    "domains": [
+      "blinkforhome.com"
+    ]
+  },
+  "eufy": {
+    "domains": [
+      "eufy.com"
+    ]
+  },
+  "soundcore": {
+    "domains": [
+      "soundcore.com"
+    ]
+  },
+  "soundcore by anker": {
+    "domains": [
+      "soundcore.com"
+    ]
+  },
+  "tribit": {
+    "domains": [
+      "tribit.com"
+    ]
+  },
+  "tronsmart": {
+    "domains": [
+      "tronsmart.com"
+    ]
+  },
+  "edifier": {
+    "domains": [
+      "edifier.com"
+    ]
+  },
+  "marshall": {
+    "domains": [
+      "marshall.com"
+    ]
+  },
+  "urbanista": {
+    "domains": [
+      "urbanista.com"
+    ]
+  },
+  "libratone": {
+    "domains": [
+      "libratone.com"
+    ]
+  },
+  "bang olufsen": {
+    "domains": [
+      "bang-olufsen.com"
+    ]
+  },
+  " tplink": {
+    "domains": [
+      "tp-link.com"
+    ]
+  },
+  "tp-link": {
+    "domains": [
+      "tp-link.com"
+    ]
+  },
+  "tplink": {
+    "domains": [
+      "tp-link.com"
+    ]
+  },
+  "netgear": {
+    "domains": [
+      "netgear.com"
+    ]
+  },
+  "linksys": {
+    "domains": [
+      "linksys.com"
+    ]
+  },
+  "eero": {
+    "domains": [
+      "eero.com"
+    ]
+  },
+  "ubiquiti": {
+    "domains": [
+      "ui.com"
+    ]
+  },
+  "unifi": {
+    "domains": [
+      "ui.com"
+    ]
+  },
+  "amplifi": {
+    "domains": [
+      "amplifi.com"
+    ]
+  },
+  "mikrotik": {
+    "domains": [
+      "mikrotik.com"
+    ]
+  },
+  "meraki": {
+    "domains": [
+      "meraki.com"
+    ]
+  },
+  "fortinet": {
+    "domains": [
+      "fortinet.com"
+    ]
+  },
+  "paloalto": {
+    "domains": [
+      "paloaltonetworks.com"
+    ]
+  },
+  "palo alto": {
+    "domains": [
+      "paloaltonetworks.com"
+    ]
+  },
+  "sonicwall": {
+    "domains": [
+      "sonicwall.com"
+    ]
+  },
+  "watchguard": {
+    "domains": [
+      "watchguard.com"
+    ]
+  },
+  "juniper": {
+    "domains": [
+      "juniper.net"
+    ]
+  },
+  "arista": {
+    "domains": [
+      "arista.com"
+    ]
+  },
+  "extremenetworks": {
+    "domains": [
+      "extremenetworks.com"
+    ]
+  },
+  "extreme networks": {
+    "domains": [
+      "extremenetworks.com"
+    ]
+  },
+  "ruckus": {
+    "domains": [
+      "ruckusnetworks.com"
+    ]
+  },
+  "ruckus networks": {
+    "domains": [
+      "ruckusnetworks.com"
+    ]
+  },
+  "aruba": {
+    "domains": [
+      "arubanetworks.com"
+    ]
+  },
+  "aruba networks": {
+    "domains": [
+      "arubanetworks.com"
+    ]
+  },
+  "hpe": {
+    "domains": [
+      "hpe.com"
+    ]
+  },
+  "hewlett packard enterprise": {
+    "domains": [
+      "hpe.com"
+    ]
+  },
+  "cisco": {
+    "domains": [
+      "cisco.com"
+    ]
+  },
+  "h3c": {
+    "domains": [
+      "h3c.com"
+    ]
+  },
+  "ruijie": {
+    "domains": [
+      "ruijienetworks.com"
+    ]
+  },
+  "锐捷": {
+    "domains": [
+      "ruijienetworks.com"
+    ]
+  },
+  "zte": {
+    "domains": [
+      "zte.com.cn"
+    ]
+  },
+  "中兴": {
+    "domains": [
+      "zte.com.cn"
+    ]
+  },
+  "fiberhome": {
+    "domains": [
+      "fiberhome.com"
+    ]
+  },
+  "烽火": {
+    "domains": [
+      "fiberhome.com"
+    ]
+  }
+}

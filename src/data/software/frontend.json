@@ -1,182 +1,1211 @@
 {
-  "react": { "domains": ["react.dev"], "github": "facebook/react", "wikipedia": "React_(software)" },
-  "vue": { "domains": ["vuejs.org"], "github": "vuejs/core", "wikipedia": "Vue.js" },
-  "angular": { "domains": ["angular.io"], "github": "angular/angular", "wikipedia": "Angular_(web_framework)" },
-  "svelte": { "domains": ["svelte.dev"], "github": "sveltejs/svelte", "wikipedia": "Svelte" },
-  "solid": { "domains": ["solidjs.com"], "github": "solidjs/solid" },
-  "solidjs": { "domains": ["solidjs.com"], "github": "solidjs/solid" },
-  "preact": { "domains": ["preactjs.com"], "github": "preactjs/preact" },
-  "alpinejs": { "domains": ["alpinejs.dev"], "github": "alpinejs/alpine" },
-  "alpine": { "domains": ["alpinejs.dev"], "github": "alpinejs/alpine" },
-  "lit": { "domains": ["lit.dev"], "github": "lit/lit" },
-  "stencil": { "domains": ["stenciljs.com"], "github": "ionic-team/stencil" },
-  "qwik": { "domains": ["qwik.dev"], "github": "QwikDev/qwik" },
-  "marko": { "domains": ["markojs.com"], "github": "marko-js/marko" },
-  "ember": { "domains": ["emberjs.com"], "github": "emberjs/ember.js", "wikipedia": "Ember.js" },
-  "backbone": { "domains": ["backbonejs.org"], "github": "jashkenas/backbone", "wikipedia": "Backbone.js" },
-  "knockout": { "domains": ["knockoutjs.com"], "github": "knockout/knockout" },
-  "mithril": { "domains": ["mithril.js.org"], "github": "MithrilJS/mithril.js" },
-  "riot": { "domains": ["riot.js.org"], "github": "riot/riot" },
-  "htmx": { "domains": ["htmx.org"], "github": "bigskysoftware/htmx" },
-  "stimulus": { "domains": ["stimulus.hotwired.dev"], "clearbitDomains": ["hotwired.dev"], "github": "hotwired/stimulus" },
-  "hotwire": { "domains": ["hotwired.dev"], "github": "hotwired" },
-  "turbo": { "domains": ["turbo.hotwired.dev"], "clearbitDomains": ["hotwired.dev"], "github": "hotwired/turbo" },
-  "jquery": { "domains": ["jquery.com"], "github": "jquery/jquery", "wikipedia": "JQuery" },
-  "prototype": { "domains": ["prototypejs.org"], "github": "sstephenson/prototype" },
-  "dojo": { "domains": ["dojotoolkit.org"], "github": "dojo/dojo" },
-  "extjs": { "domains": ["sencha.com"], "github": "sencha" },
-  "sencha": { "domains": ["sencha.com"], "github": "sencha" },
-  "kendo": { "domains": ["telerik.com/kendo-ui"], "clearbitDomains": ["telerik.com"], "github": "telerik/kendo-ui-core" },
-  "tailwind": { "domains": ["tailwindcss.com"], "github": "tailwindlabs/tailwindcss", "wikipedia": "Tailwind_CSS" },
-  "tailwindcss": { "domains": ["tailwindcss.com"], "github": "tailwindlabs/tailwindcss", "wikipedia": "Tailwind_CSS" },
-  "bootstrap": { "domains": ["getbootstrap.com"], "github": "twbs/bootstrap", "wikipedia": "Bootstrap_(front-end_framework)" },
-  "bulma": { "domains": ["bulma.io"], "github": "jgthms/bulma" },
-  "foundation": { "domains": ["get.foundation"], "github": "foundation/foundation-sites" },
-  "semantic ui": { "domains": ["semantic-ui.com"], "github": "Semantic-Org/Semantic-UI" },
-  "chakra ui": { "domains": ["chakra-ui.com"], "github": "chakra-ui/chakra-ui" },
-  "mantine": { "domains": ["mantine.dev"], "github": "mantinedev/mantine" },
-  "radix ui": { "domains": ["radix-ui.com"], "github": "radix-ui/primitives" },
-  "shadcn": { "domains": ["ui.shadcn.com"], "clearbitDomains": ["shadcn.com"], "github": "shadcn-ui/ui" },
-  "shadcn ui": { "domains": ["ui.shadcn.com"], "clearbitDomains": ["shadcn.com"], "github": "shadcn-ui/ui" },
-  "nextui": { "domains": ["nextui.org"], "github": "nextui-org/nextui" },
-  "ant design": { "domains": ["ant.design"], "github": "ant-design/ant-design" },
-  "antd": { "domains": ["ant.design"], "github": "ant-design/ant-design" },
-  "element ui": { "domains": ["element-plus.org"], "github": "ElemeFE/element" },
-  "element plus": { "domains": ["element-plus.org"], "github": "element-plus/element-plus" },
-  "quasar": { "domains": ["quasar.dev"], "github": "quasarframework/quasar" },
-  "vuetify": { "domains": ["vuetifyjs.com"], "github": "vuetifyjs/vuetify" },
-  "primevue": { "domains": ["primevue.org"], "github": "primefaces/primevue" },
-  "primefaces": { "domains": ["primefaces.org"], "github": "primefaces" },
-  "primeng": { "domains": ["primeng.org"], "github": "primefaces/primeng" },
-  "primereact": { "domains": ["primereact.org"], "github": "primefaces/primereact" },
-  "arco design": { "domains": ["arco.design"], "github": "arco-design/arco-design" },
-  "semi design": { "domains": ["semi.design"], "github": "DouyinFE/semi-design" },
-  "tdesign": { "domains": ["tdesign.tencent.com"], "clearbitDomains": ["tencent.com"], "github": "Tencent/tdesign" },
-  "fluent ui": { "domains": ["developer.microsoft.com/fluentui"], "clearbitDomains": ["microsoft.com"], "github": "microsoft/fluentui" },
-  "carbon": { "domains": ["carbondesignsystem.com"], "github": "carbon-design-system" },
-  "material ui": { "domains": ["mui.com"], "github": "mui/material-ui" },
-  "mui": { "domains": ["mui.com"], "github": "mui/material-ui" },
-  "joy ui": { "domains": ["mui.com"], "github": "mui/material-ui" },
-  "grommet": { "domains": ["v2.grommet.io"], "clearbitDomains": ["grommet.io"], "github": "grommet/grommet" },
-  "oruga": { "domains": ["oruga.io"], "github": "oruga-ui/oruga" },
-  "buefy": { "domains": ["buefy.org"], "github": "buefy/buefy" },
-  "naive ui": { "domains": ["naiveui.com"], "github": "tusen-ai/naive-ui" },
-  "vuesax": { "domains": ["vuesax.com"], "github": "lusaxweb/vuesax" },
-  "at-ui": { "domains": ["at-ui.github.io"], "clearbitDomains": ["github.com"], "github": "at-ui/at-ui" },
-  "webpack": { "domains": ["webpack.js.org"], "github": "webpack/webpack", "wikipedia": "Webpack" },
-  "vite": { "domains": ["vitejs.dev"], "github": "vitejs/vite", "wikipedia": "Vite_(software)" },
-  "rollup": { "domains": ["rollupjs.org"], "github": "rollup/rollup" },
-  "parcel": { "domains": ["parceljs.org"], "github": "parcel-bundler/parcel" },
-  "esbuild": { "domains": ["esbuild.github.io"], "clearbitDomains": ["github.com"], "github": "evanw/esbuild" },
-  "swc": { "domains": ["swc.rs"], "github": "swc-project/swc" },
-  "turbopack": { "domains": ["turbo.build/pack"], "clearbitDomains": ["turbo.build"], "github": "vercel/turbo" },
-  "turborepo": { "domains": ["turbo.build/repo"], "clearbitDomains": ["turbo.build"], "github": "vercel/turbo" },
-  "babel": { "domains": ["babeljs.io"], "github": "babel/babel" },
-  "postcss": { "domains": ["postcss.org"], "github": "postcss/postcss" },
-  "sass": { "domains": ["sass-lang.com"], "github": "sass/sass" },
-  "less": { "domains": ["lesscss.org"], "github": "less/less.js" },
-  "stylus": { "domains": ["stylus-lang.com"], "github": "stylus/stylus" },
-  "unocss": { "domains": ["unocss.dev"], "github": "unocss/unocss" },
-  "windicss": { "domains": ["windicss.org"], "github": "windicss/windicss" },
-  "twin.macro": { "domains": ["github.com/ben-rogerson/twin.macro"], "clearbitDomains": ["github.com"], "github": "ben-rogerson/twin.macro" },
-  "linaria": { "domains": ["linaria.dev"], "github": "callstack/linaria" },
-  "styled-components": { "domains": ["styled-components.com"], "github": "styled-components/styled-components" },
-  "emotion": { "domains": ["emotion.sh"], "github": "emotion-js/emotion" },
-  "framer motion": { "domains": ["framer.com/motion"], "clearbitDomains": ["framer.com"], "github": "framer/motion" },
-  "gsap": { "domains": ["gsap.com"], "github": "greensock/GSAP" },
-  "greensock": { "domains": ["gsap.com"], "github": "greensock/GSAP" },
-  "animejs": { "domains": ["animejs.com"], "github": "juliangarnier/anime" },
-  "popmotion": { "domains": ["popmotion.io"], "github": "Popmotion/popmotion" },
-  "lottie": { "domains": ["airbnb.io/lottie"], "clearbitDomains": ["airbnb.io"], "github": "airbnb/lottie-web" },
-  "threejs": { "domains": ["threejs.org"], "github": "mrdoob/three.js" },
-  "babylonjs": { "domains": ["babylonjs.com"], "github": "BabylonJS/Babylon.js" },
-  "playcanvas": { "domains": ["playcanvas.com"], "github": "playcanvas/engine" },
-  "pixijs": { "domains": ["pixijs.com"], "github": "pixijs/pixijs" },
-  "phaser": { "domains": ["phaser.io"], "github": "phaserjs/phaser" },
-  "d3": { "domains": ["d3js.org"], "github": "d3/d3" },
-  "chartjs": { "domains": ["chartjs.org"], "github": "chartjs/Chart.js" },
-  "highcharts": { "domains": ["highcharts.com"], "github": "highcharts/highcharts" },
-  "echarts": { "domains": ["echarts.apache.org"], "github": "apache/echarts" },
-  "plotly": { "domains": ["plotly.com"], "github": "plotly/plotly.js" },
-  "vega": { "domains": ["vega.github.io"], "clearbitDomains": ["github.com"], "github": "vega/vega" },
-  "ag-grid": { "domains": ["ag-grid.com"], "github": "ag-grid/ag-grid" },
-  "handsontable": { "domains": ["handsontable.com"], "github": "handsontable/handsontable" },
-  "datatables": { "domains": ["datatables.net"], "github": "DataTables/DataTablesSrc" },
-  "tabulator": { "domains": ["tabulator.info"], "github": "olifolkerd/tabulator" },
-  "gridjs": { "domains": ["gridjs.io"], "github": "grid-js/gridjs" },
-  "tanstack table": { "domains": ["tanstack.com/table"], "clearbitDomains": ["tanstack.com"], "github": "TanStack/table" },
-  "react table": { "domains": ["tanstack.com/table"], "clearbitDomains": ["tanstack.com"], "github": "TanStack/table" },
-  "tanstack query": { "domains": ["tanstack.com/query"], "clearbitDomains": ["tanstack.com"], "github": "TanStack/query" },
-  "react query": { "domains": ["tanstack.com/query"], "clearbitDomains": ["tanstack.com"], "github": "TanStack/query" },
-  "tanstack router": { "domains": ["tanstack.com/router"], "clearbitDomains": ["tanstack.com"], "github": "TanStack/router" },
-  "zustand": { "domains": ["github.com/pmndrs/zustand"], "clearbitDomains": ["github.com"], "github": "pmndrs/zustand" },
-  "jotai": { "domains": ["jotai.org"], "github": "pmndrs/jotai" },
-  "recoil": { "domains": ["recoiljs.org"], "github": "facebookexperimental/Recoil" },
-  "valtio": { "domains": ["valtio.pmnd.rs"], "clearbitDomains": ["pmnd.rs"], "github": "pmndrs/valtio" },
-  "redux": { "domains": ["redux.js.org"], "github": "reduxjs/redux" },
-  "mobx": { "domains": ["mobx.js.org"], "github": "mobxjs/mobx" },
-  "pinia": { "domains": ["pinia.vuejs.org"], "clearbitDomains": ["vuejs.org"], "github": "vuejs/pinia" },
-  "xstate": { "domains": ["stately.ai"], "github": "statelyai/xstate" },
-  "immer": { "domains": ["immerjs.github.io/immer"], "clearbitDomains": ["github.com"], "github": "immerjs/immer" },
-  "date-fns": { "domains": ["date-fns.org"], "github": "date-fns/date-fns" },
-  "dayjs": { "domains": ["day.js.org"], "clearbitDomains": ["day.js.org"], "github": "iamkun/dayjs" },
-  "moment": { "domains": ["momentjs.com"], "github": "moment/moment" },
-  "luxon": { "domains": ["moment.github.io/luxon"], "clearbitDomains": ["github.com"], "github": "moment/luxon" },
-  "zod": { "domains": ["zod.dev"], "github": "colinhacks/zod" },
-  "yup": { "domains": ["github.com/jquense/yup"], "clearbitDomains": ["github.com"], "github": "jquense/yup" },
-  "joi": { "domains": ["joi.dev"], "github": "hapijs/joi" },
-  "superstruct": { "domains": ["docs.superstructjs.org"], "clearbitDomains": ["docs.superstructjs.org"], "github": "ianstormtaylor/superstruct" },
-  "ajv": { "domains": ["ajv.js.org"], "github": "ajv-validator/ajv" },
-  "react hook form": { "domains": ["react-hook-form.com"], "github": "react-hook-form/react-hook-form" },
-  "formik": { "domains": ["formik.org"], "github": "jaredpalmer/formik" },
-  "react router": { "domains": ["reactrouter.com"], "github": "remix-run/react-router" },
-  "remix": { "domains": ["remix.run"], "github": "remix-run/remix" },
-  "nextjs": { "domains": ["nextjs.org"], "github": "vercel/next.js", "wikipedia": "Next.js" },
-  "next.js": { "domains": ["nextjs.org"], "github": "vercel/next.js", "wikipedia": "Next.js" },
-  "nuxt": { "domains": ["nuxt.com"], "github": "nuxt/nuxt", "wikipedia": "Nuxt.js" },
-  "nuxtjs": { "domains": ["nuxt.com"], "github": "nuxt/nuxt", "wikipedia": "Nuxt.js" },
-  "astro": { "domains": ["astro.build"], "github": "withastro/astro" },
-  "gatsby": { "domains": ["gatsbyjs.com"], "github": "gatsbyjs/gatsby", "wikipedia": "Gatsby_(software)" },
-  "hugo": { "domains": ["gohugo.io"], "github": "gohugoio/hugo", "wikipedia": "Hugo_(software)" },
-  "jekyll": { "domains": ["jekyllrb.com"], "github": "jekyll/jekyll", "wikipedia": "Jekyll_(software)" },
-  "eleventy": { "domains": ["11ty.dev"], "github": "11ty/eleventy" },
-  "hexo": { "domains": ["hexo.io"], "github": "hexojs/hexo" },
-  "vuepress": { "domains": ["vuepress.vuejs.org"], "clearbitDomains": ["vuejs.org"], "github": "vuejs/vuepress" },
-  "vitepress": { "domains": ["vitepress.dev"], "github": "vuejs/vitepress" },
-  "docusaurus": { "domains": ["docusaurus.io"], "github": "facebook/docusaurus" },
-  "storybook": { "domains": ["storybook.js.org"], "github": "storybookjs/storybook" },
-  "styleguidist": { "domains": ["react-styleguidist.js.org"], "clearbitDomains": ["js.org"], "github": "styleguidist/react-styleguidist" },
-  "bit": { "domains": ["bit.dev"], "github": "teambit/bit" },
-  "lerna": { "domains": ["lerna.js.org"], "github": "lerna/lerna" },
-  "nx": { "domains": ["nx.dev"], "github": "nrwl/nx" },
-  "turborepo": { "domains": ["turbo.build/repo"], "clearbitDomains": ["turbo.build"], "github": "vercel/turbo" },
-  "rush": { "domains": ["rushjs.io"], "github": "microsoft/rushstack" },
-  "pnpm": { "domains": ["pnpm.io"], "github": "pnpm/pnpm" },
-  "yarn": { "domains": ["yarnpkg.com"], "github": "yarnpkg/yarn" },
-  "npm": { "domains": ["npmjs.com"], "github": "npm/cli", "wikipedia": "Npm_(software)" },
-  "bun": { "domains": ["bun.sh"], "github": "oven-sh/bun" },
-  "deno": { "domains": ["deno.land"], "github": "denoland/deno" },
-  "gulp": { "domains": ["gulpjs.com"], "github": "gulpjs/gulp" },
-  "grunt": { "domains": ["gruntjs.com"], "github": "gruntjs/grunt" },
-  "broccoli": { "domains": ["broccoli.build"], "github": "broccolijs/broccoli" },
-  "brunch": { "domains": ["brunch.io"], "github": "brunch/brunch" },
-  "parcel": { "domains": ["parceljs.org"], "github": "parcel-bundler/parcel" },
-  "rome": { "domains": ["rome.tools"], "github": "rome/tools" },
-  "biome": { "domains": ["biomejs.dev"], "github": "biomejs/biome" },
-  "oxc": { "domains": ["oxc.rs"], "github": "oxc-project/oxc" },
-  "prettier": { "domains": ["prettier.io"], "github": "prettier/prettier" },
-  "eslint": { "domains": ["eslint.org"], "github": "eslint/eslint", "wikipedia": "ESLint" },
-  "tslint": { "domains": ["palantir.github.io/tslint"], "clearbitDomains": ["github.com"], "github": "palantir/tslint" },
-  "stylelint": { "domains": ["stylelint.io"], "github": "stylelint/stylelint" },
-  "markdownlint": { "domains": ["github.com/DavidAnson/markdownlint"], "clearbitDomains": ["github.com"], "github": "DavidAnson/markdownlint" },
-  "commitlint": { "domains": ["commitlint.js.org"], "github": "conventional-changelog/commitlint" },
-  "husky": { "domains": ["typicode.github.io/husky"], "clearbitDomains": ["github.com"], "github": "typicode/husky" },
-  "lint-staged": { "domains": ["github.com/okonet/lint-staged"], "clearbitDomains": ["github.com"], "github": "okonet/lint-staged" },
-  "commitizen": { "domains": ["commitizen.github.io/cz-cli"], "clearbitDomains": ["github.com"], "github": "commitizen/cz-cli" },
-  "semantic-release": { "domains": ["semantic-release.gitbook.io"], "clearbitDomains": ["gitbook.io"], "github": "semantic-release/semantic-release" },
-  "changesets": { "domains": ["github.com/changesets/changesets"], "clearbitDomains": ["github.com"], "github": "changesets/changesets" },
-  "release-it": { "domains": ["github.com/release-it/release-it"], "clearbitDomains": ["github.com"], "github": "release-it/release-it" },
-  "vite-plugin-pwa": { "domains": ["vite-pwa-org.netlify.app"], "clearbitDomains": ["netlify.app"], "github": "vite-pwa/vite-plugin-pwa" },
-  "workbox": { "domains": ["developer.chrome.com/docs/workbox"], "clearbitDomains": ["google.com"], "github": "GoogleChrome/workbox" },
-  "astro-pwa": { "domains": ["github.com/vite-pwa/astro"], "clearbitDomains": ["github.com"], "github": "vite-pwa/astro" }
+  "react": {
+    "domains": [
+      "react.dev"
+    ],
+    "github": "facebook/react",
+    "wikipedia": "React_(software)"
+  },
+  "vue": {
+    "domains": [
+      "vuejs.org"
+    ],
+    "github": "vuejs/core",
+    "wikipedia": "Vue.js"
+  },
+  "angular": {
+    "domains": [
+      "angular.io"
+    ],
+    "github": "angular/angular",
+    "wikipedia": "Angular_(web_framework)"
+  },
+  "svelte": {
+    "domains": [
+      "svelte.dev"
+    ],
+    "github": "sveltejs/svelte",
+    "wikipedia": "Svelte"
+  },
+  "solid": {
+    "domains": [
+      "solidjs.com"
+    ],
+    "github": "solidjs/solid"
+  },
+  "solidjs": {
+    "domains": [
+      "solidjs.com"
+    ],
+    "github": "solidjs/solid"
+  },
+  "preact": {
+    "domains": [
+      "preactjs.com"
+    ],
+    "github": "preactjs/preact"
+  },
+  "alpinejs": {
+    "domains": [
+      "alpinejs.dev"
+    ],
+    "github": "alpinejs/alpine"
+  },
+  "alpine": {
+    "domains": [
+      "alpinejs.dev"
+    ],
+    "github": "alpinejs/alpine"
+  },
+  "lit": {
+    "domains": [
+      "lit.dev"
+    ],
+    "github": "lit/lit"
+  },
+  "stencil": {
+    "domains": [
+      "stenciljs.com"
+    ],
+    "github": "ionic-team/stencil"
+  },
+  "qwik": {
+    "domains": [
+      "qwik.dev"
+    ],
+    "github": "QwikDev/qwik"
+  },
+  "marko": {
+    "domains": [
+      "markojs.com"
+    ],
+    "github": "marko-js/marko"
+  },
+  "ember": {
+    "domains": [
+      "emberjs.com"
+    ],
+    "github": "emberjs/ember.js",
+    "wikipedia": "Ember.js"
+  },
+  "backbone": {
+    "domains": [
+      "backbonejs.org"
+    ],
+    "github": "jashkenas/backbone",
+    "wikipedia": "Backbone.js"
+  },
+  "knockout": {
+    "domains": [
+      "knockoutjs.com"
+    ],
+    "github": "knockout/knockout"
+  },
+  "mithril": {
+    "domains": [
+      "mithril.js.org"
+    ],
+    "github": "MithrilJS/mithril.js"
+  },
+  "riot": {
+    "domains": [
+      "riot.js.org"
+    ],
+    "github": "riot/riot"
+  },
+  "htmx": {
+    "domains": [
+      "htmx.org"
+    ],
+    "github": "bigskysoftware/htmx"
+  },
+  "stimulus": {
+    "domains": [
+      "stimulus.hotwired.dev"
+    ],
+    "clearbitDomains": [
+      "hotwired.dev"
+    ],
+    "github": "hotwired/stimulus"
+  },
+  "hotwire": {
+    "domains": [
+      "hotwired.dev"
+    ],
+    "github": "hotwired"
+  },
+  "turbo": {
+    "domains": [
+      "turbo.hotwired.dev"
+    ],
+    "clearbitDomains": [
+      "hotwired.dev"
+    ],
+    "github": "hotwired/turbo"
+  },
+  "jquery": {
+    "domains": [
+      "jquery.com"
+    ],
+    "github": "jquery/jquery",
+    "wikipedia": "JQuery"
+  },
+  "prototype": {
+    "domains": [
+      "prototypejs.org"
+    ],
+    "github": "sstephenson/prototype"
+  },
+  "dojo": {
+    "domains": [
+      "dojotoolkit.org"
+    ],
+    "github": "dojo/dojo"
+  },
+  "extjs": {
+    "domains": [
+      "sencha.com"
+    ],
+    "github": "sencha"
+  },
+  "sencha": {
+    "domains": [
+      "sencha.com"
+    ],
+    "github": "sencha"
+  },
+  "kendo": {
+    "domains": [
+      "telerik.com"
+    ],
+    "clearbitDomains": [
+      "telerik.com"
+    ],
+    "github": "telerik/kendo-ui-core"
+  },
+  "tailwind": {
+    "domains": [
+      "tailwindcss.com"
+    ],
+    "github": "tailwindlabs/tailwindcss",
+    "wikipedia": "Tailwind_CSS"
+  },
+  "tailwindcss": {
+    "domains": [
+      "tailwindcss.com"
+    ],
+    "github": "tailwindlabs/tailwindcss",
+    "wikipedia": "Tailwind_CSS"
+  },
+  "bootstrap": {
+    "domains": [
+      "getbootstrap.com"
+    ],
+    "github": "twbs/bootstrap",
+    "wikipedia": "Bootstrap_(front-end_framework)"
+  },
+  "bulma": {
+    "domains": [
+      "bulma.io"
+    ],
+    "github": "jgthms/bulma"
+  },
+  "foundation": {
+    "domains": [
+      "get.foundation"
+    ],
+    "github": "foundation/foundation-sites"
+  },
+  "semantic ui": {
+    "domains": [
+      "semantic-ui.com"
+    ],
+    "github": "Semantic-Org/Semantic-UI"
+  },
+  "chakra ui": {
+    "domains": [
+      "chakra-ui.com"
+    ],
+    "github": "chakra-ui/chakra-ui"
+  },
+  "mantine": {
+    "domains": [
+      "mantine.dev"
+    ],
+    "github": "mantinedev/mantine"
+  },
+  "radix ui": {
+    "domains": [
+      "radix-ui.com"
+    ],
+    "github": "radix-ui/primitives"
+  },
+  "shadcn": {
+    "domains": [
+      "ui.shadcn.com"
+    ],
+    "clearbitDomains": [
+      "shadcn.com"
+    ],
+    "github": "shadcn-ui/ui"
+  },
+  "shadcn ui": {
+    "domains": [
+      "ui.shadcn.com"
+    ],
+    "clearbitDomains": [
+      "shadcn.com"
+    ],
+    "github": "shadcn-ui/ui"
+  },
+  "nextui": {
+    "domains": [
+      "nextui.org"
+    ],
+    "github": "nextui-org/nextui"
+  },
+  "ant design": {
+    "domains": [
+      "ant.design"
+    ],
+    "github": "ant-design/ant-design"
+  },
+  "antd": {
+    "domains": [
+      "ant.design"
+    ],
+    "github": "ant-design/ant-design"
+  },
+  "element ui": {
+    "domains": [
+      "element-plus.org"
+    ],
+    "github": "ElemeFE/element"
+  },
+  "element plus": {
+    "domains": [
+      "element-plus.org"
+    ],
+    "github": "element-plus/element-plus"
+  },
+  "quasar": {
+    "domains": [
+      "quasar.dev"
+    ],
+    "github": "quasarframework/quasar"
+  },
+  "vuetify": {
+    "domains": [
+      "vuetifyjs.com"
+    ],
+    "github": "vuetifyjs/vuetify"
+  },
+  "primevue": {
+    "domains": [
+      "primevue.org"
+    ],
+    "github": "primefaces/primevue"
+  },
+  "primefaces": {
+    "domains": [
+      "primefaces.org"
+    ],
+    "github": "primefaces"
+  },
+  "primeng": {
+    "domains": [
+      "primeng.org"
+    ],
+    "github": "primefaces/primeng"
+  },
+  "primereact": {
+    "domains": [
+      "primereact.org"
+    ],
+    "github": "primefaces/primereact"
+  },
+  "arco design": {
+    "domains": [
+      "arco.design"
+    ],
+    "github": "arco-design/arco-design"
+  },
+  "semi design": {
+    "domains": [
+      "semi.design"
+    ],
+    "github": "DouyinFE/semi-design"
+  },
+  "tdesign": {
+    "domains": [
+      "tdesign.tencent.com"
+    ],
+    "clearbitDomains": [
+      "tencent.com"
+    ],
+    "github": "Tencent/tdesign"
+  },
+  "fluent ui": {
+    "domains": [
+      "developer.microsoft.com"
+    ],
+    "clearbitDomains": [
+      "microsoft.com"
+    ],
+    "github": "microsoft/fluentui"
+  },
+  "carbon": {
+    "domains": [
+      "carbondesignsystem.com"
+    ],
+    "github": "carbon-design-system"
+  },
+  "material ui": {
+    "domains": [
+      "mui.com"
+    ],
+    "github": "mui/material-ui"
+  },
+  "mui": {
+    "domains": [
+      "mui.com"
+    ],
+    "github": "mui/material-ui"
+  },
+  "joy ui": {
+    "domains": [
+      "mui.com"
+    ],
+    "github": "mui/material-ui"
+  },
+  "grommet": {
+    "domains": [
+      "v2.grommet.io"
+    ],
+    "clearbitDomains": [
+      "grommet.io"
+    ],
+    "github": "grommet/grommet"
+  },
+  "oruga": {
+    "domains": [
+      "oruga.io"
+    ],
+    "github": "oruga-ui/oruga"
+  },
+  "buefy": {
+    "domains": [
+      "buefy.org"
+    ],
+    "github": "buefy/buefy"
+  },
+  "naive ui": {
+    "domains": [
+      "naiveui.com"
+    ],
+    "github": "tusen-ai/naive-ui"
+  },
+  "vuesax": {
+    "domains": [
+      "vuesax.com"
+    ],
+    "github": "lusaxweb/vuesax"
+  },
+  "at-ui": {
+    "domains": [
+      "at-ui.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "at-ui/at-ui"
+  },
+  "webpack": {
+    "domains": [
+      "webpack.js.org"
+    ],
+    "github": "webpack/webpack",
+    "wikipedia": "Webpack"
+  },
+  "vite": {
+    "domains": [
+      "vitejs.dev"
+    ],
+    "github": "vitejs/vite",
+    "wikipedia": "Vite_(software)"
+  },
+  "rollup": {
+    "domains": [
+      "rollupjs.org"
+    ],
+    "github": "rollup/rollup"
+  },
+  "parcel": {
+    "domains": [
+      "parceljs.org"
+    ],
+    "github": "parcel-bundler/parcel"
+  },
+  "esbuild": {
+    "domains": [
+      "esbuild.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "evanw/esbuild"
+  },
+  "swc": {
+    "domains": [
+      "swc.rs"
+    ],
+    "github": "swc-project/swc"
+  },
+  "turbopack": {
+    "domains": [
+      "turbo.build"
+    ],
+    "clearbitDomains": [
+      "turbo.build"
+    ],
+    "github": "vercel/turbo"
+  },
+  "turborepo": {
+    "domains": [
+      "turbo.build"
+    ],
+    "clearbitDomains": [
+      "turbo.build"
+    ],
+    "github": "vercel/turbo"
+  },
+  "babel": {
+    "domains": [
+      "babeljs.io"
+    ],
+    "github": "babel/babel"
+  },
+  "postcss": {
+    "domains": [
+      "postcss.org"
+    ],
+    "github": "postcss/postcss"
+  },
+  "sass": {
+    "domains": [
+      "sass-lang.com"
+    ],
+    "github": "sass/sass"
+  },
+  "less": {
+    "domains": [
+      "lesscss.org"
+    ],
+    "github": "less/less.js"
+  },
+  "stylus": {
+    "domains": [
+      "stylus-lang.com"
+    ],
+    "github": "stylus/stylus"
+  },
+  "unocss": {
+    "domains": [
+      "unocss.dev"
+    ],
+    "github": "unocss/unocss"
+  },
+  "windicss": {
+    "domains": [
+      "windicss.org"
+    ],
+    "github": "windicss/windicss"
+  },
+  "twin.macro": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "ben-rogerson/twin.macro"
+  },
+  "linaria": {
+    "domains": [
+      "linaria.dev"
+    ],
+    "github": "callstack/linaria"
+  },
+  "styled-components": {
+    "domains": [
+      "styled-components.com"
+    ],
+    "github": "styled-components/styled-components"
+  },
+  "emotion": {
+    "domains": [
+      "emotion.sh"
+    ],
+    "github": "emotion-js/emotion"
+  },
+  "framer motion": {
+    "domains": [
+      "framer.com"
+    ],
+    "clearbitDomains": [
+      "framer.com"
+    ],
+    "github": "framer/motion"
+  },
+  "gsap": {
+    "domains": [
+      "gsap.com"
+    ],
+    "github": "greensock/GSAP"
+  },
+  "greensock": {
+    "domains": [
+      "gsap.com"
+    ],
+    "github": "greensock/GSAP"
+  },
+  "animejs": {
+    "domains": [
+      "animejs.com"
+    ],
+    "github": "juliangarnier/anime"
+  },
+  "popmotion": {
+    "domains": [
+      "popmotion.io"
+    ],
+    "github": "Popmotion/popmotion"
+  },
+  "lottie": {
+    "domains": [
+      "airbnb.io"
+    ],
+    "clearbitDomains": [
+      "airbnb.io"
+    ],
+    "github": "airbnb/lottie-web"
+  },
+  "threejs": {
+    "domains": [
+      "threejs.org"
+    ],
+    "github": "mrdoob/three.js"
+  },
+  "babylonjs": {
+    "domains": [
+      "babylonjs.com"
+    ],
+    "github": "BabylonJS/Babylon.js"
+  },
+  "playcanvas": {
+    "domains": [
+      "playcanvas.com"
+    ],
+    "github": "playcanvas/engine"
+  },
+  "pixijs": {
+    "domains": [
+      "pixijs.com"
+    ],
+    "github": "pixijs/pixijs"
+  },
+  "phaser": {
+    "domains": [
+      "phaser.io"
+    ],
+    "github": "phaserjs/phaser"
+  },
+  "d3": {
+    "domains": [
+      "d3js.org"
+    ],
+    "github": "d3/d3"
+  },
+  "chartjs": {
+    "domains": [
+      "chartjs.org"
+    ],
+    "github": "chartjs/Chart.js"
+  },
+  "highcharts": {
+    "domains": [
+      "highcharts.com"
+    ],
+    "github": "highcharts/highcharts"
+  },
+  "echarts": {
+    "domains": [
+      "echarts.apache.org"
+    ],
+    "github": "apache/echarts"
+  },
+  "plotly": {
+    "domains": [
+      "plotly.com"
+    ],
+    "github": "plotly/plotly.js"
+  },
+  "vega": {
+    "domains": [
+      "vega.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "vega/vega"
+  },
+  "ag-grid": {
+    "domains": [
+      "ag-grid.com"
+    ],
+    "github": "ag-grid/ag-grid"
+  },
+  "handsontable": {
+    "domains": [
+      "handsontable.com"
+    ],
+    "github": "handsontable/handsontable"
+  },
+  "datatables": {
+    "domains": [
+      "datatables.net"
+    ],
+    "github": "DataTables/DataTablesSrc"
+  },
+  "tabulator": {
+    "domains": [
+      "tabulator.info"
+    ],
+    "github": "olifolkerd/tabulator"
+  },
+  "gridjs": {
+    "domains": [
+      "gridjs.io"
+    ],
+    "github": "grid-js/gridjs"
+  },
+  "tanstack table": {
+    "domains": [
+      "tanstack.com"
+    ],
+    "clearbitDomains": [
+      "tanstack.com"
+    ],
+    "github": "TanStack/table"
+  },
+  "react table": {
+    "domains": [
+      "tanstack.com"
+    ],
+    "clearbitDomains": [
+      "tanstack.com"
+    ],
+    "github": "TanStack/table"
+  },
+  "tanstack query": {
+    "domains": [
+      "tanstack.com"
+    ],
+    "clearbitDomains": [
+      "tanstack.com"
+    ],
+    "github": "TanStack/query"
+  },
+  "react query": {
+    "domains": [
+      "tanstack.com"
+    ],
+    "clearbitDomains": [
+      "tanstack.com"
+    ],
+    "github": "TanStack/query"
+  },
+  "tanstack router": {
+    "domains": [
+      "tanstack.com"
+    ],
+    "clearbitDomains": [
+      "tanstack.com"
+    ],
+    "github": "TanStack/router"
+  },
+  "zustand": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "pmndrs/zustand"
+  },
+  "jotai": {
+    "domains": [
+      "jotai.org"
+    ],
+    "github": "pmndrs/jotai"
+  },
+  "recoil": {
+    "domains": [
+      "recoiljs.org"
+    ],
+    "github": "facebookexperimental/Recoil"
+  },
+  "valtio": {
+    "domains": [
+      "valtio.pmnd.rs"
+    ],
+    "clearbitDomains": [
+      "pmnd.rs"
+    ],
+    "github": "pmndrs/valtio"
+  },
+  "redux": {
+    "domains": [
+      "redux.js.org"
+    ],
+    "github": "reduxjs/redux"
+  },
+  "mobx": {
+    "domains": [
+      "mobx.js.org"
+    ],
+    "github": "mobxjs/mobx"
+  },
+  "pinia": {
+    "domains": [
+      "pinia.vuejs.org"
+    ],
+    "clearbitDomains": [
+      "vuejs.org"
+    ],
+    "github": "vuejs/pinia"
+  },
+  "xstate": {
+    "domains": [
+      "stately.ai"
+    ],
+    "github": "statelyai/xstate"
+  },
+  "immer": {
+    "domains": [
+      "immerjs.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "immerjs/immer"
+  },
+  "date-fns": {
+    "domains": [
+      "date-fns.org"
+    ],
+    "github": "date-fns/date-fns"
+  },
+  "dayjs": {
+    "domains": [
+      "day.js.org"
+    ],
+    "clearbitDomains": [
+      "day.js.org"
+    ],
+    "github": "iamkun/dayjs"
+  },
+  "moment": {
+    "domains": [
+      "momentjs.com"
+    ],
+    "github": "moment/moment"
+  },
+  "luxon": {
+    "domains": [
+      "moment.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "moment/luxon"
+  },
+  "zod": {
+    "domains": [
+      "zod.dev"
+    ],
+    "github": "colinhacks/zod"
+  },
+  "yup": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "jquense/yup"
+  },
+  "joi": {
+    "domains": [
+      "joi.dev"
+    ],
+    "github": "hapijs/joi"
+  },
+  "superstruct": {
+    "domains": [
+      "docs.superstructjs.org"
+    ],
+    "clearbitDomains": [
+      "docs.superstructjs.org"
+    ],
+    "github": "ianstormtaylor/superstruct"
+  },
+  "ajv": {
+    "domains": [
+      "ajv.js.org"
+    ],
+    "github": "ajv-validator/ajv"
+  },
+  "react hook form": {
+    "domains": [
+      "react-hook-form.com"
+    ],
+    "github": "react-hook-form/react-hook-form"
+  },
+  "formik": {
+    "domains": [
+      "formik.org"
+    ],
+    "github": "jaredpalmer/formik"
+  },
+  "react router": {
+    "domains": [
+      "reactrouter.com"
+    ],
+    "github": "remix-run/react-router"
+  },
+  "remix": {
+    "domains": [
+      "remix.run"
+    ],
+    "github": "remix-run/remix"
+  },
+  "nextjs": {
+    "domains": [
+      "nextjs.org"
+    ],
+    "github": "vercel/next.js",
+    "wikipedia": "Next.js"
+  },
+  "next.js": {
+    "domains": [
+      "nextjs.org"
+    ],
+    "github": "vercel/next.js",
+    "wikipedia": "Next.js"
+  },
+  "nuxt": {
+    "domains": [
+      "nuxt.com"
+    ],
+    "github": "nuxt/nuxt",
+    "wikipedia": "Nuxt.js"
+  },
+  "nuxtjs": {
+    "domains": [
+      "nuxt.com"
+    ],
+    "github": "nuxt/nuxt",
+    "wikipedia": "Nuxt.js"
+  },
+  "astro": {
+    "domains": [
+      "astro.build"
+    ],
+    "github": "withastro/astro"
+  },
+  "gatsby": {
+    "domains": [
+      "gatsbyjs.com"
+    ],
+    "github": "gatsbyjs/gatsby",
+    "wikipedia": "Gatsby_(software)"
+  },
+  "hugo": {
+    "domains": [
+      "gohugo.io"
+    ],
+    "github": "gohugoio/hugo",
+    "wikipedia": "Hugo_(software)"
+  },
+  "jekyll": {
+    "domains": [
+      "jekyllrb.com"
+    ],
+    "github": "jekyll/jekyll",
+    "wikipedia": "Jekyll_(software)"
+  },
+  "eleventy": {
+    "domains": [
+      "11ty.dev"
+    ],
+    "github": "11ty/eleventy"
+  },
+  "hexo": {
+    "domains": [
+      "hexo.io"
+    ],
+    "github": "hexojs/hexo"
+  },
+  "vuepress": {
+    "domains": [
+      "vuepress.vuejs.org"
+    ],
+    "clearbitDomains": [
+      "vuejs.org"
+    ],
+    "github": "vuejs/vuepress"
+  },
+  "vitepress": {
+    "domains": [
+      "vitepress.dev"
+    ],
+    "github": "vuejs/vitepress"
+  },
+  "docusaurus": {
+    "domains": [
+      "docusaurus.io"
+    ],
+    "github": "facebook/docusaurus"
+  },
+  "storybook": {
+    "domains": [
+      "storybook.js.org"
+    ],
+    "github": "storybookjs/storybook"
+  },
+  "styleguidist": {
+    "domains": [
+      "react-styleguidist.js.org"
+    ],
+    "clearbitDomains": [
+      "js.org"
+    ],
+    "github": "styleguidist/react-styleguidist"
+  },
+  "bit": {
+    "domains": [
+      "bit.dev"
+    ],
+    "github": "teambit/bit"
+  },
+  "lerna": {
+    "domains": [
+      "lerna.js.org"
+    ],
+    "github": "lerna/lerna"
+  },
+  "nx": {
+    "domains": [
+      "nx.dev"
+    ],
+    "github": "nrwl/nx"
+  },
+  "rush": {
+    "domains": [
+      "rushjs.io"
+    ],
+    "github": "microsoft/rushstack"
+  },
+  "pnpm": {
+    "domains": [
+      "pnpm.io"
+    ],
+    "github": "pnpm/pnpm"
+  },
+  "yarn": {
+    "domains": [
+      "yarnpkg.com"
+    ],
+    "github": "yarnpkg/yarn"
+  },
+  "npm": {
+    "domains": [
+      "npmjs.com"
+    ],
+    "github": "npm/cli",
+    "wikipedia": "Npm_(software)"
+  },
+  "bun": {
+    "domains": [
+      "bun.sh"
+    ],
+    "github": "oven-sh/bun"
+  },
+  "deno": {
+    "domains": [
+      "deno.land"
+    ],
+    "github": "denoland/deno"
+  },
+  "gulp": {
+    "domains": [
+      "gulpjs.com"
+    ],
+    "github": "gulpjs/gulp"
+  },
+  "grunt": {
+    "domains": [
+      "gruntjs.com"
+    ],
+    "github": "gruntjs/grunt"
+  },
+  "broccoli": {
+    "domains": [
+      "broccoli.build"
+    ],
+    "github": "broccolijs/broccoli"
+  },
+  "brunch": {
+    "domains": [
+      "brunch.io"
+    ],
+    "github": "brunch/brunch"
+  },
+  "biome": {
+    "domains": [
+      "biomejs.dev"
+    ],
+    "github": "biomejs/biome"
+  },
+  "oxc": {
+    "domains": [
+      "oxc.rs"
+    ],
+    "github": "oxc-project/oxc"
+  },
+  "prettier": {
+    "domains": [
+      "prettier.io"
+    ],
+    "github": "prettier/prettier"
+  },
+  "eslint": {
+    "domains": [
+      "eslint.org"
+    ],
+    "github": "eslint/eslint",
+    "wikipedia": "ESLint"
+  },
+  "tslint": {
+    "domains": [
+      "palantir.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "palantir/tslint"
+  },
+  "stylelint": {
+    "domains": [
+      "stylelint.io"
+    ],
+    "github": "stylelint/stylelint"
+  },
+  "markdownlint": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "DavidAnson/markdownlint"
+  },
+  "commitlint": {
+    "domains": [
+      "commitlint.js.org"
+    ],
+    "github": "conventional-changelog/commitlint"
+  },
+  "husky": {
+    "domains": [
+      "typicode.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "typicode/husky"
+  },
+  "lint-staged": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "okonet/lint-staged"
+  },
+  "commitizen": {
+    "domains": [
+      "commitizen.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "commitizen/cz-cli"
+  },
+  "semantic-release": {
+    "domains": [
+      "semantic-release.gitbook.io"
+    ],
+    "clearbitDomains": [
+      "gitbook.io"
+    ],
+    "github": "semantic-release/semantic-release"
+  },
+  "changesets": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "changesets/changesets"
+  },
+  "release-it": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "release-it/release-it"
+  },
+  "vite-plugin-pwa": {
+    "domains": [
+      "vite-pwa-org.netlify.app"
+    ],
+    "clearbitDomains": [
+      "netlify.app"
+    ],
+    "github": "vite-pwa/vite-plugin-pwa"
+  },
+  "workbox": {
+    "domains": [
+      "developer.chrome.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "GoogleChrome/workbox"
+  },
+  "astro-pwa": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "vite-pwa/astro"
+  }
 }

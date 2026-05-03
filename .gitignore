@@ -100,3 +100,6 @@ coverage/
 
 # Debug files
 debug/
+
+# Claude Code
+.claude/

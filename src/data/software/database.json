@@ -1,68 +1,428 @@
 {
-  "postgres": { "domains": ["postgresql.org"], "github": "postgres/postgres", "wikipedia": "PostgreSQL" },
-  "postgresql": { "domains": ["postgresql.org"], "github": "postgres/postgres", "wikipedia": "PostgreSQL" },
-  "mysql": { "domains": ["mysql.com"], "github": "mysql/mysql-server", "wikipedia": "MySQL" },
-  "mariadb": { "domains": ["mariadb.org"], "github": "MariaDB/server" },
-  "sqlite": { "domains": ["sqlite.org"], "github": "sqlite/sqlite" },
-  "mongodb": { "domains": ["mongodb.com"], "github": "mongodb/mongo", "wikipedia": "MongoDB" },
-  "redis": { "domains": ["redis.io"], "github": "redis/redis", "wikipedia": "Redis" },
-  "elasticsearch": { "domains": ["elastic.co"], "github": "elastic/elasticsearch", "wikipedia": "Elasticsearch" },
-  "cassandra": { "domains": ["cassandra.apache.org"], "github": "apache/cassandra" },
-  "cockroachdb": { "domains": ["cockroachlabs.com"], "github": "cockroachdb/cockroach" },
-  "cockroach": { "domains": ["cockroachlabs.com"], "github": "cockroachdb/cockroach" },
-  "tidb": { "domains": ["pingcap.com"], "github": "pingcap/tidb" },
-  "fauna": { "domains": ["fauna.com"], "github": "fauna/faunadb" },
-  "neo4j": { "domains": ["neo4j.com"], "github": "neo4j/neo4j" },
-  "arangodb": { "domains": ["arangodb.com"], "github": "arangodb/arangodb" },
-  "orientdb": { "domains": ["orientdb.org"], "github": "orientechnologies/orientdb" },
-  "dgraph": { "domains": ["dgraph.io"], "github": "dgraph-io/dgraph" },
-  "janusgraph": { "domains": ["janusgraph.org"], "github": "JanusGraph/janusgraph" },
-  "influxdb": { "domains": ["influxdata.com"], "github": "influxdata/influxdb" },
-  "timescaledb": { "domains": ["timescale.com"], "github": "timescale/timescaledb" },
-  "clickhouse": { "domains": ["clickhouse.com"], "github": "ClickHouse/ClickHouse" },
-  "druid": { "domains": ["druid.apache.org"], "github": "apache/druid" },
-  "pinot": { "domains": ["pinot.apache.org"], "github": "apache/pinot" },
-  "questdb": { "domains": ["questdb.io"], "github": "questdb/questdb" },
-  "duckdb": { "domains": ["duckdb.org"], "github": "duckdb/duckdb" },
-  "singlestore": { "domains": ["singlestore.com"], "github": "memsql" },
-  "memsql": { "domains": ["singlestore.com"], "github": "memsql" },
-  "vitess": { "domains": ["vitess.io"], "github": "vitessio/vitess" },
-  "spanner": { "domains": ["cloud.google.com/spanner"], "clearbitDomains": ["google.com"], "github": "googleapis" },
-  "bigquery": { "domains": ["cloud.google.com/bigquery"], "clearbitDomains": ["google.com"], "github": "googleapis" },
-  "snowflake": { "domains": ["snowflake.com"], "github": "snowflakedb" },
-  "redshift": { "domains": ["aws.amazon.com/redshift"], "clearbitDomains": ["aws.amazon.com"], "github": "aws" },
-  "presto": { "domains": ["prestodb.io"], "github": "prestodb/presto" },
-  "trino": { "domains": ["trino.io"], "github": "trinodb/trino" },
-  "couchdb": { "domains": ["couchdb.apache.org"], "github": "apache/couchdb" },
-  "pouchdb": { "domains": ["pouchdb.com"], "github": "pouchdb/pouchdb" },
-  "rethinkdb": { "domains": ["rethinkdb.com"], "github": "rethinkdb/rethinkdb" },
-  "leveldb": { "domains": ["github.com/google/leveldb"], "clearbitDomains": ["github.com"], "github": "google/leveldb" },
-  "rocksdb": { "domains": ["rocksdb.org"], "github": "facebook/rocksdb" },
-  "lmdb": { "domains": ["symas.com/lmdb"], "clearbitDomains": ["symas.com"], "github": "LMDB/lmdb" },
-  "berkeleydb": { "domains": ["oracle.com/database/berkeley-db"], "clearbitDomains": ["oracle.com"], "github": "berkeleydb" },
-  "memcached": { "domains": ["memcached.org"], "github": "memcached/memcached" },
-  "aerospike": { "domains": ["aerospike.com"], "github": "aerospike" },
-  "scylladb": { "domains": ["scylladb.com"], "github": "scylladb/scylla" },
-  "dragonfly": { "domains": ["dragonflydb.io"], "github": "dragonflydb/dragonfly" },
-  "keydb": { "domains": ["keydb.dev"], "github": "Snapchat/KeyDB" },
-  "tarantool": { "domains": ["tarantool.io"], "github": "tarantool/tarantool" },
-  "voltdb": { "domains": ["voltdb.com"], "github": "VoltDB/voltdb" },
-  "yugabytedb": { "domains": ["yugabyte.com"], "github": "yugabyte/yugabyte-db" },
-  "crate": { "domains": ["crate.io"], "github": "crate/crate" },
-  "firebase": { "domains": ["firebase.google.com"], "github": "firebase" },
-  "supabase": { "domains": ["supabase.com"], "github": "supabase/supabase" },
-  "appwrite": { "domains": ["appwrite.io"], "github": "appwrite/appwrite" },
-  "pocketbase": { "domains": ["pocketbase.io"], "github": "pocketbase/pocketbase" },
-  "parse": { "domains": ["parseplatform.org"], "github": "parse-community/parse-server" },
-  "realm": { "domains": ["mongodb.com/realm"], "clearbitDomains": ["mongodb.com"], "github": "realm" },
-  "watermelondb": { "domains": ["github.com/Nozbe/WatermelonDB"], "clearbitDomains": ["github.com"], "github": "Nozbe/WatermelonDB" },
-  "rxdb": { "domains": ["rxdb.info"], "github": "pubkey/rxdb" },
-  "algolia": { "domains": ["algolia.com"], "github": "algolia" },
-  "typesense": { "domains": ["typesense.org"], "github": "typesense/typesense" },
-  "meilisearch": { "domains": ["meilisearch.com"], "github": "meilisearch/meilisearch" },
-  "vespa": { "domains": ["vespa.ai"], "github": "vespa-engine/vespa" },
-  "solr": { "domains": ["solr.apache.org"], "github": "apache/solr" },
-  "lucene": { "domains": ["lucene.apache.org"], "github": "apache/lucene" },
-  "sphinx": { "domains": ["sphinxsearch.com"], "github": "sphinxsearch/sphinx" },
-  "manticore": { "domains": ["manticoresearch.com"], "github": "manticoresoftware/manticoresearch" }
+  "postgres": {
+    "domains": [
+      "postgresql.org"
+    ],
+    "github": "postgres/postgres",
+    "wikipedia": "PostgreSQL"
+  },
+  "postgresql": {
+    "domains": [
+      "postgresql.org"
+    ],
+    "github": "postgres/postgres",
+    "wikipedia": "PostgreSQL"
+  },
+  "mysql": {
+    "domains": [
+      "mysql.com"
+    ],
+    "github": "mysql/mysql-server",
+    "wikipedia": "MySQL"
+  },
+  "mariadb": {
+    "domains": [
+      "mariadb.org"
+    ],
+    "github": "MariaDB/server"
+  },
+  "sqlite": {
+    "domains": [
+      "sqlite.org"
+    ],
+    "github": "sqlite/sqlite"
+  },
+  "mongodb": {
+    "domains": [
+      "mongodb.com"
+    ],
+    "github": "mongodb/mongo",
+    "wikipedia": "MongoDB"
+  },
+  "redis": {
+    "domains": [
+      "redis.io"
+    ],
+    "github": "redis/redis",
+    "wikipedia": "Redis"
+  },
+  "elasticsearch": {
+    "domains": [
+      "elastic.co"
+    ],
+    "github": "elastic/elasticsearch",
+    "wikipedia": "Elasticsearch"
+  },
+  "cassandra": {
+    "domains": [
+      "cassandra.apache.org"
+    ],
+    "github": "apache/cassandra"
+  },
+  "cockroachdb": {
+    "domains": [
+      "cockroachlabs.com"
+    ],
+    "github": "cockroachdb/cockroach"
+  },
+  "cockroach": {
+    "domains": [
+      "cockroachlabs.com"
+    ],
+    "github": "cockroachdb/cockroach"
+  },
+  "tidb": {
+    "domains": [
+      "pingcap.com"
+    ],
+    "github": "pingcap/tidb"
+  },
+  "fauna": {
+    "domains": [
+      "fauna.com"
+    ],
+    "github": "fauna/faunadb"
+  },
+  "neo4j": {
+    "domains": [
+      "neo4j.com"
+    ],
+    "github": "neo4j/neo4j"
+  },
+  "arangodb": {
+    "domains": [
+      "arangodb.com"
+    ],
+    "github": "arangodb/arangodb"
+  },
+  "orientdb": {
+    "domains": [
+      "orientdb.org"
+    ],
+    "github": "orientechnologies/orientdb"
+  },
+  "dgraph": {
+    "domains": [
+      "dgraph.io"
+    ],
+    "github": "dgraph-io/dgraph"
+  },
+  "janusgraph": {
+    "domains": [
+      "janusgraph.org"
+    ],
+    "github": "JanusGraph/janusgraph"
+  },
+  "influxdb": {
+    "domains": [
+      "influxdata.com"
+    ],
+    "github": "influxdata/influxdb"
+  },
+  "timescaledb": {
+    "domains": [
+      "timescale.com"
+    ],
+    "github": "timescale/timescaledb"
+  },
+  "clickhouse": {
+    "domains": [
+      "clickhouse.com"
+    ],
+    "github": "ClickHouse/ClickHouse"
+  },
+  "druid": {
+    "domains": [
+      "druid.apache.org"
+    ],
+    "github": "apache/druid"
+  },
+  "pinot": {
+    "domains": [
+      "pinot.apache.org"
+    ],
+    "github": "apache/pinot"
+  },
+  "questdb": {
+    "domains": [
+      "questdb.io"
+    ],
+    "github": "questdb/questdb"
+  },
+  "duckdb": {
+    "domains": [
+      "duckdb.org"
+    ],
+    "github": "duckdb/duckdb"
+  },
+  "singlestore": {
+    "domains": [
+      "singlestore.com"
+    ],
+    "github": "memsql"
+  },
+  "memsql": {
+    "domains": [
+      "singlestore.com"
+    ],
+    "github": "memsql"
+  },
+  "vitess": {
+    "domains": [
+      "vitess.io"
+    ],
+    "github": "vitessio/vitess"
+  },
+  "spanner": {
+    "domains": [
+      "cloud.google.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "googleapis"
+  },
+  "bigquery": {
+    "domains": [
+      "cloud.google.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "googleapis"
+  },
+  "snowflake": {
+    "domains": [
+      "snowflake.com"
+    ],
+    "github": "snowflakedb"
+  },
+  "redshift": {
+    "domains": [
+      "aws.amazon.com"
+    ],
+    "clearbitDomains": [
+      "aws.amazon.com"
+    ],
+    "github": "aws"
+  },
+  "presto": {
+    "domains": [
+      "prestodb.io"
+    ],
+    "github": "prestodb/presto"
+  },
+  "trino": {
+    "domains": [
+      "trino.io"
+    ],
+    "github": "trinodb/trino"
+  },
+  "couchdb": {
+    "domains": [
+      "couchdb.apache.org"
+    ],
+    "github": "apache/couchdb"
+  },
+  "pouchdb": {
+    "domains": [
+      "pouchdb.com"
+    ],
+    "github": "pouchdb/pouchdb"
+  },
+  "rethinkdb": {
+    "domains": [
+      "rethinkdb.com"
+    ],
+    "github": "rethinkdb/rethinkdb"
+  },
+  "leveldb": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "google/leveldb"
+  },
+  "rocksdb": {
+    "domains": [
+      "rocksdb.org"
+    ],
+    "github": "facebook/rocksdb"
+  },
+  "lmdb": {
+    "domains": [
+      "symas.com"
+    ],
+    "clearbitDomains": [
+      "symas.com"
+    ],
+    "github": "LMDB/lmdb"
+  },
+  "berkeleydb": {
+    "domains": [
+      "oracle.com"
+    ],
+    "clearbitDomains": [
+      "oracle.com"
+    ],
+    "github": "berkeleydb"
+  },
+  "memcached": {
+    "domains": [
+      "memcached.org"
+    ],
+    "github": "memcached/memcached"
+  },
+  "aerospike": {
+    "domains": [
+      "aerospike.com"
+    ],
+    "github": "aerospike"
+  },
+  "scylladb": {
+    "domains": [
+      "scylladb.com"
+    ],
+    "github": "scylladb/scylla"
+  },
+  "dragonfly": {
+    "domains": [
+      "dragonflydb.io"
+    ],
+    "github": "dragonflydb/dragonfly"
+  },
+  "keydb": {
+    "domains": [
+      "keydb.dev"
+    ],
+    "github": "Snapchat/KeyDB"
+  },
+  "tarantool": {
+    "domains": [
+      "tarantool.io"
+    ],
+    "github": "tarantool/tarantool"
+  },
+  "voltdb": {
+    "domains": [
+      "voltdb.com"
+    ],
+    "github": "VoltDB/voltdb"
+  },
+  "yugabytedb": {
+    "domains": [
+      "yugabyte.com"
+    ],
+    "github": "yugabyte/yugabyte-db"
+  },
+  "crate": {
+    "domains": [
+      "crate.io"
+    ],
+    "github": "crate/crate"
+  },
+  "firebase": {
+    "domains": [
+      "firebase.google.com"
+    ],
+    "github": "firebase"
+  },
+  "supabase": {
+    "domains": [
+      "supabase.com"
+    ],
+    "github": "supabase/supabase"
+  },
+  "appwrite": {
+    "domains": [
+      "appwrite.io"
+    ],
+    "github": "appwrite/appwrite"
+  },
+  "pocketbase": {
+    "domains": [
+      "pocketbase.io"
+    ],
+    "github": "pocketbase/pocketbase"
+  },
+  "parse": {
+    "domains": [
+      "parseplatform.org"
+    ],
+    "github": "parse-community/parse-server"
+  },
+  "realm": {
+    "domains": [
+      "mongodb.com"
+    ],
+    "clearbitDomains": [
+      "mongodb.com"
+    ],
+    "github": "realm"
+  },
+  "watermelondb": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "Nozbe/WatermelonDB"
+  },
+  "rxdb": {
+    "domains": [
+      "rxdb.info"
+    ],
+    "github": "pubkey/rxdb"
+  },
+  "algolia": {
+    "domains": [
+      "algolia.com"
+    ],
+    "github": "algolia"
+  },
+  "typesense": {
+    "domains": [
+      "typesense.org"
+    ],
+    "github": "typesense/typesense"
+  },
+  "meilisearch": {
+    "domains": [
+      "meilisearch.com"
+    ],
+    "github": "meilisearch/meilisearch"
+  },
+  "vespa": {
+    "domains": [
+      "vespa.ai"
+    ],
+    "github": "vespa-engine/vespa"
+  },
+  "solr": {
+    "domains": [
+      "solr.apache.org"
+    ],
+    "github": "apache/solr"
+  },
+  "lucene": {
+    "domains": [
+      "lucene.apache.org"
+    ],
+    "github": "apache/lucene"
+  },
+  "sphinx": {
+    "domains": [
+      "sphinxsearch.com"
+    ],
+    "github": "sphinxsearch/sphinx"
+  },
+  "manticore": {
+    "domains": [
+      "manticoresearch.com"
+    ],
+    "github": "manticoresoftware/manticoresearch"
+  }
 }

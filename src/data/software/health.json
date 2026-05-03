@@ -1,0 +1,802 @@
+{
+  "pfizer": {
+    "domains": [
+      "pfizer.com"
+    ]
+  },
+  "novartis": {
+    "domains": [
+      "novartis.com"
+    ]
+  },
+  "roche": {
+    "domains": [
+      "roche.com"
+    ]
+  },
+  "merck": {
+    "domains": [
+      "merck.com"
+    ]
+  },
+  "johnsonjohnson": {
+    "domains": [
+      "jnj.com"
+    ]
+  },
+  "johnson and johnson": {
+    "domains": [
+      "jnj.com"
+    ]
+  },
+  "johnson & johnson": {
+    "domains": [
+      "jnj.com"
+    ]
+  },
+  "sanofi": {
+    "domains": [
+      "sanofi.com"
+    ]
+  },
+  "astrazeneca": {
+    "domains": [
+      "astrazeneca.com"
+    ]
+  },
+  "astra zeneca": {
+    "domains": [
+      "astrazeneca.com"
+    ]
+  },
+  "gsk": {
+    "domains": [
+      "gsk.com"
+    ]
+  },
+  "glaxosmithkline": {
+    "domains": [
+      "gsk.com"
+    ]
+  },
+  "glaxo smith kline": {
+    "domains": [
+      "gsk.com"
+    ]
+  },
+  "bayer": {
+    "domains": [
+      "bayer.com"
+    ]
+  },
+  "abbvie": {
+    "domains": [
+      "abbvie.com"
+    ]
+  },
+  "eli lilly": {
+    "domains": [
+      "lilly.com"
+    ]
+  },
+  "lilly": {
+    "domains": [
+      "lilly.com"
+    ]
+  },
+  "bristolmyerssquibb": {
+    "domains": [
+      "bms.com"
+    ]
+  },
+  "bristol myers squibb": {
+    "domains": [
+      "bms.com"
+    ]
+  },
+  "bms": {
+    "domains": [
+      "bms.com"
+    ]
+  },
+  "amgen": {
+    "domains": [
+      "amgen.com"
+    ]
+  },
+  "gilead": {
+    "domains": [
+      "gilead.com"
+    ]
+  },
+  "biontech": {
+    "domains": [
+      "biontech.de"
+    ]
+  },
+  "moderna": {
+    "domains": [
+      "modernatx.com"
+    ]
+  },
+  "sinopharm": {
+    "domains": [
+      "sinopharm.com"
+    ]
+  },
+  "sinovac": {
+    "domains": [
+      "sinovac.com"
+    ]
+  },
+  "cansino": {
+    "domains": [
+      "cansinobio.com"
+    ]
+  },
+  "cvs": {
+    "domains": [
+      "cvs.com"
+    ]
+  },
+  "walgreens": {
+    "domains": [
+      "walgreens.com"
+    ]
+  },
+  "riteaid": {
+    "domains": [
+      "riteaid.com"
+    ]
+  },
+  "rite aid": {
+    "domains": [
+      "riteaid.com"
+    ]
+  },
+  "boots": {
+    "domains": [
+      "boots.com"
+    ]
+  },
+  "superdrug": {
+    "domains": [
+      "superdrug.com"
+    ]
+  },
+  "medline": {
+    "domains": [
+      "medline.com"
+    ]
+  },
+  "mckesson": {
+    "domains": [
+      "mckesson.com"
+    ]
+  },
+  "amerisourcebergen": {
+    "domains": [
+      "amerisourcebergen.com"
+    ]
+  },
+  "cardinalhealth": {
+    "domains": [
+      "cardinalhealth.com"
+    ]
+  },
+  "cardinal health": {
+    "domains": [
+      "cardinalhealth.com"
+    ]
+  },
+  "kaiser": {
+    "domains": [
+      "kaiserpermanente.org"
+    ]
+  },
+  "kaiser permanente": {
+    "domains": [
+      "kaiserpermanente.org"
+    ]
+  },
+  "kaiserpermanente": {
+    "domains": [
+      "kaiserpermanente.org"
+    ]
+  },
+  "cigna": {
+    "domains": [
+      "cigna.com"
+    ]
+  },
+  "humana": {
+    "domains": [
+      "humana.com"
+    ]
+  },
+  "anthem": {
+    "domains": [
+      "anthem.com"
+    ]
+  },
+  "unitedhealth": {
+    "domains": [
+      "unitedhealthgroup.com"
+    ]
+  },
+  "united health": {
+    "domains": [
+      "unitedhealthgroup.com"
+    ]
+  },
+  "aetna": {
+    "domains": [
+      "aetna.com"
+    ]
+  },
+  "optum": {
+    "domains": [
+      "optum.com"
+    ]
+  },
+  "teladoc": {
+    "domains": [
+      "teladoc.com"
+    ]
+  },
+  "teladoc health": {
+    "domains": [
+      "teladoc.com"
+    ]
+  },
+  "amwell": {
+    "domains": [
+      "amwell.com"
+    ]
+  },
+  "doctorondemand": {
+    "domains": [
+      "doctorondemand.com"
+    ]
+  },
+  "doctor on demand": {
+    "domains": [
+      "doctorondemand.com"
+    ]
+  },
+  "mdlive": {
+    "domains": [
+      "mdlive.com"
+    ]
+  },
+  "md live": {
+    "domains": [
+      "mdlive.com"
+    ]
+  },
+  "zocdoc": {
+    "domains": [
+      "zocdoc.com"
+    ]
+  },
+  "zoc doc": {
+    "domains": [
+      "zocdoc.com"
+    ]
+  },
+  "healthline": {
+    "domains": [
+      "healthline.com"
+    ]
+  },
+  "webmd": {
+    "domains": [
+      "webmd.com"
+    ]
+  },
+  "mayoclinic": {
+    "domains": [
+      "mayoclinic.org"
+    ]
+  },
+  "mayo clinic": {
+    "domains": [
+      "mayoclinic.org"
+    ]
+  },
+  "clevelandclinic": {
+    "domains": [
+      "clevelandclinic.org"
+    ]
+  },
+  "cleveland clinic": {
+    "domains": [
+      "clevelandclinic.org"
+    ]
+  },
+  "medscape": {
+    "domains": [
+      "medscape.com"
+    ]
+  },
+  "uptodate": {
+    "domains": [
+      "uptodate.com"
+    ]
+  },
+  "up to date": {
+    "domains": [
+      "uptodate.com"
+    ]
+  },
+  "epocrates": {
+    "domains": [
+      "epocrates.com"
+    ]
+  },
+  "doximity": {
+    "domains": [
+      "doximity.com"
+    ]
+  },
+  "sermo": {
+    "domains": [
+      "sermo.com"
+    ]
+  },
+  "figure1": {
+    "domains": [
+      "figure1.com"
+    ]
+  },
+  "23andme": {
+    "domains": [
+      "23andme.com"
+    ]
+  },
+  "23 and me": {
+    "domains": [
+      "23andme.com"
+    ]
+  },
+  "ancestry": {
+    "domains": [
+      "ancestry.com"
+    ]
+  },
+  "myheritage": {
+    "domains": [
+      "myheritage.com"
+    ]
+  },
+  "my heritage": {
+    "domains": [
+      "myheritage.com"
+    ]
+  },
+  "familytreedna": {
+    "domains": [
+      "familytreedna.com"
+    ]
+  },
+  "family tree dna": {
+    "domains": [
+      "familytreedna.com"
+    ]
+  },
+  "invitae": {
+    "domains": [
+      "invitae.com"
+    ]
+  },
+  "color": {
+    "domains": [
+      "color.com"
+    ]
+  },
+  "color genomics": {
+    "domains": [
+      "color.com"
+    ]
+  },
+  "nebula": {
+    "domains": [
+      "nebula.org"
+    ]
+  },
+  "fitbit": {
+    "domains": [
+      "fitbit.com"
+    ]
+  },
+  "applehealth": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "apple health": {
+    "domains": [
+      "apple.com"
+    ]
+  },
+  "samsunghealth": {
+    "domains": [
+      "samsung.com"
+    ]
+  },
+  "samsung health": {
+    "domains": [
+      "samsung.com"
+    ]
+  },
+  "googlefit": {
+    "domains": [
+      "google.com"
+    ]
+  },
+  "google fit": {
+    "domains": [
+      "google.com"
+    ]
+  },
+  "myfitnesspal": {
+    "domains": [
+      "myfitnesspal.com"
+    ]
+  },
+  "my fitness pal": {
+    "domains": [
+      "myfitnesspal.com"
+    ]
+  },
+  "loseit": {
+    "domains": [
+      "loseit.com"
+    ]
+  },
+  "lose it": {
+    "domains": [
+      "loseit.com"
+    ]
+  },
+  "noom": {
+    "domains": [
+      "noom.com"
+    ]
+  },
+  "weightwatchers": {
+    "domains": [
+      "weightwatchers.com"
+    ]
+  },
+  "weight watchers": {
+    "domains": [
+      "weightwatchers.com"
+    ]
+  },
+  "ww": {
+    "domains": [
+      "weightwatchers.com"
+    ]
+  },
+  "nutrisystem": {
+    "domains": [
+      "nutrisystem.com"
+    ]
+  },
+  "hellofresh": {
+    "domains": [
+      "hellofresh.com"
+    ]
+  },
+  "hello fresh": {
+    "domains": [
+      "hellofresh.com"
+    ]
+  },
+  "blueapron": {
+    "domains": [
+      "blueapron.com"
+    ]
+  },
+  "blue apron": {
+    "domains": [
+      "blueapron.com"
+    ]
+  },
+  "sunbasket": {
+    "domains": [
+      "sunbasket.com"
+    ]
+  },
+  "sun basket": {
+    "domains": [
+      "sunbasket.com"
+    ]
+  },
+  "purplecarrot": {
+    "domains": [
+      "purplecarrot.com"
+    ]
+  },
+  "purple carrot": {
+    "domains": [
+      "purplecarrot.com"
+    ]
+  },
+  "green chef": {
+    "domains": [
+      "greenchef.com"
+    ]
+  },
+  "greenchef": {
+    "domains": [
+      "greenchef.com"
+    ]
+  },
+  "factor": {
+    "domains": [
+      "factormeals.com"
+    ]
+  },
+  "factor meals": {
+    "domains": [
+      "factormeals.com"
+    ]
+  },
+  "factormeals": {
+    "domains": [
+      "factormeals.com"
+    ]
+  },
+  "homechef": {
+    "domains": [
+      "homechef.com"
+    ]
+  },
+  "home chef": {
+    "domains": [
+      "homechef.com"
+    ]
+  },
+  "gousto": {
+    "domains": [
+      "gousto.co.uk"
+    ]
+  },
+  "mindful chef": {
+    "domains": [
+      "mindfulchef.com"
+    ]
+  },
+  "mindfulchef": {
+    "domains": [
+      "mindfulchef.com"
+    ]
+  },
+  "allplants": {
+    "domains": [
+      "allplants.com"
+    ]
+  },
+  "all plants": {
+    "domains": [
+      "allplants.com"
+    ]
+  },
+  "freshly": {
+    "domains": [
+      "freshly.com"
+    ]
+  },
+  "territory": {
+    "domains": [
+      "territoryfoods.com"
+    ]
+  },
+  "territory foods": {
+    "domains": [
+      "territoryfoods.com"
+    ]
+  },
+  "snapkitchen": {
+    "domains": [
+      "snapkitchen.com"
+    ]
+  },
+  "snap kitchen": {
+    "domains": [
+      "snapkitchen.com"
+    ]
+  },
+  "mademeals": {
+    "domains": [
+      "mademeals.com"
+    ]
+  },
+  "made meals": {
+    "domains": [
+      "mademeals.com"
+    ]
+  },
+  "dailyharvest": {
+    "domains": [
+      "dailyharvest.com"
+    ]
+  },
+  "daily harvest": {
+    "domains": [
+      "dailyharvest.com"
+    ]
+  },
+  "splendid spoon": {
+    "domains": [
+      "splendidspoon.com"
+    ]
+  },
+  "splendidspoon": {
+    "domains": [
+      "splendidspoon.com"
+    ]
+  },
+  "sakara": {
+    "domains": [
+      "sakara.com"
+    ]
+  },
+  "sakara life": {
+    "domains": [
+      "sakara.com"
+    ]
+  },
+  "sakaralife": {
+    "domains": [
+      "sakara.com"
+    ]
+  },
+  "medifast": {
+    "domains": [
+      "medifast1.com"
+    ]
+  },
+  "optavia": {
+    "domains": [
+      "optavia.com"
+    ]
+  },
+  "herbalife": {
+    "domains": [
+      "herbalife.com"
+    ]
+  },
+  "amway": {
+    "domains": [
+      "amway.com"
+    ]
+  },
+  "nuskin": {
+    "domains": [
+      "nuskin.com"
+    ]
+  },
+  "nu skin": {
+    "domains": [
+      "nuskin.com"
+    ]
+  },
+  "rodanfields": {
+    "domains": [
+      "rodanandfields.com"
+    ]
+  },
+  "rodan and fields": {
+    "domains": [
+      "rodanandfields.com"
+    ]
+  },
+  "marykay": {
+    "domains": [
+      "marykay.com"
+    ]
+  },
+  "mary kay": {
+    "domains": [
+      "marykay.com"
+    ]
+  },
+  "avon": {
+    "domains": [
+      "avon.com"
+    ]
+  },
+  "oriflame": {
+    "domains": [
+      "oriflame.com"
+    ]
+  },
+  "artistry": {
+    "domains": [
+      "amway.com"
+    ]
+  },
+  "纽崔莱": {
+    "domains": [
+      "nutrilite.com"
+    ]
+  },
+  "nutrilite": {
+    "domains": [
+      "nutrilite.com"
+    ]
+  },
+  "swisse": {
+    "domains": [
+      "swisse.com"
+    ]
+  },
+  "blackmores": {
+    "domains": [
+      "blackmores.com.au"
+    ]
+  },
+  "naturemade": {
+    "domains": [
+      "naturemade.com"
+    ]
+  },
+  "nature made": {
+    "domains": [
+      "naturemade.com"
+    ]
+  },
+  "naturesbounty": {
+    "domains": [
+      "naturesbounty.com"
+    ]
+  },
+  "nature's bounty": {
+    "domains": [
+      "naturesbounty.com"
+    ]
+  },
+  "solgar": {
+    "domains": [
+      "solgar.com"
+    ]
+  },
+  "nowfoods": {
+    "domains": [
+      "nowfoods.com"
+    ]
+  },
+  "now foods": {
+    "domains": [
+      "nowfoods.com"
+    ]
+  },
+  "jarrow": {
+    "domains": [
+      "jarrow.com"
+    ]
+  },
+  "thorne": {
+    "domains": [
+      "thorne.com"
+    ]
+  },
+  "lifeextension": {
+    "domains": [
+      "lifeextension.com"
+    ]
+  },
+  "life extension": {
+    "domains": [
+      "lifeextension.com"
+    ]
+  },
+  "gnc": {
+    "domains": [
+      "gnc.com"
+    ]
+  }
+}

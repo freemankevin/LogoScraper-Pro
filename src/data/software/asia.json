@@ -1,0 +1,1747 @@
+{
+  "sony": {
+    "domains": [
+      "sony.com"
+    ]
+  },
+  "panasonic": {
+    "domains": [
+      "panasonic.com"
+    ]
+  },
+  "hitachi": {
+    "domains": [
+      "hitachi.com"
+    ]
+  },
+  "toshiba": {
+    "domains": [
+      "toshiba.com"
+    ]
+  },
+  "fujitsu": {
+    "domains": [
+      "fujitsu.com"
+    ]
+  },
+  "nec": {
+    "domains": [
+      "nec.com"
+    ]
+  },
+  "sharp": {
+    "domains": [
+      "sharp.com"
+    ]
+  },
+  "canon": {
+    "domains": [
+      "canon.com"
+    ]
+  },
+  "nikon": {
+    "domains": [
+      "nikon.com"
+    ]
+  },
+  "fujifilm": {
+    "domains": [
+      "fujifilm.com"
+    ]
+  },
+  "olympus": {
+    "domains": [
+      "olympus.com"
+    ]
+  },
+  "pentax": {
+    "domains": [
+      "pentax.com"
+    ]
+  },
+  "ricoh": {
+    "domains": [
+      "ricoh.com"
+    ]
+  },
+  "casio": {
+    "domains": [
+      "casio.com"
+    ]
+  },
+  "seiko": {
+    "domains": [
+      "seikowatches.com"
+    ]
+  },
+  "seiko watches": {
+    "domains": [
+      "seikowatches.com"
+    ]
+  },
+  "seikowatches": {
+    "domains": [
+      "seikowatches.com"
+    ]
+  },
+  "citizen": {
+    "domains": [
+      "citizenwatch.com"
+    ]
+  },
+  "citizen watch": {
+    "domains": [
+      "citizenwatch.com"
+    ]
+  },
+  "orient": {
+    "domains": [
+      "orient-watch.com"
+    ]
+  },
+  "orient watch": {
+    "domains": [
+      "orient-watch.com"
+    ]
+  },
+  "grand seiko": {
+    "domains": [
+      "grand-seiko.com"
+    ]
+  },
+  "grandseiko": {
+    "domains": [
+      "grand-seiko.com"
+    ]
+  },
+  "toyota": {
+    "domains": [
+      "toyota.com"
+    ]
+  },
+  "honda": {
+    "domains": [
+      "honda.com"
+    ]
+  },
+  "nissan": {
+    "domains": [
+      "nissan.com"
+    ]
+  },
+  "mazda": {
+    "domains": [
+      "mazda.com"
+    ]
+  },
+  "subaru": {
+    "domains": [
+      "subaru.com"
+    ]
+  },
+  "mitsubishi": {
+    "domains": [
+      "mitsubishi.com"
+    ]
+  },
+  "suzuki": {
+    "domains": [
+      "suzuki.com"
+    ]
+  },
+  "daihatsu": {
+    "domains": [
+      "daihatsu.com"
+    ]
+  },
+  "isuzu": {
+    "domains": [
+      "isuzu.com"
+    ]
+  },
+  "hino": {
+    "domains": [
+      "hino.com"
+    ]
+  },
+  "yamaha": {
+    "domains": [
+      "yamaha.com"
+    ]
+  },
+  "kawasaki": {
+    "domains": [
+      "kawasaki.com"
+    ]
+  },
+  "kawasaki motors": {
+    "domains": [
+      "kawasaki.com"
+    ]
+  },
+  "uniqlo": {
+    "domains": [
+      "uniqlo.com"
+    ]
+  },
+  "muji": {
+    "domains": [
+      "muji.com"
+    ]
+  },
+  "无印良品": {
+    "domains": [
+      "muji.com"
+    ]
+  },
+  "nitori": {
+    "domains": [
+      "nitori.co.jp"
+    ]
+  },
+  "宜得利": {
+    "domains": [
+      "nitori.co.jp"
+    ]
+  },
+  "daiso": {
+    "domains": [
+      "daiso.com"
+    ]
+  },
+  "大创": {
+    "domains": [
+      "daiso.com"
+    ]
+  },
+  "miniso": {
+    "domains": [
+      "miniso.com"
+    ]
+  },
+  "名创优品": {
+    "domains": [
+      "miniso.com"
+    ]
+  },
+  "xiaomi": {
+    "domains": [
+      "mi.com"
+    ]
+  },
+  "小米": {
+    "domains": [
+      "mi.com"
+    ]
+  },
+  "huawei": {
+    "domains": [
+      "huawei.com"
+    ]
+  },
+  "华为": {
+    "domains": [
+      "huawei.com"
+    ]
+  },
+  "oppo": {
+    "domains": [
+      "oppo.com"
+    ]
+  },
+  "vivo": {
+    "domains": [
+      "vivo.com"
+    ]
+  },
+  "oneplus": {
+    "domains": [
+      "oneplus.com"
+    ]
+  },
+  "realme": {
+    "domains": [
+      "realme.com"
+    ]
+  },
+  "honor": {
+    "domains": [
+      "honor.com"
+    ]
+  },
+  "荣耀": {
+    "domains": [
+      "honor.com"
+    ]
+  },
+  "lenovo": {
+    "domains": [
+      "lenovo.com"
+    ]
+  },
+  "联想": {
+    "domains": [
+      "lenovo.com"
+    ]
+  },
+  "haier": {
+    "domains": [
+      "haier.com"
+    ]
+  },
+  "海尔": {
+    "domains": [
+      "haier.com"
+    ]
+  },
+  "hisense": {
+    "domains": [
+      "hisense.com"
+    ]
+  },
+  "海信": {
+    "domains": [
+      "hisense.com"
+    ]
+  },
+  "tcl": {
+    "domains": [
+      "tcl.com"
+    ]
+  },
+  "changhong": {
+    "domains": [
+      "changhong.com.cn"
+    ]
+  },
+  "长虹": {
+    "domains": [
+      "changhong.com.cn"
+    ]
+  },
+  "skyworth": {
+    "domains": [
+      "skyworth.com"
+    ]
+  },
+  "创维": {
+    "domains": [
+      "skyworth.com"
+    ]
+  },
+  "konka": {
+    "domains": [
+      "konka.com"
+    ]
+  },
+  "康佳": {
+    "domains": [
+      "konka.com"
+    ]
+  },
+  "gree": {
+    "domains": [
+      "gree.com.cn"
+    ]
+  },
+  "格力": {
+    "domains": [
+      "gree.com.cn"
+    ]
+  },
+  "midea": {
+    "domains": [
+      "midea.com"
+    ]
+  },
+  "美的": {
+    "domains": [
+      "midea.com"
+    ]
+  },
+  "galanz": {
+    "domains": [
+      "galanz.com"
+    ]
+  },
+  "格兰仕": {
+    "domains": [
+      "galanz.com"
+    ]
+  },
+  "supor": {
+    "domains": [
+      "supor.com.cn"
+    ]
+  },
+  "苏泊尔": {
+    "domains": [
+      "supor.com.cn"
+    ]
+  },
+  "joyoung": {
+    "domains": [
+      "joyoung.com"
+    ]
+  },
+  "九阳": {
+    "domains": [
+      "joyoung.com"
+    ]
+  },
+  "robam": {
+    "domains": [
+      "robam.com"
+    ]
+  },
+  "老板电器": {
+    "domains": [
+      "robam.com"
+    ]
+  },
+  "fotile": {
+    "domains": [
+      "fotile.com"
+    ]
+  },
+  "方太": {
+    "domains": [
+      "fotile.com"
+    ]
+  },
+  "vatti": {
+    "domains": [
+      "vatti.com.cn"
+    ]
+  },
+  "华帝": {
+    "domains": [
+      "vatti.com.cn"
+    ]
+  },
+  "sacon": {
+    "domains": [
+      "sacon.cn"
+    ]
+  },
+  "帅康": {
+    "domains": [
+      "sacon.cn"
+    ]
+  },
+  "vanward": {
+    "domains": [
+      "vanward.com"
+    ]
+  },
+  "万和": {
+    "domains": [
+      "vanward.com"
+    ]
+  },
+  "a.o. smith": {
+    "domains": [
+      "aosmith.com"
+    ]
+  },
+  "aosmith": {
+    "domains": [
+      "aosmith.com"
+    ]
+  },
+  "rinnai": {
+    "domains": [
+      "rinnai.us"
+    ]
+  },
+  "林内": {
+    "domains": [
+      "rinnai.com.cn"
+    ]
+  },
+  "noritz": {
+    "domains": [
+      "noritz.com"
+    ]
+  },
+  "能率": {
+    "domains": [
+      "noritz.com.cn"
+    ]
+  },
+  "toto": {
+    "domains": [
+      "toto.com"
+    ]
+  },
+  "inax": {
+    "domains": [
+      "inax.com"
+    ]
+  },
+  "伊奈": {
+    "domains": [
+      "inax.com"
+    ]
+  },
+  "lixil": {
+    "domains": [
+      "lixil.com"
+    ]
+  },
+  "骊住": {
+    "domains": [
+      "lixil.com"
+    ]
+  },
+  "kohler": {
+    "domains": [
+      "kohler.com"
+    ]
+  },
+  "科勒": {
+    "domains": [
+      "kohler.com.cn"
+    ]
+  },
+  "american standard": {
+    "domains": [
+      "americanstandard.com"
+    ]
+  },
+  "美标": {
+    "domains": [
+      "americanstandard.com.cn"
+    ]
+  },
+  "duravit": {
+    "domains": [
+      "duravit.com"
+    ]
+  },
+  "杜拉维特": {
+    "domains": [
+      "duravit.com"
+    ]
+  },
+  "geberit": {
+    "domains": [
+      "geberit.com"
+    ]
+  },
+  "吉博力": {
+    "domains": [
+      "geberit.com.cn"
+    ]
+  },
+  "grohe": {
+    "domains": [
+      "grohe.com"
+    ]
+  },
+  "高仪": {
+    "domains": [
+      "grohe.com.cn"
+    ]
+  },
+  "hansgrohe": {
+    "domains": [
+      "hansgrohe.com"
+    ]
+  },
+  "汉斯格雅": {
+    "domains": [
+      "hansgrohe.com.cn"
+    ]
+  },
+  "dornbracht": {
+    "domains": [
+      "dornbracht.com"
+    ]
+  },
+  "当代": {
+    "domains": [
+      "dornbracht.com"
+    ]
+  },
+  "axor": {
+    "domains": [
+      "axor-design.com"
+    ]
+  },
+  "villeroyboch": {
+    "domains": [
+      "villeroy-boch.com"
+    ]
+  },
+  "villeroy boch": {
+    "domains": [
+      "villeroy-boch.com"
+    ]
+  },
+  "唯宝": {
+    "domains": [
+      "villeroy-boch.com.cn"
+    ]
+  },
+  "roca": {
+    "domains": [
+      "roca.com"
+    ]
+  },
+  "乐家": {
+    "domains": [
+      "roca.com.cn"
+    ]
+  },
+  "ideal standard": {
+    "domains": [
+      "idealstandard.com"
+    ]
+  },
+  "samsung": {
+    "domains": [
+      "samsung.com"
+    ]
+  },
+  "三星": {
+    "domains": [
+      "samsung.com"
+    ]
+  },
+  "lg": {
+    "domains": [
+      "lg.com"
+    ]
+  },
+  "hyundai": {
+    "domains": [
+      "hyundai.com"
+    ]
+  },
+  "现代": {
+    "domains": [
+      "hyundai.com"
+    ]
+  },
+  "kia": {
+    "domains": [
+      "kia.com"
+    ]
+  },
+  "起亚": {
+    "domains": [
+      "kia.com"
+    ]
+  },
+  "genesis": {
+    "domains": [
+      "genesis.com"
+    ]
+  },
+  "捷尼赛思": {
+    "domains": [
+      "genesis.com"
+    ]
+  },
+  "byd": {
+    "domains": [
+      "byd.com"
+    ]
+  },
+  "比亚迪": {
+    "domains": [
+      "byd.com"
+    ]
+  },
+  "nio": {
+    "domains": [
+      "nio.com"
+    ]
+  },
+  "蔚来": {
+    "domains": [
+      "nio.com"
+    ]
+  },
+  "xpeng": {
+    "domains": [
+      "xpeng.com"
+    ]
+  },
+  "小鹏": {
+    "domains": [
+      "xpeng.com"
+    ]
+  },
+  "li auto": {
+    "domains": [
+      "li.auto"
+    ]
+  },
+  "理想": {
+    "domains": [
+      "li.auto"
+    ]
+  },
+  "zeekr": {
+    "domains": [
+      "zeekr.com"
+    ]
+  },
+  "极氪": {
+    "domains": [
+      "zeekr.com"
+    ]
+  },
+  "geely": {
+    "domains": [
+      "geely.com"
+    ]
+  },
+  "吉利": {
+    "domains": [
+      "geely.com"
+    ]
+  },
+  "chery": {
+    "domains": [
+      "chery.cn"
+    ]
+  },
+  "奇瑞": {
+    "domains": [
+      "chery.cn"
+    ]
+  },
+  "haval": {
+    "domains": [
+      "haval-global.com"
+    ]
+  },
+  "哈弗": {
+    "domains": [
+      "haval-global.com"
+    ]
+  },
+  "wuling": {
+    "domains": [
+      "wuling.com"
+    ]
+  },
+  "五菱": {
+    "domains": [
+      "wuling.com"
+    ]
+  },
+  "baojun": {
+    "domains": [
+      "baojun.com.cn"
+    ]
+  },
+  "宝骏": {
+    "domains": [
+      "baojun.com.cn"
+    ]
+  },
+  "roewe": {
+    "domains": [
+      "roewe.com.cn"
+    ]
+  },
+  "荣威": {
+    "domains": [
+      "roewe.com.cn"
+    ]
+  },
+  "mg": {
+    "domains": [
+      "mg-motor.com"
+    ]
+  },
+  "saic": {
+    "domains": [
+      "saicmotor.com"
+    ]
+  },
+  "上汽": {
+    "domains": [
+      "saicmotor.com"
+    ]
+  },
+  "faw": {
+    "domains": [
+      "faw.com.cn"
+    ]
+  },
+  "一汽": {
+    "domains": [
+      "faw.com.cn"
+    ]
+  },
+  "dongfeng": {
+    "domains": [
+      "dfmc.com.cn"
+    ]
+  },
+  "东风": {
+    "domains": [
+      "dfmc.com.cn"
+    ]
+  },
+  "changan": {
+    "domains": [
+      "changan.com.cn"
+    ]
+  },
+  "长安": {
+    "domains": [
+      "changan.com.cn"
+    ]
+  },
+  "gac": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "广汽": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "trumpchi": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "传祺": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "greatwall": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "great wall": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "长城": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "wey": {
+    "domains": [
+      "wey.com"
+    ]
+  },
+  "魏牌": {
+    "domains": [
+      "wey.com"
+    ]
+  },
+  "ora": {
+    "domains": [
+      "oraev.com"
+    ]
+  },
+  "欧拉": {
+    "domains": [
+      "oraev.com"
+    ]
+  },
+  "lynkco": {
+    "domains": [
+      "lynkco.com"
+    ]
+  },
+  "lynk & co": {
+    "domains": [
+      "lynkco.com"
+    ]
+  },
+  "领克": {
+    "domains": [
+      "lynkco.com"
+    ]
+  },
+  "jetour": {
+    "domains": [
+      "jetour.com"
+    ]
+  },
+  "捷途": {
+    "domains": [
+      "jetour.com"
+    ]
+  },
+  "exeed": {
+    "domains": [
+      "exeed.com"
+    ]
+  },
+  "星途": {
+    "domains": [
+      "exeed.com"
+    ]
+  },
+  "omoda": {
+    "domains": [
+      "omoda.com"
+    ]
+  },
+  "欧萌达": {
+    "domains": [
+      "omoda.com"
+    ]
+  },
+  "jaecoo": {
+    "domains": [
+      "jaecoo.com"
+    ]
+  },
+  "seres": {
+    "domains": [
+      "seres.com.cn"
+    ]
+  },
+  "赛力斯": {
+    "domains": [
+      "seres.com.cn"
+    ]
+  },
+  "aito": {
+    "domains": [
+      "aito.com.cn"
+    ]
+  },
+  "问界": {
+    "domains": [
+      "aito.com.cn"
+    ]
+  },
+  "avatr": {
+    "domains": [
+      "avatr.com"
+    ]
+  },
+  "阿维塔": {
+    "domains": [
+      "avatr.com"
+    ]
+  },
+  "hiphi": {
+    "domains": [
+      "hiphi.com"
+    ]
+  },
+  "高合": {
+    "domains": [
+      "hiphi.com"
+    ]
+  },
+  "hongqi": {
+    "domains": [
+      "hongqi.com.cn"
+    ]
+  },
+  "红旗": {
+    "domains": [
+      "hongqi.com.cn"
+    ]
+  },
+  "byton": {
+    "domains": [
+      "byton.com"
+    ]
+  },
+  "拜腾": {
+    "domains": [
+      "byton.com"
+    ]
+  },
+  "wm motor": {
+    "domains": [
+      "wm-motor.com"
+    ]
+  },
+  "wmmotor": {
+    "domains": [
+      "wm-motor.com"
+    ]
+  },
+  "威马": {
+    "domains": [
+      "wm-motor.com"
+    ]
+  },
+  "leapmotor": {
+    "domains": [
+      "leapmotor.com"
+    ]
+  },
+  "零跑": {
+    "domains": [
+      "leapmotor.com"
+    ]
+  },
+  "nevs": {
+    "domains": [
+      "nevs.com"
+    ]
+  },
+  "国能": {
+    "domains": [
+      "nevs.com"
+    ]
+  },
+  "aiways": {
+    "domains": [
+      "ai-ways.com"
+    ]
+  },
+  "爱驰": {
+    "domains": [
+      "ai-ways.com"
+    ]
+  },
+  "catl": {
+    "domains": [
+      "catl.com"
+    ]
+  },
+  "宁德时代": {
+    "domains": [
+      "catl.com"
+    ]
+  },
+  "calb": {
+    "domains": [
+      "calb.com.cn"
+    ]
+  },
+  "中创新航": {
+    "domains": [
+      "calb.com.cn"
+    ]
+  },
+  "eve": {
+    "domains": [
+      "evebattery.com"
+    ]
+  },
+  "亿纬锂能": {
+    "domains": [
+      "evebattery.com"
+    ]
+  },
+  "sunwoda": {
+    "domains": [
+      "sunwoda.com"
+    ]
+  },
+  "欣旺达": {
+    "domains": [
+      "sunwoda.com"
+    ]
+  },
+  "guoxuan": {
+    "domains": [
+      "gotion.com.cn"
+    ]
+  },
+  "国轩高科": {
+    "domains": [
+      "gotion.com.cn"
+    ]
+  },
+  "farasis": {
+    "domains": [
+      "farasis.com"
+    ]
+  },
+  "孚能科技": {
+    "domains": [
+      "farasis.com"
+    ]
+  },
+  "bilibili": {
+    "domains": [
+      "bilibili.com"
+    ]
+  },
+  "哔哩哔哩": {
+    "domains": [
+      "bilibili.com"
+    ]
+  },
+  "blibli": {
+    "domains": [
+      "bilibili.com"
+    ]
+  },
+  "meituan": {
+    "domains": [
+      "meituan.com"
+    ]
+  },
+  "美团": {
+    "domains": [
+      "meituan.com"
+    ]
+  },
+  "eleme": {
+    "domains": [
+      "ele.me"
+    ]
+  },
+  "饿了么": {
+    "domains": [
+      "ele.me"
+    ]
+  },
+  "dianping": {
+    "domains": [
+      "dianping.com"
+    ]
+  },
+  "大众点评": {
+    "domains": [
+      "dianping.com"
+    ]
+  },
+  "ctrip": {
+    "domains": [
+      "ctrip.com"
+    ]
+  },
+  "携程": {
+    "domains": [
+      "ctrip.com"
+    ]
+  },
+  "qunar": {
+    "domains": [
+      "qunar.com"
+    ]
+  },
+  "去哪儿": {
+    "domains": [
+      "qunar.com"
+    ]
+  },
+  "tongcheng": {
+    "domains": [
+      "ly.com"
+    ]
+  },
+  "同程": {
+    "domains": [
+      "ly.com"
+    ]
+  },
+  "fliggy": {
+    "domains": [
+      "fliggy.com"
+    ]
+  },
+  "飞猪": {
+    "domains": [
+      "fliggy.com"
+    ]
+  },
+  "mafengwo": {
+    "domains": [
+      "mafengwo.cn"
+    ]
+  },
+  "马蜂窝": {
+    "domains": [
+      "mafengwo.cn"
+    ]
+  },
+  "tuniu": {
+    "domains": [
+      "tuniu.com"
+    ]
+  },
+  "途牛": {
+    "domains": [
+      "tuniu.com"
+    ]
+  },
+  "qyer": {
+    "domains": [
+      "qyer.com"
+    ]
+  },
+  "穷游": {
+    "domains": [
+      "qyer.com"
+    ]
+  },
+  "douyin": {
+    "domains": [
+      "douyin.com"
+    ]
+  },
+  "抖音": {
+    "domains": [
+      "douyin.com"
+    ]
+  },
+  "kuaishou": {
+    "domains": [
+      "kuaishou.com"
+    ]
+  },
+  "快手": {
+    "domains": [
+      "kuaishou.com"
+    ]
+  },
+  "weibo": {
+    "domains": [
+      "weibo.com"
+    ]
+  },
+  "微博": {
+    "domains": [
+      "weibo.com"
+    ]
+  },
+  "xiaohongshu": {
+    "domains": [
+      "xiaohongshu.com"
+    ]
+  },
+  "小红书": {
+    "domains": [
+      "xiaohongshu.com"
+    ]
+  },
+  "zhihu": {
+    "domains": [
+      "zhihu.com"
+    ]
+  },
+  "知乎": {
+    "domains": [
+      "zhihu.com"
+    ]
+  },
+  "baidu": {
+    "domains": [
+      "baidu.com"
+    ]
+  },
+  "百度": {
+    "domains": [
+      "baidu.com"
+    ]
+  },
+  "tencent": {
+    "domains": [
+      "tencent.com"
+    ]
+  },
+  "腾讯": {
+    "domains": [
+      "tencent.com"
+    ]
+  },
+  "qq": {
+    "domains": [
+      "qq.com"
+    ]
+  },
+  "wechat": {
+    "domains": [
+      "wechat.com"
+    ]
+  },
+  "微信": {
+    "domains": [
+      "wechat.com"
+    ]
+  },
+  "alipay": {
+    "domains": [
+      "alipay.com"
+    ]
+  },
+  "支付宝": {
+    "domains": [
+      "alipay.com"
+    ]
+  },
+  "tmall": {
+    "domains": [
+      "tmall.com"
+    ]
+  },
+  "天猫": {
+    "domains": [
+      "tmall.com"
+    ]
+  },
+  "taobao": {
+    "domains": [
+      "taobao.com"
+    ]
+  },
+  "淘宝": {
+    "domains": [
+      "taobao.com"
+    ]
+  },
+  "jd": {
+    "domains": [
+      "jd.com"
+    ]
+  },
+  "京东": {
+    "domains": [
+      "jd.com"
+    ]
+  },
+  "pinduoduo": {
+    "domains": [
+      "pinduoduo.com"
+    ]
+  },
+  "拼多多": {
+    "domains": [
+      "pinduoduo.com"
+    ]
+  },
+  "suning": {
+    "domains": [
+      "suning.com"
+    ]
+  },
+  "苏宁": {
+    "domains": [
+      "suning.com"
+    ]
+  },
+  "gome": {
+    "domains": [
+      "gome.com.cn"
+    ]
+  },
+  "国美": {
+    "domains": [
+      "gome.com.cn"
+    ]
+  },
+  "dangdang": {
+    "domains": [
+      "dangdang.com"
+    ]
+  },
+  "当当": {
+    "domains": [
+      "dangdang.com"
+    ]
+  },
+  "vipshop": {
+    "domains": [
+      "vip.com"
+    ]
+  },
+  "唯品会": {
+    "domains": [
+      "vip.com"
+    ]
+  },
+  "vip": {
+    "domains": [
+      "vip.com"
+    ]
+  },
+  "kaola": {
+    "domains": [
+      "kaola.com"
+    ]
+  },
+  "考拉": {
+    "domains": [
+      "kaola.com"
+    ]
+  },
+  "meilishuo": {
+    "domains": [
+      "meilishuo.com"
+    ]
+  },
+  "美丽说": {
+    "domains": [
+      "meilishuo.com"
+    ]
+  },
+  "mogujie": {
+    "domains": [
+      "mogujie.com"
+    ]
+  },
+  "蘑菇街": {
+    "domains": [
+      "mogujie.com"
+    ]
+  },
+  "yintai": {
+    "domains": [
+      "yintai.com"
+    ]
+  },
+  "银泰": {
+    "domains": [
+      "yintai.com"
+    ]
+  },
+  "lamoda": {
+    "domains": [
+      "lamoda.ru"
+    ]
+  },
+  "lamoda.ru": {
+    "domains": [
+      "lamoda.ru"
+    ]
+  },
+  "wildberries": {
+    "domains": [
+      "wildberries.ru"
+    ]
+  },
+  "ozon": {
+    "domains": [
+      "ozon.ru"
+    ]
+  },
+  "avito": {
+    "domains": [
+      "avito.ru"
+    ]
+  },
+  "yandex": {
+    "domains": [
+      "yandex.ru"
+    ]
+  },
+  "mail.ru": {
+    "domains": [
+      "mail.ru"
+    ]
+  },
+  "mailru": {
+    "domains": [
+      "mail.ru"
+    ]
+  },
+  "vk": {
+    "domains": [
+      "vk.com"
+    ]
+  },
+  "vkontakte": {
+    "domains": [
+      "vk.com"
+    ]
+  },
+  "sberbank": {
+    "domains": [
+      "sberbank.ru"
+    ]
+  },
+  "sber": {
+    "domains": [
+      "sberbank.ru"
+    ]
+  },
+  "tinkoff": {
+    "domains": [
+      "tinkoff.ru"
+    ]
+  },
+  "alfa-bank": {
+    "domains": [
+      "alfabank.ru"
+    ]
+  },
+  "alfabank": {
+    "domains": [
+      "alfabank.ru"
+    ]
+  },
+  "vtb": {
+    "domains": [
+      "vtb.ru"
+    ]
+  },
+  "raiffeisen": {
+    "domains": [
+      "raiffeisen.ru"
+    ]
+  },
+  "gazprombank": {
+    "domains": [
+      "gazprombank.ru"
+    ]
+  },
+  "otp": {
+    "domains": [
+      "otpbank.ru"
+    ]
+  },
+  "rosbank": {
+    "domains": [
+      "rosbank.ru"
+    ]
+  },
+  "sovcombank": {
+    "domains": [
+      "sovcombank.ru"
+    ]
+  },
+  "psb": {
+    "domains": [
+      "psbank.ru"
+    ]
+  },
+  "promsvyazbank": {
+    "domains": [
+      "psbank.ru"
+    ]
+  },
+  "uralbank": {
+    "domains": [
+      "uralbank.ru"
+    ]
+  },
+  "ak bars": {
+    "domains": [
+      "akbars.ru"
+    ]
+  },
+  "akbars": {
+    "domains": [
+      "akbars.ru"
+    ]
+  },
+  "mkb": {
+    "domains": [
+      "mkb.ru"
+    ]
+  },
+  "moscow credit bank": {
+    "domains": [
+      "mkb.ru"
+    ]
+  },
+  "rosselkhozbank": {
+    "domains": [
+      "rshb.ru"
+    ]
+  },
+  "rshb": {
+    "domains": [
+      "rshb.ru"
+    ]
+  },
+  "russian agricultural bank": {
+    "domains": [
+      "rshb.ru"
+    ]
+  },
+  "dom.rf": {
+    "domains": [
+      "domrf.ru"
+    ]
+  },
+  "сбер": {
+    "domains": [
+      "sberbank.ru"
+    ]
+  },
+  "тинькофф": {
+    "domains": [
+      "tinkoff.ru"
+    ]
+  },
+  "альфа-банк": {
+    "domains": [
+      "alfabank.ru"
+    ]
+  },
+  "втб": {
+    "domains": [
+      "vtb.ru"
+    ]
+  },
+  "газпромбанк": {
+    "domains": [
+      "gazprombank.ru"
+    ]
+  },
+  "отп": {
+    "domains": [
+      "otpbank.ru"
+    ]
+  },
+  "россельхозбанк": {
+    "domains": [
+      "rshb.ru"
+    ]
+  },
+  "мкб": {
+    "domains": [
+      "mkb.ru"
+    ]
+  },
+  "совкомбанк": {
+    "domains": [
+      "sovcombank.ru"
+    ]
+  },
+  "уралсиб": {
+    "domains": [
+      "uralsib.ru"
+    ]
+  },
+  "ural sib": {
+    "domains": [
+      "uralsib.ru"
+    ]
+  },
+  "открытие": {
+    "domains": [
+      "open.ru"
+    ]
+  },
+  "otkritie": {
+    "domains": [
+      "open.ru"
+    ]
+  },
+  "tochka": {
+    "domains": [
+      "tochka.com"
+    ]
+  },
+  "точка": {
+    "domains": [
+      "tochka.com"
+    ]
+  },
+  "modulbank": {
+    "domains": [
+      "modulbank.ru"
+    ]
+  },
+  "модульбанк": {
+    "domains": [
+      "modulbank.ru"
+    ]
+  },
+  "qiwi": {
+    "domains": [
+      "qiwi.com"
+    ]
+  },
+  "yoomoney": {
+    "domains": [
+      "yoomoney.ru"
+    ]
+  },
+  "юmoney": {
+    "domains": [
+      "yoomoney.ru"
+    ]
+  },
+  "webmoney": {
+    "domains": [
+      "wmtransfer.com"
+    ]
+  },
+  "adv cash": {
+    "domains": [
+      "advcash.com"
+    ]
+  },
+  "advcash": {
+    "domains": [
+      "advcash.com"
+    ]
+  },
+  "payoneer": {
+    "domains": [
+      "payoneer.com"
+    ]
+  },
+  "robokassa": {
+    "domains": [
+      "robokassa.ru"
+    ]
+  },
+  "cloudpayments": {
+    "domains": [
+      "cloudpayments.ru"
+    ]
+  },
+  "uniteller": {
+    "domains": [
+      "uniteller.ru"
+    ]
+  },
+  "paymaster": {
+    "domains": [
+      "paymaster.ru"
+    ]
+  },
+  "ipay": {
+    "domains": [
+      "ipay.ru"
+    ]
+  },
+  "platron": {
+    "domains": [
+      "platron.ru"
+    ]
+  },
+  "chrono pay": {
+    "domains": [
+      "chronopay.com"
+    ]
+  },
+  "chronopay": {
+    "domains": [
+      "chronopay.com"
+    ]
+  },
+  "fondy": {
+    "domains": [
+      "fondy.eu"
+    ]
+  },
+  "liqpay": {
+    "domains": [
+      "liqpay.ua"
+    ]
+  },
+  "portmone": {
+    "domains": [
+      "portmone.com.ua"
+    ]
+  },
+  "wayforpay": {
+    "domains": [
+      "wayforpay.com"
+    ]
+  }
+}

@@ -1,0 +1,812 @@
+{
+  "exxonmobil": {
+    "domains": [
+      "exxonmobil.com"
+    ]
+  },
+  "exxon mobil": {
+    "domains": [
+      "exxonmobil.com"
+    ]
+  },
+  "shell": {
+    "domains": [
+      "shell.com"
+    ]
+  },
+  "bp": {
+    "domains": [
+      "bp.com"
+    ]
+  },
+  "chevron": {
+    "domains": [
+      "chevron.com"
+    ]
+  },
+  "total": {
+    "domains": [
+      "totalenergies.com"
+    ]
+  },
+  "totalenergies": {
+    "domains": [
+      "totalenergies.com"
+    ]
+  },
+  "total energies": {
+    "domains": [
+      "totalenergies.com"
+    ]
+  },
+  "eni": {
+    "domains": [
+      "eni.com"
+    ]
+  },
+  "equinor": {
+    "domains": [
+      "equinor.com"
+    ]
+  },
+  "conocophillips": {
+    "domains": [
+      "conocophillips.com"
+    ]
+  },
+  "conoco phillips": {
+    "domains": [
+      "conocophillips.com"
+    ]
+  },
+  "phillips66": {
+    "domains": [
+      "phillips66.com"
+    ]
+  },
+  "phillips 66": {
+    "domains": [
+      "phillips66.com"
+    ]
+  },
+  "marathon": {
+    "domains": [
+      "marathonpetroleum.com"
+    ]
+  },
+  "marathon petroleum": {
+    "domains": [
+      "marathonpetroleum.com"
+    ]
+  },
+  "valero": {
+    "domains": [
+      "valero.com"
+    ]
+  },
+  "pbfenergy": {
+    "domains": [
+      "pbfenergy.com"
+    ]
+  },
+  "pbf energy": {
+    "domains": [
+      "pbfenergy.com"
+    ]
+  },
+  "hollyfrontier": {
+    "domains": [
+      "hfsinclair.com"
+    ]
+  },
+  "holly frontier": {
+    "domains": [
+      "hfsinclair.com"
+    ]
+  },
+  "hf sinclair": {
+    "domains": [
+      "hfsinclair.com"
+    ]
+  },
+  "hfsinclair": {
+    "domains": [
+      "hfsinclair.com"
+    ]
+  },
+  "dow": {
+    "domains": [
+      "dow.com"
+    ]
+  },
+  "dupont": {
+    "domains": [
+      "dupont.com"
+    ]
+  },
+  "basf": {
+    "domains": [
+      "basf.com"
+    ]
+  },
+  "lyondellbasell": {
+    "domains": [
+      "lyondellbasell.com"
+    ]
+  },
+  "lyondell basell": {
+    "domains": [
+      "lyondellbasell.com"
+    ]
+  },
+  "westlake": {
+    "domains": [
+      "westlake.com"
+    ]
+  },
+  "celanese": {
+    "domains": [
+      "celanese.com"
+    ]
+  },
+  "eastman": {
+    "domains": [
+      "eastman.com"
+    ]
+  },
+  "huntsman": {
+    "domains": [
+      "huntsman.com"
+    ]
+  },
+  "chemours": {
+    "domains": [
+      "chemours.com"
+    ]
+  },
+  "airproducts": {
+    "domains": [
+      "airproducts.com"
+    ]
+  },
+  "air products": {
+    "domains": [
+      "airproducts.com"
+    ]
+  },
+  "linde": {
+    "domains": [
+      "linde.com"
+    ]
+  },
+  "nextera": {
+    "domains": [
+      "nexteraenergy.com"
+    ]
+  },
+  "nextera energy": {
+    "domains": [
+      "nexteraenergy.com"
+    ]
+  },
+  "dukeenergy": {
+    "domains": [
+      "duke-energy.com"
+    ]
+  },
+  "duke energy": {
+    "domains": [
+      "duke-energy.com"
+    ]
+  },
+  "southerncompany": {
+    "domains": [
+      "southerncompany.com"
+    ]
+  },
+  "southern company": {
+    "domains": [
+      "southerncompany.com"
+    ]
+  },
+  "dominionenergy": {
+    "domains": [
+      "dominionenergy.com"
+    ]
+  },
+  "dominion energy": {
+    "domains": [
+      "dominionenergy.com"
+    ]
+  },
+  "exelon": {
+    "domains": [
+      "exeloncorp.com"
+    ]
+  },
+  "american electric power": {
+    "domains": [
+      "aep.com"
+    ]
+  },
+  "aep": {
+    "domains": [
+      "aep.com"
+    ]
+  },
+  "xcel": {
+    "domains": [
+      "xcelenergy.com"
+    ]
+  },
+  "xcel energy": {
+    "domains": [
+      "xcelenergy.com"
+    ]
+  },
+  "pgande": {
+    "domains": [
+      "pge.com"
+    ]
+  },
+  "pg&e": {
+    "domains": [
+      "pge.com"
+    ]
+  },
+  "pge": {
+    "domains": [
+      "pge.com"
+    ]
+  },
+  "edison": {
+    "domains": [
+      "edison.com"
+    ]
+  },
+  "conedison": {
+    "domains": [
+      "coned.com"
+    ]
+  },
+  "con edison": {
+    "domains": [
+      "coned.com"
+    ]
+  },
+  "nationalgrid": {
+    "domains": [
+      "nationalgrid.com"
+    ]
+  },
+  "national grid": {
+    "domains": [
+      "nationalgrid.com"
+    ]
+  },
+  "eversource": {
+    "domains": [
+      "eversource.com"
+    ]
+  },
+  "firstenergy": {
+    "domains": [
+      "firstenergycorp.com"
+    ]
+  },
+  "first energy": {
+    "domains": [
+      "firstenergycorp.com"
+    ]
+  },
+  "ppl": {
+    "domains": [
+      "pplweb.com"
+    ]
+  },
+  " Entergy": {
+    "domains": [
+      "entergy.com"
+    ]
+  },
+  "entergy": {
+    "domains": [
+      "entergy.com"
+    ]
+  },
+  "sempra": {
+    "domains": [
+      "sempra.com"
+    ]
+  },
+  "pseg": {
+    "domains": [
+      "pseg.com"
+    ]
+  },
+  "aes": {
+    "domains": [
+      "aes.com"
+    ]
+  },
+  "wecenergy": {
+    "domains": [
+      "wecenergygroup.com"
+    ]
+  },
+  "wec energy": {
+    "domains": [
+      "wecenergygroup.com"
+    ]
+  },
+  "centerpoint": {
+    "domains": [
+      "centerpointenergy.com"
+    ]
+  },
+  "centerpoint energy": {
+    "domains": [
+      "centerpointenergy.com"
+    ]
+  },
+  "oneok": {
+    "domains": [
+      "oneok.com"
+    ]
+  },
+  "kinder morgan": {
+    "domains": [
+      "kindermorgan.com"
+    ]
+  },
+  "kindermorgan": {
+    "domains": [
+      "kindermorgan.com"
+    ]
+  },
+  "energytransfer": {
+    "domains": [
+      "energytransfer.com"
+    ]
+  },
+  "energy transfer": {
+    "domains": [
+      "energytransfer.com"
+    ]
+  },
+  "targa": {
+    "domains": [
+      "targaresources.com"
+    ]
+  },
+  "targa resources": {
+    "domains": [
+      "targaresources.com"
+    ]
+  },
+  "enbridge": {
+    "domains": [
+      "enbridge.com"
+    ]
+  },
+  "tcenergy": {
+    "domains": [
+      "tcenergy.com"
+    ]
+  },
+  "tc energy": {
+    "domains": [
+      "tcenergy.com"
+    ]
+  },
+  "transcanada": {
+    "domains": [
+      "tcenergy.com"
+    ]
+  },
+  "trans canada": {
+    "domains": [
+      "tcenergy.com"
+    ]
+  },
+  "pengrowth": {
+    "domains": [
+      "pengrowth.com"
+    ]
+  },
+  "cnrl": {
+    "domains": [
+      "cnrl.com"
+    ]
+  },
+  "canadian natural": {
+    "domains": [
+      "cnrl.com"
+    ]
+  },
+  "suncor": {
+    "domains": [
+      "suncor.com"
+    ]
+  },
+  "cenovus": {
+    "domains": [
+      "cenovus.com"
+    ]
+  },
+  "husky": {
+    "domains": [
+      "cenovus.com"
+    ]
+  },
+  "imperialoil": {
+    "domains": [
+      "imperialoil.ca"
+    ]
+  },
+  "imperial oil": {
+    "domains": [
+      "imperialoil.ca"
+    ]
+  },
+  "petrobras": {
+    "domains": [
+      "petrobras.com.br"
+    ]
+  },
+  "pemex": {
+    "domains": [
+      "pemex.com"
+    ]
+  },
+  "ecopetrol": {
+    "domains": [
+      "ecopetrol.com.co"
+    ]
+  },
+  "ypf": {
+    "domains": [
+      "ypf.com"
+    ]
+  },
+  "sinopec": {
+    "domains": [
+      "sinopec.com"
+    ]
+  },
+  "中石油": {
+    "domains": [
+      "cnpc.com.cn"
+    ]
+  },
+  "cnpc": {
+    "domains": [
+      "cnpc.com.cn"
+    ]
+  },
+  "中石化": {
+    "domains": [
+      "sinopec.com"
+    ]
+  },
+  "中海油": {
+    "domains": [
+      "cnooc.com.cn"
+    ]
+  },
+  "cnooc": {
+    "domains": [
+      "cnooc.com.cn"
+    ]
+  },
+  "沙特阿美": {
+    "domains": [
+      "aramco.com"
+    ]
+  },
+  "aramco": {
+    "domains": [
+      "aramco.com"
+    ]
+  },
+  "adnoc": {
+    "domains": [
+      "adnoc.ae"
+    ]
+  },
+  "qatarenergy": {
+    "domains": [
+      "qatarenergy.qa"
+    ]
+  },
+  "qatari energy": {
+    "domains": [
+      "qatarenergy.qa"
+    ]
+  },
+  "kpc": {
+    "domains": [
+      "kpc.com.kw"
+    ]
+  },
+  "kuwait petroleum": {
+    "domains": [
+      "kpc.com.kw"
+    ]
+  },
+  "nogaholding": {
+    "domains": [
+      "nogaholding.com"
+    ]
+  },
+  "bapco": {
+    "domains": [
+      "bapco.com"
+    ]
+  },
+  "rosneft": {
+    "domains": [
+      "rosneft.com"
+    ]
+  },
+  "gazprom": {
+    "domains": [
+      "gazprom.com"
+    ]
+  },
+  "lukoil": {
+    "domains": [
+      "lukoil.com"
+    ]
+  },
+  "transneft": {
+    "domains": [
+      "transneft.ru"
+    ]
+  },
+  "novatek": {
+    "domains": [
+      "novatek.ru"
+    ]
+  },
+  "tatneft": {
+    "domains": [
+      "tatneft.ru"
+    ]
+  },
+  "surgetneftegas": {
+    "domains": [
+      "surgutneftegas.ru"
+    ]
+  },
+  "surgutneftegas": {
+    "domains": [
+      "surgutneftegas.ru"
+    ]
+  },
+  "bashneft": {
+    "domains": [
+      "bashneft.ru"
+    ]
+  },
+  "russneft": {
+    "domains": [
+      "russneft.ru"
+    ]
+  },
+  "slavneft": {
+    "domains": [
+      "slavneft.ru"
+    ]
+  },
+  "tnk-bp": {
+    "domains": [
+      "rosneft.com"
+    ]
+  },
+  "tnk bp": {
+    "domains": [
+      "rosneft.com"
+    ]
+  },
+  "tnkbp": {
+    "domains": [
+      "rosneft.com"
+    ]
+  },
+  "repsol": {
+    "domains": [
+      "repsol.com"
+    ]
+  },
+  "cepsa": {
+    "domains": [
+      "cepsa.com"
+    ]
+  },
+  "galp": {
+    "domains": [
+      "galp.com"
+    ]
+  },
+  "omv": {
+    "domains": [
+      "omv.com"
+    ]
+  },
+  "mol": {
+    "domains": [
+      "molgroup.info"
+    ]
+  },
+  "pkn orlen": {
+    "domains": [
+      "orlen.pl"
+    ]
+  },
+  "pknorlen": {
+    "domains": [
+      "orlen.pl"
+    ]
+  },
+  "lotos": {
+    "domains": [
+      "grupalotos.pl"
+    ]
+  },
+  "grupa lotos": {
+    "domains": [
+      "grupalotos.pl"
+    ]
+  },
+  "ina": {
+    "domains": [
+      "ina.hr"
+    ]
+  },
+  "nisa": {
+    "domains": [
+      "nis.rs"
+    ]
+  },
+  "rompetrol": {
+    "domains": [
+      "rompetrol.com"
+    ]
+  },
+  "petrom": {
+    "domains": [
+      "omvpetrom.com"
+    ]
+  },
+  "hellenic petroleum": {
+    "domains": [
+      "helpe.gr"
+    ]
+  },
+  "hellenicpetroleum": {
+    "domains": [
+      "helpe.gr"
+    ]
+  },
+  "motor oil": {
+    "domains": [
+      "motoroil.gr"
+    ]
+  },
+  "motoroil": {
+    "domains": [
+      "motoroil.gr"
+    ]
+  },
+  "delek": {
+    "domains": [
+      "delekgroup.com"
+    ]
+  },
+  "isramco": {
+    "domains": [
+      "isramco.com"
+    ]
+  },
+  "ratio": {
+    "domains": [
+      "ratio.co.il"
+    ]
+  },
+  "energean": {
+    "domains": [
+      "energean.com"
+    ]
+  },
+  "maurel et prom": {
+    "domains": [
+      "maureletprom.fr"
+    ]
+  },
+  "maureletprom": {
+    "domains": [
+      "maureletprom.fr"
+    ]
+  },
+  "perenco": {
+    "domains": [
+      "perenco.com"
+    ]
+  },
+  "tullow": {
+    "domains": [
+      "tullowoil.com"
+    ]
+  },
+  "tullow oil": {
+    "domains": [
+      "tullowoil.com"
+    ]
+  },
+  "kosmos": {
+    "domains": [
+      "kosmosenergy.com"
+    ]
+  },
+  "kosmos energy": {
+    "domains": [
+      "kosmosenergy.com"
+    ]
+  },
+  "africa oil": {
+    "domains": [
+      "africaoilcorp.com"
+    ]
+  },
+  "africaoil": {
+    "domains": [
+      "africaoilcorp.com"
+    ]
+  },
+  "lundin": {
+    "domains": [
+      "lundin-petroleum.com"
+    ]
+  },
+  "lundin petroleum": {
+    "domains": [
+      "lundin-petroleum.com"
+    ]
+  },
+  "aker bp": {
+    "domains": [
+      "akerbp.com"
+    ]
+  },
+  "akerbp": {
+    "domains": [
+      "akerbp.com"
+    ]
+  },
+  "var energi": {
+    "domains": [
+      "varenergi.no"
+    ]
+  },
+  "varenergi": {
+    "domains": [
+      "varenergi.no"
+    ]
+  },
+  "dno": {
+    "domains": [
+      "dno.no"
+    ]
+  },
+  "wintershall dea": {
+    "domains": [
+      "wintershalldea.com"
+    ]
+  },
+  "wintershalldea": {
+    "domains": [
+      "wintershalldea.com"
+    ]
+  }
+}

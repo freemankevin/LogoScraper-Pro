@@ -1,97 +1,679 @@
 {
-  "docker": { "domains": ["docker.com"], "github": "moby/moby", "wikipedia": "Docker_(software)" },
-  "kubernetes": { "domains": ["kubernetes.io"], "github": "kubernetes/kubernetes", "wikipedia": "Kubernetes" },
-  "k8s": { "domains": ["kubernetes.io"], "github": "kubernetes/kubernetes", "wikipedia": "Kubernetes" },
-  "containerd": { "domains": ["containerd.io"], "github": "containerd/containerd" },
-  "cri-o": { "domains": ["cri-o.io"], "github": "cri-o/cri-o" },
-  "podman": { "domains": ["podman.io"], "github": "containers/podman" },
-  "buildah": { "domains": ["buildah.io"], "github": "containers/buildah" },
-  "skopeo": { "domains": ["github.com/containers/skopeo"], "clearbitDomains": ["github.com"], "github": "containers/skopeo" },
-  "kaniko": { "domains": ["github.com/GoogleContainerTools/kaniko"], "clearbitDomains": ["github.com"], "github": "GoogleContainerTools/kaniko" },
-  "distroless": { "domains": ["github.com/GoogleContainerTools/distroless"], "clearbitDomains": ["github.com"], "github": "GoogleContainerTools/distroless" },
-  "jenkins": { "domains": ["jenkins.io"], "github": "jenkinsci/jenkins", "wikipedia": "Jenkins_(software)" },
-  "githubactions": { "domains": ["github.com/features/actions"], "clearbitDomains": ["github.com"], "github": "github" },
-  "github actions": { "domains": ["github.com/features/actions"], "clearbitDomains": ["github.com"], "github": "github" },
-  "gitlabci": { "domains": ["gitlab.com"], "github": "gitlabhq/gitlab-ci" },
-  "gitlab ci": { "domains": ["gitlab.com"], "github": "gitlabhq/gitlab-ci" },
-  "circleci": { "domains": ["circleci.com"], "github": "circleci" },
-  "circle ci": { "domains": ["circleci.com"], "github": "circleci" },
-  "travisci": { "domains": ["travis-ci.com"], "github": "travis-ci" },
-  "travis ci": { "domains": ["travis-ci.com"], "github": "travis-ci" },
-  "sonarqube": { "domains": ["sonarqube.org"], "github": "SonarSource/sonarqube" },
-  "sonarcloud": { "domains": ["sonarcloud.io"], "github": "SonarSource" },
-  "sonarlint": { "domains": ["sonarsource.com/products/sonarlint"], "clearbitDomains": ["sonarsource.com"], "github": "SonarSource/sonarlint-vscode" },
-  "terraform": { "domains": ["terraform.io", "hashicorp.com"], "github": "hashicorp/terraform", "wikipedia": "Terraform_(software)" },
-  "opentofu": { "domains": ["opentofu.org"], "github": "opentofu/opentofu" },
-  "pulumi": { "domains": ["pulumi.com"], "github": "pulumi/pulumi" },
-  "crossplane": { "domains": ["crossplane.io"], "github": "crossplane/crossplane" },
-  "cdktf": { "domains": ["developer.hashicorp.com/terraform/cdktf"], "clearbitDomains": ["hashicorp.com"], "github": "hashicorp/terraform-cdk" },
-  "terragrunt": { "domains": ["terragrunt.gruntwork.io"], "clearbitDomains": ["gruntwork.io"], "github": "gruntwork-io/terragrunt" },
-  "tfsec": { "domains": ["aquasecurity.github.io/tfsec"], "clearbitDomains": ["github.com"], "github": "aquasecurity/tfsec" },
-  "checkov": { "domains": ["checkov.io"], "github": "bridgecrewio/checkov" },
-  "infracost": { "domains": ["infracost.io"], "github": "infracost/infracost" },
-  "spacelift": { "domains": ["spacelift.io"], "github": "spacelift-io" },
-  "env0": { "domains": ["env0.com"], "github": "env0" },
-  "scalr": { "domains": ["scalr.com"], "github": "Scalr/terraform-provider-scalr" },
-  "atlantis": { "domains": ["runatlantis.io"], "github": "runatlantis/atlantis" },
-  "ansible": { "domains": ["ansible.com", "redhat.com"], "github": "ansible/ansible", "wikipedia": "Ansible_(software)" },
-  "puppet": { "domains": ["puppet.com"], "github": "puppetlabs/puppet" },
-  "chef": { "domains": ["chef.io"], "github": "chef/chef" },
-  "saltstack": { "domains": ["saltproject.io"], "github": "saltstack/salt" },
-  "vagrant": { "domains": ["vagrantup.com"], "github": "hashicorp/vagrant" },
-  "packer": { "domains": ["packer.io"], "github": "hashicorp/packer" },
-  "nomad": { "domains": ["nomadproject.io"], "github": "hashicorp/nomad" },
-  "consul": { "domains": ["consul.io"], "github": "hashicorp/consul" },
-  "vault": { "domains": ["vaultproject.io"], "github": "hashicorp/vault" },
-  "boundary": { "domains": ["boundaryproject.io"], "github": "hashicorp/boundary" },
-  "waypoint": { "domains": ["waypointproject.io"], "github": "hashicorp/waypoint" },
-  "serf": { "domains": ["serf.io"], "github": "hashicorp/serf" },
-  "helm": { "domains": ["helm.sh"], "github": "helm/helm" },
-  "kustomize": { "domains": ["kustomize.io"], "github": "kubernetes-sigs/kustomize" },
-  "argocd": { "domains": ["argoproj.github.io/cd"], "clearbitDomains": ["github.com"], "github": "argoproj/argo-cd" },
-  "argo cd": { "domains": ["argoproj.github.io/cd"], "clearbitDomains": ["github.com"], "github": "argoproj/argo-cd" },
-  "fluxcd": { "domains": ["fluxcd.io"], "github": "fluxcd/flux2" },
-  "flux": { "domains": ["fluxcd.io"], "github": "fluxcd/flux2" },
-  "tekton": { "domains": ["tekton.dev"], "github": "tektoncd/pipeline" },
-  "spinnaker": { "domains": ["spinnaker.io"], "github": "spinnaker/spinnaker" },
-  "drone": { "domains": ["drone.io"], "github": "harness/drone" },
-  "teamcity": { "domains": ["jetbrains.com/teamcity"], "clearbitDomains": ["jetbrains.com"], "github": "JetBrains" },
-  "bamboo": { "domains": ["atlassian.com/software/bamboo"], "clearbitDomains": ["atlassian.com"], "github": "atlassian/bamboo" },
-  "buildkite": { "domains": ["buildkite.com"], "github": "buildkite" },
-  "concourse": { "domains": ["concourse-ci.org"], "github": "concourse/concourse" },
-  "gocd": { "domains": ["gocd.org"], "github": "gocd/gocd" },
-  "semaphore": { "domains": ["semaphoreci.com"], "github": "semaphoreci" },
-  "wercker": { "domains": ["oracle.com/cloud/cloud-native/wercker"], "clearbitDomains": ["oracle.com"], "github": "wercker" },
-  "codeship": { "domains": ["cloudbees.com/codeship"], "clearbitDomains": ["cloudbees.com"], "github": "codeship" },
-  "portainer": { "domains": ["portainer.io"], "github": "portainer/portainer" },
-  "rancher": { "domains": ["rancher.com"], "github": "rancher/rancher" },
-  "k3s": { "domains": ["k3s.io"], "github": "k3s-io/k3s" },
-  "k3os": { "domains": ["k3os.io"], "github": "rancher/k3os" },
-  "k3d": { "domains": ["k3d.io"], "github": "k3d-io/k3d" },
-  "kind": { "domains": ["kind.sigs.k8s.io"], "clearbitDomains": ["sigs.k8s.io"], "github": "kubernetes-sigs/kind" },
-  "minikube": { "domains": ["minikube.sigs.k8s.io"], "clearbitDomains": ["sigs.k8s.io"], "github": "kubernetes/minikube" },
-  "microk8s": { "domains": ["microk8s.io"], "github": "canonical/microk8s" },
-  "eks": { "domains": ["aws.amazon.com/eks"], "clearbitDomains": ["aws.amazon.com"], "github": "aws" },
-  "aks": { "domains": ["azure.microsoft.com/services/kubernetes-service"], "clearbitDomains": ["microsoft.com"], "github": "Azure" },
-  "gke": { "domains": ["cloud.google.com/kubernetes-engine"], "clearbitDomains": ["google.com"], "github": "GoogleCloudPlatform" },
-  "openshift": { "domains": ["redhat.com/en/technologies/cloud-computing/openshift"], "clearbitDomains": ["redhat.com"], "github": "openshift" },
-  "okd": { "domains": ["okd.io"], "github": "okd-project/okd" },
-  "rancheros": { "domains": ["rancher.com/rancher-os"], "clearbitDomains": ["rancher.com"], "github": "rancher/os" },
-  "dockercompose": { "domains": ["docs.docker.com/compose"], "clearbitDomains": ["docker.com"], "github": "docker/compose" },
-  "docker compose": { "domains": ["docs.docker.com/compose"], "clearbitDomains": ["docker.com"], "github": "docker/compose" },
-  "lazydocker": { "domains": ["github.com/jesseduffield/lazydocker"], "clearbitDomains": ["github.com"], "github": "jesseduffield/lazydocker" },
-  "yacht": { "domains": ["yacht.sh"], "github": "selfhostedpro/Yacht" },
-  "dockstation": { "domains": ["dockstation.io"], "github": "dockstation/dockstation" },
-  "podman desktop": { "domains": ["podman-desktop.io"], "github": "containers/podman-desktop" },
-  "nerdctl": { "domains": ["github.com/containerd/nerdctl"], "clearbitDomains": ["github.com"], "github": "containerd/nerdctl" },
-  "buildkit": { "domains": ["github.com/moby/buildkit"], "clearbitDomains": ["github.com"], "github": "moby/buildkit" },
-  "img": { "domains": ["github.com/genuinetools/img"], "clearbitDomains": ["github.com"], "github": "genuinetools/img" },
-  "dive": { "domains": ["github.com/wagoodman/dive"], "clearbitDomains": ["github.com"], "github": "wagoodman/dive" },
-  "trivy": { "domains": ["aquasecurity.github.io/trivy"], "clearbitDomains": ["github.com"], "github": "aquasecurity/trivy" },
-  "grype": { "domains": ["github.com/anchore/grype"], "clearbitDomains": ["github.com"], "github": "anchore/grype" },
-  "syft": { "domains": ["github.com/anchore/syft"], "clearbitDomains": ["github.com"], "github": "anchore/syft" },
-  "cosign": { "domains": ["sigstore.dev"], "github": "sigstore/cosign" },
-  "notation": { "domains": ["notaryproject.dev"], "github": "notaryproject/notation" },
-  "harbor": { "domains": ["goharbor.io"], "github": "goharbor/harbor" },
-  "distribution": { "domains": ["distribution.github.io/distribution"], "clearbitDomains": ["github.com"], "github": "distribution/distribution" }
+  "docker": {
+    "domains": [
+      "docker.com"
+    ],
+    "github": "moby/moby",
+    "wikipedia": "Docker_(software)"
+  },
+  "kubernetes": {
+    "domains": [
+      "kubernetes.io"
+    ],
+    "github": "kubernetes/kubernetes",
+    "wikipedia": "Kubernetes"
+  },
+  "k8s": {
+    "domains": [
+      "kubernetes.io"
+    ],
+    "github": "kubernetes/kubernetes",
+    "wikipedia": "Kubernetes"
+  },
+  "containerd": {
+    "domains": [
+      "containerd.io"
+    ],
+    "github": "containerd/containerd"
+  },
+  "cri-o": {
+    "domains": [
+      "cri-o.io"
+    ],
+    "github": "cri-o/cri-o"
+  },
+  "podman": {
+    "domains": [
+      "podman.io"
+    ],
+    "github": "containers/podman"
+  },
+  "buildah": {
+    "domains": [
+      "buildah.io"
+    ],
+    "github": "containers/buildah"
+  },
+  "skopeo": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "containers/skopeo"
+  },
+  "kaniko": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "GoogleContainerTools/kaniko"
+  },
+  "distroless": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "GoogleContainerTools/distroless"
+  },
+  "jenkins": {
+    "domains": [
+      "jenkins.io"
+    ],
+    "github": "jenkinsci/jenkins",
+    "wikipedia": "Jenkins_(software)"
+  },
+  "githubactions": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "github"
+  },
+  "github actions": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "github"
+  },
+  "gitlabci": {
+    "domains": [
+      "gitlab.com"
+    ],
+    "github": "gitlabhq/gitlab-ci"
+  },
+  "gitlab ci": {
+    "domains": [
+      "gitlab.com"
+    ],
+    "github": "gitlabhq/gitlab-ci"
+  },
+  "circleci": {
+    "domains": [
+      "circleci.com"
+    ],
+    "github": "circleci"
+  },
+  "circle ci": {
+    "domains": [
+      "circleci.com"
+    ],
+    "github": "circleci"
+  },
+  "travisci": {
+    "domains": [
+      "travis-ci.com"
+    ],
+    "github": "travis-ci"
+  },
+  "travis ci": {
+    "domains": [
+      "travis-ci.com"
+    ],
+    "github": "travis-ci"
+  },
+  "sonarqube": {
+    "domains": [
+      "sonarqube.org"
+    ],
+    "github": "SonarSource/sonarqube"
+  },
+  "sonarcloud": {
+    "domains": [
+      "sonarcloud.io"
+    ],
+    "github": "SonarSource"
+  },
+  "sonarlint": {
+    "domains": [
+      "sonarsource.com"
+    ],
+    "clearbitDomains": [
+      "sonarsource.com"
+    ],
+    "github": "SonarSource/sonarlint-vscode"
+  },
+  "terraform": {
+    "domains": [
+      "terraform.io",
+      "hashicorp.com"
+    ],
+    "github": "hashicorp/terraform",
+    "wikipedia": "Terraform_(software)"
+  },
+  "opentofu": {
+    "domains": [
+      "opentofu.org"
+    ],
+    "github": "opentofu/opentofu"
+  },
+  "pulumi": {
+    "domains": [
+      "pulumi.com"
+    ],
+    "github": "pulumi/pulumi"
+  },
+  "crossplane": {
+    "domains": [
+      "crossplane.io"
+    ],
+    "github": "crossplane/crossplane"
+  },
+  "cdktf": {
+    "domains": [
+      "developer.hashicorp.com"
+    ],
+    "clearbitDomains": [
+      "hashicorp.com"
+    ],
+    "github": "hashicorp/terraform-cdk"
+  },
+  "terragrunt": {
+    "domains": [
+      "terragrunt.gruntwork.io"
+    ],
+    "clearbitDomains": [
+      "gruntwork.io"
+    ],
+    "github": "gruntwork-io/terragrunt"
+  },
+  "tfsec": {
+    "domains": [
+      "aquasecurity.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "aquasecurity/tfsec"
+  },
+  "checkov": {
+    "domains": [
+      "checkov.io"
+    ],
+    "github": "bridgecrewio/checkov"
+  },
+  "infracost": {
+    "domains": [
+      "infracost.io"
+    ],
+    "github": "infracost/infracost"
+  },
+  "spacelift": {
+    "domains": [
+      "spacelift.io"
+    ],
+    "github": "spacelift-io"
+  },
+  "env0": {
+    "domains": [
+      "env0.com"
+    ],
+    "github": "env0"
+  },
+  "scalr": {
+    "domains": [
+      "scalr.com"
+    ],
+    "github": "Scalr/terraform-provider-scalr"
+  },
+  "atlantis": {
+    "domains": [
+      "runatlantis.io"
+    ],
+    "github": "runatlantis/atlantis"
+  },
+  "ansible": {
+    "domains": [
+      "ansible.com",
+      "redhat.com"
+    ],
+    "github": "ansible/ansible",
+    "wikipedia": "Ansible_(software)"
+  },
+  "puppet": {
+    "domains": [
+      "puppet.com"
+    ],
+    "github": "puppetlabs/puppet"
+  },
+  "chef": {
+    "domains": [
+      "chef.io"
+    ],
+    "github": "chef/chef"
+  },
+  "saltstack": {
+    "domains": [
+      "saltproject.io"
+    ],
+    "github": "saltstack/salt"
+  },
+  "vagrant": {
+    "domains": [
+      "vagrantup.com"
+    ],
+    "github": "hashicorp/vagrant"
+  },
+  "packer": {
+    "domains": [
+      "packer.io"
+    ],
+    "github": "hashicorp/packer"
+  },
+  "nomad": {
+    "domains": [
+      "nomadproject.io"
+    ],
+    "github": "hashicorp/nomad"
+  },
+  "consul": {
+    "domains": [
+      "consul.io"
+    ],
+    "github": "hashicorp/consul"
+  },
+  "vault": {
+    "domains": [
+      "vaultproject.io"
+    ],
+    "github": "hashicorp/vault"
+  },
+  "boundary": {
+    "domains": [
+      "boundaryproject.io"
+    ],
+    "github": "hashicorp/boundary"
+  },
+  "waypoint": {
+    "domains": [
+      "waypointproject.io"
+    ],
+    "github": "hashicorp/waypoint"
+  },
+  "serf": {
+    "domains": [
+      "serf.io"
+    ],
+    "github": "hashicorp/serf"
+  },
+  "helm": {
+    "domains": [
+      "helm.sh"
+    ],
+    "github": "helm/helm"
+  },
+  "kustomize": {
+    "domains": [
+      "kustomize.io"
+    ],
+    "github": "kubernetes-sigs/kustomize"
+  },
+  "argocd": {
+    "domains": [
+      "argoproj.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "argoproj/argo-cd"
+  },
+  "argo cd": {
+    "domains": [
+      "argoproj.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "argoproj/argo-cd"
+  },
+  "fluxcd": {
+    "domains": [
+      "fluxcd.io"
+    ],
+    "github": "fluxcd/flux2"
+  },
+  "flux": {
+    "domains": [
+      "fluxcd.io"
+    ],
+    "github": "fluxcd/flux2"
+  },
+  "tekton": {
+    "domains": [
+      "tekton.dev"
+    ],
+    "github": "tektoncd/pipeline"
+  },
+  "spinnaker": {
+    "domains": [
+      "spinnaker.io"
+    ],
+    "github": "spinnaker/spinnaker"
+  },
+  "drone": {
+    "domains": [
+      "drone.io"
+    ],
+    "github": "harness/drone"
+  },
+  "teamcity": {
+    "domains": [
+      "jetbrains.com"
+    ],
+    "clearbitDomains": [
+      "jetbrains.com"
+    ],
+    "github": "JetBrains"
+  },
+  "bamboo": {
+    "domains": [
+      "atlassian.com"
+    ],
+    "clearbitDomains": [
+      "atlassian.com"
+    ],
+    "github": "atlassian/bamboo"
+  },
+  "buildkite": {
+    "domains": [
+      "buildkite.com"
+    ],
+    "github": "buildkite"
+  },
+  "concourse": {
+    "domains": [
+      "concourse-ci.org"
+    ],
+    "github": "concourse/concourse"
+  },
+  "gocd": {
+    "domains": [
+      "gocd.org"
+    ],
+    "github": "gocd/gocd"
+  },
+  "semaphore": {
+    "domains": [
+      "semaphoreci.com"
+    ],
+    "github": "semaphoreci"
+  },
+  "wercker": {
+    "domains": [
+      "oracle.com"
+    ],
+    "clearbitDomains": [
+      "oracle.com"
+    ],
+    "github": "wercker"
+  },
+  "codeship": {
+    "domains": [
+      "cloudbees.com"
+    ],
+    "clearbitDomains": [
+      "cloudbees.com"
+    ],
+    "github": "codeship"
+  },
+  "portainer": {
+    "domains": [
+      "portainer.io"
+    ],
+    "github": "portainer/portainer"
+  },
+  "rancher": {
+    "domains": [
+      "rancher.com"
+    ],
+    "github": "rancher/rancher"
+  },
+  "k3s": {
+    "domains": [
+      "k3s.io"
+    ],
+    "github": "k3s-io/k3s"
+  },
+  "k3os": {
+    "domains": [
+      "k3os.io"
+    ],
+    "github": "rancher/k3os"
+  },
+  "k3d": {
+    "domains": [
+      "k3d.io"
+    ],
+    "github": "k3d-io/k3d"
+  },
+  "kind": {
+    "domains": [
+      "kind.sigs.k8s.io"
+    ],
+    "clearbitDomains": [
+      "sigs.k8s.io"
+    ],
+    "github": "kubernetes-sigs/kind"
+  },
+  "minikube": {
+    "domains": [
+      "minikube.sigs.k8s.io"
+    ],
+    "clearbitDomains": [
+      "sigs.k8s.io"
+    ],
+    "github": "kubernetes/minikube"
+  },
+  "microk8s": {
+    "domains": [
+      "microk8s.io"
+    ],
+    "github": "canonical/microk8s"
+  },
+  "eks": {
+    "domains": [
+      "aws.amazon.com"
+    ],
+    "clearbitDomains": [
+      "aws.amazon.com"
+    ],
+    "github": "aws"
+  },
+  "aks": {
+    "domains": [
+      "azure.microsoft.com"
+    ],
+    "clearbitDomains": [
+      "microsoft.com"
+    ],
+    "github": "Azure"
+  },
+  "gke": {
+    "domains": [
+      "cloud.google.com"
+    ],
+    "clearbitDomains": [
+      "google.com"
+    ],
+    "github": "GoogleCloudPlatform"
+  },
+  "openshift": {
+    "domains": [
+      "redhat.com"
+    ],
+    "clearbitDomains": [
+      "redhat.com"
+    ],
+    "github": "openshift"
+  },
+  "okd": {
+    "domains": [
+      "okd.io"
+    ],
+    "github": "okd-project/okd"
+  },
+  "rancheros": {
+    "domains": [
+      "rancher.com"
+    ],
+    "clearbitDomains": [
+      "rancher.com"
+    ],
+    "github": "rancher/os"
+  },
+  "dockercompose": {
+    "domains": [
+      "docs.docker.com"
+    ],
+    "clearbitDomains": [
+      "docker.com"
+    ],
+    "github": "docker/compose"
+  },
+  "docker compose": {
+    "domains": [
+      "docs.docker.com"
+    ],
+    "clearbitDomains": [
+      "docker.com"
+    ],
+    "github": "docker/compose"
+  },
+  "lazydocker": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "jesseduffield/lazydocker"
+  },
+  "yacht": {
+    "domains": [
+      "yacht.sh"
+    ],
+    "github": "selfhostedpro/Yacht"
+  },
+  "dockstation": {
+    "domains": [
+      "dockstation.io"
+    ],
+    "github": "dockstation/dockstation"
+  },
+  "podman desktop": {
+    "domains": [
+      "podman-desktop.io"
+    ],
+    "github": "containers/podman-desktop"
+  },
+  "nerdctl": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "containerd/nerdctl"
+  },
+  "buildkit": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "moby/buildkit"
+  },
+  "img": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "genuinetools/img"
+  },
+  "dive": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "wagoodman/dive"
+  },
+  "trivy": {
+    "domains": [
+      "aquasecurity.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "aquasecurity/trivy"
+  },
+  "grype": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "anchore/grype"
+  },
+  "syft": {
+    "domains": [
+      "github.com"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "anchore/syft"
+  },
+  "cosign": {
+    "domains": [
+      "sigstore.dev"
+    ],
+    "github": "sigstore/cosign"
+  },
+  "notation": {
+    "domains": [
+      "notaryproject.dev"
+    ],
+    "github": "notaryproject/notation"
+  },
+  "harbor": {
+    "domains": [
+      "goharbor.io"
+    ],
+    "github": "goharbor/harbor"
+  },
+  "distribution": {
+    "domains": [
+      "distribution.github.io"
+    ],
+    "clearbitDomains": [
+      "github.com"
+    ],
+    "github": "distribution/distribution"
+  }
 }

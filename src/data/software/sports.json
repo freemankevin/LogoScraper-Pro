@@ -1,0 +1,1572 @@
+{
+  "nike": {
+    "domains": [
+      "nike.com"
+    ]
+  },
+  "adidas": {
+    "domains": [
+      "adidas.com"
+    ]
+  },
+  "puma": {
+    "domains": [
+      "puma.com"
+    ]
+  },
+  "reebok": {
+    "domains": [
+      "reebok.com"
+    ]
+  },
+  "underarmour": {
+    "domains": [
+      "underarmour.com"
+    ]
+  },
+  "under armour": {
+    "domains": [
+      "underarmour.com"
+    ]
+  },
+  "newbalance": {
+    "domains": [
+      "newbalance.com"
+    ]
+  },
+  "new balance": {
+    "domains": [
+      "newbalance.com"
+    ]
+  },
+  "asics": {
+    "domains": [
+      "asics.com"
+    ]
+  },
+  "onrunning": {
+    "domains": [
+      "on-running.com"
+    ]
+  },
+  "on": {
+    "domains": [
+      "on-running.com"
+    ]
+  },
+  "on running": {
+    "domains": [
+      "on-running.com"
+    ]
+  },
+  "hoka": {
+    "domains": [
+      "hoka.com"
+    ]
+  },
+  "salomon": {
+    "domains": [
+      "salomon.com"
+    ]
+  },
+  "brooks": {
+    "domains": [
+      "brooksrunning.com"
+    ]
+  },
+  "brooks running": {
+    "domains": [
+      "brooksrunning.com"
+    ]
+  },
+  "saucony": {
+    "domains": [
+      "saucony.com"
+    ]
+  },
+  "mizuno": {
+    "domains": [
+      "mizuno.com"
+    ]
+  },
+  "karhu": {
+    "domains": [
+      "karhu.com"
+    ]
+  },
+  "skechers": {
+    "domains": [
+      "skechers.com"
+    ]
+  },
+  "columbia": {
+    "domains": [
+      "columbia.com"
+    ]
+  },
+  "merrell": {
+    "domains": [
+      "merrell.com"
+    ]
+  },
+  "keen": {
+    "domains": [
+      "keenfootwear.com"
+    ]
+  },
+  "teva": {
+    "domains": [
+      "teva.com"
+    ]
+  },
+  "chaco": {
+    "domains": [
+      "chacos.com"
+    ]
+  },
+  "bedrock": {
+    "domains": [
+      "bedrocksandals.com"
+    ]
+  },
+  "xero": {
+    "domains": [
+      "xeroshoes.com"
+    ]
+  },
+  "xero shoes": {
+    "domains": [
+      "xeroshoes.com"
+    ]
+  },
+  "vivobarefoot": {
+    "domains": [
+      "vivobarefoot.com"
+    ]
+  },
+  "vivo barefoot": {
+    "domains": [
+      "vivobarefoot.com"
+    ]
+  },
+  "lemsshoes": {
+    "domains": [
+      "lemsshoes.com"
+    ]
+  },
+  "lems shoes": {
+    "domains": [
+      "lemsshoes.com"
+    ]
+  },
+  "altra": {
+    "domains": [
+      "altrarunning.com"
+    ]
+  },
+  "altra running": {
+    "domains": [
+      "altrarunning.com"
+    ]
+  },
+  "topo": {
+    "domains": [
+      "topoathletic.com"
+    ]
+  },
+  "topo athletic": {
+    "domains": [
+      "topoathletic.com"
+    ]
+  },
+  "inov8": {
+    "domains": [
+      "inov-8.com"
+    ]
+  },
+  "inov-8": {
+    "domains": [
+      "inov-8.com"
+    ]
+  },
+  "la sportiva": {
+    "domains": [
+      "lasportiva.com"
+    ]
+  },
+  "lasportiva": {
+    "domains": [
+      "lasportiva.com"
+    ]
+  },
+  "scarpa": {
+    "domains": [
+      "scarpa.com"
+    ]
+  },
+  "dynafit": {
+    "domains": [
+      "dynafit.com"
+    ]
+  },
+  "salewa": {
+    "domains": [
+      "salewa.com"
+    ]
+  },
+  "blackdiamond": {
+    "domains": [
+      "blackdiamondequipment.com"
+    ]
+  },
+  "black diamond": {
+    "domains": [
+      "blackdiamondequipment.com"
+    ]
+  },
+  "petzl": {
+    "domains": [
+      "petzl.com"
+    ]
+  },
+  "grivel": {
+    "domains": [
+      "grivel.com"
+    ]
+  },
+  "camp": {
+    "domains": [
+      "camp-usa.com"
+    ]
+  },
+  "mammut": {
+    "domains": [
+      "mammut.com"
+    ]
+  },
+  "arc teryx": {
+    "domains": [
+      "arcteryx.com"
+    ]
+  },
+  "arcteryx": {
+    "domains": [
+      "arcteryx.com"
+    ]
+  },
+  "patagonia": {
+    "domains": [
+      "patagonia.com"
+    ]
+  },
+  "thenorthface": {
+    "domains": [
+      "thenorthface.com"
+    ]
+  },
+  "the north face": {
+    "domains": [
+      "thenorthface.com"
+    ]
+  },
+  "mountainhardwear": {
+    "domains": [
+      "mountainhardwear.com"
+    ]
+  },
+  "mountain hardwear": {
+    "domains": [
+      "mountainhardwear.com"
+    ]
+  },
+  "outdoorresearch": {
+    "domains": [
+      "outdoorresearch.com"
+    ]
+  },
+  "outdoor research": {
+    "domains": [
+      "outdoorresearch.com"
+    ]
+  },
+  "rab": {
+    "domains": [
+      "rab.equipment"
+    ]
+  },
+  "rab equipment": {
+    "domains": [
+      "rab.equipment"
+    ]
+  },
+  "berghaus": {
+    "domains": [
+      "berghaus.com"
+    ]
+  },
+  "fjallraven": {
+    "domains": [
+      "fjallraven.com"
+    ]
+  },
+  "fjällräven": {
+    "domains": [
+      "fjallraven.com"
+    ]
+  },
+  "haglofs": {
+    "domains": [
+      "haglofs.com"
+    ]
+  },
+  "haglöfs": {
+    "domains": [
+      "haglofs.com"
+    ]
+  },
+  "marmot": {
+    "domains": [
+      "marmot.com"
+    ]
+  },
+  "osprey": {
+    "domains": [
+      "osprey.com"
+    ]
+  },
+  "gregory": {
+    "domains": [
+      "gregorypacks.com"
+    ]
+  },
+  "gregory packs": {
+    "domains": [
+      "gregorypacks.com"
+    ]
+  },
+  "deuter": {
+    "domains": [
+      "deuter.com"
+    ]
+  },
+  "lowe alpine": {
+    "domains": [
+      "lowealpine.com"
+    ]
+  },
+  "lowealpine": {
+    "domains": [
+      "lowealpine.com"
+    ]
+  },
+  "mysteryranch": {
+    "domains": [
+      "mysteryranch.com"
+    ]
+  },
+  "mystery ranch": {
+    "domains": [
+      "mysteryranch.com"
+    ]
+  },
+  "kifaru": {
+    "domains": [
+      "kifaru.net"
+    ]
+  },
+  "exos": {
+    "domains": [
+      "exos.com"
+    ]
+  },
+  "therabody": {
+    "domains": [
+      "therabody.com"
+    ]
+  },
+  "theragun": {
+    "domains": [
+      "therabody.com"
+    ]
+  },
+  "hyperice": {
+    "domains": [
+      "hyperice.com"
+    ]
+  },
+  "normatec": {
+    "domains": [
+      "hyperice.com"
+    ]
+  },
+  "compex": {
+    "domains": [
+      "compex.com"
+    ]
+  },
+  "garmin": {
+    "domains": [
+      "garmin.com"
+    ]
+  },
+  "suunto": {
+    "domains": [
+      "suunto.com"
+    ]
+  },
+  "polar": {
+    "domains": [
+      "polar.com"
+    ]
+  },
+  "coros": {
+    "domains": [
+      "coros.com"
+    ]
+  },
+  "wahoo": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "wahoo fitness": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "stages": {
+    "domains": [
+      "stagescycling.com"
+    ]
+  },
+  "stages cycling": {
+    "domains": [
+      "stagescycling.com"
+    ]
+  },
+  "quarq": {
+    "domains": [
+      "quarq.com"
+    ]
+  },
+  "rotor": {
+    "domains": [
+      "rotorbike.com"
+    ]
+  },
+  "power2max": {
+    "domains": [
+      "power2max.com"
+    ]
+  },
+  "4iiii": {
+    "domains": [
+      "4iiii.com"
+    ]
+  },
+  "favero": {
+    "domains": [
+      "favero-electronics.com"
+    ]
+  },
+  "favero electronics": {
+    "domains": [
+      "favero-electronics.com"
+    ]
+  },
+  "zwift": {
+    "domains": [
+      "zwift.com"
+    ]
+  },
+  "trainerroad": {
+    "domains": [
+      "trainerroad.com"
+    ]
+  },
+  "trainer road": {
+    "domains": [
+      "trainerroad.com"
+    ]
+  },
+  "wahoox": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "wahoo x": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "rouvy": {
+    "domains": [
+      "rouvy.com"
+    ]
+  },
+  "fulgaz": {
+    "domains": [
+      "fulgaz.com"
+    ]
+  },
+  "bkool": {
+    "domains": [
+      "bkool.com"
+    ]
+  },
+  "kinomap": {
+    "domains": [
+      "kinomap.com"
+    ]
+  },
+  "tacx": {
+    "domains": [
+      "tacx.com"
+    ]
+  },
+  "elite": {
+    "domains": [
+      "elite-it.com"
+    ]
+  },
+  "minoura": {
+    "domains": [
+      "minoura.jp"
+    ]
+  },
+  "kinetic": {
+    "domains": [
+      "kurtkinetic.com"
+    ]
+  },
+  "cycleops": {
+    "domains": [
+      "cycleops.com"
+    ]
+  },
+  "saris": {
+    "domains": [
+      "saris.com"
+    ]
+  },
+  "kickr": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "snap": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "core": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "headwind": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "climb": {
+    "domains": [
+      "wahoofitness.com"
+    ]
+  },
+  "specialized": {
+    "domains": [
+      "specialized.com"
+    ]
+  },
+  "trek": {
+    "domains": [
+      "trekbikes.com"
+    ]
+  },
+  "trek bikes": {
+    "domains": [
+      "trekbikes.com"
+    ]
+  },
+  "trekbikes": {
+    "domains": [
+      "trekbikes.com"
+    ]
+  },
+  "giant": {
+    "domains": [
+      "giant-bicycles.com"
+    ]
+  },
+  "giant bicycles": {
+    "domains": [
+      "giant-bicycles.com"
+    ]
+  },
+  "cannondale": {
+    "domains": [
+      "cannondale.com"
+    ]
+  },
+  "scott": {
+    "domains": [
+      "scott-sports.com"
+    ]
+  },
+  "scott sports": {
+    "domains": [
+      "scott-sports.com"
+    ]
+  },
+  "cervelo": {
+    "domains": [
+      "cervelo.com"
+    ]
+  },
+  "cervélo": {
+    "domains": [
+      "cervelo.com"
+    ]
+  },
+  "pinarello": {
+    "domains": [
+      "pinarello.com"
+    ]
+  },
+  "colnago": {
+    "domains": [
+      "colnago.com"
+    ]
+  },
+  "bianchi": {
+    "domains": [
+      "bianchi.com"
+    ]
+  },
+  "de rosa": {
+    "domains": [
+      "derosa.it"
+    ]
+  },
+  "derosa": {
+    "domains": [
+      "derosa.it"
+    ]
+  },
+  "wilier": {
+    "domains": [
+      "wilier.com"
+    ]
+  },
+  "look": {
+    "domains": [
+      "lookcycle.com"
+    ]
+  },
+  "look cycle": {
+    "domains": [
+      "lookcycle.com"
+    ]
+  },
+  "time": {
+    "domains": [
+      "time-sport.com"
+    ]
+  },
+  "time sport": {
+    "domains": [
+      "time-sport.com"
+    ]
+  },
+  "lapierre": {
+    "domains": [
+      "lapierre-bikes.co.uk"
+    ]
+  },
+  "lapierre bikes": {
+    "domains": [
+      "lapierre-bikes.co.uk"
+    ]
+  },
+  "ghost": {
+    "domains": [
+      "ghost-bikes.com"
+    ]
+  },
+  "ghost bikes": {
+    "domains": [
+      "ghost-bikes.com"
+    ]
+  },
+  "rose": {
+    "domains": [
+      "rosebikes.com"
+    ]
+  },
+  "rose bikes": {
+    "domains": [
+      "rosebikes.com"
+    ]
+  },
+  "canyon": {
+    "domains": [
+      "canyon.com"
+    ]
+  },
+  "yt": {
+    "domains": [
+      "yt-industries.com"
+    ]
+  },
+  "yt industries": {
+    "domains": [
+      "yt-industries.com"
+    ]
+  },
+  "ytindustries": {
+    "domains": [
+      "yt-industries.com"
+    ]
+  },
+  "transition": {
+    "domains": [
+      "transitionbikes.com"
+    ]
+  },
+  "transition bikes": {
+    "domains": [
+      "transitionbikes.com"
+    ]
+  },
+  "transitionbikes": {
+    "domains": [
+      "transitionbikes.com"
+    ]
+  },
+  "evil": {
+    "domains": [
+      "evil-bikes.com"
+    ]
+  },
+  "evil bikes": {
+    "domains": [
+      "evil-bikes.com"
+    ]
+  },
+  "evilbikes": {
+    "domains": [
+      "evil-bikes.com"
+    ]
+  },
+  "santa cruz": {
+    "domains": [
+      "santacruzbicycles.com"
+    ]
+  },
+  "santacruz": {
+    "domains": [
+      "santacruzbicycles.com"
+    ]
+  },
+  "santacruzbicycles": {
+    "domains": [
+      "santacruzbicycles.com"
+    ]
+  },
+  "ibis": {
+    "domains": [
+      "ibiscycles.com"
+    ]
+  },
+  "ibis cycles": {
+    "domains": [
+      "ibiscycles.com"
+    ]
+  },
+  "ibiscycles": {
+    "domains": [
+      "ibiscycles.com"
+    ]
+  },
+  "pivot": {
+    "domains": [
+      "pivotcycles.com"
+    ]
+  },
+  "pivot cycles": {
+    "domains": [
+      "pivotcycles.com"
+    ]
+  },
+  "pivotcycles": {
+    "domains": [
+      "pivotcycles.com"
+    ]
+  },
+  "yeti": {
+    "domains": [
+      "yeticycles.com"
+    ]
+  },
+  "yeti cycles": {
+    "domains": [
+      "yeticycles.com"
+    ]
+  },
+  "yeticycles": {
+    "domains": [
+      "yeticycles.com"
+    ]
+  },
+  "knolly": {
+    "domains": [
+      "knollybikes.com"
+    ]
+  },
+  "knolly bikes": {
+    "domains": [
+      "knollybikes.com"
+    ]
+  },
+  "knollybikes": {
+    "domains": [
+      "knollybikes.com"
+    ]
+  },
+  "intense": {
+    "domains": [
+      "intensecycles.com"
+    ]
+  },
+  "intense cycles": {
+    "domains": [
+      "intensecycles.com"
+    ]
+  },
+  "intensecycles": {
+    "domains": [
+      "intensecycles.com"
+    ]
+  },
+  "norco": {
+    "domains": [
+      "norco.com"
+    ]
+  },
+  "rocky mountain": {
+    "domains": [
+      "bikes.com"
+    ]
+  },
+  "rockymountain": {
+    "domains": [
+      "bikes.com"
+    ]
+  },
+  "devinci": {
+    "domains": [
+      "devinci.com"
+    ]
+  },
+  "commencal": {
+    "domains": [
+      "commencal.com"
+    ]
+  },
+  "commencal bikes": {
+    "domains": [
+      "commencal.com"
+    ]
+  },
+  "ns bikes": {
+    "domains": [
+      "nsbikes.com"
+    ]
+  },
+  "nsbikes": {
+    "domains": [
+      "nsbikes.com"
+    ]
+  },
+  "dartmoor": {
+    "domains": [
+      "dartmoor-bikes.com"
+    ]
+  },
+  "dartmoor bikes": {
+    "domains": [
+      "dartmoor-bikes.com"
+    ]
+  },
+  "mondraker": {
+    "domains": [
+      "mondraker.com"
+    ]
+  },
+  "orbea": {
+    "domains": [
+      "orbea.com"
+    ]
+  },
+  "bh": {
+    "domains": [
+      "bh-bikes.com"
+    ]
+  },
+  "bh bikes": {
+    "domains": [
+      "bh-bikes.com"
+    ]
+  },
+  "bhbikes": {
+    "domains": [
+      "bh-bikes.com"
+    ]
+  },
+  "bmc": {
+    "domains": [
+      "bmc-switzerland.com"
+    ]
+  },
+  "bmc switzerland": {
+    "domains": [
+      "bmc-switzerland.com"
+    ]
+  },
+  "stevens": {
+    "domains": [
+      "stevensbikes.de"
+    ]
+  },
+  "stevens bikes": {
+    "domains": [
+      "stevensbikes.de"
+    ]
+  },
+  "focus": {
+    "domains": [
+      "focus-bikes.com"
+    ]
+  },
+  "focus bikes": {
+    "domains": [
+      "focus-bikes.com"
+    ]
+  },
+  "merida": {
+    "domains": [
+      "merida-bikes.com"
+    ]
+  },
+  "merida bikes": {
+    "domains": [
+      "merida-bikes.com"
+    ]
+  },
+  "kona": {
+    "domains": [
+      "konaworld.com"
+    ]
+  },
+  "salsa": {
+    "domains": [
+      "salsacycles.com"
+    ]
+  },
+  "salsa cycles": {
+    "domains": [
+      "salsacycles.com"
+    ]
+  },
+  "surly": {
+    "domains": [
+      "surlybikes.com"
+    ]
+  },
+  "surly bikes": {
+    "domains": [
+      "surlybikes.com"
+    ]
+  },
+  "all city": {
+    "domains": [
+      "allcitycycles.com"
+    ]
+  },
+  "allcity": {
+    "domains": [
+      "allcitycycles.com"
+    ]
+  },
+  "allcitycycles": {
+    "domains": [
+      "allcitycycles.com"
+    ]
+  },
+  "soma": {
+    "domains": [
+      "somafab.com"
+    ]
+  },
+  "soma fabrications": {
+    "domains": [
+      "somafab.com"
+    ]
+  },
+  "somafab": {
+    "domains": [
+      "somafab.com"
+    ]
+  },
+  "rivendell": {
+    "domains": [
+      "rivbike.com"
+    ]
+  },
+  "velo orange": {
+    "domains": [
+      "velo-orange.com"
+    ]
+  },
+  "veloorange": {
+    "domains": [
+      "velo-orange.com"
+    ]
+  },
+  "compass": {
+    "domains": [
+      "compasscycle.com"
+    ]
+  },
+  "rene herse": {
+    "domains": [
+      "compasscycle.com"
+    ]
+  },
+  "reneherse": {
+    "domains": [
+      "compasscycle.com"
+    ]
+  },
+  "simworks": {
+    "domains": [
+      "sim.works"
+    ]
+  },
+  "crust": {
+    "domains": [
+      "crustbikes.com"
+    ]
+  },
+  "crust bikes": {
+    "domains": [
+      "crustbikes.com"
+    ]
+  },
+  "marin": {
+    "domains": [
+      "marinbikes.com"
+    ]
+  },
+  "marin bikes": {
+    "domains": [
+      "marinbikes.com"
+    ]
+  },
+  "raleigh": {
+    "domains": [
+      "raleighusa.com"
+    ]
+  },
+  "haro": {
+    "domains": [
+      "harobikes.com"
+    ]
+  },
+  "haro bikes": {
+    "domains": [
+      "harobikes.com"
+    ]
+  },
+  "gt": {
+    "domains": [
+      "gtbicycles.com"
+    ]
+  },
+  "gt bicycles": {
+    "domains": [
+      "gtbicycles.com"
+    ]
+  },
+  "gtbicycles": {
+    "domains": [
+      "gtbicycles.com"
+    ]
+  },
+  "mongoose": {
+    "domains": [
+      "mongoose.com"
+    ]
+  },
+  "redline": {
+    "domains": [
+      "redlinebicycles.com"
+    ]
+  },
+  "redline bicycles": {
+    "domains": [
+      "redlinebicycles.com"
+    ]
+  },
+  "se bikes": {
+    "domains": [
+      "sebikes.com"
+    ]
+  },
+  "sebikes": {
+    "domains": [
+      "sebikes.com"
+    ]
+  },
+  "cult": {
+    "domains": [
+      "ccrew.com"
+    ]
+  },
+  "cult crew": {
+    "domains": [
+      "ccrew.com"
+    ]
+  },
+  "ccrew": {
+    "domains": [
+      "ccrew.com"
+    ]
+  },
+  "fit": {
+    "domains": [
+      "fitbikeco.com"
+    ]
+  },
+  "fitbikeco": {
+    "domains": [
+      "fitbikeco.com"
+    ]
+  },
+  "fit bike co": {
+    "domains": [
+      "fitbikeco.com"
+    ]
+  },
+  "kink": {
+    "domains": [
+      "kinkbmx.com"
+    ]
+  },
+  "kink bmx": {
+    "domains": [
+      "kinkbmx.com"
+    ]
+  },
+  "kinkbmx": {
+    "domains": [
+      "kinkbmx.com"
+    ]
+  },
+  "wethepeople": {
+    "domains": [
+      "wethepeoplebmx.de"
+    ]
+  },
+  "we the people": {
+    "domains": [
+      "wethepeoplebmx.de"
+    ]
+  },
+  "wtp": {
+    "domains": [
+      "wethepeoplebmx.de"
+    ]
+  },
+  "odyssey": {
+    "domains": [
+      "odysseybmx.com"
+    ]
+  },
+  "gsport": {
+    "domains": [
+      "gsportbmx.com"
+    ]
+  },
+  "shadow": {
+    "domains": [
+      "theshadowconspiracy.com"
+    ]
+  },
+  "shadow conspiracy": {
+    "domains": [
+      "theshadowconspiracy.com"
+    ]
+  },
+  "shadowconspiracy": {
+    "domains": [
+      "theshadowconspiracy.com"
+    ]
+  },
+  "subrosa": {
+    "domains": [
+      "subrosabrand.com"
+    ]
+  },
+  "fiend": {
+    "domains": [
+      "fiendbmx.com"
+    ]
+  },
+  "fiend bmx": {
+    "domains": [
+      "fiendbmx.com"
+    ]
+  },
+  " Sunday": {
+    "domains": [
+      "sundaybikes.com"
+    ]
+  },
+  "sunday bikes": {
+    "domains": [
+      "sundaybikes.com"
+    ]
+  },
+  "sundaybikes": {
+    "domains": [
+      "sundaybikes.com"
+    ]
+  },
+  "federal": {
+    "domains": [
+      "federalbikes.com"
+    ]
+  },
+  "federal bikes": {
+    "domains": [
+      "federalbikes.com"
+    ]
+  },
+  "federalbikes": {
+    "domains": [
+      "federalbikes.com"
+    ]
+  },
+  "stranger": {
+    "domains": [
+      "strangerco.com"
+    ]
+  },
+  "stranger co": {
+    "domains": [
+      "strangerco.com"
+    ]
+  },
+  "strangerco": {
+    "domains": [
+      "strangerco.com"
+    ]
+  },
+  "total": {
+    "domains": [
+      "totalbmx.com"
+    ]
+  },
+  "total bmx": {
+    "domains": [
+      "totalbmx.com"
+    ]
+  },
+  "totalbmx": {
+    "domains": [
+      "totalbmx.com"
+    ]
+  },
+  "mutiny": {
+    "domains": [
+      "mutinybikes.com"
+    ]
+  },
+  "mutiny bikes": {
+    "domains": [
+      "mutinybikes.com"
+    ]
+  },
+  "mutinybikes": {
+    "domains": [
+      "mutinybikes.com"
+    ]
+  },
+  "volume": {
+    "domains": [
+      "volumebikes.com"
+    ]
+  },
+  "volume bikes": {
+    "domains": [
+      "volumebikes.com"
+    ]
+  },
+  "volumebikes": {
+    "domains": [
+      "volumebikes.com"
+    ]
+  },
+  "hoffman": {
+    "domains": [
+      "hoffmanbikes.com"
+    ]
+  },
+  "hoffman bikes": {
+    "domains": [
+      "hoffmanbikes.com"
+    ]
+  },
+  "hoffmanbikes": {
+    "domains": [
+      "hoffmanbikes.com"
+    ]
+  },
+  "diamondback": {
+    "domains": [
+      "diamondback.com"
+    ]
+  },
+  "diamondback bikes": {
+    "domains": [
+      "diamondback.com"
+    ]
+  },
+  "rad": {
+    "domains": [
+      "radpowerbikes.com"
+    ]
+  },
+  "rad power": {
+    "domains": [
+      "radpowerbikes.com"
+    ]
+  },
+  "radpowerbikes": {
+    "domains": [
+      "radpowerbikes.com"
+    ]
+  },
+  "rad power bikes": {
+    "domains": [
+      "radpowerbikes.com"
+    ]
+  },
+  "super73": {
+    "domains": [
+      "super73.com"
+    ]
+  },
+  "super 73": {
+    "domains": [
+      "super73.com"
+    ]
+  },
+  "surron": {
+    "domains": [
+      "sur-ron.com"
+    ]
+  },
+  "sur ron": {
+    "domains": [
+      "sur-ron.com"
+    ]
+  },
+  "segway": {
+    "domains": [
+      "segway.com"
+    ]
+  },
+  "ninebot": {
+    "domains": [
+      "ninebot.com"
+    ]
+  },
+  "xiaomi": {
+    "domains": [
+      "mi.com"
+    ]
+  },
+  "decathlon": {
+    "domains": [
+      "decathlon.com"
+    ]
+  },
+  "intersport": {
+    "domains": [
+      "intersport.com"
+    ]
+  },
+  "sportsdirect": {
+    "domains": [
+      "sportsdirect.com"
+    ]
+  },
+  "sports direct": {
+    "domains": [
+      "sportsdirect.com"
+    ]
+  },
+  "jd sports": {
+    "domains": [
+      "jdsports.com"
+    ]
+  },
+  "jdsports": {
+    "domains": [
+      "jdsports.com"
+    ]
+  },
+  "footlocker": {
+    "domains": [
+      "footlocker.com"
+    ]
+  },
+  "foot locker": {
+    "domains": [
+      "footlocker.com"
+    ]
+  },
+  "finishline": {
+    "domains": [
+      "finishline.com"
+    ]
+  },
+  "finish line": {
+    "domains": [
+      "finishline.com"
+    ]
+  },
+  "dickssportinggoods": {
+    "domains": [
+      "dickssportinggoods.com"
+    ]
+  },
+  "dick's sporting goods": {
+    "domains": [
+      "dickssportinggoods.com"
+    ]
+  },
+  "dicks sporting goods": {
+    "domains": [
+      "dickssportinggoods.com"
+    ]
+  },
+  "academy": {
+    "domains": [
+      "academy.com"
+    ]
+  },
+  "academy sports": {
+    "domains": [
+      "academy.com"
+    ]
+  },
+  "basspro": {
+    "domains": [
+      "basspro.com"
+    ]
+  },
+  "bass pro": {
+    "domains": [
+      "basspro.com"
+    ]
+  },
+  "bass pro shops": {
+    "domains": [
+      "basspro.com"
+    ]
+  },
+  "cabelas": {
+    "domains": [
+      "cabelas.com"
+    ]
+  },
+  "cabela's": {
+    "domains": [
+      "cabelas.com"
+    ]
+  },
+  "rei": {
+    "domains": [
+      "rei.com"
+    ]
+  },
+  "recreational equipment": {
+    "domains": [
+      "rei.com"
+    ]
+  },
+  "mec": {
+    "domains": [
+      "mec.ca"
+    ]
+  },
+  "mountain equipment co-op": {
+    "domains": [
+      "mec.ca"
+    ]
+  },
+  "backcountry": {
+    "domains": [
+      "backcountry.com"
+    ]
+  },
+  "evo": {
+    "domains": [
+      "evo.com"
+    ]
+  },
+  "levelninesports": {
+    "domains": [
+      "levelninesports.com"
+    ]
+  },
+  "level nine sports": {
+    "domains": [
+      "levelninesports.com"
+    ]
+  },
+  "the house": {
+    "domains": [
+      "the-house.com"
+    ]
+  },
+  "thehouse": {
+    "domains": [
+      "the-house.com"
+    ]
+  },
+  " tactics": {
+    "domains": [
+      "tactics.com"
+    ]
+  },
+  "tactics": {
+    "domains": [
+      "tactics.com"
+    ]
+  },
+  " zumiez": {
+    "domains": [
+      "zumiez.com"
+    ]
+  },
+  "zumiez": {
+    "domains": [
+      "zumiez.com"
+    ]
+  }
+}

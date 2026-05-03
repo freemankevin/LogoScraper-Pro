@@ -1,0 +1,692 @@
+{
+  "toyota": {
+    "domains": [
+      "toyota.com"
+    ]
+  },
+  "honda": {
+    "domains": [
+      "honda.com"
+    ]
+  },
+  "nissan": {
+    "domains": [
+      "nissan.com"
+    ]
+  },
+  "mazda": {
+    "domains": [
+      "mazda.com"
+    ]
+  },
+  "subaru": {
+    "domains": [
+      "subaru.com"
+    ]
+  },
+  "lexus": {
+    "domains": [
+      "lexus.com"
+    ]
+  },
+  "acura": {
+    "domains": [
+      "acura.com"
+    ]
+  },
+  "infiniti": {
+    "domains": [
+      "infiniti.com"
+    ]
+  },
+  "mitsubishi": {
+    "domains": [
+      "mitsubishi.com"
+    ]
+  },
+  "suzuki": {
+    "domains": [
+      "suzuki.com"
+    ]
+  },
+  "daihatsu": {
+    "domains": [
+      "daihatsu.com"
+    ]
+  },
+  "isuzu": {
+    "domains": [
+      "isuzu.com"
+    ]
+  },
+  "hino": {
+    "domains": [
+      "hino.com"
+    ]
+  },
+  "bmw": {
+    "domains": [
+      "bmw.com"
+    ]
+  },
+  "mercedes": {
+    "domains": [
+      "mercedes-benz.com"
+    ]
+  },
+  "mercedesbenz": {
+    "domains": [
+      "mercedes-benz.com"
+    ]
+  },
+  "mercedes benz": {
+    "domains": [
+      "mercedes-benz.com"
+    ]
+  },
+  "audi": {
+    "domains": [
+      "audi.com"
+    ]
+  },
+  "volkswagen": {
+    "domains": [
+      "volkswagen.com"
+    ]
+  },
+  "vw": {
+    "domains": [
+      "volkswagen.com"
+    ]
+  },
+  "porsche": {
+    "domains": [
+      "porsche.com"
+    ]
+  },
+  "lamborghini": {
+    "domains": [
+      "lamborghini.com"
+    ]
+  },
+  "ferrari": {
+    "domains": [
+      "ferrari.com"
+    ]
+  },
+  "maserati": {
+    "domains": [
+      "maserati.com"
+    ]
+  },
+  "bentley": {
+    "domains": [
+      "bentley.com"
+    ]
+  },
+  "rollsroyce": {
+    "domains": [
+      "rolls-royce.com"
+    ]
+  },
+  "rolls royce": {
+    "domains": [
+      "rolls-royce.com"
+    ]
+  },
+  "mini": {
+    "domains": [
+      "mini.com"
+    ]
+  },
+  "smart": {
+    "domains": [
+      "smart.com"
+    ]
+  },
+  "volvo": {
+    "domains": [
+      "volvo.com"
+    ]
+  },
+  "jaguar": {
+    "domains": [
+      "jaguar.com"
+    ]
+  },
+  "landrover": {
+    "domains": [
+      "landrover.com"
+    ]
+  },
+  "land rover": {
+    "domains": [
+      "landrover.com"
+    ]
+  },
+  "lotus": {
+    "domains": [
+      "lotuscars.com"
+    ]
+  },
+  "mclaren": {
+    "domains": [
+      "mclaren.com"
+    ]
+  },
+  "astonmartin": {
+    "domains": [
+      "astonmartin.com"
+    ]
+  },
+  "aston martin": {
+    "domains": [
+      "astonmartin.com"
+    ]
+  },
+  "tesla": {
+    "domains": [
+      "tesla.com"
+    ]
+  },
+  "ford": {
+    "domains": [
+      "ford.com"
+    ]
+  },
+  "chevrolet": {
+    "domains": [
+      "chevrolet.com"
+    ]
+  },
+  "cadillac": {
+    "domains": [
+      "cadillac.com"
+    ]
+  },
+  "gmc": {
+    "domains": [
+      "gmc.com"
+    ]
+  },
+  "buick": {
+    "domains": [
+      "buick.com"
+    ]
+  },
+  "lincoln": {
+    "domains": [
+      "lincoln.com"
+    ]
+  },
+  "jeep": {
+    "domains": [
+      "jeep.com"
+    ]
+  },
+  "dodge": {
+    "domains": [
+      "dodge.com"
+    ]
+  },
+  "chrysler": {
+    "domains": [
+      "chrysler.com"
+    ]
+  },
+  "ram": {
+    "domains": [
+      "ramtrucks.com"
+    ]
+  },
+  "rivian": {
+    "domains": [
+      "rivian.com"
+    ]
+  },
+  "lucid": {
+    "domains": [
+      "lucidmotors.com"
+    ]
+  },
+  "lucid motors": {
+    "domains": [
+      "lucidmotors.com"
+    ]
+  },
+  "polestar": {
+    "domains": [
+      "polestar.com"
+    ]
+  },
+  "genesis": {
+    "domains": [
+      "genesis.com"
+    ]
+  },
+  "hyundai": {
+    "domains": [
+      "hyundai.com"
+    ]
+  },
+  "kia": {
+    "domains": [
+      "kia.com"
+    ]
+  },
+  "tata": {
+    "domains": [
+      "tatamotors.com"
+    ]
+  },
+  "tatamotors": {
+    "domains": [
+      "tatamotors.com"
+    ]
+  },
+  "tata motors": {
+    "domains": [
+      "tatamotors.com"
+    ]
+  },
+  "mahindra": {
+    "domains": [
+      "mahindra.com"
+    ]
+  },
+  "renault": {
+    "domains": [
+      "renault.com"
+    ]
+  },
+  "peugeot": {
+    "domains": [
+      "peugeot.com"
+    ]
+  },
+  "citroen": {
+    "domains": [
+      "citroen.com"
+    ]
+  },
+  "citroën": {
+    "domains": [
+      "citroen.com"
+    ]
+  },
+  "ds": {
+    "domains": [
+      "dsautomobiles.com"
+    ]
+  },
+  "ds automobiles": {
+    "domains": [
+      "dsautomobiles.com"
+    ]
+  },
+  "opel": {
+    "domains": [
+      "opel.com"
+    ]
+  },
+  "vauxhall": {
+    "domains": [
+      "vauxhall.co.uk"
+    ]
+  },
+  "seat": {
+    "domains": [
+      "seat.com"
+    ]
+  },
+  "skoda": {
+    "domains": [
+      "skoda.com"
+    ]
+  },
+  "škoda": {
+    "domains": [
+      "skoda.com"
+    ]
+  },
+  "fiat": {
+    "domains": [
+      "fiat.com"
+    ]
+  },
+  "alfaromeo": {
+    "domains": [
+      "alfaromeo.com"
+    ]
+  },
+  "alfa romeo": {
+    "domains": [
+      "alfaromeo.com"
+    ]
+  },
+  "lancia": {
+    "domains": [
+      "lancia.com"
+    ]
+  },
+  "abarth": {
+    "domains": [
+      "abarth.com"
+    ]
+  },
+  "iveco": {
+    "domains": [
+      "iveco.com"
+    ]
+  },
+  "dacia": {
+    "domains": [
+      "dacia.com"
+    ]
+  },
+  "byd": {
+    "domains": [
+      "byd.com"
+    ]
+  },
+  "nio": {
+    "domains": [
+      "nio.com"
+    ]
+  },
+  "xpeng": {
+    "domains": [
+      "xpeng.com"
+    ]
+  },
+  "li auto": {
+    "domains": [
+      "li.auto"
+    ]
+  },
+  "liauto": {
+    "domains": [
+      "li.auto"
+    ]
+  },
+  "zeekr": {
+    "domains": [
+      "zeekr.com"
+    ]
+  },
+  "geely": {
+    "domains": [
+      "geely.com"
+    ]
+  },
+  "chery": {
+    "domains": [
+      "chery.cn"
+    ]
+  },
+  "haval": {
+    "domains": [
+      "haval-global.com"
+    ]
+  },
+  "wuling": {
+    "domains": [
+      "wuling.com"
+    ]
+  },
+  "baojun": {
+    "domains": [
+      "baojun.com.cn"
+    ]
+  },
+  "roewe": {
+    "domains": [
+      "roewe.com.cn"
+    ]
+  },
+  "mg": {
+    "domains": [
+      "mg-motor.com"
+    ]
+  },
+  "saic": {
+    "domains": [
+      "saicmotor.com"
+    ]
+  },
+  "faw": {
+    "domains": [
+      "faw.com.cn"
+    ]
+  },
+  "dongfeng": {
+    "domains": [
+      "dfmc.com.cn"
+    ]
+  },
+  "changan": {
+    "domains": [
+      "changan.com.cn"
+    ]
+  },
+  "gac": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "trumpchi": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "haima": {
+    "domains": [
+      "haima.com"
+    ]
+  },
+  "brilliance": {
+    "domains": [
+      "brillianceauto.com"
+    ]
+  },
+  "jac": {
+    "domains": [
+      "jac.com.cn"
+    ]
+  },
+  "greatwall": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "great wall": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "ora": {
+    "domains": [
+      "oraev.com"
+    ]
+  },
+  "wey": {
+    "domains": [
+      "wey.com"
+    ]
+  },
+  "lynkco": {
+    "domains": [
+      "lynkco.com"
+    ]
+  },
+  "lynk & co": {
+    "domains": [
+      "lynkco.com"
+    ]
+  },
+  "jihe": {
+    "domains": [
+      "geely.com"
+    ]
+  },
+  "geometry": {
+    "domains": [
+      "geometryauto.com"
+    ]
+  },
+  "radar": {
+    "domains": [
+      "radarauto.com"
+    ]
+  },
+  "jetour": {
+    "domains": [
+      "jetour.com"
+    ]
+  },
+  "exeed": {
+    "domains": [
+      "exeed.com"
+    ]
+  },
+  "exeed cars": {
+    "domains": [
+      "exeed.com"
+    ]
+  },
+  "omoda": {
+    "domains": [
+      "omoda.com"
+    ]
+  },
+  "jaecoo": {
+    "domains": [
+      "jaecoo.com"
+    ]
+  },
+  "seres": {
+    "domains": [
+      "seres.com.cn"
+    ]
+  },
+  "aito": {
+    "domains": [
+      "aito.com.cn"
+    ]
+  },
+  "avatr": {
+    "domains": [
+      "avatr.com"
+    ]
+  },
+  "hiphi": {
+    "domains": [
+      "hiphi.com"
+    ]
+  },
+  "human horizon": {
+    "domains": [
+      "hiphi.com"
+    ]
+  },
+  "humanhorizon": {
+    "domains": [
+      "hiphi.com"
+    ]
+  },
+  "xiaopeng": {
+    "domains": [
+      "xpeng.com"
+    ]
+  },
+  "理想": {
+    "domains": [
+      "li.auto"
+    ]
+  },
+  "蔚来": {
+    "domains": [
+      "nio.com"
+    ]
+  },
+  "小鹏": {
+    "domains": [
+      "xpeng.com"
+    ]
+  },
+  "比亚迪": {
+    "domains": [
+      "byd.com"
+    ]
+  },
+  "吉利": {
+    "domains": [
+      "geely.com"
+    ]
+  },
+  "长城": {
+    "domains": [
+      "gwm.com.cn"
+    ]
+  },
+  "奇瑞": {
+    "domains": [
+      "chery.cn"
+    ]
+  },
+  "长安": {
+    "domains": [
+      "changan.com.cn"
+    ]
+  },
+  "广汽": {
+    "domains": [
+      "gac-motor.com"
+    ]
+  },
+  "上汽": {
+    "domains": [
+      "saicmotor.com"
+    ]
+  },
+  "东风": {
+    "domains": [
+      "dfmc.com.cn"
+    ]
+  },
+  "一汽": {
+    "domains": [
+      "faw.com.cn"
+    ]
+  },
+  "红旗": {
+    "domains": [
+      "hongqi.com.cn"
+    ]
+  },
+  "hongqi": {
+    "domains": [
+      "hongqi.com.cn"
+    ]
+  },
+  "极氪": {
+    "domains": [
+      "zeekr.com"
+    ]
+  },
+  "问界": {
+    "domains": [
+      "aito.com.cn"
+    ]
+  },
+  "阿维塔": {
+    "domains": [
+      "avatr.com"
+    ]
+  },
+  "高合": {
+    "domains": [
+      "hiphi.com"
+    ]
+  }
+}
