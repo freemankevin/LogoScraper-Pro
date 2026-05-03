@@ -450,6 +450,14 @@ export function useScraper() {
     })
   }, [state.mode, state.apiKey])
 
+  const pushLog = useCallback((level: ScraperLog['level'], message: string, stage?: string) => {
+    if (abortRef.current) return
+    setState((prev) => ({
+      ...prev,
+      logs: [...prev.logs, { id: generateId(), timestamp: nowTime(), level, message, stage }],
+    }))
+  }, [])
+
   const downloadAsSvg = useCallback(async (result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
     // 优先用 convertedSvg，但必须先校验是否为有效 SVG（避免 WASM 返回畸形内容）
@@ -525,14 +533,6 @@ export function useScraper() {
       a.download = `${filename}.${result.format}`
       a.click()
     }
-  }, [])
-
-  const pushLog = useCallback((level: ScraperLog['level'], message: string, stage?: string) => {
-    if (abortRef.current) return
-    setState((prev) => ({
-      ...prev,
-      logs: [...prev.logs, { id: generateId(), timestamp: nowTime(), level, message, stage }],
-    }))
   }, [])
 
   const runScraper = useCallback(async (query: string) => {
