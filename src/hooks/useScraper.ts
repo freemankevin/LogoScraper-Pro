@@ -594,15 +594,17 @@ export function useScraper() {
               const pngResult = cached.find((r) => r.dataUrl)
               if (pngResult) {
                 const converted = await tryConvertToSvg(pngResult.dataUrl!, pngResult.title)
-                if (converted) {
+                if (isValidSvg(converted)) {
                   svgResult = { ...pngResult, convertedSvg: converted }
+                } else if (converted !== null) {
+                  pushLog('warn', `[CLOUD] 补上传时现场转换产出无效 SVG（${converted.length} bytes），跳过`, 'done')
                 }
               }
             }
             if (svgResult) {
               pushLog('info', `[CLOUD] 本地缓存补上传到 Supabase...`, 'done')
               await saveCloudLogo(query, guessDomains(query), svgResult)
-              pushLog('success', `[CLOUD] SVG 已压缩并上传至云端`, 'done')
+              pushLog('success', `[CLOUD] SVG 已上传至云端`, 'done')
             }
           }
         } catch (e) {
@@ -758,11 +760,15 @@ export function useScraper() {
                 // ignore
               }
             }
+            if (!results.some(r => r.sourceType === 'github')) {
+              pushLog('warn', `[HTTP] GitHub Raw 探测完毕，未找到有效资源`, 'fetch')
+            }
           }
         }
 
         // 2. 优先获取官网 favicon（最高效：直接取图标而非爬整页 HTML）
         pushLog('info', `[HTTP] 探测官网 favicon...`, 'fetch')
+        let faviconFound = false
         for (const domain of domains.slice(0, 3)) {
           const faviconResults = await tryFetchFaviconLogos(domain)
           if (faviconResults.length > 0) {
@@ -770,11 +776,16 @@ export function useScraper() {
               results.push({ ...r, title: query })
             }
             pushLog('success', `[HTTP] 从 ${domain} 获取 ${faviconResults.length} 个 favicon`, 'fetch')
+            faviconFound = true
           }
+        }
+        if (!faviconFound) {
+          pushLog('warn', `[HTTP] 官网 favicon 探测完毕，未找到有效图标`, 'fetch')
         }
 
         // 3. 尝试官网 SVG 图标（favicon.svg / icon.svg / logo.svg）
         pushLog('info', `[HTTP] 探测官网 SVG 图标...`, 'fetch')
+        let directSvgFound = false
         for (const domain of domains.slice(0, 2)) {
           const urls = [
             `https://${domain}/favicon.svg`,
@@ -796,13 +807,17 @@ export function useScraper() {
                   title: query,
                 })
                 pushLog('success', `[HTTP] 200 OK — 从官网获取 SVG`, 'fetch')
+                directSvgFound = true
                 break
               }
             } catch {
               // ignore
             }
           }
-          if (results.some(r => r.format === 'svg')) break
+          if (directSvgFound) break
+        }
+        if (!directSvgFound) {
+          pushLog('warn', `[HTTP] 官网 SVG 图标探测完毕，未找到有效资源`, 'fetch')
         }
 
         // Try Wikipedia
@@ -965,8 +980,10 @@ export function useScraper() {
             if (isValidSvg(svg)) {
               result.convertedSvg = svg
               pushLog('success', `[CONVERT] #${i + 1} 矢量化完成 — ${svg.length} bytes`, 'convert')
+            } else if (svg !== null) {
+              pushLog('warn', `[CONVERT] #${i + 1} 矢量化产出无效内容（${svg.length} bytes），保留原始格式`, 'convert')
             } else {
-              pushLog('warn', `[CONVERT] #${i + 1} 矢量化失败，保留原始格式`, 'convert')
+              pushLog('warn', `[CONVERT] #${i + 1} 矢量化引擎无法处理该图片，保留原始格式`, 'convert')
             }
           } catch (e) {
             pushLog('warn', `[CONVERT] #${i + 1} 引擎异常: ${(e as Error).message}`, 'convert')
@@ -992,17 +1009,19 @@ export function useScraper() {
         await saveCachedResults(query, results)
         await saveCachedSoftware(query, domains)
         pushLog('success', `[CACHE] 已缓存本次结果，下次搜索秒开`, 'done')
-        // 自动保存到云端（只存 SVG）
+        // 自动保存到云端（只存有效 SVG）
         if (isSupabaseConfigured() && results.length > 0) {
-          pushLog('info', `[CLOUD] 正在上传 SVG 到 Supabase...`, 'done')
           const svgResult = results.find((r) => r.format === 'svg' || r.convertedSvg)
           if (svgResult) {
+            pushLog('info', `[CLOUD] 正在上传 SVG 到 Supabase...`, 'done')
             try {
               await saveCloudLogo(query, domains, svgResult)
-              pushLog('success', `[CLOUD] SVG 已压缩并上传至云端`, 'done')
+              pushLog('success', `[CLOUD] SVG 已上传至云端`, 'done')
             } catch (e) {
               pushLog('warn', `[CLOUD] 上传失败: ${(e as Error).message}`, 'done')
             }
+          } else {
+            pushLog('debug', `[CLOUD] 无可用的有效 SVG，跳过云端上传`, 'done')
           }
         }
       }
