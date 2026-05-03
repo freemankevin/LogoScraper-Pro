@@ -24,31 +24,16 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: L
           borderBottom: '1px solid var(--border-color)',
         }}
       >
-        <div>
-          <div
-            style={{
-              fontSize: '0.7rem',
-              fontFamily: 'var(--font-mono)',
-              color: 'var(--accent-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '0.5rem',
-            }}
-          >
-            Search Results
-          </div>
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
-              fontWeight: 600,
-              color: 'var(--text-primary)',
-              letterSpacing: '-0.02em',
-              margin: 0,
-            }}
-          >
-            爬取结果
-          </h2>
+        <div
+          style={{
+            fontSize: '0.7rem',
+            fontFamily: 'var(--font-mono)',
+            color: 'var(--accent-cyan)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Search Results
         </div>
         <span
           style={{
@@ -57,7 +42,7 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: L
             fontFamily: 'var(--font-mono)',
           }}
         >
-          共 <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>{results.length}</span> 个资源
+          <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>{results.length}</span> resources found
         </span>
       </div>
 
@@ -213,7 +198,7 @@ function LogoCard({
               <circle cx="8.5" cy="8.5" r="1.5" />
               <polyline points="21 15 16 10 5 21" />
             </svg>
-            <span>图片加载失败</span>
+            <span>Failed to load image</span>
           </div>
         ) : (
           <img
@@ -238,22 +223,13 @@ function LogoCard({
       <div style={{ padding: '1.25rem' }}>
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            fontSize: '0.9rem',
+            fontWeight: 600,
+            color: 'var(--text-primary)',
             marginBottom: '0.35rem',
           }}
         >
-          <div
-            style={{
-              fontSize: '0.9rem',
-              fontWeight: 600,
-              color: 'var(--text-primary)',
-            }}
-          >
-            {result.title}
-          </div>
-          <FormatBadge format={result.format} />
+          {result.title}
         </div>
         <div
           style={{
@@ -285,19 +261,20 @@ function LogoCard({
               onClick={() => onDownloadSvg(result)}
               style={{
                 flex: 1,
-                padding: '0.6rem 0.75rem',
+                padding: '0.55rem 0.6rem',
                 borderRadius: '8px',
                 border: 'none',
                 background: 'var(--accent-cyan)',
                 color: '#0a0a0f',
-                fontSize: '0.75rem',
+                fontSize: '0.72rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.4rem',
+                gap: '0.35rem',
+                whiteSpace: 'nowrap',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = '0.9'
@@ -313,26 +290,27 @@ function LogoCard({
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              下载 SVG
+              SVG
             </button>
           )}
           <button
             onClick={() => onDownloadPng(result)}
             style={{
               flex: 1,
-              padding: '0.6rem 0.75rem',
+              padding: '0.55rem 0.6rem',
               borderRadius: '8px',
               border: '1px solid var(--border-color)',
               background: 'transparent',
               color: 'var(--text-secondary)',
-              fontSize: '0.75rem',
+              fontSize: '0.72rem',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.2s',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.4rem',
+              gap: '0.35rem',
+              whiteSpace: 'nowrap',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--accent-cyan)'
@@ -350,7 +328,7 @@ function LogoCard({
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            下载 PNG
+            PNG
           </button>
         </div>
       </div>
@@ -358,24 +336,4 @@ function LogoCard({
   )
 }
 
-function FormatBadge({ format }: { format: string }) {
-  const isSvg = format === 'svg'
-  return (
-    <span
-      style={{
-        fontSize: '0.65rem',
-        fontWeight: 700,
-        fontFamily: 'var(--font-mono)',
-        padding: '0.2rem 0.5rem',
-        borderRadius: '4px',
-        textTransform: 'uppercase',
-        letterSpacing: '0.05em',
-        background: isSvg ? 'rgba(0, 230, 118, 0.12)' : 'rgba(255, 179, 0, 0.12)',
-        color: isSvg ? 'var(--accent-green)' : 'var(--accent-amber)',
-        border: `1px solid ${isSvg ? 'rgba(0, 230, 118, 0.2)' : 'rgba(255, 179, 0, 0.2)'}`,
-      }}
-    >
-      {format}
-    </span>
-  )
-}
+

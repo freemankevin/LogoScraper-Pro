@@ -15,7 +15,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
-  const titleRef = useRef<HTMLHeadingElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
   const subRef = useRef<HTMLParagraphElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
   const inputContainerRef = useRef<HTMLDivElement>(null)
@@ -98,48 +98,63 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
           color: 'rgba(255,255,255,0.6)',
         }}
       >
-        <span style={{ color: 'var(--accent-cyan)' }}>LogoScraper Pro</span>
-        <span>v2.2.0</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)' }}>
+          <img src="/logo.svg" alt="" width="18" height="18" style={{ display: 'block' }} />
+          LogoScraper
+        </span>
+        <a
+          href="/api"
+          style={{
+            color: 'rgba(255,255,255,0.6)',
+            textDecoration: 'none',
+            transition: 'color 0.2s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-cyan)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)' }}
+        >
+          API
+        </a>
       </nav>
 
-      <div style={{ textAlign: 'center', maxWidth: 720, width: '100%' }}>
-        <h1
-          ref={titleRef}
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
-            fontWeight: 700,
-            lineHeight: 1.05,
-            letterSpacing: '-0.03em',
-            color: '#ffffff',
-            margin: 0,
-            opacity: 0,
-            textWrap: 'balance',
-          }}
-        >
-          软件 Logo
-          <br />
-          <span style={{ color: 'var(--accent-cyan)' }}>智能爬取引擎</span>
-        </h1>
+      <div style={{ textAlign: 'center', maxWidth: 780, width: '100%' }}>
+        {/* Title — clean, english, unified with the tech aesthetic below */}
+        <div ref={titleRef} style={{ opacity: 0 }}>
+          <h1
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.8rem, 7vw, 5rem)',
+              fontWeight: 700,
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              color: '#ffffff',
+              margin: 0,
+              textWrap: 'balance',
+              textShadow: '0 0 40px rgba(0, 229, 255, 0.25), 0 0 80px rgba(0, 229, 255, 0.1)',
+            }}
+          >
+            Logo<span style={{ color: 'var(--accent-cyan)' }}>Scraper</span>
+          </h1>
+        </div>
 
         <p
           ref={subRef}
           style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'clamp(0.85rem, 1.2vw, 1rem)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(0.75rem, 1vw, 0.88rem)',
             fontWeight: 400,
-            lineHeight: 1.6,
+            lineHeight: 1.5,
+            letterSpacing: '0.03em',
             color: 'rgba(255,255,255,0.45)',
-            marginTop: '1.25rem',
-            marginBottom: '2.5rem',
-            maxWidth: 480,
+            marginTop: '1rem',
+            marginBottom: '2rem',
+            maxWidth: '60ch',
             marginLeft: 'auto',
             marginRight: 'auto',
             opacity: 0,
+            textWrap: 'balance',
           }}
         >
-          输入任意软件名称，自动爬取官方网站 Logo。支持 SVG / PNG 多格式输出，
-          内置 Rust 高性能矢量化引擎，一键下载高清品牌资源。
+          Search software names. Get SVG / PNG logos instantly.
         </p>
 
         {/* Search Form */}
@@ -149,12 +164,27 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             style={{
               display: 'flex',
               justifyContent: 'center',
-              gap: '0.5rem',
-              marginBottom: '1rem',
+              marginBottom: '1.25rem',
             }}
           >
-            <ModeButton active={mode === 'direct'} onClick={() => onModeChange('direct')} label="Direct" desc="浏览器直连" />
-            <ModeButton active={mode === 'api'} onClick={() => onModeChange('api')} label="API" desc="服务端聚合" />
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0.25rem',
+                borderRadius: '999px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                gap: '0.15rem',
+              }}
+            >
+              <ModePill active={mode === 'direct'} onClick={() => onModeChange('direct')}>
+                Direct
+              </ModePill>
+              <ModePill active={mode === 'api'} onClick={() => onModeChange('api')}>
+                Cloud
+              </ModePill>
+            </div>
           </div>
 
           <form
@@ -176,6 +206,29 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                 position: 'relative',
               }}
             >
+              {/* Search Icon */}
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{
+                  position: 'absolute',
+                  left: '1.1rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  pointerEvents: 'none',
+                  zIndex: 2,
+                  transition: 'stroke 0.2s',
+                }}
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
               <input
                 type="text"
                 value={query}
@@ -212,7 +265,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                 disabled={isRunning}
                 style={{
                   width: '100%',
-                  padding: '0.95rem 1.25rem',
+                  padding: '0.95rem 1.25rem 0.95rem 2.75rem',
                   borderRadius: '10px',
                   border: '1px solid rgba(255,255,255,0.12)',
                   background: 'rgba(255,255,255,0.04)',
@@ -330,10 +383,10 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                       animation: 'spin 0.6s linear infinite',
                     }}
                   />
-                  爬取中...
+                  Scraping...
                 </>
               ) : (
-                '开始爬取'
+                'Scrape'
               )}
             </button>
           </form>
@@ -444,47 +497,45 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
   )
 }
 
-function ModeButton({
+function ModePill({
   active,
   onClick,
-  label,
-  desc,
+  children,
 }: {
   active: boolean
   onClick: () => void
-  label: string
-  desc: string
+  children: React.ReactNode
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
       style={{
-        padding: '0.35rem 0.85rem',
-        borderRadius: '6px',
-        border: active ? '1px solid var(--accent-cyan)' : '1px solid rgba(255,255,255,0.08)',
-        background: active ? 'rgba(0, 229, 255, 0.1)' : 'rgba(255,255,255,0.03)',
-        color: active ? 'var(--accent-cyan)' : 'rgba(255,255,255,0.4)',
+        padding: '0.35rem 0.9rem',
+        borderRadius: '999px',
+        border: 'none',
+        background: active ? 'rgba(0, 229, 255, 0.15)' : 'transparent',
+        color: active ? 'var(--accent-cyan)' : 'rgba(255,255,255,0.35)',
         fontSize: '0.7rem',
         fontFamily: 'var(--font-mono)',
+        fontWeight: active ? 600 : 500,
         cursor: 'pointer',
-        transition: 'all 0.2s',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.35rem',
+        transition: 'all 0.25s ease',
+        letterSpacing: '0.02em',
+        whiteSpace: 'nowrap',
       }}
-      title={desc}
+      onMouseEnter={(e) => {
+        if (!active) {
+          e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!active) {
+          e.currentTarget.style.color = 'rgba(255,255,255,0.35)'
+        }
+      }}
     >
-      <span
-        style={{
-          width: 6,
-          height: 6,
-          borderRadius: '50%',
-          background: active ? 'var(--accent-cyan)' : 'transparent',
-          border: active ? 'none' : '1px solid rgba(255,255,255,0.2)',
-        }}
-      />
-      {label}
+      {children}
     </button>
   )
 }

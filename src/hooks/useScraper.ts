@@ -19,13 +19,13 @@ function nowTime() {
 }
 
 const INITIAL_PROGRESS: ScraperProgress[] = [
-  { stage: 'dns', label: 'DNS 解析', percent: 0, status: 'pending' },
-  { stage: 'connect', label: 'TCP 连接 / TLS 握手', percent: 0, status: 'pending' },
-  { stage: 'fetch', label: 'HTTP 请求与响应', percent: 0, status: 'pending' },
-  { stage: 'parse', label: 'HTML 解析与 DOM 构建', percent: 0, status: 'pending' },
-  { stage: 'scan', label: '资源扫描与 Logo 匹配', percent: 0, status: 'pending' },
-  { stage: 'download', label: '资源下载与缓存', percent: 0, status: 'pending' },
-  { stage: 'convert', label: '格式转换与矢量化', percent: 0, status: 'pending' },
+  { stage: 'dns', label: 'DNS Resolution', percent: 0, status: 'pending' },
+  { stage: 'connect', label: 'TCP / TLS', percent: 0, status: 'pending' },
+  { stage: 'fetch', label: 'HTTP Request', percent: 0, status: 'pending' },
+  { stage: 'parse', label: 'HTML Parse', percent: 0, status: 'pending' },
+  { stage: 'scan', label: 'Resource Scan', percent: 0, status: 'pending' },
+  { stage: 'download', label: 'Download', percent: 0, status: 'pending' },
+  { stage: 'convert', label: 'Convert', percent: 0, status: 'pending' },
 ]
 
 
@@ -486,19 +486,19 @@ export function useScraper() {
     }
     // 如果只有 PNG/JPG 等格式，现场转换为 SVG
     if (!svgContent && result.format !== 'svg' && result.dataUrl) {
-      pushLog('info', `[CONVERT] 下载时现场将 ${result.format.toUpperCase()} 转换为 SVG...`, 'convert')
+      pushLog('info', `[CONVERT] On-the-fly converting ${result.format.toUpperCase()} to SVG during download...`, 'convert')
       try {
         const converted = await tryConvertToSvg(result.dataUrl, result.title)
-        if (isValidSvg(converted)) {
+        if (converted === null) {
+          pushLog('warn', `[CONVERT] On-the-fly conversion engine cannot process this image`, 'convert')
+        } else if (isValidSvg(converted)) {
           svgContent = converted
-          pushLog('success', `[CONVERT] 现场转换完成 — ${converted.length} bytes`, 'convert')
-        } else if (converted !== null) {
-          pushLog('warn', `[CONVERT] 现场转换产出无效内容（${converted.length} bytes）`, 'convert')
+          pushLog('success', `[CONVERT] On-the-fly conversion complete — ${converted.length} bytes`, 'convert')
         } else {
-          pushLog('warn', `[CONVERT] 现场转换引擎无法处理该图片`, 'convert')
+          pushLog('warn', `[CONVERT] On-the-fly conversion produced invalid content (${(converted as string).length} bytes)`, 'convert')
         }
       } catch (e) {
-        pushLog('warn', `[CONVERT] 现场转换异常: ${(e as Error).message}`, 'convert')
+        pushLog('warn', `[CONVERT] On-the-fly conversion error: ${(e as Error).message}`, 'convert')
       }
     }
     if (svgContent) {
@@ -534,7 +534,7 @@ export function useScraper() {
       try {
         await downloadSvgAsPng(svgContent, filename, { width: result.width, height: result.height, scale: 2 })
       } catch (e) {
-        console.error('[PNG] 下载失败:', e)
+        console.error('[PNG] Download failed:', e)
         // 兜底：如果拿不到 SVG，下载原始格式
         if (result.dataUrl) {
           const a = document.createElement('a')
@@ -576,19 +576,19 @@ export function useScraper() {
 
     // 检查云端缓存（Supabase）
     if (isSupabaseConfigured()) {
-      pushLog('info', `> 启动 LogoScraper 引擎 v2.2.0 — 目标: "${query}"`, 'init')
-      pushLog('debug', `[ENGINE] 运行环境: ${navigator.userAgent.slice(0, 50)}...`)
-      pushLog('debug', `[ENGINE] 爬取模式: ${state.mode.toUpperCase()}`)
+      pushLog('info', `> LogoScraper Engine v2.2.0 started — target: "${query}"`, 'init')
+      pushLog('debug', `[ENGINE] Runtime: ${navigator.userAgent.slice(0, 50)}...`)
+      pushLog('debug', `[ENGINE] Mode: ${state.mode.toUpperCase()}`)
       await sleep(200)
-      pushLog('info', `[CLOUD] 查询 Supabase 云端缓存...`, 'dns')
+      pushLog('info', `[CLOUD] Querying Supabase cloud cache...`, 'dns')
       const cloudResult = await fetchCloudLogo(query)
       if (cloudResult) {
-        pushLog('success', `[CLOUD] 命中云端缓存 — 直接返回 SVG`, 'dns')
+        pushLog('success', `[CLOUD] Cloud cache hit — returning SVG`, 'dns')
         for (const stage of ['dns', 'connect', 'fetch', 'parse', 'scan', 'download', 'convert'] as const) {
           setProgress(stage, 100, 'completed')
           await sleep(60)
         }
-        pushLog('success', `[CLOUD] 零网络请求 — SVG 秒开`, 'done')
+        pushLog('success', `[CLOUD] Zero network requests — instant SVG`, 'done')
         setState((prev) => ({
           ...prev,
           isRunning: false,
@@ -597,22 +597,22 @@ export function useScraper() {
         }))
         return
       }
-      pushLog('debug', `[CLOUD] 云端未命中，继续本地/网络爬取`, 'dns')
+      pushLog('debug', `[CLOUD] Cloud cache miss — continuing local/network scrape`, 'dns')
     }
 
     // 检查本地缓存
     const cached = await getCachedResults(query)
     if (cached && cached.length > 0) {
-      pushLog('info', `> 启动 LogoScraper 引擎 v2.2.0 — 目标: "${query}"`, 'init')
-      pushLog('debug', `[ENGINE] 运行环境: ${navigator.userAgent.slice(0, 50)}...`)
-      pushLog('debug', `[ENGINE] 爬取模式: ${state.mode.toUpperCase()}`)
+      pushLog('info', `> LogoScraper Engine v2.2.0 started — target: "${query}"`, 'init')
+      pushLog('debug', `[ENGINE] Runtime: ${navigator.userAgent.slice(0, 50)}...`)
+      pushLog('debug', `[ENGINE] Mode: ${state.mode.toUpperCase()}`)
       await sleep(200)
-      pushLog('info', `[CACHE] 命中本地缓存 — ${cached.length} 个结果`, 'dns')
+      pushLog('info', `[CACHE] Local cache hit — ${cached.length} results`, 'dns')
       for (const stage of ['dns', 'connect', 'fetch', 'parse', 'scan', 'download', 'convert'] as const) {
         setProgress(stage, 100, 'completed')
         await sleep(80)
       }
-      pushLog('success', `[CACHE] 零网络请求 — 直接返回缓存结果`, 'done')
+      pushLog('success', `[CACHE] Zero network requests — returning cached results`, 'done')
       setState((prev) => ({
         ...prev,
         isRunning: false,
@@ -631,68 +631,70 @@ export function useScraper() {
               const pngResult = cached.find((r) => r.dataUrl)
               if (pngResult) {
                 const converted = await tryConvertToSvg(pngResult.dataUrl!, pngResult.title)
-                if (isValidSvg(converted)) {
+                if (converted === null) {
+                  // 无法处理，跳过
+                } else if (isValidSvg(converted)) {
                   svgResult = { ...pngResult, convertedSvg: converted }
-                } else if (converted !== null) {
-                  pushLog('warn', `[CLOUD] 补上传时现场转换产出无效 SVG（${converted.length} bytes），跳过`, 'done')
+                } else {
+                  pushLog('warn', `[CLOUD] On-the-fly conversion during upload produced invalid SVG (${(converted as string).length} bytes), skipping`, 'done')
                 }
               }
             }
             if (svgResult) {
-              pushLog('info', `[CLOUD] 本地缓存补上传到 Supabase...`, 'done')
+              pushLog('info', `[CLOUD] Uploading local cache to Supabase...`, 'done')
               await saveCloudLogo(query, guessDomains(query), svgResult)
-              pushLog('success', `[CLOUD] SVG 已上传至云端`, 'done')
+              pushLog('success', `[CLOUD] SVG uploaded to cloud`, 'done')
             }
           }
         } catch (e) {
-          pushLog('warn', `[CLOUD] 补上传失败: ${(e as Error).message}`, 'done')
+          pushLog('warn', `[CLOUD] Upload failed: ${(e as Error).message}`, 'done')
         }
       }
       return
     }
 
     try {
-      pushLog('info', `> 启动 LogoScraper 引擎 v2.2.0 — 目标: "${query}"`, 'init')
-      pushLog('debug', `[ENGINE] 运行环境: ${navigator.userAgent.slice(0, 50)}...`)
-      pushLog('debug', `[ENGINE] 爬取模式: ${state.mode.toUpperCase()}`)
+      pushLog('info', `> LogoScraper Engine v2.2.0 started — target: "${query}"`, 'init')
+      pushLog('debug', `[ENGINE] Runtime: ${navigator.userAgent.slice(0, 50)}...`)
+      pushLog('debug', `[ENGINE] Mode: ${state.mode.toUpperCase()}`)
       await sleep(400)
 
       // Stage: DNS
       setProgress('dns', 10, 'running')
-      pushLog('info', `[DNS] 解析软件名称与候选域名...`, 'dns')
+      pushLog('info', `[DNS] Resolving software name and candidate domains...`, 'dns')
       let known = getKnownInfo(query)
       const domains = guessDomains(query)
       const urlDomain = extractDomainFromUrl(query)
       if (urlDomain) {
-        pushLog('info', `[DNS] 检测到 URL 输入，提取域名: ${urlDomain}`, 'dns')
+        pushLog('info', `[DNS] URL input detected, extracting domain: ${urlDomain}`, 'dns')
         // 如果直接输入域名（如 nginx.org），尝试反查对应的软件信息
         if (!known) {
           known = getKnownInfoByDomain(urlDomain)
           if (known) {
-            pushLog('debug', `[DNS] 域名反查匹配到软件记录`)
+            pushLog('debug', `[DNS] Domain reverse-lookup matched software record`)
           }
         }
       }
-      pushLog('debug', `[DNS] 候选域名列表: ${domains.join(', ')}`)
-      if (known?.github) pushLog('debug', `[DNS] 匹配到 GitHub 仓库: ${known.github}`)
-      if (known?.wikipedia) pushLog('debug', `[DNS] 匹配到 Wikipedia 页面: ${known.wikipedia}`)
+      pushLog('debug', `[DNS] Candidate domains: ${domains.join(', ')}`)
+      if (known?.github) pushLog('debug', `[DNS] Matched GitHub repo: ${known.github}`)
+      if (known?.wikipedia) pushLog('debug', `[DNS] Matched Wikipedia page: ${known.wikipedia}`)
       if (!known) {
         const similar = findSuggestions(query, 3)
         if (similar.length > 0) {
-          pushLog('warn', `[DNS] 未找到 "${query}" 的精确记录，您是否要找: ${similar.join(' / ')}？`)
+          pushLog('warn', `[DNS] No exact match for "${query}", did you mean: ${similar.join(' / ')}?`)
         }
       }
       await sleep(600)
       setProgress('dns', 100, 'completed')
-      pushLog('success', `[DNS] 域名解析完成，共 ${domains.length} 个候选`, 'dns')
+      pushLog('success', `[DNS] Domain resolution complete — ${domains.length} candidates`, 'dns')
 
       // Stage: Connect
       setProgress('connect', 20, 'running')
-      pushLog('info', `[TCP] 建立安全连接...`, 'connect')
+      pushLog('info', `[TCP] Establishing secure connection...`, 'connect')
       await sleep(400)
-      pushLog('debug', `[TLS] 握手成功 — TLS 1.3, 证书链验证通过`)
+      pushLog('debug', `[TLS] Handshake success — TLS 1.3, certificate chain verified`)
       setProgress('connect', 100, 'completed')
-      pushLog('success', `[TCP] 连接池就绪`, 'connect')
+      pushLog('success', `[TCP] Connection pool ready`, 'connect')
 
       let results: LogoResult[] = []
 
@@ -701,10 +703,10 @@ export function useScraper() {
 
       if (state.mode === 'api') {
         // API 模式：调用服务端
-        pushLog('info', `[HTTP] 请求 LogoScraper API (服务端聚合)...`, 'fetch')
+        pushLog('info', `[HTTP] Requesting LogoScraper API (server-side)...`, 'fetch')
         try {
           results = await fetchFromApi(query, state.apiKey)
-          pushLog('success', `[HTTP] API 返回 ${results.length} 个结果`, 'fetch')
+          pushLog('success', `[HTTP] API returned ${results.length} results`, 'fetch')
           // API 模式下，对所有结果补全 dataUrl
           for (let i = 0; i < results.length; i++) {
             if (results[i].format !== 'svg') {
@@ -714,7 +716,7 @@ export function useScraper() {
                 results[i].width = img.naturalWidth
                 results[i].height = img.naturalHeight
               } catch {
-                pushLog('warn', `[HTTP] 无法加载图片: ${results[i].source}`, 'fetch')
+                pushLog('warn', `[HTTP] Failed to load image: ${results[i].source}`, 'fetch')
               }
             } else {
               // SVG 结果：直接拉取文本生成 dataUrl
@@ -724,13 +726,13 @@ export function useScraper() {
                   results[i].dataUrl = svgToDataUrl(svgText)
                 }
               } catch {
-                pushLog('warn', `[HTTP] 无法加载 SVG: ${results[i].source}`, 'fetch')
+                pushLog('warn', `[HTTP] Failed to load SVG: ${results[i].source}`, 'fetch')
               }
             }
           }
         } catch (e) {
-          pushLog('error', `[HTTP] API 请求失败: ${(e as Error).message}`, 'fetch')
-          pushLog('info', `[HTTP] 降级到 Direct 模式...`, 'fetch')
+          pushLog('error', `[HTTP] API request failed: ${(e as Error).message}`, 'fetch')
+          pushLog('info', `[HTTP] Falling back to Direct mode...`, 'fetch')
         }
       }
 
@@ -739,7 +741,7 @@ export function useScraper() {
       if (results.length === 0) {
         // 1. 优先尝试 GitHub SVG
         if (known?.github) {
-          pushLog('info', `[HTTP] 探测 GitHub Raw...`, 'fetch')
+          pushLog('info', `[HTTP] Probing GitHub Raw...`, 'fetch')
           const repo = known.github
 
           // 如果配置了已知图片路径，优先尝试（避免盲目探测不存在的 logo.svg）
@@ -760,7 +762,7 @@ export function useScraper() {
                   height: img.naturalHeight,
                   title: query,
                 })
-                pushLog('success', `[HTTP] 200 OK — 从 GitHub 获取图片`, 'fetch')
+                pushLog('success', `[HTTP] 200 OK — image fetched from GitHub`, 'fetch')
                 break
               } catch {
                 // ignore
@@ -790,7 +792,7 @@ export function useScraper() {
                     dataUrl: svgToDataUrl(svgText),
                     title: query,
                   })
-                  pushLog('success', `[HTTP] 200 OK — 从 GitHub 获取 SVG`, 'fetch')
+                  pushLog('success', `[HTTP] 200 OK — SVG fetched from GitHub`, 'fetch')
                   break
                 }
               } catch {
@@ -798,13 +800,13 @@ export function useScraper() {
               }
             }
             if (!results.some(r => r.sourceType === 'github')) {
-              pushLog('warn', `[HTTP] GitHub Raw 探测完毕，未找到有效资源`, 'fetch')
+              pushLog('warn', `[HTTP] GitHub Raw probe complete, no valid resources found`, 'fetch')
             }
           }
         }
 
         // 2. 优先获取官网 favicon（最高效：直接取图标而非爬整页 HTML）
-        pushLog('info', `[HTTP] 探测官网 favicon...`, 'fetch')
+        pushLog('info', `[HTTP] Probing official favicon...`, 'fetch')
         let faviconFound = false
         for (const domain of domains.slice(0, 3)) {
           const faviconResults = await tryFetchFaviconLogos(domain)
@@ -812,16 +814,16 @@ export function useScraper() {
             for (const r of faviconResults) {
               results.push({ ...r, title: query })
             }
-            pushLog('success', `[HTTP] 从 ${domain} 获取 ${faviconResults.length} 个 favicon`, 'fetch')
+            pushLog('success', `[HTTP] Fetched ${faviconResults.length} favicons from ${domain}`, 'fetch')
             faviconFound = true
           }
         }
         if (!faviconFound) {
-          pushLog('warn', `[HTTP] 官网 favicon 探测完毕，未找到有效图标`, 'fetch')
+          pushLog('warn', `[HTTP] Official favicon probe complete, no valid icons found`, 'fetch')
         }
 
         // 3. 尝试官网 SVG 图标（favicon.svg / icon.svg / logo.svg）
-        pushLog('info', `[HTTP] 探测官网 SVG 图标...`, 'fetch')
+        pushLog('info', `[HTTP] Probing official SVG icons...`, 'fetch')
         let directSvgFound = false
         for (const domain of domains.slice(0, 2)) {
           const urls = [
@@ -843,7 +845,7 @@ export function useScraper() {
                   dataUrl: svgToDataUrl(svgText),
                   title: query,
                 })
-                pushLog('success', `[HTTP] 200 OK — 从官网获取 SVG`, 'fetch')
+                pushLog('success', `[HTTP] 200 OK — SVG fetched from official site`, 'fetch')
                 directSvgFound = true
                 break
               }
@@ -854,12 +856,12 @@ export function useScraper() {
           if (directSvgFound) break
         }
         if (!directSvgFound) {
-          pushLog('warn', `[HTTP] 官网 SVG 图标探测完毕，未找到有效资源`, 'fetch')
+          pushLog('warn', `[HTTP] Official SVG probe complete, no valid resources found`, 'fetch')
         }
 
         // Try Wikipedia
         if (known?.wikipedia) {
-          pushLog('info', `[HTTP] 请求 Wikipedia API...`, 'fetch')
+          pushLog('info', `[HTTP] Requesting Wikipedia API...`, 'fetch')
           try {
             const resp = await fetch(
               `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(known.wikipedia)}`
@@ -880,17 +882,17 @@ export function useScraper() {
                   height: img.naturalHeight,
                   title: query,
                 })
-                pushLog('success', `[HTTP] 200 OK — 从 Wikipedia 获取图片`, 'fetch')
+                pushLog('success', `[HTTP] 200 OK — image fetched from Wikipedia`, 'fetch')
               }
             }
           } catch {
-            pushLog('warn', `[HTTP] Wikipedia API 请求失败`, 'fetch')
+            pushLog('warn', `[HTTP] Wikipedia API request failed`, 'fetch')
           }
         }
 
         // Try Clearbit Logo API
         if (domains.length > 0) {
-          pushLog('info', `[HTTP] 请求 Clearbit Logo API...`, 'fetch')
+          pushLog('info', `[HTTP] Requesting Clearbit Logo API...`, 'fetch')
           for (const domain of domains.slice(0, 3)) {
             try {
               const url = `https://logo.clearbit.com/${domain}?size=512`
@@ -909,18 +911,18 @@ export function useScraper() {
                   height: 512,
                   title: query,
                 })
-                pushLog('success', `[HTTP] 200 OK — 从 Clearbit 获取 Logo`, 'fetch')
+                pushLog('success', `[HTTP] 200 OK — logo fetched from Clearbit`, 'fetch')
                 break
               }
             } catch {
-              pushLog('warn', `[HTTP] Clearbit 无记录: ${domain}`, 'fetch')
+              pushLog('warn', `[HTTP] Clearbit no record: ${domain}`, 'fetch')
             }
           }
         }
 
         // Try IconHorse Favicon API
         if (domains.length > 0) {
-          pushLog('info', `[HTTP] 请求 IconHorse Favicon API...`, 'fetch')
+          pushLog('info', `[HTTP] Requesting IconHorse Favicon API...`, 'fetch')
           for (const domain of domains.slice(0, 3)) {
             try {
               const url = `https://icon.horse/icon/${domain}`
@@ -937,22 +939,22 @@ export function useScraper() {
                 height: img.naturalHeight,
                 title: query,
               })
-              pushLog('success', `[HTTP] 200 OK — 从 IconHorse 获取 favicon`, 'fetch')
+              pushLog('success', `[HTTP] 200 OK — favicon fetched from IconHorse`, 'fetch')
               break
             } catch {
-              pushLog('warn', `[HTTP] IconHorse 无记录: ${domain}`, 'fetch')
+              pushLog('warn', `[HTTP] IconHorse no record: ${domain}`, 'fetch')
             }
           }
         }
 
         // DuckDuckGo Favicon API（子域名覆盖更好）
         if (domains.length > 0 && results.length === 0) {
-          pushLog('info', `[HTTP] 请求 DuckDuckGo Favicon API...`, 'fetch')
+          pushLog('info', `[HTTP] Requesting DuckDuckGo Favicon API...`, 'fetch')
           for (const domain of domains.slice(0, 3)) {
             const ddgResult = await fetchDuckDuckGoFavicon(domain)
             if (ddgResult) {
               results.push({ ...ddgResult, title: query })
-              pushLog('success', `[HTTP] 200 OK — 从 DuckDuckGo 获取 favicon`, 'fetch')
+              pushLog('success', `[HTTP] 200 OK — favicon fetched from DuckDuckGo`, 'fetch')
               break
             }
           }
@@ -960,12 +962,12 @@ export function useScraper() {
 
         // Google Favicon API 兜底
         if (domains.length > 0 && results.length === 0) {
-          pushLog('info', `[HTTP] 请求 Google Favicon API...`, 'fetch')
+          pushLog('info', `[HTTP] Requesting Google Favicon API...`, 'fetch')
           for (const domain of domains.slice(0, 3)) {
             const gResult = await fetchGoogleFavicon(domain)
             if (gResult) {
               results.push({ ...gResult, title: query })
-              pushLog('success', `[HTTP] 200 OK — 从 Google 获取 favicon`, 'fetch')
+              pushLog('success', `[HTTP] 200 OK — favicon fetched from Google`, 'fetch')
               break
             }
           }
@@ -973,71 +975,71 @@ export function useScraper() {
       }
 
       setProgress('fetch', 100, 'completed')
-      pushLog('success', `[HTTP] 数据获取阶段完成，共 ${results.length} 个资源`, 'fetch')
+      pushLog('success', `[HTTP] Data fetch phase complete — ${results.length} resources`, 'fetch')
 
       // Stage: Parse
       setProgress('parse', 30, 'running')
-      pushLog('info', `[HTML] 解析文档结构...`, 'parse')
+      pushLog('info', `[HTML] Parsing document structure...`, 'parse')
       await sleep(500)
-      pushLog('debug', `[DOM] 构建 AST — 发现 <meta> 标签 12 个，<link> 标签 8 个`)
-      pushLog('debug', `[DOM] 扫描 <img> 标签与 SVG 元素...`)
+      pushLog('debug', `[DOM] Building AST — found 12 <meta> tags, 8 <link> tags`)
+      pushLog('debug', `[DOM] Scanning <img> tags and SVG elements...`)
       setProgress('parse', 100, 'completed')
-      pushLog('success', `[HTML] DOM 解析完成`, 'parse')
+      pushLog('success', `[HTML] DOM parsing complete`, 'parse')
 
       // Stage: Scan
       setProgress('scan', 20, 'running')
-      pushLog('info', `[SCAN] 资源扫描与 Logo 特征匹配...`, 'scan')
+      pushLog('info', `[SCAN] Resource scanning & logo feature matching...`, 'scan')
       await sleep(600)
-      pushLog('debug', `[SCAN] 正则匹配: logo.*\.(svg|png|jpg|webp)`)
-      pushLog('debug', `[SCAN] 机器学习模型置信度: 0.94`)
+      pushLog('debug', `[SCAN] Regex match: logo.*\.(svg|png|jpg|webp)`)
+      pushLog('debug', `[SCAN] ML model confidence: 0.94`)
       setProgress('scan', 100, 'completed')
-      pushLog('success', `[SCAN] Logo 候选识别完成`, 'scan')
+      pushLog('success', `[SCAN] Logo candidate identification complete`, 'scan')
 
       // Stage: Download
       setProgress('download', 40, 'running')
-      pushLog('info', `[DOWNLOAD] 下载高分辨率资源...`, 'download')
+      pushLog('info', `[DOWNLOAD] Downloading high-resolution resources...`, 'download')
       for (let i = 0; i < results.length; i++) {
         if (abortRef.current) break
         pushLog('debug', `[DOWNLOAD] #${i + 1} ${results[i].source} — ${results[i].width}x${results[i].height}px`)
         await sleep(300)
       }
       setProgress('download', 100, 'completed')
-      pushLog('success', `[DOWNLOAD] 资源下载完成`, 'download')
+      pushLog('success', `[DOWNLOAD] Resource download complete`, 'download')
 
       // Stage: Convert
       setProgress('convert', 15, 'running')
-      pushLog('info', `[CONVERT] 启动矢量化引擎...`, 'convert')
+      pushLog('info', `[CONVERT] Starting vectorization engine...`, 'convert')
       for (let i = 0; i < results.length; i++) {
         if (abortRef.current) break
         const result = results[i]
         if (result.format !== 'svg') {
-          pushLog('info', `[CONVERT] 将 #${i + 1} (${result.format.toUpperCase()}) 转换为 SVG...`, 'convert')
+          pushLog('info', `[CONVERT] Converting #${i + 1} (${result.format.toUpperCase()}) to SVG...`, 'convert')
           try {
             const svg = await tryConvertToSvg(result.dataUrl!, result.title)
-            if (isValidSvg(svg)) {
+            if (svg === null) {
+              pushLog('warn', `[CONVERT] #${i + 1} vectorization engine cannot process this image, keeping original format`, 'convert')
+            } else if (isValidSvg(svg)) {
               result.convertedSvg = svg
-              pushLog('success', `[CONVERT] #${i + 1} 矢量化完成 — ${svg.length} bytes`, 'convert')
-            } else if (svg !== null) {
-              pushLog('warn', `[CONVERT] #${i + 1} 矢量化产出无效内容（${svg.length} bytes），保留原始格式`, 'convert')
+              pushLog('success', `[CONVERT] #${i + 1} vectorization complete — ${svg.length} bytes`, 'convert')
             } else {
-              pushLog('warn', `[CONVERT] #${i + 1} 矢量化引擎无法处理该图片，保留原始格式`, 'convert')
+              pushLog('warn', `[CONVERT] #${i + 1} vectorization produced invalid content (${(svg as string).length} bytes), keeping original format`, 'convert')
             }
           } catch (e) {
-            pushLog('warn', `[CONVERT] #${i + 1} 引擎异常: ${(e as Error).message}`, 'convert')
+            pushLog('warn', `[CONVERT] #${i + 1} engine error: ${(e as Error).message}`, 'convert')
           }
         } else {
-          pushLog('debug', `[CONVERT] #${i + 1} 已经是 SVG 格式，跳过`, 'convert')
+          pushLog('debug', `[CONVERT] #${i + 1} already SVG format, skipping`, 'convert')
         }
       }
       setProgress('convert', 100, 'completed')
-      pushLog('success', `[CONVERT] 格式转换阶段完成`, 'convert')
+      pushLog('success', `[CONVERT] Format conversion phase complete`, 'convert')
 
       // 同名结果去重：每个 title 只保留一个最佳结果
       if (results.length > 1) {
         const before = results.length
         results = pickBestResults(results)
         if (results.length < before) {
-          pushLog('info', `[DEDUPE] 同名结果去重：${before} → ${results.length} 个`, 'done')
+          pushLog('info', `[DEDUPE] Deduplicating by name: ${before} → ${results.length}`, 'done')
         }
       }
 
@@ -1045,48 +1047,48 @@ export function useScraper() {
       if (results.length === 0) {
         const similar = findSuggestions(query, 3)
         if (similar.length > 0) {
-          pushLog('warn', `> 未找到 Logo 资源，您是否要找: ${similar.join(' / ')}？`)
+          pushLog('warn', `> No logo resources found, did you mean: ${similar.join(' / ')}?`)
         } else {
-          pushLog('info', `> 任务完成 — 未发现 Logo 资源`)
+          pushLog('info', `> Task complete — no logo resources found`)
         }
       } else {
-        pushLog('info', `> 任务完成 — 发现 ${results.length} 个 Logo 资源`, 'done')
+        pushLog('info', `> Task complete — found ${results.length} logo resources`, 'done')
         // 自动保存到本地缓存
         await saveCachedResults(query, results)
         await saveCachedSoftware(query, domains)
-        pushLog('success', `[CACHE] 已缓存本次结果，下次搜索秒开`, 'done')
+        pushLog('success', `[CACHE] Results cached — instant search next time`, 'done')
         // 自动保存到云端（只存有效 SVG；没有现成 SVG 时现场转换 PNG 再上传）
         if (isSupabaseConfigured() && results.length > 0) {
           let svgResult = results.find((r) => r.format === 'svg' || r.convertedSvg)
           if (!svgResult) {
             const pngResult = results.find((r) => r.dataUrl && r.format !== 'svg')
             if (pngResult) {
-              pushLog('info', `[CLOUD] 无现成 SVG，尝试现场转换 ${pngResult.source} 后上传...`, 'done')
+              pushLog('info', `[CLOUD] No ready SVG, attempting on-the-fly conversion of ${pngResult.source} before upload...`, 'done')
               try {
                 const converted = await tryConvertToSvg(pngResult.dataUrl!, pngResult.title)
-                if (isValidSvg(converted)) {
+                if (converted === null) {
+                  pushLog('warn', `[CONVERT] On-the-fly conversion before cloud upload cannot process`, 'done')
+                } else if (isValidSvg(converted)) {
                   svgResult = { ...pngResult, convertedSvg: converted }
-                  pushLog('success', `[CONVERT] 云端上传前现场转换完成 — ${converted.length} bytes`, 'done')
-                } else if (converted !== null) {
-                  pushLog('warn', `[CONVERT] 云端上传前现场转换产出无效内容（${converted.length} bytes）`, 'done')
+                  pushLog('success', `[CONVERT] On-the-fly conversion before cloud upload complete — ${converted.length} bytes`, 'done')
                 } else {
-                  pushLog('warn', `[CONVERT] 云端上传前现场转换引擎无法处理`, 'done')
+                  pushLog('warn', `[CONVERT] On-the-fly conversion before cloud upload produced invalid content (${(converted as string).length} bytes)`, 'done')
                 }
               } catch (e) {
-                pushLog('warn', `[CONVERT] 云端上传前现场转换异常: ${(e as Error).message}`, 'done')
+                pushLog('warn', `[CONVERT] On-the-fly conversion before cloud upload error: ${(e as Error).message}`, 'done')
               }
             }
           }
           if (svgResult) {
-            pushLog('info', `[CLOUD] 正在上传 SVG 到 Supabase...`, 'done')
+            pushLog('info', `[CLOUD] Uploading SVG to Supabase...`, 'done')
             try {
               await saveCloudLogo(query, domains, svgResult)
-              pushLog('success', `[CLOUD] SVG 已上传至云端`, 'done')
+              pushLog('success', `[CLOUD] SVG uploaded to cloud`, 'done')
             } catch (e) {
-              pushLog('warn', `[CLOUD] 上传失败: ${(e as Error).message}`, 'done')
+              pushLog('warn', `[CLOUD] Upload failed: ${(e as Error).message}`, 'done')
             }
           } else {
-            pushLog('debug', `[CLOUD] 无可用的有效 SVG，跳过云端上传`, 'done')
+            pushLog('debug', `[CLOUD] No valid SVG available, skipping cloud upload`, 'done')
           }
         }
       }

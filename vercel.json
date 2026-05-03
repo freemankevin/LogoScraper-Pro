@@ -25,6 +25,7 @@
   ],
   "rewrites": [
     { "source": "/api/health", "destination": "/api/health" },
-    { "source": "/api/scrape", "destination": "/api/scrape" }
+    { "source": "/api/scrape", "destination": "/api/scrape" },
+    { "source": "/api", "destination": "/index.html" }
   ]
 }

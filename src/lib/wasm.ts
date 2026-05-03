@@ -18,7 +18,7 @@ async function loadWasmInternal(): Promise<WasmModule> {
     await mod.default()
     return mod as unknown as WasmModule
   } catch (e) {
-    console.warn('[WASM] 加载失败，将回退到 JS 处理:', e)
+    console.warn('[WASM] Load failed, falling back to JS:', e)
     throw e
   }
 }
@@ -60,7 +60,7 @@ export async function convertToSvgWithWasm(
     const svg = wasm.image_to_svg(binary, targetSize)
     return svg
   } catch (e) {
-    console.warn('[WASM] SVG 转换失败:', e)
+    console.warn('[WASM] SVG conversion failed:', e)
     return null
   }
 }

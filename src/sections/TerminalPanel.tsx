@@ -107,7 +107,7 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
                 fontFamily: 'var(--font-mono)',
                 marginRight: '0.25rem',
               }}
-              title="云端缓存统计"
+              title="Cloud cache stats"
             >
               ☁ {cloudStats.logoCount}
             </span>
@@ -116,13 +116,13 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
             <span
               style={{
                 fontSize: '0.65rem',
-                color: 'var(--text-muted)',
+                color: 'var(--accent-cyan)',
                 fontFamily: 'var(--font-mono)',
                 marginRight: '0.25rem',
               }}
-              title="本地缓存统计"
+              title="Local cache stats"
             >
-              缓存: {cacheStats.resultsCount}结果 / {cacheStats.softwareCount}软件
+              ◈ {cacheStats.resultsCount}
             </span>
           )}
           <ClearCacheButton onCleared={() => getCacheStats().then(setCacheStats)} />
@@ -145,11 +145,12 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
           <div key={p.stage} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <span
               style={{
-                width: 100,
+                width: 120,
                 fontSize: '0.7rem',
                 color: 'var(--text-secondary)',
                 flexShrink: 0,
                 textAlign: 'right',
+                lineHeight: 1.3,
               }}
             >
               {p.label}
@@ -193,7 +194,7 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
       >
         {logs.length === 0 ? (
           <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>
-            等待任务启动... 输入软件名称并点击搜索
+            Waiting for task... Enter a software name and search
           </span>
         ) : (
           logs.map((log) => (
@@ -202,7 +203,7 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
               <span className={getLevelClass(log.level)} style={{ fontWeight: 600, flexShrink: 0 }}>
                 [{log.level.toUpperCase()}]
               </span>
-              <span style={{ color: 'var(--text-secondary)' }}>{log.message}</span>
+              <span style={{ color: log.level === 'error' ? 'var(--accent-red)' : log.level === 'warn' ? '#ffb300' : log.level === 'success' ? 'var(--accent-green)' : 'var(--text-secondary)' }}>{log.message}</span>
             </div>
           ))
         )}
@@ -232,6 +233,12 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
+        .timestamp { color: #555570; }
+        .level-info { color: var(--accent-cyan); }
+        .level-success { color: var(--accent-green); }
+        .level-warn { color: #ffb300; }
+        .level-error { color: var(--accent-red); }
+        .level-debug { color: #8888a0; }
       `}</style>
     </div>
   )
@@ -295,7 +302,7 @@ function ClearCacheButton({ onCleared }: { onCleared: () => void }) {
     </button>
       </TooltipTrigger>
       <TooltipContent side="bottom" sideOffset={6}>
-        <span style={{ fontSize: '0.75rem' }}>{cleared ? '已清除！' : '清除本地缓存'}</span>
+        <span style={{ fontSize: '0.75rem' }}>{cleared ? 'Cleared!' : 'Clear local cache'}</span>
       </TooltipContent>
     </Tooltip>
   )
@@ -376,7 +383,7 @@ function CopyButton({ logs, copied, setCopied }: { logs: ScraperLog[]; copied: b
     </button>
       </TooltipTrigger>
       <TooltipContent side="bottom" sideOffset={6}>
-        <span style={{ fontSize: '0.75rem' }}>{copied ? '已复制！' : logs.length === 0 ? '暂无日志可复制' : '复制全部日志'}</span>
+        <span style={{ fontSize: '0.75rem' }}>{copied ? 'Copied!' : logs.length === 0 ? 'No logs to copy' : 'Copy all logs'}</span>
       </TooltipContent>
     </Tooltip>
   )

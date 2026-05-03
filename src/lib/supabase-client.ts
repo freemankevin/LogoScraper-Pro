@@ -87,13 +87,13 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
     if (!text) return null
     // 校验下载内容是否为有效 SVG（Supabase 可能返回错误页面/JSON 而非文件内容）
     if (!text.trim().startsWith('<svg') && !text.trim().startsWith('<?xml')) {
-      console.warn('[Supabase] 云端缓存内容不是有效 SVG，忽略:', text.substring(0, 100))
+      console.warn('[Supabase] Cloud cache content is not valid SVG, ignoring:', text.substring(0, 100))
       return null
     }
 
     return {
       id: `cloud-${query}`,
-      source: `Supabase Storage (云端缓存)`,
+      source: `Supabase Storage (cloud cache)`,
       sourceType: 'cloud',
       format: 'svg',
       url: '',
@@ -115,7 +115,7 @@ export async function saveCloudLogo(
 ): Promise<void> {
   const sb = getClient()
   if (!sb) {
-    throw new Error('Supabase 客户端未初始化，请检查环境变量配置')
+    throw new Error('Supabase client not initialized, check environment variables')
   }
 
   try {
@@ -155,11 +155,11 @@ export async function saveCloudLogo(
       // 如果是签名验证失败，给出更明确的提示
       if (error.message?.includes('signature verification failed')) {
         throw new Error(
-          `Supabase Storage 签名验证失败。可能原因：\n` +
-          `1. 项目启用了新版 API Key (sb_publishable) 但 Storage 服务不兼容\n` +
+          `Supabase Storage signature verification failed. Possible causes:\n` +
+          `1. Project uses new API Key (sb_publishable) but Storage service incompatible\n` +
           `2. 需要在 Supabase Dashboard > Storage > Policies 中为 'logos' bucket 添加 anon 角色的 INSERT/SELECT/UPDATE 权限\n` +
-          `3. 尝试在 Dashboard 中重新启用旧版 anon JWT key\n` +
-          `原始错误: ${error.message}`
+          `3. Try re-enabling legacy anon JWT key in Dashboard\n` +
+          `Original error: ${error.message}`
         )
       }
       throw error

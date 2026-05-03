@@ -3,7 +3,6 @@ import CodeRain from './sections/CodeRain'
 import LogoSearchHero from './sections/LogoSearchHero'
 import TerminalPanel from './sections/TerminalPanel'
 import LogoResults from './sections/LogoResults'
-import ApiDocs from './sections/ApiDocs'
 import { useScraper } from './hooks/useScraper'
 
 export default function App() {
@@ -68,27 +67,9 @@ export default function App() {
           </div>
         )}
 
-        <ApiDocs />
       </div>
 
-      {/* Footer */}
-      <footer
-        style={{
-          borderTop: '1px solid var(--border-color)',
-          padding: '2rem 4vw',
-          textAlign: 'center',
-          fontSize: '0.75rem',
-          color: 'var(--text-muted)',
-          fontFamily: 'var(--font-mono)',
-        }}
-      >
-        <div style={{ marginBottom: '0.5rem' }}>
-          LogoScraper Pro — 纯前端软件 Logo 智能爬取工具
-        </div>
-        <div>
-          Rust Toolkit · Clearbit · IconHorse · Wikipedia · GitHub · ImageTracerJS
-        </div>
-      </footer>
+      {/* Footer removed */}
     </div>
   )
 }
