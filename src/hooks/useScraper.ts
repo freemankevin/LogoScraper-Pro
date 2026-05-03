@@ -445,39 +445,6 @@ function getSourcePriority(sourceType: LogoResult['sourceType']): number {
   }
 }
 
-/** 同名结果去重：每个 title 只保留一个最佳结果（优先有效 SVG，其次来源可信度，最后尺寸） */
-function pickBestResults(results: LogoResult[]): LogoResult[] {
-  const byTitle = new Map<string, LogoResult[]>()
-  for (const r of results) {
-    const list = byTitle.get(r.title) || []
-    list.push(r)
-    byTitle.set(r.title, list)
-  }
-  const best: LogoResult[] = []
-  for (const [, list] of byTitle) {
-    if (list.length === 1) {
-      best.push(list[0])
-      continue
-    }
-    list.sort((a, b) => {
-      const aHasSvg = isValidSvg(a.convertedSvg) || a.format === 'svg'
-      const bHasSvg = isValidSvg(b.convertedSvg) || b.format === 'svg'
-      if (aHasSvg && !bHasSvg) return -1
-      if (!aHasSvg && bHasSvg) return 1
-      // 两个都有 SVG 或都没有时，比较来源可信度
-      const aPriority = getSourcePriority(a.sourceType)
-      const bPriority = getSourcePriority(b.sourceType)
-      if (aPriority !== bPriority) return aPriority - bPriority
-      // 来源优先级相同时，按尺寸排序
-      const aSize = (a.width || 0) * (a.height || 0)
-      const bSize = (b.width || 0) * (b.height || 0)
-      return bSize - aSize
-    })
-    best.push(list[0])
-  }
-  return best
-}
-
 async function fetchFromApi(query: string, apiKey?: string | null): Promise<LogoResult[]> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (apiKey) headers['X-API-Key'] = apiKey
