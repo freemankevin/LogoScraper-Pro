@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from 'react'
 import Fuse from 'fuse.js'
 import type { ScraperLog, ScraperProgress, LogoResult, ScraperState, ScrapeMode } from '../types/scraper'
-import { convertToSvgWithWasm } from '../lib/wasm'
+import ImageTracer from 'imagetracerjs'
 import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
 import { getCachedResults, saveCachedResults, saveCachedSoftware } from '../lib/logo-cache'
 import { fetchCloudLogo, saveCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
@@ -359,18 +359,9 @@ function blobToDataUrl(blob: Blob): Promise<string> {
 }
 
 async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string | null> {
-  // 优先尝试 Rust WASM
-  const wasmSvg = await convertToSvgWithWasm(dataUrl, 256)
-  if (isValidSvg(wasmSvg)) return wasmSvg
-
-  // Fallback: ImageTracerJS
-  if (typeof window === 'undefined' || !(window as any).ImageTracer) {
-    return null
-  }
   return new Promise((resolve) => {
     try {
-      const tracer = new (window as any).ImageTracer()
-      tracer.imageToSVG(
+      ImageTracer.imageToSVG(
         dataUrl,
         (svgStr: string) => resolve(isValidSvg(svgStr) ? svgStr : null),
         { ltres: 1, qtres: 1, pathomit: 1, numberofcolors: 16, colorquantcycles: 3 }
