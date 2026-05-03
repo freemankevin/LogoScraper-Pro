@@ -6,7 +6,9 @@
     "github": "microsoft/vscode",
     "githubPaths": [
       "main/resources/linux/code.png",
-      "master/resources/linux/code.png"
+      "master/resources/linux/code.png",
+      "main/resources/app/resources/linux/code.png",
+      "master/resources/app/resources/linux/code.png"
     ],
     "wikipedia": "Visual_Studio_Code",
     "simpleIconsSlug": "visualstudiocode"

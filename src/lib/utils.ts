@@ -73,6 +73,7 @@ export function isValidSvg(s: string | null | undefined): s is string {
   // 必须包含 <svg 开头和 </svg> 结尾
   if (!t.startsWith('<svg') || !t.includes('</svg>')) return false
   // 过滤空壳 SVG（WASM 对小图标转换可能产出 <svg></svg> 这种无实质内容的文件）
-  if (t.length < 300) return false
+  // 阈值设为 50：Simple Icons 等优化后的品牌 SVG 可能只有 100~200 字节
+  if (t.length < 50) return false
   return true
 }
