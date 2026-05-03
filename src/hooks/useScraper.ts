@@ -5,6 +5,7 @@ import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
 import { getCachedResults, saveCachedResults, saveCachedSoftware } from '../lib/logo-cache'
 import { fetchCloudLogo, saveCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
 import { downloadSvgAsPng } from '../lib/svg-to-png'
+import { sanitizeDownloadName } from '../lib/utils'
 
 let logIdCounter = 0
 function generateId() {
@@ -259,6 +260,7 @@ export function useScraper() {
   }, [state.mode, state.apiKey])
 
   const downloadAsSvg = useCallback((result: LogoResult) => {
+    const filename = sanitizeDownloadName(result.title)
     // 优先用 convertedSvg（压缩后的），否则用原始 dataUrl
     const svgContent = result.convertedSvg || (result.format === 'svg' && result.dataUrl ? atob(result.dataUrl.split(',')[1]) : null)
     if (svgContent) {
@@ -266,7 +268,7 @@ export function useScraper() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = `${result.title}.svg`
+      a.download = `${filename}.svg`
       a.click()
       URL.revokeObjectURL(url)
       return
@@ -274,22 +276,34 @@ export function useScraper() {
     if (result.dataUrl) {
       const a = document.createElement('a')
       a.href = result.dataUrl
-      a.download = `${result.title}.${result.format}`
+      a.download = `${filename}.${result.format}`
       a.click()
     }
   }, [])
 
   const downloadAsPng = useCallback(async (result: LogoResult) => {
+    const filename = sanitizeDownloadName(result.title)
     const svgContent = result.convertedSvg || (result.format === 'svg' && result.dataUrl ? atob(result.dataUrl.split(',')[1]) : null)
     if (svgContent) {
-      await downloadSvgAsPng(svgContent, result.title, { width: result.width, height: result.height, scale: 2 })
+      try {
+        await downloadSvgAsPng(svgContent, filename, { width: result.width, height: result.height, scale: 2 })
+      } catch (e) {
+        console.error('[PNG] 下载失败:', e)
+        // 兜底：如果拿不到 SVG，下载原始格式
+        if (result.dataUrl) {
+          const a = document.createElement('a')
+          a.href = result.dataUrl
+          a.download = `${filename}.${result.format}`
+          a.click()
+        }
+      }
       return
     }
     // 兜底：如果拿不到 SVG，下载原始格式
     if (result.dataUrl) {
       const a = document.createElement('a')
       a.href = result.dataUrl
-      a.download = `${result.title}.${result.format}`
+      a.download = `${filename}.${result.format}`
       a.click()
     }
   }, [])

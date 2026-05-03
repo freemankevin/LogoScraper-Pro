@@ -8,6 +8,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { LogoResult } from '../types/scraper'
 import { minifySvg } from './svg-minify'
+import { sanitizeDownloadName } from './utils'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -64,30 +65,7 @@ export function clearSupabaseCredentials(): void {
 
 /** 把查询词转成安全的 Storage 文件名 */
 function queryToPath(query: string): string {
-  let name = query.toLowerCase().trim()
-
-  // 如果是 URL，提取 hostname
-  if (name.includes('://') || (name.includes('.') && !name.includes(' '))) {
-    try {
-      const url = name.includes('://') ? new URL(name) : new URL('https://' + name)
-      name = url.hostname
-    } catch {
-      // 不是合法 URL，保持原样
-    }
-  }
-
-  // 去掉 www. 前缀
-  name = name.replace(/^www\./, '')
-
-  // 取主域名部分（去掉 TLD）
-  const parts = name.split('.')
-  if (parts.length >= 2) {
-    name = parts[parts.length - 2]
-  }
-
-  // 只允许字母、数字、下划线、中划线
-  const safe = name.replace(/[^a-z0-9_-]/g, '_')
-  return `${safe}.svg`
+  return `${sanitizeDownloadName(query)}.svg`
 }
 
 /** 从云端缓存查询 Logo（从 Storage 下载） */

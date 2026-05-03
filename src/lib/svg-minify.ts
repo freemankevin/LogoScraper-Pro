@@ -1,6 +1,6 @@
 /**
  * SVG 压缩器 — 基于 SVGO（浏览器端）
- * 启用所有核心插件，追求最大压缩率 + 无损
+ * 保留所有可能改变视觉的插件关闭，只做安全压缩
  */
 
 import { optimize } from 'svgo/browser'
@@ -12,8 +12,11 @@ const svgoConfig: Config = {
       name: 'preset-default',
       params: {
         overrides: {
+          // 视觉安全：保留 viewBox、不强制合并 path、不移除画布外元素
           removeViewBox: false,
-          mergePaths: { force: true, noSpaceAfterFlags: true },
+          mergePaths: false,
+          removeOffCanvasPaths: false,
+          // 其他保持默认优化
           cleanupIds: { minify: true, removeUnknownsAndDefaults: true },
           removeUselessStrokeAndFill: { removeNone: true },
           removeHiddenElems: { opacity: true },
@@ -27,7 +30,6 @@ const svgoConfig: Config = {
     'moveGroupAttrsToElems' as any,
     'sortAttrs' as any,
     'reusePaths' as any,
-    'removeOffCanvasPaths' as any,
     'removeRasterImages' as any,
     'removeScripts' as any,
     'removeStyleElement' as any,
