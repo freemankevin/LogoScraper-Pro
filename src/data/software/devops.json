@@ -4,7 +4,8 @@
       "docker.com"
     ],
     "github": "moby/moby",
-    "wikipedia": "Docker_(software)"
+    "wikipedia": "Docker_(software)",
+    "simpleIconsSlug": "docker"
   },
   "kubernetes": {
     "domains": [

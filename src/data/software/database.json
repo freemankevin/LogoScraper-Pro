@@ -18,7 +18,8 @@
       "mysql.com"
     ],
     "github": "mysql/mysql-server",
-    "wikipedia": "MySQL"
+    "wikipedia": "MySQL",
+    "simpleIconsSlug": "mysql"
   },
   "mariadb": {
     "domains": [

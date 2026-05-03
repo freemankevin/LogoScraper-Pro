@@ -31,6 +31,8 @@ export interface KnownSoftwareInfo {
   github?: string
   githubPaths?: string[]
   wikipedia?: string
+  /** Simple Icons slug (https://simpleicons.org) — 优先使用高质量 SVG 品牌图标 */
+  simpleIconsSlug?: string
 }
 
 export const KNOWN_SOFTWARE: Record<string, KnownSoftwareInfo> = {

@@ -8,7 +8,8 @@
       "main/resources/linux/code.png",
       "master/resources/linux/code.png"
     ],
-    "wikipedia": "Visual_Studio_Code"
+    "wikipedia": "Visual_Studio_Code",
+    "simpleIconsSlug": "visualstudiocode"
   },
   "visual studio code": {
     "domains": [
@@ -19,7 +20,8 @@
       "main/resources/linux/code.png",
       "master/resources/linux/code.png"
     ],
-    "wikipedia": "Visual_Studio_Code"
+    "wikipedia": "Visual_Studio_Code",
+    "simpleIconsSlug": "visualstudiocode"
   },
   "webstorm": {
     "domains": [

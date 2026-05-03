@@ -255,26 +255,38 @@ function LogoCard({
           {result.width && result.height ? ` · ${result.width}x${result.height}px` : ''}
         </div>
 
-        <div style={{ display: 'flex', gap: '0.6rem' }}>
+        {/* Download actions */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div
+            style={{
+              fontSize: '0.65rem',
+              color: 'var(--text-muted)',
+              fontFamily: 'var(--font-mono)',
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              marginBottom: '0.25rem',
+            }}
+          >
+            Download format
+          </div>
           {hasSvg && (
             <button
               onClick={() => onDownloadSvg(result)}
               style={{
-                flex: 1,
-                padding: '0.55rem 0.6rem',
+                width: '100%',
+                padding: '0.6rem 0.85rem',
                 borderRadius: '8px',
                 border: 'none',
                 background: 'var(--accent-cyan)',
                 color: '#0a0a0f',
-                fontSize: '0.72rem',
+                fontSize: '0.78rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.35rem',
-                whiteSpace: 'nowrap',
+                gap: '0.4rem',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = '0.9'
@@ -290,27 +302,26 @@ function LogoCard({
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              SVG
+              Download SVG
             </button>
           )}
           <button
             onClick={() => onDownloadPng(result)}
             style={{
-              flex: 1,
-              padding: '0.55rem 0.6rem',
+              width: '100%',
+              padding: '0.6rem 0.85rem',
               borderRadius: '8px',
               border: '1px solid var(--border-color)',
               background: 'transparent',
               color: 'var(--text-secondary)',
-              fontSize: '0.72rem',
+              fontSize: '0.78rem',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.2s',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.35rem',
-              whiteSpace: 'nowrap',
+              gap: '0.4rem',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--accent-cyan)'
@@ -328,7 +339,7 @@ function LogoCard({
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            PNG
+            Download PNG
           </button>
         </div>
       </div>

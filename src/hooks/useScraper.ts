@@ -266,6 +266,43 @@ async function fetchGoogleFavicon(domain: string): Promise<LogoResult | null> {
   return null
 }
 
+/** 从 Simple Icons CDN 获取品牌 SVG（最高质量的品牌 Logo） */
+async function fetchSimpleIconsLogo(query: string, known?: KnownSoftwareInfo | null): Promise<LogoResult | null> {
+  const slugs: string[] = []
+  if (known?.simpleIconsSlug) {
+    slugs.push(known.simpleIconsSlug)
+  }
+  // 也尝试从查询词推断 slug
+  const inferred = query.toLowerCase().trim().replace(/[^a-z0-9]/g, '')
+  if (inferred && !slugs.includes(inferred)) {
+    slugs.push(inferred)
+  }
+  const alt = query.toLowerCase().trim().replace(/\s+/g, '')
+  if (alt && !slugs.includes(alt)) {
+    slugs.push(alt)
+  }
+
+  for (const slug of slugs) {
+    try {
+      const url = `https://cdn.simpleicons.org/${slug}`
+      const resp = await fetch(url, { signal: AbortSignal.timeout(6000) })
+      if (!resp.ok) continue
+      const svgText = await resp.text()
+      if (!isValidSvg(svgText)) continue
+      return {
+        id: generateId(),
+        source: `Simple Icons (${slug})`,
+        sourceType: 'direct',
+        format: 'svg',
+        url,
+        dataUrl: svgToDataUrl(svgText),
+        title: query,
+      }
+    } catch { /* ignore */ }
+  }
+  return null
+}
+
 /** 去重：基于图片尺寸和文件大小过滤重复/低质量 favicon */
 function dedupeFaviconResults(results: LogoResult[]): LogoResult[] {
   const seen = new Set<string>()
@@ -372,7 +409,21 @@ async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string 
   })
 }
 
-/** 同名结果去重：每个 title 只保留一个最佳结果（优先有效 SVG，其次最大尺寸） */
+/** 来源可信度权重（数字越小优先级越高） */
+function getSourcePriority(sourceType: LogoResult['sourceType']): number {
+  switch (sourceType) {
+    case 'cloud': return 0
+    case 'github': return 1
+    case 'direct': return 2
+    case 'clearbit': return 3
+    case 'favicon': return 4
+    case 'wikipedia': return 5
+    case 'converted': return 6
+    default: return 10
+  }
+}
+
+/** 同名结果去重：每个 title 只保留一个最佳结果（优先有效 SVG，其次来源可信度，最后尺寸） */
 function pickBestResults(results: LogoResult[]): LogoResult[] {
   const byTitle = new Map<string, LogoResult[]>()
   for (const r of results) {
@@ -391,6 +442,11 @@ function pickBestResults(results: LogoResult[]): LogoResult[] {
       const bHasSvg = isValidSvg(b.convertedSvg) || b.format === 'svg'
       if (aHasSvg && !bHasSvg) return -1
       if (!aHasSvg && bHasSvg) return 1
+      // 两个都有 SVG 或都没有时，比较来源可信度
+      const aPriority = getSourcePriority(a.sourceType)
+      const bPriority = getSourcePriority(b.sourceType)
+      if (aPriority !== bPriority) return aPriority - bPriority
+      // 来源优先级相同时，按尺寸排序
       const aSize = (a.width || 0) * (a.height || 0)
       const bSize = (b.width || 0) * (b.height || 0)
       return bSize - aSize
@@ -805,21 +861,14 @@ export function useScraper() {
           }
         }
 
-        // 2. 优先获取官网 favicon（最高效：直接取图标而非爬整页 HTML）
-        pushLog('info', `[HTTP] Probing official favicon...`, 'fetch')
-        let faviconFound = false
-        for (const domain of domains.slice(0, 3)) {
-          const faviconResults = await tryFetchFaviconLogos(domain)
-          if (faviconResults.length > 0) {
-            for (const r of faviconResults) {
-              results.push({ ...r, title: query })
-            }
-            pushLog('success', `[HTTP] Fetched ${faviconResults.length} favicons from ${domain}`, 'fetch')
-            faviconFound = true
-          }
-        }
-        if (!faviconFound) {
-          pushLog('warn', `[HTTP] Official favicon probe complete, no valid icons found`, 'fetch')
+        // 2. Simple Icons — 最高质量的品牌 SVG 图标库
+        pushLog('info', `[HTTP] Probing Simple Icons CDN...`, 'fetch')
+        const simpleIconsResult = await fetchSimpleIconsLogo(query, known)
+        if (simpleIconsResult) {
+          results.push(simpleIconsResult)
+          pushLog('success', `[HTTP] 200 OK — SVG fetched from Simple Icons`, 'fetch')
+        } else {
+          pushLog('warn', `[HTTP] Simple Icons probe complete, no record found`, 'fetch')
         }
 
         // 3. 尝试官网 SVG 图标（favicon.svg / icon.svg / logo.svg）
@@ -863,27 +912,51 @@ export function useScraper() {
         if (known?.wikipedia) {
           pushLog('info', `[HTTP] Requesting Wikipedia API...`, 'fetch')
           try {
-            const resp = await fetch(
-              `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(known.wikipedia)}`
+            // 优先使用 page/media API 查找文件名包含 "logo" 的图片（比 summary thumbnail 更精准）
+            let wikiImageUrl: string | null = null
+            const mediaResp = await fetch(
+              `https://en.wikipedia.org/api/rest_v1/page/media/${encodeURIComponent(known.wikipedia)}`,
+              { signal: AbortSignal.timeout(6000) }
             )
-            if (resp.ok) {
-              const data = await resp.json()
-              if (data.thumbnail?.source) {
-                const img = await loadImageAsync(data.thumbnail.source)
-                const dataUrl = await imageToDataUrl(img)
-                results.push({
-                  id: generateId(),
-                  source: 'Wikipedia',
-                  sourceType: 'wikipedia',
-                  format: 'png',
-                  url: data.thumbnail.source,
-                  dataUrl,
-                  width: img.naturalWidth,
-                  height: img.naturalHeight,
-                  title: query,
-                })
-                pushLog('success', `[HTTP] 200 OK — image fetched from Wikipedia`, 'fetch')
+            if (mediaResp.ok) {
+              const mediaData = await mediaResp.json()
+              const items = mediaData.items || []
+              const logoItem = items.find(
+                (item: any) =>
+                  item.type === 'image' && item.title && /logo/i.test(item.title)
+              )
+              if (logoItem) {
+                wikiImageUrl = logoItem.original?.source || logoItem.thumbnail?.source || null
               }
+            }
+
+            // 若 page/media 未找到 logo，回退到 page/summary 的 thumbnail
+            if (!wikiImageUrl) {
+              const summaryResp = await fetch(
+                `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(known.wikipedia)}`,
+                { signal: AbortSignal.timeout(6000) }
+              )
+              if (summaryResp.ok) {
+                const summaryData = await summaryResp.json()
+                wikiImageUrl = summaryData.thumbnail?.source || null
+              }
+            }
+
+            if (wikiImageUrl) {
+              const img = await loadImageAsync(wikiImageUrl)
+              const dataUrl = await imageToDataUrl(img)
+              results.push({
+                id: generateId(),
+                source: 'Wikipedia',
+                sourceType: 'wikipedia',
+                format: 'png',
+                url: wikiImageUrl,
+                dataUrl,
+                width: img.naturalWidth,
+                height: img.naturalHeight,
+                title: query,
+              })
+              pushLog('success', `[HTTP] 200 OK — image fetched from Wikipedia`, 'fetch')
             }
           } catch {
             pushLog('warn', `[HTTP] Wikipedia API request failed`, 'fetch')
@@ -947,29 +1020,44 @@ export function useScraper() {
           }
         }
 
-        // DuckDuckGo Favicon API（子域名覆盖更好）
+        // 兜底：favicon 源（favicon ≠ logo，仅作为最后手段）
         if (domains.length > 0 && results.length === 0) {
-          pushLog('info', `[HTTP] Requesting DuckDuckGo Favicon API...`, 'fetch')
+          pushLog('info', `[HTTP] Probing favicon sources (fallback)...`, 'fetch')
+          let faviconFound = false
           for (const domain of domains.slice(0, 3)) {
-            const ddgResult = await fetchDuckDuckGoFavicon(domain)
-            if (ddgResult) {
-              results.push({ ...ddgResult, title: query })
-              pushLog('success', `[HTTP] 200 OK — favicon fetched from DuckDuckGo`, 'fetch')
+            const faviconResults = await tryFetchFaviconLogos(domain)
+            if (faviconResults.length > 0) {
+              for (const r of faviconResults) {
+                results.push({ ...r, title: query })
+              }
+              pushLog('success', `[HTTP] Fetched ${faviconResults.length} favicons from ${domain}`, 'fetch')
+              faviconFound = true
               break
             }
           }
-        }
-
-        // Google Favicon API 兜底
-        if (domains.length > 0 && results.length === 0) {
-          pushLog('info', `[HTTP] Requesting Google Favicon API...`, 'fetch')
-          for (const domain of domains.slice(0, 3)) {
-            const gResult = await fetchGoogleFavicon(domain)
-            if (gResult) {
-              results.push({ ...gResult, title: query })
-              pushLog('success', `[HTTP] 200 OK — favicon fetched from Google`, 'fetch')
-              break
+          if (!faviconFound) {
+            for (const domain of domains.slice(0, 3)) {
+              const ddgResult = await fetchDuckDuckGoFavicon(domain)
+              if (ddgResult) {
+                results.push({ ...ddgResult, title: query })
+                pushLog('success', `[HTTP] 200 OK — favicon from DuckDuckGo`, 'fetch')
+                faviconFound = true
+                break
+              }
             }
+          }
+          if (!faviconFound) {
+            for (const domain of domains.slice(0, 3)) {
+              const gResult = await fetchGoogleFavicon(domain)
+              if (gResult) {
+                results.push({ ...gResult, title: query })
+                pushLog('success', `[HTTP] 200 OK — favicon from Google`, 'fetch')
+                break
+              }
+            }
+          }
+          if (!faviconFound) {
+            pushLog('warn', `[HTTP] Favicon fallback probe complete, no valid icons found`, 'fetch')
           }
         }
       }
