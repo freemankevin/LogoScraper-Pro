@@ -270,7 +270,7 @@ async function fetchOfficialFavicon(query: string, domains: string[], _known: Kn
 }
 
 /** 2. Simple Icons CDN — 最高质量的品牌 SVG 图标库 */
-async function fetchSimpleIcons(query: string, known: KnownInfo | null): Promise<LogoResult[]> {
+async function fetchSimpleIcons(query: string, _domains: string[], known: KnownInfo | null): Promise<LogoResult[]> {
   const slugs: string[] = []
   if (known?.simpleIconsSlug) {
     slugs.push(known.simpleIconsSlug)
