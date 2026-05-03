@@ -431,20 +431,6 @@ async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string 
   })
 }
 
-/** 来源可信度权重（数字越小优先级越高） */
-function getSourcePriority(sourceType: LogoResult['sourceType']): number {
-  switch (sourceType) {
-    case 'cloud': return 0
-    case 'github': return 1
-    case 'direct': return 2
-    case 'clearbit': return 3
-    case 'favicon': return 4
-    case 'wikipedia': return 5
-    case 'converted': return 6
-    default: return 10
-  }
-}
-
 async function fetchFromApi(query: string, apiKey?: string | null): Promise<LogoResult[]> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (apiKey) headers['X-API-Key'] = apiKey
