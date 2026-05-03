@@ -15,20 +15,6 @@ const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 const BUCKET_NAME = 'logos'
 
-/** Base64 解码（失败时返回原字符串，兼容明文配置） */
-function decodeBase64(str: string): string {
-  try {
-    const decoded = atob(str)
-    // 简单校验：解码结果包含常见特征才认为是有效的 base64 编码输入
-    if (decoded.startsWith('http') || decoded.includes('.') || decoded.startsWith('eyJ')) {
-      return decoded
-    }
-  } catch {
-    // 不是 base64，当作明文返回
-  }
-  return str
-}
-
 /** 清理 Supabase URL，去除多余的路径部分（SDK 会自动添加 /rest/v1/ 等） */
 function cleanSupabaseUrl(rawUrl: string): string {
   let url = rawUrl.trim()
@@ -43,8 +29,8 @@ function cleanSupabaseUrl(rawUrl: string): string {
 function getCredentials(): { url: string | null; key: string | null } {
   const rawUrl = ENV_URL || null
   const rawKey = ENV_KEY || null
-  const url = rawUrl ? cleanSupabaseUrl(decodeBase64(rawUrl)) : null
-  const key = rawKey ? decodeBase64(rawKey).trim() : null
+  const url = rawUrl ? cleanSupabaseUrl(rawUrl.trim()) : null
+  const key = rawKey ? rawKey.trim() : null
   return { url, key }
 }
 
