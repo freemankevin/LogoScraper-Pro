@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import type { ScraperLog, ScraperProgress } from '../types/scraper'
-import { downloadCacheAsJson, getCacheStats } from '../lib/logo-cache'
+import { downloadCacheAsJson, getCacheStats, clearCache } from '../lib/logo-cache'
 import { isSupabaseConfigured, getCloudStats } from '../lib/supabase-client'
 
 interface TerminalPanelProps {
@@ -124,6 +124,7 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
               缓存: {cacheStats.resultsCount}结果 / {cacheStats.softwareCount}软件
             </span>
           )}
+          <ClearCacheButton onCleared={() => getCacheStats().then(setCacheStats)} />
           <ExportCacheButton />
           <CopyButton logs={logs} copied={copied} setCopied={setCopied} />
         </div>
@@ -233,6 +234,64 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
         }
       `}</style>
     </div>
+  )
+}
+
+function ClearCacheButton({ onCleared }: { onCleared: () => void }) {
+  const [cleared, setCleared] = useState(false)
+
+  const handleClear = useCallback(async () => {
+    try {
+      await clearCache()
+      setCleared(true)
+      onCleared()
+      setTimeout(() => setCleared(false), 1500)
+    } catch {
+      // ignore
+    }
+  }, [onCleared])
+
+  return (
+    <button
+      onClick={handleClear}
+      title="清除本地缓存"
+      style={{
+        width: 26,
+        height: 26,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 6,
+        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(255,255,255,0.06)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        cursor: 'pointer',
+        transition: 'all 0.25s ease',
+        outline: 'none',
+      }}
+      onMouseEnter={(e) => {
+        const s = e.currentTarget.style
+        s.background = 'rgba(255,82,82,0.2)'
+        s.borderColor = 'rgba(255,82,82,0.4)'
+      }}
+      onMouseLeave={(e) => {
+        const s = e.currentTarget.style
+        s.background = 'rgba(255,255,255,0.06)'
+        s.borderColor = 'rgba(255,255,255,0.08)'
+      }}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={cleared ? '#00e676' : '#c0c0d0'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'stroke 0.2s' }}>
+        {cleared ? (
+          <polyline points="20 6 9 17 4 12" />
+        ) : (
+          <>
+            <polyline points="3 6 5 6 21 6" />
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+          </>
+        )}
+      </svg>
+    </button>
   )
 }
 
