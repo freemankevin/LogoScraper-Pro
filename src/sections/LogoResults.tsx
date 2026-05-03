@@ -150,53 +150,51 @@ function LogoCard({
 
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           {hasSvg && (
-            <>
-              <button
-                onClick={() => onDownloadSvg(result)}
-                style={{
-                  flex: 1,
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '6px',
-                  border: 'none',
-                  background: 'var(--accent-cyan)',
-                  color: '#0a0a0f',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85' }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
-              >
-                下载 SVG
-              </button>
-              <button
-                onClick={() => onDownloadPng(result)}
-                style={{
-                  flex: 1,
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '6px',
-                  border: '1px solid var(--border-color)',
-                  background: 'transparent',
-                  color: 'var(--text-secondary)',
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--text-secondary)'
-                  e.currentTarget.style.color = 'var(--text-primary)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border-color)'
-                  e.currentTarget.style.color = 'var(--text-secondary)'
-                }}
-              >
-                下载 PNG
-              </button>
-            </>
+            <button
+              onClick={() => onDownloadSvg(result)}
+              style={{
+                flex: 1,
+                padding: '0.5rem 0.75rem',
+                borderRadius: '6px',
+                border: 'none',
+                background: 'var(--accent-cyan)',
+                color: '#0a0a0f',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'opacity 0.2s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85' }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
+            >
+              下载 SVG
+            </button>
           )}
+          <button
+            onClick={() => onDownloadPng(result)}
+            style={{
+              flex: 1,
+              padding: '0.5rem 0.75rem',
+              borderRadius: '6px',
+              border: '1px solid var(--border-color)',
+              background: 'transparent',
+              color: 'var(--text-secondary)',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--text-secondary)'
+              e.currentTarget.style.color = 'var(--text-primary)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border-color)'
+              e.currentTarget.style.color = 'var(--text-secondary)'
+            }}
+          >
+            下载 PNG
+          </button>
         </div>
       </div>
     </div>
