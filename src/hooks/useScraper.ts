@@ -372,6 +372,34 @@ async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string 
   })
 }
 
+/** 同名结果去重：每个 title 只保留一个最佳结果（优先有效 SVG，其次最大尺寸） */
+function pickBestResults(results: LogoResult[]): LogoResult[] {
+  const byTitle = new Map<string, LogoResult[]>()
+  for (const r of results) {
+    const list = byTitle.get(r.title) || []
+    list.push(r)
+    byTitle.set(r.title, list)
+  }
+  const best: LogoResult[] = []
+  for (const [, list] of byTitle) {
+    if (list.length === 1) {
+      best.push(list[0])
+      continue
+    }
+    list.sort((a, b) => {
+      const aHasSvg = isValidSvg(a.convertedSvg) || a.format === 'svg'
+      const bHasSvg = isValidSvg(b.convertedSvg) || b.format === 'svg'
+      if (aHasSvg && !bHasSvg) return -1
+      if (!aHasSvg && bHasSvg) return 1
+      const aSize = (a.width || 0) * (a.height || 0)
+      const bSize = (b.width || 0) * (b.height || 0)
+      return bSize - aSize
+    })
+    best.push(list[0])
+  }
+  return best
+}
+
 async function fetchFromApi(query: string, apiKey?: string | null): Promise<LogoResult[]> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (apiKey) headers['X-API-Key'] = apiKey
@@ -1003,6 +1031,15 @@ export function useScraper() {
       }
       setProgress('convert', 100, 'completed')
       pushLog('success', `[CONVERT] 格式转换阶段完成`, 'convert')
+
+      // 同名结果去重：每个 title 只保留一个最佳结果
+      if (results.length > 1) {
+        const before = results.length
+        results = pickBestResults(results)
+        if (results.length < before) {
+          pushLog('info', `[DEDUPE] 同名结果去重：${before} → ${results.length} 个`, 'done')
+        }
+      }
 
       await sleep(300)
       if (results.length === 0) {
