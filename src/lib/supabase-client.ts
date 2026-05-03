@@ -66,11 +66,25 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
   if (!sb) return null
   try {
     const path = queryToPath(query)
-    const { data, error } = await sb.storage.from(BUCKET_NAME).download(path)
-    if (error || !data) return null
 
-    const blob = data
-    const text = await blob.text()
+    // 防线1: 先检查文件是否还在 bucket 列表中（避免 CDN 缓存导致误命中已删除文件）
+    const { data: listData, error: listError } = await sb.storage
+      .from(BUCKET_NAME)
+      .list('', { search: path.replace('.svg', ''), limit: 10 })
+    if (listError || !listData) return null
+    const exists = listData.some((item) => item.name === path)
+    if (!exists) return null
+
+    // 防线2: 使用 signed URL + no-store 获取内容，绕过浏览器/CDN 缓存
+    const { data: signedData, error: signedError } = await sb.storage
+      .from(BUCKET_NAME)
+      .createSignedUrl(path, 60)
+    if (signedError || !signedData?.signedUrl) return null
+
+    const resp = await fetch(signedData.signedUrl, { cache: 'no-store' })
+    if (!resp.ok) return null
+
+    const text = await resp.text()
     if (!text) return null
     // 校验下载内容是否为有效 SVG（Supabase 可能返回错误页面/JSON 而非文件内容）
     if (!text.trim().startsWith('<svg') && !text.trim().startsWith('<?xml')) {
@@ -141,6 +155,7 @@ export async function saveCloudLogo(
     const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
       upsert: true,
       contentType: 'image/svg+xml',
+      cacheControl: 'no-store',
     })
     if (error) {
       console.error('[Supabase] Storage upload error details:', error)
