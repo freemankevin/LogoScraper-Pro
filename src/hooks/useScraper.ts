@@ -462,6 +462,8 @@ export function useScraper() {
       try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
     }
     if (svgContent) {
+      // 移除非法 XML 注释（部分 SVG 生成器会在注释里放双连字符，导致解析失败）
+      svgContent = svgContent.replace(/<!--[\s\S]*?-->/g, '')
       const blob = new Blob([svgContent], { type: 'image/svg+xml' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
@@ -486,6 +488,8 @@ export function useScraper() {
       try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
     }
     if (svgContent) {
+      // 移除非法 XML 注释，避免 Canvas/SVG 解析报错
+      svgContent = svgContent.replace(/<!--[\s\S]*?-->/g, '')
       try {
         await downloadSvgAsPng(svgContent, filename, { width: result.width, height: result.height, scale: 2 })
       } catch (e) {
