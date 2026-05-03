@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import type { ScraperLog, ScraperProgress } from '../types/scraper'
 import { downloadCacheAsJson, getCacheStats } from '../lib/logo-cache'
-import { isSupabaseConfigured, getCloudStats, setSupabaseCredentials } from '../lib/supabase-client'
+import { isSupabaseConfigured, getCloudStats } from '../lib/supabase-client'
 
 interface TerminalPanelProps {
   logs: ScraperLog[]
@@ -14,8 +14,6 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
   const [copied, setCopied] = useState(false)
   const [cacheStats, setCacheStats] = useState({ resultsCount: 0, softwareCount: 0 })
   const [cloudStats, setCloudStats] = useState({ logoCount: 0, softwareCount: 0 })
-  const [showCloudConfig, setShowCloudConfig] = useState(false)
-
   useEffect(() => {
     getCacheStats().then(setCacheStats).catch(() => {})
     if (isSupabaseConfigured()) {
@@ -126,11 +124,6 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
               缓存: {cacheStats.resultsCount}结果 / {cacheStats.softwareCount}软件
             </span>
           )}
-          <CloudConfigButton
-            configured={isSupabaseConfigured()}
-            showPanel={showCloudConfig}
-            setShowPanel={setShowCloudConfig}
-          />
           <ExportCacheButton />
           <CopyButton logs={logs} copied={copied} setCopied={setCopied} />
         </div>
@@ -300,144 +293,6 @@ function ExportCacheButton() {
         )}
       </svg>
     </button>
-  )
-}
-
-function CloudConfigButton({
-  configured,
-  showPanel,
-  setShowPanel,
-}: {
-  configured: boolean
-  showPanel: boolean
-  setShowPanel: (v: boolean) => void
-}) {
-  const [url, setUrl] = useState('')
-  const [key, setKey] = useState('')
-  const [saved, setSaved] = useState(false)
-
-  const handleSave = () => {
-    if (!url.trim() || !key.trim()) return
-    setSupabaseCredentials(url.trim(), key.trim())
-    setSaved(true)
-    setTimeout(() => { setSaved(false); setShowPanel(false) }, 800)
-  }
-
-  return (
-    <div style={{ position: 'relative' }}>
-      <button
-        onClick={() => setShowPanel(!showPanel)}
-        title={configured ? 'Supabase 已连接' : '配置 Supabase 云端存储'}
-        style={{
-          width: 26,
-          height: 26,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: 6,
-          border: configured ? '1px solid #00e5ff' : '1px solid rgba(255,255,255,0.08)',
-          background: configured ? 'rgba(0,229,255,0.08)' : 'rgba(255,255,255,0.06)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          cursor: 'pointer',
-          transition: 'all 0.25s ease',
-          outline: 'none',
-        }}
-        onMouseEnter={(e) => {
-          const s = e.currentTarget.style
-          s.background = configured ? 'rgba(0,229,255,0.15)' : 'rgba(255,255,255,0.12)'
-          s.borderColor = configured ? '#00e5ff' : 'rgba(255,255,255,0.25)'
-          s.boxShadow = '0 0 10px rgba(255,255,255,0.08)'
-        }}
-        onMouseLeave={(e) => {
-          const s = e.currentTarget.style
-          s.background = configured ? 'rgba(0,229,255,0.08)' : 'rgba(255,255,255,0.06)'
-          s.borderColor = configured ? '#00e5ff' : 'rgba(255,255,255,0.08)'
-          s.boxShadow = 'none'
-        }}
-      >
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={configured ? '#00e5ff' : '#c0c0d0'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-        </svg>
-      </button>
-
-      {showPanel && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 34,
-            right: 0,
-            width: 280,
-            background: 'rgba(15,15,20,0.95)',
-            backdropFilter: 'blur(12px)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 8,
-            padding: '0.75rem',
-            zIndex: 100,
-            fontFamily: 'var(--font-mono)',
-          }}
-        >
-          <div style={{ fontSize: '0.7rem', color: 'var(--text-primary)', marginBottom: '0.5rem', fontWeight: 600 }}>
-            Supabase 云端配置
-          </div>
-          <input
-            type="text"
-            placeholder="Project URL"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            style={{
-              width: '100%',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 4,
-              padding: '0.35rem 0.5rem',
-              color: 'var(--text-secondary)',
-              fontSize: '0.65rem',
-              fontFamily: 'var(--font-mono)',
-              marginBottom: '0.4rem',
-              outline: 'none',
-              boxSizing: 'border-box',
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Anon Key"
-            value={key}
-            onChange={(e) => setKey(e.target.value)}
-            style={{
-              width: '100%',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 4,
-              padding: '0.35rem 0.5rem',
-              color: 'var(--text-secondary)',
-              fontSize: '0.65rem',
-              fontFamily: 'var(--font-mono)',
-              marginBottom: '0.5rem',
-              outline: 'none',
-              boxSizing: 'border-box',
-            }}
-          />
-          <button
-            onClick={handleSave}
-            style={{
-              width: '100%',
-              padding: '0.35rem',
-              borderRadius: 4,
-              border: 'none',
-              background: saved ? '#00e676' : 'var(--accent-cyan)',
-              color: '#0a0a0f',
-              fontSize: '0.7rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              fontFamily: 'var(--font-mono)',
-            }}
-          >
-            {saved ? '✓ 已保存' : '保存并连接'}
-          </button>
-        </div>
-      )}
-    </div>
   )
 }
 

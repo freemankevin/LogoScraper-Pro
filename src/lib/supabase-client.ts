@@ -1,7 +1,8 @@
 /**
  * Supabase 客户端封装
  * - SVG 上传到 Storage Bucket（logos），不走数据库表
- * - 优先从环境变量读取，否则尝试 localStorage
+ * - 配置仅从环境变量读取（内置），不再支持前端手动输入
+ * - URL/Key 支持 Base64 编码存储，运行时自动解码
  * - 未配置时所有操作静默回退
  */
 
@@ -13,6 +14,20 @@ import { sanitizeDownloadName } from './utils'
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 const BUCKET_NAME = 'logos'
+
+/** Base64 解码（失败时返回原字符串，兼容明文配置） */
+function decodeBase64(str: string): string {
+  try {
+    const decoded = atob(str)
+    // 简单校验：解码结果包含常见特征才认为是有效的 base64 编码输入
+    if (decoded.startsWith('http') || decoded.includes('.') || decoded.startsWith('eyJ')) {
+      return decoded
+    }
+  } catch {
+    // 不是 base64，当作明文返回
+  }
+  return str
+}
 
 /** 清理 Supabase URL，去除多余的路径部分（SDK 会自动添加 /rest/v1/ 等） */
 function cleanSupabaseUrl(rawUrl: string): string {
@@ -26,10 +41,11 @@ function cleanSupabaseUrl(rawUrl: string): string {
 }
 
 function getCredentials(): { url: string | null; key: string | null } {
-  const rawUrl = ENV_URL || (typeof window !== 'undefined' ? localStorage.getItem('ls_supabase_url') : null)
-  const key = ENV_KEY || (typeof window !== 'undefined' ? localStorage.getItem('ls_supabase_key') : null)
-  const url = rawUrl ? cleanSupabaseUrl(rawUrl) : null
-  return { url, key: key || null }
+  const rawUrl = ENV_URL || null
+  const rawKey = ENV_KEY || null
+  const url = rawUrl ? cleanSupabaseUrl(decodeBase64(rawUrl)) : null
+  const key = rawKey ? decodeBase64(rawKey).trim() : null
+  return { url, key }
 }
 
 export { getCredentials }
@@ -40,7 +56,7 @@ function getClient(): SupabaseClient | null {
   if (_client) return _client
   const { url, key } = getCredentials()
   if (!url || !key) return null
-  _client = createClient(url, key.trim())
+  _client = createClient(url, key)
   return _client
 }
 
@@ -49,17 +65,7 @@ export function isSupabaseConfigured(): boolean {
   return !!url && !!key
 }
 
-export function setSupabaseCredentials(url: string, key: string): void {
-  const cleanUrl = cleanSupabaseUrl(url)
-  const cleanKey = key.trim()
-  localStorage.setItem('ls_supabase_url', cleanUrl)
-  localStorage.setItem('ls_supabase_key', cleanKey)
-  _client = createClient(cleanUrl, cleanKey)
-}
-
 export function clearSupabaseCredentials(): void {
-  localStorage.removeItem('ls_supabase_url')
-  localStorage.removeItem('ls_supabase_key')
   _client = null
 }
 
@@ -105,56 +111,33 @@ export async function saveCloudLogo(
 ): Promise<void> {
   const sb = getClient()
   if (!sb) {
-    throw new Error('Supabase 客户端未初始化，请检查配置')
+    throw new Error('Supabase 客户端未初始化，请检查环境变量配置')
   }
 
-  // 获取 SVG 字符串
-  let svgText: string | null = null
-  if (result.format === 'svg' && result.dataUrl) {
-    const base64 = result.dataUrl.split(',')[1]
-    svgText = atob(base64)
-  } else if (result.convertedSvg) {
-    svgText = result.convertedSvg
-  }
-  if (!svgText) {
-    console.warn('[Supabase] saveCloudLogo: 无 SVG 内容可上传')
-    return
-  }
-
-  // 压缩 SVG
-  const minified = minifySvg(svgText)
-  const blob = new Blob([minified], { type: 'image/svg+xml' })
-  const path = queryToPath(query)
-
-  console.log('[Supabase] 准备上传:', {
-    bucket: BUCKET_NAME,
-    path,
-    size: blob.size,
-    credentials: getCredentials(),
-  })
-
-  const { data, error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
-    upsert: true,
-    contentType: 'image/svg+xml',
-  })
-
-  console.log('[Supabase] 上传响应:', { data, error })
-
-  if (error) {
-    console.error('[Supabase] 上传失败:', error.message, error)
-    throw new Error(`上传失败: ${error.message}`)
-  }
-
-  // 验证上传结果 - 尘尝试下载确认文件存在
   try {
-    const { data: checkData, error: checkError } = await sb.storage.from(BUCKET_NAME).download(path)
-    if (checkError) {
-      console.warn('[Supabase] 验证下载失败:', checkError.message)
-    } else if (checkData) {
-      console.log('[Supabase] 验证成功: 文件已存在于 Storage')
+    // 获取 SVG 字符串
+    let svgText: string | null = null
+    if (result.format === 'svg' && result.dataUrl) {
+      const base64 = result.dataUrl.split(',')[1]
+      svgText = atob(base64)
+    } else if (result.convertedSvg) {
+      svgText = result.convertedSvg
     }
-  } catch (e) {
-    console.warn('[Supabase] 验证异常:', e)
+    if (!svgText) return
+
+    // 压缩 SVG
+    const minified = minifySvg(svgText)
+    const blob = new Blob([minified], { type: 'image/svg+xml' })
+    const path = queryToPath(query)
+
+    const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
+      upsert: true,
+      contentType: 'image/svg+xml',
+    })
+    if (error) throw error
+  } catch (err) {
+    console.error('[Supabase] saveCloudLogo error:', err)
+    throw err
   }
 }
 
