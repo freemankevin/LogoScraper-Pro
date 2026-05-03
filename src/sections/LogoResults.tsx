@@ -83,7 +83,7 @@ function LogoCard({
   onDownloadSvg: (r: LogoResult) => void
   onDownloadPng: (r: LogoResult) => void
 }) {
-  const hasSvg = result.format === 'svg' || isValidSvg(result.convertedSvg)
+  const hasSvg = true // 始终显示：有现成 SVG 直接下载，否则现场从 PNG 转换
   const [urlIndex, setUrlIndex] = useState(0)
   const [loadFailed, setLoadFailed] = useState(false)
 

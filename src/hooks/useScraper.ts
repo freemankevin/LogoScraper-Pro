@@ -450,12 +450,29 @@ export function useScraper() {
     })
   }, [state.mode, state.apiKey])
 
-  const downloadAsSvg = useCallback((result: LogoResult) => {
+  const downloadAsSvg = useCallback(async (result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
     // 优先用 convertedSvg，但必须先校验是否为有效 SVG（避免 WASM 返回畸形内容）
     let svgContent: string | null = isValidSvg(result.convertedSvg) ? result.convertedSvg : null
     if (!svgContent && result.format === 'svg' && result.dataUrl) {
       try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
+    }
+    // 如果只有 PNG/JPG 等格式，现场转换为 SVG
+    if (!svgContent && result.format !== 'svg' && result.dataUrl) {
+      pushLog('info', `[CONVERT] 下载时现场将 ${result.format.toUpperCase()} 转换为 SVG...`, 'convert')
+      try {
+        const converted = await tryConvertToSvg(result.dataUrl, result.title)
+        if (isValidSvg(converted)) {
+          svgContent = converted
+          pushLog('success', `[CONVERT] 现场转换完成 — ${converted.length} bytes`, 'convert')
+        } else if (converted !== null) {
+          pushLog('warn', `[CONVERT] 现场转换产出无效内容（${converted.length} bytes）`, 'convert')
+        } else {
+          pushLog('warn', `[CONVERT] 现场转换引擎无法处理该图片`, 'convert')
+        }
+      } catch (e) {
+        pushLog('warn', `[CONVERT] 现场转换异常: ${(e as Error).message}`, 'convert')
+      }
     }
     if (svgContent) {
       // 移除非法 XML 注释（部分 SVG 生成器会在注释里放双连字符，导致解析失败）
@@ -469,13 +486,14 @@ export function useScraper() {
       setTimeout(() => URL.revokeObjectURL(url), 1000)
       return
     }
+    // 兜底：下载原始格式
     if (result.dataUrl) {
       const a = document.createElement('a')
       a.href = result.dataUrl
       a.download = `${filename}.${result.format}`
       a.click()
     }
-  }, [])
+  }, [pushLog])
 
   const downloadAsPng = useCallback(async (result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
@@ -1009,9 +1027,28 @@ export function useScraper() {
         await saveCachedResults(query, results)
         await saveCachedSoftware(query, domains)
         pushLog('success', `[CACHE] 已缓存本次结果，下次搜索秒开`, 'done')
-        // 自动保存到云端（只存有效 SVG）
+        // 自动保存到云端（只存有效 SVG；没有现成 SVG 时现场转换 PNG 再上传）
         if (isSupabaseConfigured() && results.length > 0) {
-          const svgResult = results.find((r) => r.format === 'svg' || r.convertedSvg)
+          let svgResult = results.find((r) => r.format === 'svg' || r.convertedSvg)
+          if (!svgResult) {
+            const pngResult = results.find((r) => r.dataUrl && r.format !== 'svg')
+            if (pngResult) {
+              pushLog('info', `[CLOUD] 无现成 SVG，尝试现场转换 ${pngResult.source} 后上传...`, 'done')
+              try {
+                const converted = await tryConvertToSvg(pngResult.dataUrl!, pngResult.title)
+                if (isValidSvg(converted)) {
+                  svgResult = { ...pngResult, convertedSvg: converted }
+                  pushLog('success', `[CONVERT] 云端上传前现场转换完成 — ${converted.length} bytes`, 'done')
+                } else if (converted !== null) {
+                  pushLog('warn', `[CONVERT] 云端上传前现场转换产出无效内容（${converted.length} bytes）`, 'done')
+                } else {
+                  pushLog('warn', `[CONVERT] 云端上传前现场转换引擎无法处理`, 'done')
+                }
+              } catch (e) {
+                pushLog('warn', `[CONVERT] 云端上传前现场转换异常: ${(e as Error).message}`, 'done')
+              }
+            }
+          }
           if (svgResult) {
             pushLog('info', `[CLOUD] 正在上传 SVG 到 Supabase...`, 'done')
             try {
