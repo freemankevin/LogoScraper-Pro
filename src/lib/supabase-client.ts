@@ -64,8 +64,29 @@ export function clearSupabaseCredentials(): void {
 
 /** 把查询词转成安全的 Storage 文件名 */
 function queryToPath(query: string): string {
-  // 只允许字母、数字、下划线、中划线、点号
-  const safe = query.toLowerCase().trim().replace(/[^a-z0-9._-]/g, '_')
+  let name = query.toLowerCase().trim()
+
+  // 如果是 URL，提取 hostname
+  if (name.includes('://') || (name.includes('.') && !name.includes(' '))) {
+    try {
+      const url = name.includes('://') ? new URL(name) : new URL('https://' + name)
+      name = url.hostname
+    } catch {
+      // 不是合法 URL，保持原样
+    }
+  }
+
+  // 去掉 www. 前缀
+  name = name.replace(/^www\./, '')
+
+  // 取主域名部分（去掉 TLD）
+  const parts = name.split('.')
+  if (parts.length >= 2) {
+    name = parts[parts.length - 2]
+  }
+
+  // 只允许字母、数字、下划线、中划线
+  const safe = name.replace(/[^a-z0-9_-]/g, '_')
   return `${safe}.svg`
 }
 
@@ -109,30 +130,53 @@ export async function saveCloudLogo(
     throw new Error('Supabase 客户端未初始化，请检查配置')
   }
 
+  // 获取 SVG 字符串
+  let svgText: string | null = null
+  if (result.format === 'svg' && result.dataUrl) {
+    const base64 = result.dataUrl.split(',')[1]
+    svgText = atob(base64)
+  } else if (result.convertedSvg) {
+    svgText = result.convertedSvg
+  }
+  if (!svgText) {
+    console.warn('[Supabase] saveCloudLogo: 无 SVG 内容可上传')
+    return
+  }
+
+  // 压缩 SVG
+  const minified = minifySvg(svgText)
+  const blob = new Blob([minified], { type: 'image/svg+xml' })
+  const path = queryToPath(query)
+
+  console.log('[Supabase] 准备上传:', {
+    bucket: BUCKET_NAME,
+    path,
+    size: blob.size,
+    credentials: getCredentials(),
+  })
+
+  const { data, error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
+    upsert: true,
+    contentType: 'image/svg+xml',
+  })
+
+  console.log('[Supabase] 上传响应:', { data, error })
+
+  if (error) {
+    console.error('[Supabase] 上传失败:', error.message, error)
+    throw new Error(`上传失败: ${error.message}`)
+  }
+
+  // 验证上传结果 - 尘尝试下载确认文件存在
   try {
-    // 获取 SVG 字符串
-    let svgText: string | null = null
-    if (result.format === 'svg' && result.dataUrl) {
-      const base64 = result.dataUrl.split(',')[1]
-      svgText = atob(base64)
-    } else if (result.convertedSvg) {
-      svgText = result.convertedSvg
+    const { data: checkData, error: checkError } = await sb.storage.from(BUCKET_NAME).download(path)
+    if (checkError) {
+      console.warn('[Supabase] 验证下载失败:', checkError.message)
+    } else if (checkData) {
+      console.log('[Supabase] 验证成功: 文件已存在于 Storage')
     }
-    if (!svgText) return
-
-    // 压缩 SVG
-    const minified = minifySvg(svgText)
-    const blob = new Blob([minified], { type: 'image/svg+xml' })
-    const path = queryToPath(query)
-
-    const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
-      upsert: true,
-      contentType: 'image/svg+xml',
-    })
-    if (error) throw error
-  } catch (err) {
-    console.error('[Supabase] saveCloudLogo error:', err)
-    throw err
+  } catch (e) {
+    console.warn('[Supabase] 验证异常:', e)
   }
 }
 
