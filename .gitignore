@@ -23,6 +23,10 @@ vite.config.ts.timestamp*
 # Rust / WASM (tools/logo-scraper)
 tools/logo-scraper/target/
 tools/logo-scraper/Cargo.lock
+
+# S3 Audit script outputs
+tools/s3-audit/reports/
+tools/s3-audit/downloads/
 # WASM output in src/wasm (compiled from tools/logo-scraper)
 src/wasm/*.wasm
 # Keep the directory structure

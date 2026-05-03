@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import type { ScraperLog, ScraperProgress } from '../types/scraper'
 import { getCacheStats, clearCache } from '../lib/logo-cache'
 import { isSupabaseConfigured, getCloudStats } from '../lib/supabase-client'
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 
 interface TerminalPanelProps {
   logs: ScraperLog[]
@@ -251,10 +252,11 @@ function ClearCacheButton({ onCleared }: { onCleared: () => void }) {
   }, [onCleared])
 
   return (
-    <button
-      onClick={handleClear}
-      title="清除本地缓存"
-      style={{
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          onClick={handleClear}
+          style={{
         width: 26,
         height: 26,
         display: 'flex',
@@ -291,6 +293,11 @@ function ClearCacheButton({ onCleared }: { onCleared: () => void }) {
         )}
       </svg>
     </button>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" sideOffset={6}>
+        <span style={{ fontSize: '0.75rem' }}>{cleared ? '已清除！' : '清除本地缓存'}</span>
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
@@ -317,11 +324,12 @@ function CopyButton({ logs, copied, setCopied }: { logs: ScraperLog[]; copied: b
   }, [logs, setCopied])
 
   return (
-    <button
-      onClick={handleCopy}
-      disabled={logs.length === 0}
-      title="复制全部日志"
-      style={{
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          onClick={handleCopy}
+          disabled={logs.length === 0}
+          style={{
         width: 26,
         height: 26,
         display: 'flex',
@@ -366,6 +374,11 @@ function CopyButton({ logs, copied, setCopied }: { logs: ScraperLog[]; copied: b
         )}
       </svg>
     </button>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" sideOffset={6}>
+        <span style={{ fontSize: '0.75rem' }}>{copied ? '已复制！' : logs.length === 0 ? '暂无日志可复制' : '复制全部日志'}</span>
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
