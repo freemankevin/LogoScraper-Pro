@@ -1,0 +1,19 @@
+{
+  "name": "logo-scraper",
+  "type": "module",
+  "collaborators": [
+    "LogoScraper Pro"
+  ],
+  "description": "High-performance logo scraper toolkit with CLI and WASM support",
+  "version": "0.1.0",
+  "files": [
+    "logo_scraper_bg.wasm",
+    "logo_scraper.js",
+    "logo_scraper.d.ts"
+  ],
+  "main": "logo_scraper.js",
+  "types": "logo_scraper.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
