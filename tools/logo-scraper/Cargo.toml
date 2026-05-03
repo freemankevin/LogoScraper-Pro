@@ -1,0 +1,64 @@
+[package]
+name = "logo-scraper"
+version = "0.1.0"
+edition = "2021"
+authors = ["LogoScraper Pro"]
+description = "High-performance logo scraper toolkit with CLI and WASM support"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "logo-scraper-cli"
+path = "src/bin/cli.rs"
+required-features = ["cli"]
+
+[features]
+default = ["cli"]
+cli = ["dep:reqwest", "dep:tokio"]
+wasm = ["dep:wasm-bindgen", "dep:js-sys", "dep:web-sys"]
+
+[dependencies]
+# Shared
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "bmp"] }
+
+# CLI only
+reqwest = { version = "0.12", features = ["json"], optional = true }
+tokio = { version = "1.40", features = ["full"], optional = true }
+
+# WASM only
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+
+[dependencies.web-sys]
+version = "0.3"
+optional = true
+features = [
+  "console",
+  "Window",
+  "Document",
+  "HtmlCanvasElement",
+  "CanvasRenderingContext2d",
+  "ImageData",
+  "Blob",
+  "Url",
+  "XmlHttpRequest",
+  "XmlHttpRequestResponseType",
+]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.wasm]
+inherits = "release"
+opt-level = "z"
+lto = true
