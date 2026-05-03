@@ -8,7 +8,6 @@
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { LogoResult } from '../types/scraper'
-import { minifySvg } from './svg-minify'
 import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from './utils'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
@@ -133,14 +132,8 @@ export async function saveCloudLogo(
     }
     if (!svgText) return
 
-    // 压缩 SVG
-    const minified = minifySvg(svgText)
-    // 校验压缩后仍为有效 SVG
-    if (!minified.trim().startsWith('<svg') && !minified.trim().startsWith('<?xml')) {
-      console.warn('[Supabase] minifySvg 输出不是有效 SVG，放弃上传:', minified.substring(0, 100))
-      return
-    }
-    const blob = new Blob([minified], { type: 'image/svg+xml' })
+    // 直接上传原始 SVG（不再压缩）
+    const blob = new Blob([svgText], { type: 'image/svg+xml' })
     const path = queryToPath(query)
 
     // 诊断：打印请求头信息
