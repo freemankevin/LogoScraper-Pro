@@ -14,7 +14,7 @@ async function loadWasmInternal(): Promise<WasmModule> {
   try {
     // 动态导入 wasm-pack 构建产物
     // @ts-ignore — WASM 模块在 build:wasm 后生成
-    const mod = await import('../wasm/logo_scraper')
+    const mod = await import('../wasm/logo_scraper.js')
     await mod.default()
     return mod as unknown as WasmModule
   } catch (e) {
