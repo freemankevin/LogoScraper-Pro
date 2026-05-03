@@ -196,11 +196,11 @@ function generateId(): string {
 /** 1. 官网 favicon（ico 里常打包多尺寸大图标） */
 async function fetchOfficialFavicon(query: string, domains: string[], _known: KnownInfo | null): Promise<LogoResult[]> {
   const results: LogoResult[] = []
-  for (const domain of domains.slice(0, 3)) {
+  for (const domain of domains.slice(0, 2)) {
     // 1.1 /favicon.ico
     try {
       const url = `https://${domain}/favicon.ico`
-      const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+      const resp = await fetch(url, { signal: AbortSignal.timeout(3000) })
       if (resp.ok) {
         const ct = resp.headers.get('content-type') || ''
         if (ct.includes('image') || ct.includes('icon') || ct.includes('octet')) {
@@ -218,7 +218,7 @@ async function fetchOfficialFavicon(query: string, domains: string[], _known: Kn
 
     // 1.2 解析 HTML 中的 favicon 链接
     try {
-      const htmlResp = await fetch(`https://${domain}/`, { signal: AbortSignal.timeout(5000) })
+      const htmlResp = await fetch(`https://${domain}/`, { signal: AbortSignal.timeout(3000) })
       if (htmlResp.ok) {
         const html = await htmlResp.text()
         const match =
@@ -230,7 +230,7 @@ async function fetchOfficialFavicon(query: string, domains: string[], _known: Kn
           else if (href.startsWith('/')) href = `https://${domain}${href}`
           else if (!href.startsWith('http')) href = `https://${domain}/${href}`
 
-          const favResp = await fetch(href, { signal: AbortSignal.timeout(5000) })
+          const favResp = await fetch(href, { signal: AbortSignal.timeout(3000) })
           if (favResp.ok) {
             const ct = favResp.headers.get('content-type') || ''
             if (ct.includes('image') || ct.includes('icon')) {
@@ -251,7 +251,7 @@ async function fetchOfficialFavicon(query: string, domains: string[], _known: Kn
     // 1.3 /apple-touch-icon.png
     try {
       const url = `https://${domain}/apple-touch-icon.png`
-      const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+      const resp = await fetch(url, { signal: AbortSignal.timeout(3000) })
       if (resp.ok) {
         results.push({
           id: generateId(),
@@ -293,7 +293,7 @@ async function fetchSimpleIcons(query: string, _domains: string[], known: KnownI
     for (const base of cdnBases) {
       const url = `${base}/${slug}.svg`
       try {
-        const resp = await fetch(url, { signal: AbortSignal.timeout(6000) })
+        const resp = await fetch(url, { signal: AbortSignal.timeout(4000) })
         if (!resp.ok) continue
         const svgText = await resp.text()
         if (!svgText.trim().startsWith('<svg') || !svgText.includes('</svg>')) continue
@@ -316,7 +316,7 @@ async function fetchGoogleFavicon(query: string, domains: string[], _known: Know
   for (const domain of domains.slice(0, 3)) {
     try {
       const url = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
-      const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+      const resp = await fetch(url, { signal: AbortSignal.timeout(3000) })
       if (!resp.ok) continue
       const blob = await resp.blob()
       if (blob.size < 100) continue
@@ -345,7 +345,7 @@ async function fetchGitHubRaw(query: string, _domains: string[], known: KnownInf
     for (const path of known.githubPaths) {
       const url = `https://raw.githubusercontent.com/${repo}/${path}`
       try {
-        const resp = await fetch(url, { signal: AbortSignal.timeout(8000) })
+        const resp = await fetch(url, { signal: AbortSignal.timeout(4000) })
         if (!resp.ok) continue
         const isPng = path.endsWith('.png')
         return [{
@@ -371,7 +371,7 @@ async function fetchGitHubRaw(query: string, _domains: string[], known: KnownInf
   ]
   for (const url of candidates) {
     try {
-      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(6000) })
+      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(3000) })
       if (resp.ok && resp.headers.get('content-type')?.includes('svg')) {
         return [{
           id: generateId(),
@@ -398,7 +398,7 @@ async function fetchFaviconSvg(query: string, domains: string[], _known: KnownIn
     ]
     for (const url of urls) {
       try {
-        const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) })
+        const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(3000) })
         if (resp.ok) {
           const ct = resp.headers.get('content-type') || ''
           if (ct.includes('svg') || ct.includes('image')) {
@@ -424,7 +424,7 @@ async function fetchClearbit(query: string, domains: string[], _known: KnownInfo
   for (const domain of domains.slice(0, 3)) {
     const url = `https://logo.clearbit.com/${domain}?size=512`
     try {
-      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) })
+      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(3000) })
       if (resp.ok) {
         results.push({
           id: generateId(),
@@ -449,7 +449,7 @@ async function fetchIconHorse(query: string, domains: string[], _known: KnownInf
   for (const domain of domains.slice(0, 3)) {
     const url = `https://icon.horse/icon/${domain}`
     try {
-      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) })
+      const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(3000) })
       if (resp.ok) {
         results.push({
           id: generateId(),
@@ -475,7 +475,7 @@ async function fetchWikipedia(query: string, _domains: string[], known: KnownInf
     // 8.1 page/media API
     const mediaResp = await fetch(
       `https://en.wikipedia.org/api/rest_v1/page/media/${encodeURIComponent(known.wikipedia)}`,
-      { signal: AbortSignal.timeout(6000) }
+      { signal: AbortSignal.timeout(4000) }
     )
     if (mediaResp.ok) {
       const mediaData = await mediaResp.json() as {
@@ -499,7 +499,7 @@ async function fetchWikipedia(query: string, _domains: string[], known: KnownInf
     if (!wikiImageUrl) {
       const summaryResp = await fetch(
         `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(known.wikipedia)}`,
-        { signal: AbortSignal.timeout(6000) }
+        { signal: AbortSignal.timeout(4000) }
       )
       if (summaryResp.ok) {
         const summaryData = await summaryResp.json() as {
@@ -511,7 +511,7 @@ async function fetchWikipedia(query: string, _domains: string[], known: KnownInf
 
     if (wikiImageUrl) {
       if (wikiImageUrl.toLowerCase().endsWith('.svg')) {
-        const svgResp = await fetch(wikiImageUrl, { signal: AbortSignal.timeout(8000) })
+        const svgResp = await fetch(wikiImageUrl, { signal: AbortSignal.timeout(4000) })
         const svgText = await svgResp.text()
         if (svgText.trim().startsWith('<svg') && svgText.includes('</svg>')) {
           return [{
@@ -622,8 +622,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    // 并行获取图像数据（短超时，失败不影响返回）
-    await fetchImageData(results)
+    // 并行获取图像数据（短超时，失败不影响返回；若整体已接近 Vercel 10s 上限则跳过）
+    const elapsedAfterSources = Date.now() - startTime
+    if (elapsedAfterSources < 7000) {
+      await fetchImageData(results)
+    }
 
     return res.status(200).json({
       success: true,
