@@ -69,14 +69,14 @@ function LogoCard({
   
   // 优先展示 SVG（转换后的或原始的），不展示 PNG
   let previewUrl: string
-  if (result.convertedSvg) {
-    // PNG 转换后的 SVG
-    previewUrl = `data:image/svg+xml;base64,${btoa(result.convertedSvg)}`
+  if (result.convertedSvg && result.convertedSvg.trim().startsWith('<svg')) {
+    // PNG 转换后的 SVG（使用 encodeURIComponent 避免 btoa 的 Unicode 问题）
+    previewUrl = `data:image/svg+xml,${encodeURIComponent(result.convertedSvg)}`
   } else if (result.format === 'svg' && result.dataUrl) {
     // 原始 SVG
     previewUrl = result.dataUrl
   } else if (result.dataUrl) {
-    // 只有 PNG，展示 PNG（用于下载，但不作为主要展示）
+    // 只有 PNG，展示 PNG
     previewUrl = result.dataUrl
   } else {
     previewUrl = result.url
