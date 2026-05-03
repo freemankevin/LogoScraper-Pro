@@ -167,6 +167,15 @@ async function imageToDataUrl(img: HTMLImageElement, type = 'image/png'): Promis
   return canvas.toDataURL(type)
 }
 
+function blobToDataUrl(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result as string)
+    reader.onerror = () => reject(new Error('Failed to read blob as data URL'))
+    reader.readAsDataURL(blob)
+  })
+}
+
 async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string | null> {
   // 优先尝试 Rust WASM
   const wasmSvg = await convertToSvgWithWasm(dataUrl, 256)
@@ -450,64 +459,9 @@ export function useScraper() {
       }
 
       // Direct 模式 或 API 降级：浏览器直接请求
+      // 优先尝试 SVG 源
       if (results.length === 0) {
-        // Try Clearbit
-        pushLog('info', `[HTTP] 请求 Clearbit Logo API...`, 'fetch')
-        const clearbitDomains = known?.clearbitDomains ?? domains.map(d => d.split('/')[0])
-        for (const domain of clearbitDomains.slice(0, 3)) {
-          if (abortRef.current) break
-          const clearbitUrl = `https://logo.clearbit.com/${domain}?size=512`
-          try {
-            const img = await loadImageAsync(clearbitUrl)
-            const dataUrl = await imageToDataUrl(img)
-            results.push({
-              id: generateId(),
-              source: `Clearbit (${domain})`,
-              sourceType: 'clearbit',
-              format: 'png',
-              url: clearbitUrl,
-              dataUrl,
-              width: img.naturalWidth,
-              height: img.naturalHeight,
-              title: query,
-            })
-            pushLog('success', `[HTTP] 200 OK — 从 Clearbit 获取 logo: ${domain}`, 'fetch')
-            break
-          } catch {
-            pushLog('warn', `[HTTP] 404 — Clearbit 无记录: ${domain}`, 'fetch')
-          }
-        }
-
-        // Try IconHorse
-        if (results.length === 0) {
-          pushLog('info', `[HTTP] 请求 IconHorse Favicon API...`, 'fetch')
-          const iconDomains = known?.clearbitDomains ?? domains.map(d => d.split('/')[0])
-          for (const domain of iconDomains.slice(0, 3)) {
-            if (abortRef.current) break
-            const iconUrl = `https://icon.horse/icon/${domain}`
-            try {
-              const img = await loadImageAsync(iconUrl)
-              const dataUrl = await imageToDataUrl(img)
-              results.push({
-                id: generateId(),
-                source: `IconHorse (${domain})`,
-                sourceType: 'favicon',
-                format: 'png',
-                url: iconUrl,
-                dataUrl,
-                width: img.naturalWidth,
-                height: img.naturalHeight,
-                title: query,
-              })
-              pushLog('success', `[HTTP] 200 OK — 从 IconHorse 获取 favicon: ${domain}`, 'fetch')
-              break
-            } catch {
-              pushLog('warn', `[HTTP] 无 favicon: ${domain}`, 'fetch')
-            }
-          }
-        }
-
-        // Try GitHub Raw
+        // 1. 优先尝试 GitHub SVG
         if (known?.github) {
           pushLog('info', `[HTTP] 探测 GitHub Raw...`, 'fetch')
           const repo = known.github
@@ -630,6 +584,63 @@ export function useScraper() {
             }
           } catch {
             pushLog('warn', `[HTTP] Wikipedia API 请求失败`, 'fetch')
+          }
+        }
+
+        // Try Clearbit Logo API
+        if (domains.length > 0) {
+          pushLog('info', `[HTTP] 请求 Clearbit Logo API...`, 'fetch')
+          for (const domain of domains.slice(0, 3)) {
+            try {
+              const url = `https://logo.clearbit.com/${domain}?size=512`
+              const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+              if (resp.ok) {
+                const blob = await resp.blob()
+                const dataUrl = await blobToDataUrl(blob)
+                results.push({
+                  id: generateId(),
+                  source: `Clearbit (${domain})`,
+                  sourceType: 'clearbit',
+                  format: 'png',
+                  url,
+                  dataUrl,
+                  width: 512,
+                  height: 512,
+                  title: query,
+                })
+                pushLog('success', `[HTTP] 200 OK — 从 Clearbit 获取 Logo`, 'fetch')
+                break
+              }
+            } catch {
+              pushLog('warn', `[HTTP] Clearbit 无记录: ${domain}`, 'fetch')
+            }
+          }
+        }
+
+        // Try IconHorse Favicon API
+        if (domains.length > 0) {
+          pushLog('info', `[HTTP] 请求 IconHorse Favicon API...`, 'fetch')
+          for (const domain of domains.slice(0, 3)) {
+            try {
+              const url = `https://icon.horse/icon/${domain}`
+              const img = await loadImageAsync(url)
+              const dataUrl = await imageToDataUrl(img)
+              results.push({
+                id: generateId(),
+                source: `IconHorse (${domain})`,
+                sourceType: 'favicon',
+                format: 'png',
+                url,
+                dataUrl,
+                width: img.naturalWidth,
+                height: img.naturalHeight,
+                title: query,
+              })
+              pushLog('success', `[HTTP] 200 OK — 从 IconHorse 获取 favicon`, 'fetch')
+              break
+            } catch {
+              pushLog('warn', `[HTTP] IconHorse 无记录: ${domain}`, 'fetch')
+            }
           }
         }
       }
