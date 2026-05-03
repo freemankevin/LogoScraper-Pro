@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { LogoResult } from '../types/scraper'
 
 interface LogoResultsProps {
@@ -56,6 +57,26 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: L
   )
 }
 
+function isValidSvg(s: string | undefined): boolean {
+  return typeof s === 'string' && s.trim().startsWith('<svg')
+}
+
+function getPreviewUrls(result: LogoResult): string[] {
+  const urls: string[] = []
+  if (isValidSvg(result.convertedSvg)) {
+    urls.push(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(result.convertedSvg!)}`)
+  }
+  if (result.format === 'svg' && result.dataUrl) {
+    urls.push(result.dataUrl)
+  } else if (result.dataUrl) {
+    urls.push(result.dataUrl)
+  }
+  if (result.url) {
+    urls.push(result.url)
+  }
+  return urls
+}
+
 function LogoCard({
   result,
   onDownloadSvg,
@@ -65,21 +86,31 @@ function LogoCard({
   onDownloadSvg: (r: LogoResult) => void
   onDownloadPng: (r: LogoResult) => void
 }) {
-  const hasSvg = result.format === 'svg' || !!result.convertedSvg
-  
-  // 优先展示 SVG（转换后的或原始的），不展示 PNG
-  let previewUrl: string
-  if (result.convertedSvg && result.convertedSvg.trim().startsWith('<svg')) {
-    // PNG 转换后的 SVG（使用 encodeURIComponent 避免 btoa 的 Unicode 问题）
-    previewUrl = `data:image/svg+xml,${encodeURIComponent(result.convertedSvg)}`
-  } else if (result.format === 'svg' && result.dataUrl) {
-    // 原始 SVG
-    previewUrl = result.dataUrl
-  } else if (result.dataUrl) {
-    // 只有 PNG，展示 PNG
-    previewUrl = result.dataUrl
-  } else {
-    previewUrl = result.url
+  const hasSvg = result.format === 'svg' || isValidSvg(result.convertedSvg)
+  const [urlIndex, setUrlIndex] = useState(0)
+  const [loadFailed, setLoadFailed] = useState(false)
+
+  const candidateUrls = getPreviewUrls(result)
+  const currentUrl = candidateUrls[urlIndex] || ''
+
+  const handleError = () => {
+    console.error('[LogoResults] Image load failed:', {
+      title: result.title,
+      format: result.format,
+      source: result.source,
+      currentUrl: currentUrl?.substring(0, 120),
+      urlIndex,
+      totalCandidates: candidateUrls.length,
+      hasDataUrl: !!result.dataUrl,
+      dataUrlLength: result.dataUrl?.length,
+      hasConvertedSvg: !!result.convertedSvg,
+      convertedSvgPrefix: result.convertedSvg?.substring(0, 80),
+    })
+    if (urlIndex < candidateUrls.length - 1) {
+      setUrlIndex(urlIndex + 1)
+    } else {
+      setLoadFailed(true)
+    }
   }
 
   return (
@@ -104,7 +135,7 @@ function LogoCard({
       <div
         style={{
           height: 180,
-          background: 'var(--bg-secondary)',
+          background: '#ffffff',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -112,16 +143,38 @@ function LogoCard({
           position: 'relative',
         }}
       >
-        <img
-          src={previewUrl}
-          alt={result.title}
-          style={{
-            maxWidth: '100%',
-            maxHeight: '100%',
-            objectFit: 'contain',
-            filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
-          }}
-        />
+        {loadFailed || !currentUrl ? (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#999',
+              fontSize: '0.75rem',
+              gap: '0.5rem',
+            }}
+          >
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <span>图片加载失败</span>
+          </div>
+        ) : (
+          <img
+            key={currentUrl}
+            src={currentUrl}
+            alt={result.title}
+            onError={handleError}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain',
+            }}
+          />
+        )}
       </div>
 
       {/* Info */}

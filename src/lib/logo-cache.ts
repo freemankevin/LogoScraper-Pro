@@ -74,7 +74,11 @@ export async function saveCachedResults(query: string, results: LogoResult[]): P
     const store = tx.objectStore('results')
     const key = query.toLowerCase().trim()
     const data: CachedResult = { query: key, results, timestamp: Date.now() }
-    store.put(data)
+    await new Promise<void>((resolve, reject) => {
+      const req = store.put(data)
+      req.onsuccess = () => resolve()
+      req.onerror = () => reject(req.error)
+    })
   } catch {
     // 静默失败，不影响主流程
   }
@@ -105,7 +109,11 @@ export async function saveCachedSoftware(name: string, domains: string[]): Promi
     const store = tx.objectStore('software')
     const key = name.toLowerCase().trim()
     const data: CachedSoftware = { name: key, domains, timestamp: Date.now() }
-    store.put(data)
+    await new Promise<void>((resolve, reject) => {
+      const req = store.put(data)
+      req.onsuccess = () => resolve()
+      req.onerror = () => reject(req.error)
+    })
   } catch {
     // 静默失败
   }

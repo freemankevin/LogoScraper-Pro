@@ -9,7 +9,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { LogoResult } from '../types/scraper'
 import { minifySvg } from './svg-minify'
-import { sanitizeDownloadName } from './utils'
+import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from './utils'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -72,6 +72,11 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
     const blob = data
     const text = await blob.text()
     if (!text) return null
+    // 校验下载内容是否为有效 SVG（Supabase 可能返回错误页面/JSON 而非文件内容）
+    if (!text.trim().startsWith('<svg') && !text.trim().startsWith('<?xml')) {
+      console.warn('[Supabase] 云端缓存内容不是有效 SVG，忽略:', text.substring(0, 100))
+      return null
+    }
 
     return {
       id: `cloud-${query}`,
@@ -79,7 +84,7 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
       sourceType: 'cloud',
       format: 'svg',
       url: '',
-      dataUrl: `data:image/svg+xml;base64,${btoa(text)}`,
+      dataUrl: svgToDataUrl(text),
       width: 512,
       height: 512,
       title: query,
@@ -104,8 +109,11 @@ export async function saveCloudLogo(
     // 获取 SVG 字符串
     let svgText: string | null = null
     if (result.format === 'svg' && result.dataUrl) {
-      const base64 = result.dataUrl.split(',')[1]
-      svgText = atob(base64)
+      try {
+        svgText = dataUrlToText(result.dataUrl)
+      } catch {
+        svgText = null
+      }
     } else if (result.convertedSvg) {
       svgText = result.convertedSvg
     }
@@ -113,14 +121,41 @@ export async function saveCloudLogo(
 
     // 压缩 SVG
     const minified = minifySvg(svgText)
+    // 校验压缩后仍为有效 SVG
+    if (!minified.trim().startsWith('<svg') && !minified.trim().startsWith('<?xml')) {
+      console.warn('[Supabase] minifySvg 输出不是有效 SVG，放弃上传:', minified.substring(0, 100))
+      return
+    }
     const blob = new Blob([minified], { type: 'image/svg+xml' })
     const path = queryToPath(query)
+
+    // 诊断：打印请求头信息
+    const { data: sessionData } = await sb.auth.getSession()
+    console.log('[Supabase] Upload debug:', {
+      hasSession: !!sessionData.session,
+      sessionTokenPrefix: sessionData.session?.access_token?.substring(0, 20),
+      path,
+      blobSize: blob.size,
+    })
 
     const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
       upsert: true,
       contentType: 'image/svg+xml',
     })
-    if (error) throw error
+    if (error) {
+      console.error('[Supabase] Storage upload error details:', error)
+      // 如果是签名验证失败，给出更明确的提示
+      if (error.message?.includes('signature verification failed')) {
+        throw new Error(
+          `Supabase Storage 签名验证失败。可能原因：\n` +
+          `1. 项目启用了新版 API Key (sb_publishable) 但 Storage 服务不兼容\n` +
+          `2. 需要在 Supabase Dashboard > Storage > Policies 中为 'logos' bucket 添加 anon 角色的 INSERT/SELECT/UPDATE 权限\n` +
+          `3. 尝试在 Dashboard 中重新启用旧版 anon JWT key\n` +
+          `原始错误: ${error.message}`
+        )
+      }
+      throw error
+    }
   } catch (err) {
     console.error('[Supabase] saveCloudLogo error:', err)
     throw err

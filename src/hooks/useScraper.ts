@@ -5,7 +5,7 @@ import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
 import { getCachedResults, saveCachedResults, saveCachedSoftware } from '../lib/logo-cache'
 import { fetchCloudLogo, saveCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
 import { downloadSvgAsPng } from '../lib/svg-to-png'
-import { sanitizeDownloadName } from '../lib/utils'
+import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from '../lib/utils'
 
 let logIdCounter = 0
 function generateId() {
@@ -159,9 +159,12 @@ function loadImageAsync(src: string, crossOrigin = true): Promise<HTMLImageEleme
 }
 
 async function imageToDataUrl(img: HTMLImageElement, type = 'image/png'): Promise<string> {
+  if (!img.naturalWidth || !img.naturalHeight) {
+    throw new Error(`Image has zero dimensions: ${img.src?.substring(0, 80)}`)
+  }
   const canvas = document.createElement('canvas')
-  canvas.width = img.naturalWidth || 256
-  canvas.height = img.naturalHeight || 256
+  canvas.width = img.naturalWidth
+  canvas.height = img.naturalHeight
   const ctx = canvas.getContext('2d')!
   ctx.drawImage(img, 0, 0)
   return canvas.toDataURL(type)
@@ -176,10 +179,14 @@ function blobToDataUrl(blob: Blob): Promise<string> {
   })
 }
 
+function isValidSvg(s: string | null | undefined): s is string {
+  return typeof s === 'string' && s.trim().startsWith('<svg')
+}
+
 async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string | null> {
   // 优先尝试 Rust WASM
   const wasmSvg = await convertToSvgWithWasm(dataUrl, 256)
-  if (wasmSvg) return wasmSvg
+  if (isValidSvg(wasmSvg)) return wasmSvg
 
   // Fallback: ImageTracerJS
   if (typeof window === 'undefined' || !(window as any).ImageTracer) {
@@ -190,7 +197,7 @@ async function tryConvertToSvg(dataUrl: string, _title: string): Promise<string 
       const tracer = new (window as any).ImageTracer()
       tracer.imageToSVG(
         dataUrl,
-        (svgStr: string) => resolve(svgStr),
+        (svgStr: string) => resolve(isValidSvg(svgStr) ? svgStr : null),
         { ltres: 1, qtres: 1, pathomit: 1, numberofcolors: 16, colorquantcycles: 3 }
       )
     } catch (e) {
@@ -271,7 +278,10 @@ export function useScraper() {
   const downloadAsSvg = useCallback((result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
     // 优先用 convertedSvg（压缩后的），否则用原始 dataUrl
-    const svgContent = result.convertedSvg || (result.format === 'svg' && result.dataUrl ? atob(result.dataUrl.split(',')[1]) : null)
+    let svgContent: string | null = result.convertedSvg || null
+    if (!svgContent && result.format === 'svg' && result.dataUrl) {
+      try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
+    }
     if (svgContent) {
       const blob = new Blob([svgContent], { type: 'image/svg+xml' })
       const url = URL.createObjectURL(blob)
@@ -279,7 +289,7 @@ export function useScraper() {
       a.href = url
       a.download = `${filename}.svg`
       a.click()
-      URL.revokeObjectURL(url)
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
       return
     }
     if (result.dataUrl) {
@@ -292,7 +302,10 @@ export function useScraper() {
 
   const downloadAsPng = useCallback(async (result: LogoResult) => {
     const filename = sanitizeDownloadName(result.title)
-    const svgContent = result.convertedSvg || (result.format === 'svg' && result.dataUrl ? atob(result.dataUrl.split(',')[1]) : null)
+    let svgContent: string | null = result.convertedSvg || null
+    if (!svgContent && result.format === 'svg' && result.dataUrl) {
+      try { svgContent = dataUrlToText(result.dataUrl) } catch { svgContent = null }
+    }
     if (svgContent) {
       try {
         await downloadSvgAsPng(svgContent, filename, { width: result.width, height: result.height, scale: 2 })
@@ -466,7 +479,7 @@ export function useScraper() {
         try {
           results = await fetchFromApi(query, state.apiKey)
           pushLog('success', `[HTTP] API 返回 ${results.length} 个结果`, 'fetch')
-          // API 模式下，对非 SVG 结果尝试加载为 dataUrl
+          // API 模式下，对所有结果补全 dataUrl
           for (let i = 0; i < results.length; i++) {
             if (results[i].format !== 'svg') {
               try {
@@ -476,6 +489,16 @@ export function useScraper() {
                 results[i].height = img.naturalHeight
               } catch {
                 pushLog('warn', `[HTTP] 无法加载图片: ${results[i].source}`, 'fetch')
+              }
+            } else {
+              // SVG 结果：直接拉取文本生成 dataUrl
+              try {
+                const svgText = await fetch(results[i].url).then(r => r.text())
+                if (isValidSvg(svgText)) {
+                  results[i].dataUrl = svgToDataUrl(svgText)
+                }
+              } catch {
+                pushLog('warn', `[HTTP] 无法加载 SVG: ${results[i].source}`, 'fetch')
               }
             }
           }
@@ -538,7 +561,7 @@ export function useScraper() {
                     sourceType: 'github',
                     format: 'svg',
                     url,
-                    dataUrl: `data:image/svg+xml;base64,${btoa(svgText)}`,
+                    dataUrl: svgToDataUrl(svgText),
                     title: query,
                   })
                   pushLog('success', `[HTTP] 200 OK — 从 GitHub 获取 SVG`, 'fetch')
@@ -570,7 +593,7 @@ export function useScraper() {
                   sourceType: 'direct',
                   format: 'svg',
                   url,
-                  dataUrl: `data:image/svg+xml;base64,${btoa(svgText)}`,
+                  dataUrl: svgToDataUrl(svgText),
                   title: query,
                 })
                 pushLog('success', `[HTTP] 200 OK — 从官网获取 SVG`, 'fetch')

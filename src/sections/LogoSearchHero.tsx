@@ -208,7 +208,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                     setShowSuggestions(false)
                   }
                 }}
-                placeholder="输入软件名称（如 vscode）或官网链接（如 https://typora.io）..."
+                placeholder="Search..."
                 disabled={isRunning}
                 style={{
                   width: '100%',
@@ -338,24 +338,27 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             </button>
           </form>
 
-          {/* Quick tags */}
+          {/* Quick tags — 软件名 */}
           <div
+            className="no-scrollbar"
             style={{
               display: 'flex',
               gap: '0.5rem',
-              marginTop: '1rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
+              marginTop: '0.75rem',
+              overflowX: 'auto',
+              scrollbarWidth: 'none',
+              paddingBottom: '0.25rem',
             }}
           >
-            {['vscode', 'github', 'docker', 'react', 'tailwind', 'aws'].map((tag) => (
+            {['vscode', 'github', 'docker', 'react', 'vue', 'angular', 'tailwind', 'figma', 'notion', 'postman', 'kubernetes', 'vercel', 'netlify', 'nodejs', 'python', 'gitlab', 'slack', 'discord', 'redis', 'mysql', 'postgresql', 'nginx', 'grafana', 'cloudflare', 'obsidian'].map((tag) => (
               <button
                 key={tag}
                 type="button"
                 onClick={() => { setQuery(tag); onSearch(tag) }}
                 disabled={isRunning}
                 style={{
-                  padding: '0.35rem 0.85rem',
+                  flexShrink: 0,
+                  padding: '0.3rem 0.75rem',
                   borderRadius: '6px',
                   border: '1px solid rgba(255,255,255,0.08)',
                   background: 'rgba(255,255,255,0.03)',
@@ -380,12 +383,61 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
               </button>
             ))}
           </div>
+
+          {/* Quick tags — 链接 / 域名 */}
+          <div
+            className="no-scrollbar"
+            style={{
+              display: 'flex',
+              gap: '0.5rem',
+              marginTop: '0.35rem',
+              overflowX: 'auto',
+              scrollbarWidth: 'none',
+              paddingBottom: '0.25rem',
+            }}
+          >
+            {['code.visualstudio.com', 'github.com', 'docker.com', 'react.dev', 'vuejs.org', 'angular.io', 'tailwindcss.com', 'figma.com', 'notion.so', 'postman.com', 'kubernetes.io', 'vercel.com', 'netlify.com', 'nodejs.org', 'python.org', 'gitlab.com', 'slack.com', 'discord.com', 'redis.io', 'mysql.com', 'postgresql.org', 'nginx.org', 'grafana.com', 'cloudflare.com', 'obsidian.md'].map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => { setQuery(tag); onSearch(tag) }}
+                disabled={isRunning}
+                style={{
+                  flexShrink: 0,
+                  padding: '0.3rem 0.75rem',
+                  borderRadius: '6px',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'rgba(255,255,255,0.02)',
+                  color: 'rgba(255,255,255,0.3)',
+                  fontSize: '0.7rem',
+                  fontFamily: 'var(--font-mono)',
+                  cursor: isRunning ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isRunning) {
+                    e.currentTarget.style.borderColor = 'rgba(0, 229, 255, 0.25)'
+                    e.currentTarget.style.color = 'rgba(0, 229, 255, 0.8)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.3)'
+                }}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       <style>{`
         @keyframes spin {
           to { transform: rotate(360deg); }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>
