@@ -4,7 +4,7 @@ import type { ScraperLog, ScraperProgress, LogoResult, ScraperState, ScrapeMode 
 import { convertToSvgWithWasm } from '../lib/wasm'
 import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
 import { getCachedResults, saveCachedResults, saveCachedSoftware } from '../lib/logo-cache'
-import { fetchCloudLogo, saveCloudLogo, deleteCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
+import { fetchCloudLogo, saveCloudLogo, isSupabaseConfigured } from '../lib/supabase-client'
 import { downloadSvgAsPng } from '../lib/svg-to-png'
 import { sanitizeDownloadName, svgToDataUrl, dataUrlToText } from '../lib/utils'
 
@@ -509,6 +509,14 @@ export function useScraper() {
     }
   }, [])
 
+  const pushLog = useCallback((level: ScraperLog['level'], message: string, stage?: string) => {
+    if (abortRef.current) return
+    setState((prev) => ({
+      ...prev,
+      logs: [...prev.logs, { id: generateId(), timestamp: nowTime(), level, message, stage }],
+    }))
+  }, [])
+
   const runScraper = useCallback(async (query: string) => {
     abortRef.current = false
     setState((prev) => ({
@@ -520,13 +528,6 @@ export function useScraper() {
       results: [],
       error: null,
     }))
-
-    const logs: ScraperLog[] = []
-    const pushLog = (level: ScraperLog['level'], message: string, stage?: string) => {
-      if (abortRef.current) return
-      logs.push({ id: generateId(), timestamp: nowTime(), level, message, stage })
-      setState((prev) => ({ ...prev, logs: [...logs] }))
-    }
 
     const setProgress = (stage: string, percent: number, status: ScraperProgress['status']) => {
       if (abortRef.current) return
@@ -1019,22 +1020,5 @@ export function useScraper() {
     }
   }, [state.mode, state.apiKey])
 
-  const forceUploadToCloud = useCallback(async (result: LogoResult) => {
-    if (!isSupabaseConfigured()) {
-      pushLog('warn', `[CLOUD] Supabase 未配置，无法上传`, 'done')
-      return
-    }
-    const query = result.title
-    const domains = guessDomains(query)
-    pushLog('info', `[CLOUD] 强制上传 ${query} 到 Supabase...`, 'done')
-    try {
-      await saveCloudLogo(query, domains, result)
-      pushLog('success', `[CLOUD] ${query} 已强制覆盖上传至云端`, 'done')
-    } catch (e) {
-      pushLog('error', `[CLOUD] 上传失败: ${(e as Error).message}`, 'done')
-      throw e
-    }
-  }, [])
-
-  return { state, runScraper, reset, downloadAsSvg, downloadAsPng, forceUploadToCloud, setMode, setApiKey }
+  return { state, runScraper, reset, downloadAsSvg, downloadAsPng, setMode, setApiKey }
 }

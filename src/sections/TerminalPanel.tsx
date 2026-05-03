@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import type { ScraperLog, ScraperProgress } from '../types/scraper'
-import { downloadCacheAsJson, getCacheStats, clearCache } from '../lib/logo-cache'
-import { isSupabaseConfigured, getCloudStats, deleteCloudLogo } from '../lib/supabase-client'
+import { getCacheStats, clearCache } from '../lib/logo-cache'
+import { isSupabaseConfigured, getCloudStats } from '../lib/supabase-client'
 
 interface TerminalPanelProps {
   logs: ScraperLog[]
@@ -111,11 +111,6 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
               ☁ {cloudStats.logoCount}
             </span>
           )}
-          {isSupabaseConfigured() && (
-            <ClearCloudButton
-              onCleared={() => getCloudStats().then(setCloudStats).catch(() => {})}
-            />
-          )}
           {(cacheStats.resultsCount > 0 || cacheStats.softwareCount > 0) && (
             <span
               style={{
@@ -130,7 +125,6 @@ export default function TerminalPanel({ logs, progress, isRunning }: TerminalPan
             </span>
           )}
           <ClearCacheButton onCleared={() => getCacheStats().then(setCacheStats)} />
-          <ExportCacheButton />
           <CopyButton logs={logs} copied={copied} setCopied={setCopied} />
         </div>
       </div>
@@ -293,125 +287,6 @@ function ClearCacheButton({ onCleared }: { onCleared: () => void }) {
           <>
             <polyline points="3 6 5 6 21 6" />
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-          </>
-        )}
-      </svg>
-    </button>
-  )
-}
-
-function ClearCloudButton({ onCleared }: { onCleared: () => void }) {
-  const [cleared, setCleared] = useState(false)
-
-  const handleClear = useCallback(async () => {
-    const query = window.prompt('输入要删除的云端缓存名称（如 nginx），留空则取消：')
-    if (!query) return
-    try {
-      await deleteCloudLogo(query)
-      setCleared(true)
-      onCleared()
-      setTimeout(() => setCleared(false), 1500)
-    } catch {
-      alert('删除失败，请检查 Supabase 权限配置')
-    }
-  }, [onCleared])
-
-  return (
-    <button
-      onClick={handleClear}
-      title="删除云端缓存"
-      style={{
-        width: 26,
-        height: 26,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 6,
-        border: '1px solid rgba(255,255,255,0.08)',
-        background: 'rgba(255,255,255,0.06)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        cursor: 'pointer',
-        transition: 'all 0.25s ease',
-        outline: 'none',
-      }}
-      onMouseEnter={(e) => {
-        const s = e.currentTarget.style
-        s.background = 'rgba(0, 229, 255, 0.15)'
-        s.borderColor = 'rgba(0, 229, 255, 0.35)'
-      }}
-      onMouseLeave={(e) => {
-        const s = e.currentTarget.style
-        s.background = 'rgba(255,255,255,0.06)'
-        s.borderColor = 'rgba(255,255,255,0.08)'
-      }}
-    >
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={cleared ? '#00e676' : '#c0c0d0'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'stroke 0.2s' }}>
-        {cleared ? (
-          <polyline points="20 6 9 17 4 12" />
-        ) : (
-          <>
-            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-          </>
-        )}
-      </svg>
-    </button>
-  )
-}
-
-function ExportCacheButton() {
-  const [exported, setExported] = useState(false)
-
-  const handleExport = useCallback(async () => {
-    try {
-      await downloadCacheAsJson()
-      setExported(true)
-      setTimeout(() => setExported(false), 1500)
-    } catch {
-      // ignore
-    }
-  }, [])
-
-  return (
-    <button
-      onClick={handleExport}
-      title="导出缓存数据为 JSON"
-      style={{
-        width: 26,
-        height: 26,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 6,
-        border: '1px solid rgba(255,255,255,0.08)',
-        background: 'rgba(255,255,255,0.06)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        cursor: 'pointer',
-        transition: 'all 0.25s ease',
-        outline: 'none',
-      }}
-      onMouseEnter={(e) => {
-        const s = e.currentTarget.style
-        s.background = 'rgba(255,255,255,0.12)'
-        s.borderColor = 'rgba(255,255,255,0.25)'
-        s.boxShadow = '0 0 10px rgba(255,255,255,0.08)'
-      }}
-      onMouseLeave={(e) => {
-        const s = e.currentTarget.style
-        s.background = 'rgba(255,255,255,0.06)'
-        s.borderColor = 'rgba(255,255,255,0.08)'
-        s.boxShadow = 'none'
-      }}
-    >
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={exported ? '#00e676' : '#c0c0d0'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'stroke 0.2s' }}>
-        {exported ? (
-          <polyline points="20 6 9 17 4 12" />
-        ) : (
-          <>
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
           </>
         )}
       </svg>

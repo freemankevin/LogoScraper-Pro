@@ -5,11 +5,9 @@ interface LogoResultsProps {
   results: LogoResult[]
   onDownloadSvg: (result: LogoResult) => void
   onDownloadPng: (result: LogoResult) => void
-  onForceUpload?: (result: LogoResult) => void
-  isSupabaseConfigured?: boolean
 }
 
-export default function LogoResults({ results, onDownloadSvg, onDownloadPng, onForceUpload, isSupabaseConfigured }: LogoResultsProps) {
+export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: LogoResultsProps) {
   if (results.length === 0) return null
 
   return (
@@ -52,8 +50,6 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng, onF
             result={result}
             onDownloadSvg={onDownloadSvg}
             onDownloadPng={onDownloadPng}
-            onForceUpload={onForceUpload}
-            isSupabaseConfigured={isSupabaseConfigured}
           />
         ))}
       </div>
@@ -85,17 +81,12 @@ function LogoCard({
   result,
   onDownloadSvg,
   onDownloadPng,
-  onForceUpload,
-  isSupabaseConfigured,
 }: {
   result: LogoResult
   onDownloadSvg: (r: LogoResult) => void
   onDownloadPng: (r: LogoResult) => void
-  onForceUpload?: (r: LogoResult) => void
-  isSupabaseConfigured?: boolean
 }) {
   const hasSvg = result.format === 'svg' || isValidSvg(result.convertedSvg)
-  const [uploading, setUploading] = useState(false)
   const [urlIndex, setUrlIndex] = useState(0)
   const [loadFailed, setLoadFailed] = useState(false)
 
@@ -258,44 +249,6 @@ function LogoCard({
             下载 PNG
           </button>
         </div>
-        {isSupabaseConfigured && onForceUpload && (
-          <button
-            onClick={async () => {
-              setUploading(true)
-              try {
-                await onForceUpload(result)
-              } finally {
-                setUploading(false)
-              }
-            }}
-            disabled={uploading}
-            style={{
-              width: '100%',
-              marginTop: '0.5rem',
-              padding: '0.4rem 0.75rem',
-              borderRadius: '6px',
-              border: '1px solid rgba(0, 229, 255, 0.15)',
-              background: 'transparent',
-              color: uploading ? 'var(--text-muted)' : 'var(--accent-cyan)',
-              fontSize: '0.7rem',
-              fontWeight: 600,
-              cursor: uploading ? 'not-allowed' : 'pointer',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              if (!uploading) {
-                e.currentTarget.style.background = 'rgba(0, 229, 255, 0.08)'
-                e.currentTarget.style.borderColor = 'rgba(0, 229, 255, 0.3)'
-              }
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.borderColor = 'rgba(0, 229, 255, 0.15)'
-            }}
-          >
-            {uploading ? '上传中...' : '强制推送至云端'}
-          </button>
-        )}
       </div>
     </div>
   )
