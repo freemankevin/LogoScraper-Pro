@@ -87,7 +87,7 @@ pub fn image_to_svg(data: &[u8], target_size: u32) -> Result<String, String> {
         w = orig_w,
         h = orig_h
     ));
-    svg.push_str("  <!-- LogoScraper Pro -- Rust WASM Vectorizer -->\n");
+    svg.push_str("  <!-- LogoScraper Pro | Rust WASM Vectorizer -->\n");
 
     for path in paths {
         if path.len() < 3 {

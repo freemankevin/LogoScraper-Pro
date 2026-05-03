@@ -37,10 +37,12 @@ const svgoConfig: Config = {
 
 export function minifySvg(svg: string): string {
   try {
-    const result = optimize(svg, svgoConfig)
+    // 先移除所有 HTML/XML 注释（避免 <!-- -- --> 这类非法双连字符注释导致浏览器报错）
+    const noComments = svg.replace(/<!--[\s\S]*?-->/g, '')
+    const result = optimize(noComments, svgoConfig)
     return result.data
   } catch {
-    return svg
+    return svg.replace(/<!--[\s\S]*?-->/g, '')
   }
 }
 
