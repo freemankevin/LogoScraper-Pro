@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from 'react'
+import Fuse from 'fuse.js'
 import type { ScraperLog, ScraperProgress, LogoResult, ScraperState, ScrapeMode } from '../types/scraper'
 import { convertToSvgWithWasm } from '../lib/wasm'
 import { KNOWN_SOFTWARE, type KnownSoftwareInfo } from '../data/software'
@@ -290,63 +291,34 @@ function normalize(str: string): string {
   return str.toLowerCase().trim().replace(/\s+/g, ' ')
 }
 
-function levenshtein(a: string, b: string): number {
-  const m = a.length
-  const n = b.length
-  if (m === 0) return n
-  if (n === 0) return m
+/** 用 Fuse.js 构建软件库索引，支持 typo 容忍和域名搜索 */
+const _softwareIndex = Object.entries(KNOWN_SOFTWARE).map(([name, info]) => ({
+  name,
+  domains: info.domains.join(' '),
+}))
 
-  let prev = new Array<number>(n + 1)
-  let curr = new Array<number>(n + 1)
-
-  for (let j = 0; j <= n; j++) prev[j] = j
-
-  for (let i = 1; i <= m; i++) {
-    curr[0] = i
-    for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1
-      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost)
-    }
-    const tmp = prev
-    prev = curr
-    curr = tmp
-  }
-
-  return prev[n]
-}
+const _fuse = new Fuse(_softwareIndex, {
+  keys: [
+    { name: 'name', weight: 0.7 },
+    { name: 'domains', weight: 0.3 },
+  ],
+  threshold: 0.35, // typo 容忍度：0=精确匹配，1=任意匹配
+  includeScore: true,
+  ignoreLocation: true,
+  minMatchCharLength: 2,
+})
 
 export function findSuggestions(query: string, limit = 6): string[] {
   const q = normalize(query)
   if (!q || q.length < 2) return []
 
-  const allNames = Object.keys(KNOWN_SOFTWARE)
-  const scored: { name: string; score: number }[] = []
+  const results = _fuse.search(q, { limit: limit + 5 })
 
-  for (const name of allNames) {
-    const n = normalize(name)
-    if (n === q) continue
-
-    let score = 0
-    if (n.startsWith(q)) {
-      score = 100 + q.length / n.length
-    } else if (n.includes(q)) {
-      score = 50 + q.length / n.length
-    } else {
-      const dist = levenshtein(q, n)
-      if (dist <= 3) {
-        score = Math.max(0, 30 - dist * 8)
-      }
-    }
-
-    if (score > 0) {
-      scored.push({ name, score })
-    }
-  }
-
-  return scored
-    .sort((a, b) => b.score - a.score)
+  // 排除完全匹配自身的情况，按 fuse score 排序（越低越匹配）
+  return results
+    .filter((r) => normalize(r.item.name) !== q)
     .slice(0, limit)
-    .map((s) => s.name)
+    .map((r) => r.item.name)
 }
 
 export { KNOWN_SOFTWARE }
