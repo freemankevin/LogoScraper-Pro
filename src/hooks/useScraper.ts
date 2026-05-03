@@ -79,6 +79,213 @@ function getKnownInfo(name: string): KnownSoftwareInfo | null {
   return KNOWN_SOFTWARE[key] ?? null
 }
 
+/** 通过域名反查已知软件（解决输入 nginx.org 时无法匹配到 nginx 的问题） */
+function getKnownInfoByDomain(domain: string): KnownSoftwareInfo | null {
+  const d = domain.toLowerCase().trim().replace(/^www\./, '')
+  for (const info of Object.values(KNOWN_SOFTWARE)) {
+    for (const dom of info.domains) {
+      if (dom === d || dom === `www.${d}` || d.endsWith(`.${dom}`)) {
+        return info
+      }
+    }
+  }
+  return null
+}
+
+/** 从官网 HTML 中解析 favicon 链接 */
+async function findFaviconFromHtml(domain: string): Promise<string | null> {
+  try {
+    const resp = await fetch(`https://${domain}/`, { signal: AbortSignal.timeout(8000) })
+    if (!resp.ok) return null
+    const html = await resp.text()
+    const match =
+      html.match(/<link[^>]*rel=["'](?:shortcut\s+)?icon["'][^>]*href=["']([^"']+)["'][^>]*>/i) ||
+      html.match(/<link[^>]*href=["']([^"']+)["'][^>]*rel=["'](?:shortcut\s+)?icon["'][^>]*>/i)
+    if (match) {
+      let href = match[1]
+      if (href.startsWith('//')) href = 'https:' + href
+      else if (href.startsWith('/')) href = `https://${domain}${href}`
+      else if (!href.startsWith('http')) href = `https://${domain}/${href}`
+      return href
+    }
+  } catch { }
+  return null
+}
+
+/** 获取 favicon 并转为 PNG dataUrl（通过 blob 避免 CORS 污染） */
+async function fetchFaviconAsPng(url: string): Promise<{ dataUrl: string; width: number; height: number } | null> {
+  try {
+    const resp = await fetch(url, { signal: AbortSignal.timeout(6000) })
+    if (!resp.ok) return null
+    const contentType = resp.headers.get('content-type') || ''
+    if (!contentType.includes('image') && !contentType.includes('icon') && !contentType.includes('octet')) {
+      // 非图片内容，可能是 404 页面
+      return null
+    }
+    const blob = await resp.blob()
+    const blobUrl = URL.createObjectURL(blob)
+    return new Promise((resolve) => {
+      const img = new Image()
+      img.onload = () => {
+        URL.revokeObjectURL(blobUrl)
+        if (!img.naturalWidth || !img.naturalHeight) {
+          resolve(null)
+          return
+        }
+        const canvas = document.createElement('canvas')
+        canvas.width = img.naturalWidth
+        canvas.height = img.naturalHeight
+        const ctx = canvas.getContext('2d')!
+        ctx.drawImage(img, 0, 0)
+        resolve({
+          dataUrl: canvas.toDataURL('image/png'),
+          width: img.naturalWidth,
+          height: img.naturalHeight,
+        })
+      }
+      img.onerror = () => {
+        URL.revokeObjectURL(blobUrl)
+        resolve(null)
+      }
+      img.src = blobUrl
+    })
+  } catch { }
+  return null
+}
+
+/** 尝试从多个 favicon 源获取 Logo */
+async function tryFetchFaviconLogos(domain: string): Promise<LogoResult[]> {
+  const results: LogoResult[] = []
+
+  // 1. 先尝试 /favicon.ico（最常见的位置）
+  const icoResult = await fetchFaviconAsPng(`https://${domain}/favicon.ico`)
+  if (icoResult) {
+    results.push({
+      id: generateId(),
+      source: `Favicon (${domain})`,
+      sourceType: 'favicon',
+      format: 'png',
+      url: `https://${domain}/favicon.ico`,
+      dataUrl: icoResult.dataUrl,
+      width: icoResult.width,
+      height: icoResult.height,
+      title: domain,
+    })
+  }
+
+  // 2. 解析 HTML 中的 favicon 链接
+  const htmlFavicon = await findFaviconFromHtml(domain)
+  if (htmlFavicon && !results.some(r => r.url === htmlFavicon)) {
+    const favResult = await fetchFaviconAsPng(htmlFavicon)
+    if (favResult) {
+      results.push({
+        id: generateId(),
+        source: `Favicon HTML (${domain})`,
+        sourceType: 'favicon',
+        format: 'png',
+        url: htmlFavicon,
+        dataUrl: favResult.dataUrl,
+        width: favResult.width,
+        height: favResult.height,
+        title: domain,
+      })
+    }
+  }
+
+  // 3. 尝试 /apple-touch-icon.png（通常质量更高）
+  const appleResult = await fetchFaviconAsPng(`https://${domain}/apple-touch-icon.png`)
+  if (appleResult && !results.some(r => r.url?.includes('apple-touch-icon'))) {
+    results.push({
+      id: generateId(),
+      source: `Apple Touch (${domain})`,
+      sourceType: 'favicon',
+      format: 'png',
+      url: `https://${domain}/apple-touch-icon.png`,
+      dataUrl: appleResult.dataUrl,
+      width: appleResult.width,
+      height: appleResult.height,
+      title: domain,
+    })
+  }
+
+  // 4. DuckDuckGo Favicon API（子域名覆盖更好）
+  const ddgResult = await fetchDuckDuckGoFavicon(domain)
+  if (ddgResult && !results.some(r => r.url === ddgResult.url)) {
+    results.push({ ...ddgResult, title: domain })
+  }
+
+  return dedupeFaviconResults(results)
+}
+
+/** DuckDuckGo Favicon API（子域名覆盖较好） */
+async function fetchDuckDuckGoFavicon(domain: string): Promise<LogoResult | null> {
+  try {
+    const url = `https://icons.duckduckgo.com/ip3/${domain}.ico`
+    const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+    if (!resp.ok) return null
+    const blob = await resp.blob()
+    if (blob.size < 100) return null // 默认占位图标通常只有几十字节
+    const dataUrl = await blobToDataUrl(blob)
+    return {
+      id: generateId(),
+      source: `DuckDuckGo (${domain})`,
+      sourceType: 'favicon',
+      format: 'png',
+      url,
+      dataUrl,
+      width: 32,
+      height: 32,
+      title: domain,
+    }
+  } catch { }
+  return null
+}
+
+/** Google Favicon API 兜底 */
+async function fetchGoogleFavicon(domain: string): Promise<LogoResult | null> {
+  try {
+    const url = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
+    const resp = await fetch(url, { signal: AbortSignal.timeout(5000) })
+    if (!resp.ok) return null
+    const blob = await resp.blob()
+    if (blob.size < 100) return null // 过滤默认占位图标
+    const dataUrl = await blobToDataUrl(blob)
+    return {
+      id: generateId(),
+      source: `Google Favicon (${domain})`,
+      sourceType: 'favicon',
+      format: 'png',
+      url,
+      dataUrl,
+      width: 128,
+      height: 128,
+      title: domain,
+    }
+  } catch { }
+  return null
+}
+
+/** 去重：基于图片尺寸和文件大小过滤重复/低质量 favicon */
+function dedupeFaviconResults(results: LogoResult[]): LogoResult[] {
+  const seen = new Set<string>()
+  const filtered: LogoResult[] = []
+  for (const r of results) {
+    // 过滤太小或尺寸为 0 的
+    if (!r.width || !r.height || r.width < 16 || r.height < 16) continue
+    // 过滤默认占位图标（Google/DDG 的默认图标通常是 16x16 或 32x32 的地球）
+    if (r.width === 16 && r.height === 16) {
+      // 16x16 可能是低质量默认图标，降级到最后
+      continue
+    }
+    const key = `${r.width}x${r.height}-${(r.dataUrl?.length ?? 0)}`
+    if (!seen.has(key)) {
+      seen.add(key)
+      filtered.push(r)
+    }
+  }
+  return filtered
+}
+
 function normalize(str: string): string {
   return str.toLowerCase().trim().replace(/\s+/g, ' ')
 }
@@ -441,11 +648,18 @@ export function useScraper() {
       // Stage: DNS
       setProgress('dns', 10, 'running')
       pushLog('info', `[DNS] 解析软件名称与候选域名...`, 'dns')
-      const known = getKnownInfo(query)
+      let known = getKnownInfo(query)
       const domains = guessDomains(query)
       const urlDomain = extractDomainFromUrl(query)
       if (urlDomain) {
         pushLog('info', `[DNS] 检测到 URL 输入，提取域名: ${urlDomain}`, 'dns')
+        // 如果直接输入域名（如 nginx.org），尝试反查对应的软件信息
+        if (!known) {
+          known = getKnownInfoByDomain(urlDomain)
+          if (known) {
+            pushLog('debug', `[DNS] 域名反查匹配到软件记录`)
+          }
+        }
       }
       pushLog('debug', `[DNS] 候选域名列表: ${domains.join(', ')}`)
       if (known?.github) pushLog('debug', `[DNS] 匹配到 GitHub 仓库: ${known.github}`)
@@ -574,8 +788,20 @@ export function useScraper() {
           }
         }
 
-        // Try favicon.svg
-        pushLog('info', `[HTTP] 探测官网 favicon.svg...`, 'fetch')
+        // 2. 优先获取官网 favicon（最高效：直接取图标而非爬整页 HTML）
+        pushLog('info', `[HTTP] 探测官网 favicon...`, 'fetch')
+        for (const domain of domains.slice(0, 3)) {
+          const faviconResults = await tryFetchFaviconLogos(domain)
+          if (faviconResults.length > 0) {
+            for (const r of faviconResults) {
+              results.push({ ...r, title: query })
+            }
+            pushLog('success', `[HTTP] 从 ${domain} 获取 ${faviconResults.length} 个 favicon`, 'fetch')
+          }
+        }
+
+        // 3. 尝试官网 SVG 图标（favicon.svg / icon.svg / logo.svg）
+        pushLog('info', `[HTTP] 探测官网 SVG 图标...`, 'fetch')
         for (const domain of domains.slice(0, 2)) {
           const urls = [
             `https://${domain}/favicon.svg`,
@@ -690,6 +916,32 @@ export function useScraper() {
               break
             } catch {
               pushLog('warn', `[HTTP] IconHorse 无记录: ${domain}`, 'fetch')
+            }
+          }
+        }
+
+        // DuckDuckGo Favicon API（子域名覆盖更好）
+        if (domains.length > 0 && results.length === 0) {
+          pushLog('info', `[HTTP] 请求 DuckDuckGo Favicon API...`, 'fetch')
+          for (const domain of domains.slice(0, 3)) {
+            const ddgResult = await fetchDuckDuckGoFavicon(domain)
+            if (ddgResult) {
+              results.push({ ...ddgResult, title: query })
+              pushLog('success', `[HTTP] 200 OK — 从 DuckDuckGo 获取 favicon`, 'fetch')
+              break
+            }
+          }
+        }
+
+        // Google Favicon API 兜底
+        if (domains.length > 0 && results.length === 0) {
+          pushLog('info', `[HTTP] 请求 Google Favicon API...`, 'fetch')
+          for (const domain of domains.slice(0, 3)) {
+            const gResult = await fetchGoogleFavicon(domain)
+            if (gResult) {
+              results.push({ ...gResult, title: query })
+              pushLog('success', `[HTTP] 200 OK — 从 Google 获取 favicon`, 'fetch')
+              break
             }
           }
         }

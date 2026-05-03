@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import VoidShader from './sections/VoidShader'
+import CodeRain from './sections/CodeRain'
 import LogoSearchHero from './sections/LogoSearchHero'
 import TerminalPanel from './sections/TerminalPanel'
 import LogoResults from './sections/LogoResults'
@@ -18,7 +18,7 @@ export default function App() {
     <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
       {/* Hero with Void Shader Background */}
       <div style={{ position: 'relative', minHeight: '100vh' }}>
-        <VoidShader />
+        <CodeRain />
         <LogoSearchHero
           onSearch={handleSearch}
           isRunning={state.isRunning}
