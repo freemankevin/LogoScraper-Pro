@@ -128,7 +128,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             textWrap: 'balance',
           }}
         >
-          Enter any domain. Get PNG / ICO favicons instantly.
+          Enter any domain. Get PNG favicons instantly.
         </p>
 
         {/* Search Form */}

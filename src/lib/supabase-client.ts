@@ -76,21 +76,11 @@ export async function fetchCloudLogo(query: string): Promise<LogoResult | null> 
     for (const { ext, format, width, height } of candidates) {
       const path = `${name}${ext}`
 
-      // 防线1: 先检查文件是否还在 bucket 列表中
-      const { data: listData, error: listError } = await sb.storage
-        .from(BUCKET_NAME)
-        .list('', { search: name, limit: 10 })
-      if (listError || !listData) continue
-      const exists = listData.some((item) => item.name === path)
-      if (!exists) continue
+      // Public bucket 直接用公开 URL，无需任何 policy
+      const { data: publicData } = sb.storage.from(BUCKET_NAME).getPublicUrl(path)
+      if (!publicData?.publicUrl) continue
 
-      // 防线2: 使用 signed URL + no-store 获取内容
-      const { data: signedData, error: signedError } = await sb.storage
-        .from(BUCKET_NAME)
-        .createSignedUrl(path, 60)
-      if (signedError || !signedData?.signedUrl) continue
-
-      const resp = await fetch(signedData.signedUrl, { cache: 'no-store' })
+      const resp = await fetch(publicData.publicUrl, { cache: 'no-store' })
       if (!resp.ok) continue
 
       if (format === 'svg') {
