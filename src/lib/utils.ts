@@ -77,3 +77,29 @@ export function isValidSvg(s: string | null | undefined): s is string {
   if (t.length < 50) return false
   return true
 }
+
+/** Blob / File 转为 data URL */
+export function blobToDataUrl(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result as string)
+    reader.onerror = () => reject(new Error('Failed to read blob as data URL'))
+    reader.readAsDataURL(blob)
+  })
+}
+
+/** data URL 转为 Blob */
+export function dataUrlToBlob(dataUrl: string): Blob | null {
+  const commaIndex = dataUrl.indexOf(',')
+  if (commaIndex === -1) return null
+  const header = dataUrl.slice(0, commaIndex)
+  const payload = dataUrl.slice(commaIndex + 1)
+  const mimeMatch = header.match(/data:([^;]+)/)
+  const mime = mimeMatch?.[1] || 'application/octet-stream'
+  const byteString = atob(payload)
+  const bytes = new Uint8Array(byteString.length)
+  for (let i = 0; i < byteString.length; i++) {
+    bytes[i] = byteString.charCodeAt(i)
+  }
+  return new Blob([bytes], { type: mime })
+}

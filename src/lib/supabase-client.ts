@@ -1,6 +1,6 @@
 /**
  * Supabase 客户端封装
- * - SVG 上传到 Storage Bucket（logos），不走数据库表
+ * - 支持 SVG / PNG / ICO 上传到 Storage Bucket（logos）
  * - 配置仅从环境变量读取（内置），不再支持前端手动输入
  * - URL/Key 支持 Base64 编码存储，运行时自动解码
  * - 未配置时所有操作静默回退
@@ -8,7 +8,7 @@
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { LogoResult } from '../types/scraper'
-import { sanitizeDownloadName, svgToDataUrl, dataUrlToText, isValidSvg } from './utils'
+import { sanitizeDownloadName, svgToDataUrl, dataUrlToText, isValidSvg, blobToDataUrl, dataUrlToBlob } from './utils'
 
 const ENV_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const ENV_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -54,63 +54,87 @@ export function clearSupabaseCredentials(): void {
   _client = null
 }
 
-/** 把查询词转成安全的 Storage 文件名 */
-function queryToPath(query: string): string {
-  return `${sanitizeDownloadName(query)}.svg`
+/** 把查询词转成安全的 Storage 文件名主体 */
+function queryToName(query: string): string {
+  return sanitizeDownloadName(query)
 }
 
-/** 从云端缓存查询 Logo（从 Storage 下载） */
+/** 从云端缓存查询 Logo（支持 PNG / ICO / SVG） */
 export async function fetchCloudLogo(query: string): Promise<LogoResult | null> {
   const sb = getClient()
   if (!sb) return null
   try {
-    const path = queryToPath(query)
+    const name = queryToName(query)
 
-    // 防线1: 先检查文件是否还在 bucket 列表中（避免 CDN 缓存导致误命中已删除文件）
-    const { data: listData, error: listError } = await sb.storage
-      .from(BUCKET_NAME)
-      .list('', { search: path.replace('.svg', ''), limit: 10 })
-    if (listError || !listData) return null
-    const exists = listData.some((item) => item.name === path)
-    if (!exists) return null
+    // 按优先级尝试：PNG -> ICO -> SVG（兼容旧缓存）
+    const candidates = [
+      { ext: '.png', format: 'png' as const, width: 128, height: 128 },
+      { ext: '.ico', format: 'png' as const, width: 32, height: 32 },
+      { ext: '.svg', format: 'svg' as const, width: 512, height: 512 },
+    ]
 
-    // 防线2: 使用 signed URL + no-store 获取内容，绕过浏览器/CDN 缓存
-    const { data: signedData, error: signedError } = await sb.storage
-      .from(BUCKET_NAME)
-      .createSignedUrl(path, 60)
-    if (signedError || !signedData?.signedUrl) return null
+    for (const { ext, format, width, height } of candidates) {
+      const path = `${name}${ext}`
 
-    const resp = await fetch(signedData.signedUrl, { cache: 'no-store' })
-    if (!resp.ok) return null
+      // 防线1: 先检查文件是否还在 bucket 列表中
+      const { data: listData, error: listError } = await sb.storage
+        .from(BUCKET_NAME)
+        .list('', { search: name, limit: 10 })
+      if (listError || !listData) continue
+      const exists = listData.some((item) => item.name === path)
+      if (!exists) continue
 
-    const text = await resp.text()
-    if (!text) return null
-    // 校验下载内容是否为有效 SVG（Supabase 可能返回错误页面/JSON 而非文件内容）
-    if (!text.trim().startsWith('<svg') && !text.trim().startsWith('<?xml')) {
-      console.warn('[Supabase] Cloud cache content is not valid SVG, ignoring:', text.substring(0, 100))
-      return null
+      // 防线2: 使用 signed URL + no-store 获取内容
+      const { data: signedData, error: signedError } = await sb.storage
+        .from(BUCKET_NAME)
+        .createSignedUrl(path, 60)
+      if (signedError || !signedData?.signedUrl) continue
+
+      const resp = await fetch(signedData.signedUrl, { cache: 'no-store' })
+      if (!resp.ok) continue
+
+      if (format === 'svg') {
+        const text = await resp.text()
+        if (!text.trim().startsWith('<svg') && !text.trim().startsWith('<?xml')) {
+          console.warn('[Supabase] Cloud cache content is not valid SVG, ignoring:', text.substring(0, 100))
+          continue
+        }
+        return {
+          id: `cloud-${query}`,
+          source: 'Supabase Storage (cloud cache)',
+          sourceType: 'cloud',
+          format: 'svg',
+          url: '',
+          dataUrl: svgToDataUrl(text),
+          width,
+          height,
+          title: query,
+        }
+      } else {
+        const blob = await resp.blob()
+        const dataUrl = await blobToDataUrl(blob)
+        return {
+          id: `cloud-${query}-${ext}`,
+          source: `Supabase Storage (cloud cache ${ext})`,
+          sourceType: 'cloud',
+          format: 'png',
+          url: '',
+          dataUrl,
+          width,
+          height,
+          title: query,
+        }
+      }
     }
-
-    return {
-      id: `cloud-${query}`,
-      source: `Supabase Storage (cloud cache)`,
-      sourceType: 'cloud',
-      format: 'svg',
-      url: '',
-      dataUrl: svgToDataUrl(text),
-      width: 512,
-      height: 512,
-      title: query,
-    }
+    return null
   } catch {
     return null
   }
 }
 
-/** 保存 Logo 到云端（上传 SVG 到 Storage bucket） */
+/** 保存 Logo 到云端（支持 PNG / ICO / SVG） */
 export async function saveCloudLogo(
   query: string,
-  _domains: string[],
   result: LogoResult
 ): Promise<void> {
   const sb = getClient()
@@ -119,40 +143,35 @@ export async function saveCloudLogo(
   }
 
   try {
-    // 获取 SVG 字符串
-    let svgText: string | null = null
+    const name = queryToName(query)
+    let blob: Blob | null = null
+    let path: string = ''
+    let contentType: string = 'application/octet-stream'
+
     if (result.format === 'svg' && result.dataUrl) {
-      try {
-        svgText = dataUrlToText(result.dataUrl)
-      } catch {
-        svgText = null
-      }
-    } else if (isValidSvg(result.convertedSvg)) {
-      svgText = result.convertedSvg
+      const svgText = dataUrlToText(result.dataUrl)
+      if (!isValidSvg(svgText)) return
+      blob = new Blob([svgText], { type: 'image/svg+xml' })
+      path = `${name}.svg`
+      contentType = 'image/svg+xml'
+    } else if (result.dataUrl) {
+      // PNG / ICO / 其他格式，直接从 dataUrl 转 Blob
+      blob = dataUrlToBlob(result.dataUrl)
+      if (!blob || blob.size < 100) return
+      const ext = result.format === 'png' ? '.png' : '.ico'
+      path = `${name}${ext}`
+      contentType = result.format === 'png' ? 'image/png' : 'image/x-icon'
     }
-    if (!svgText) return
 
-    // 直接上传原始 SVG（不再压缩）
-    const blob = new Blob([svgText], { type: 'image/svg+xml' })
-    const path = queryToPath(query)
-
-    // 诊断：打印请求头信息
-    const { data: sessionData } = await sb.auth.getSession()
-    console.log('[Supabase] Upload debug:', {
-      hasSession: !!sessionData.session,
-      sessionTokenPrefix: sessionData.session?.access_token?.substring(0, 20),
-      path,
-      blobSize: blob.size,
-    })
+    if (!blob || !path) return
 
     const { error } = await sb.storage.from(BUCKET_NAME).upload(path, blob, {
       upsert: true,
-      contentType: 'image/svg+xml',
-      cacheControl: 'no-store',
+      contentType,
+      cacheControl: 'public, max-age=31536000',
     })
     if (error) {
       console.error('[Supabase] Storage upload error details:', error)
-      // 如果是签名验证失败，给出更明确的提示
       if (error.message?.includes('signature verification failed')) {
         throw new Error(
           `Supabase Storage signature verification failed. Possible causes:\n` +
@@ -170,13 +189,14 @@ export async function saveCloudLogo(
   }
 }
 
-/** 删除云端缓存（用于清理错误上传的文件） */
+/** 删除云端缓存（支持多格式） */
 export async function deleteCloudLogo(query: string): Promise<void> {
   const sb = getClient()
   if (!sb) return
   try {
-    const path = queryToPath(query)
-    const { error } = await sb.storage.from(BUCKET_NAME).remove([path])
+    const name = queryToName(query)
+    const paths = [`${name}.svg`, `${name}.png`, `${name}.ico`]
+    const { error } = await sb.storage.from(BUCKET_NAME).remove(paths)
     if (error) throw error
   } catch (err) {
     console.error('[Supabase] deleteCloudLogo error:', err)
@@ -191,7 +211,9 @@ export async function getCloudStats(): Promise<{ logoCount: number; softwareCoun
   try {
     const { data, error } = await sb.storage.from(BUCKET_NAME).list('', { limit: 1000 })
     if (error || !data) return { logoCount: 0, softwareCount: 0 }
-    const count = data.filter((item) => item.name.endsWith('.svg')).length
+    const count = data.filter((item) =>
+      item.name.endsWith('.svg') || item.name.endsWith('.png') || item.name.endsWith('.ico')
+    ).length
     return { logoCount: count, softwareCount: count }
   } catch {
     return { logoCount: 0, softwareCount: 0 }

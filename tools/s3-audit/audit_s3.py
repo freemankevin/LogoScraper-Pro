@@ -40,6 +40,7 @@ DEFAULT_DOWNLOADS_DIR = os.path.join(SCRIPT_DIR, "downloads")
 # ---------------------------------------------------------------------------
 load_dotenv()
 load_dotenv(os.path.join(SCRIPT_DIR, "..", "..", ".env"))
+load_dotenv(os.path.join(SCRIPT_DIR, "..", "..", ".env.local"))
 
 S3_ENDPOINT_URL = os.getenv("S3_ENDPOINT_URL", "")
 S3_REGION = os.getenv("S3_REGION", "ap-southeast-1")

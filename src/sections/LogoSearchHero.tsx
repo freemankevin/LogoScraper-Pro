@@ -1,7 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
 import type { ScrapeMode } from '../types/scraper'
-import { findSuggestions } from '../hooks/useScraper'
-import { KNOWN_SOFTWARE } from '../data/software'
 
 interface LogoSearchHeroProps {
   onSearch: (query: string) => void
@@ -12,13 +10,9 @@ interface LogoSearchHeroProps {
 
 export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange }: LogoSearchHeroProps) {
   const [query, setQuery] = useState('')
-  const [suggestions, setSuggestions] = useState<string[]>([])
-  const [showSuggestions, setShowSuggestions] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(-1)
   const titleRef = useRef<HTMLDivElement>(null)
   const subRef = useRef<HTMLParagraphElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
-  const inputContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const t1 = titleRef.current
@@ -37,30 +31,10 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
     f1.animate(keyframes, { ...opts, delay: 700 })
   }, [])
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (inputContainerRef.current && !inputContainerRef.current.contains(event.target as Node)) {
-        setShowSuggestions(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  const handleSelect = (name: string) => {
-    setQuery(name)
-    setShowSuggestions(false)
-    setActiveIndex(-1)
-    if (!isRunning) {
-      onSearch(name)
-    }
-  }
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const trimmed = query.trim()
     if (trimmed && !isRunning) {
-      setShowSuggestions(false)
       onSearch(trimmed)
     }
   }
@@ -154,7 +128,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             textWrap: 'balance',
           }}
         >
-          Search software names. Get SVG / PNG logos instantly.
+          Enter any domain. Get PNG / ICO favicons instantly.
         </p>
 
         {/* Search Form */}
@@ -199,7 +173,6 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             }}
           >
             <div
-              ref={inputContainerRef}
               style={{
                 flex: 1,
                 minWidth: 280,
@@ -232,36 +205,8 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
               <input
                 type="text"
                 value={query}
-                onChange={(e) => {
-                  const val = e.target.value
-                  setQuery(val)
-                  if (val.trim().length >= 2) {
-                    setSuggestions(findSuggestions(val))
-                    setShowSuggestions(true)
-                    setActiveIndex(-1)
-                  } else {
-                    setSuggestions([])
-                    setShowSuggestions(false)
-                  }
-                }}
-                onKeyDown={(e) => {
-                  if (!showSuggestions || suggestions.length === 0) return
-                  if (e.key === 'ArrowDown') {
-                    e.preventDefault()
-                    setActiveIndex((i) => Math.min(i + 1, suggestions.length - 1))
-                  } else if (e.key === 'ArrowUp') {
-                    e.preventDefault()
-                    setActiveIndex((i) => Math.max(i - 1, -1))
-                  } else if (e.key === 'Enter') {
-                    if (activeIndex >= 0) {
-                      e.preventDefault()
-                      handleSelect(suggestions[activeIndex])
-                    }
-                  } else if (e.key === 'Escape') {
-                    setShowSuggestions(false)
-                  }
-                }}
-                placeholder="Search..."
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="e.g. github.com or notion.so"
                 disabled={isRunning}
                 style={{
                   width: '100%',
@@ -280,10 +225,6 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                   e.currentTarget.style.borderColor = 'var(--accent-cyan)'
                   e.currentTarget.style.background = 'rgba(255,255,255,0.07)'
                   e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0, 229, 255, 0.15)'
-                  if (query.trim().length >= 2) {
-                    setSuggestions(findSuggestions(query))
-                    setShowSuggestions(true)
-                  }
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
@@ -292,65 +233,6 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
                 }}
                 autoComplete="off"
               />
-              {showSuggestions && suggestions.length > 0 && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 'calc(100% + 6px)',
-                    left: 0,
-                    right: 0,
-                    zIndex: 50,
-                    borderRadius: '10px',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    background: 'rgba(10, 10, 15, 0.95)',
-                    backdropFilter: 'blur(12px)',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                  }}
-                >
-                  {suggestions.map((name, idx) => {
-                    const info = KNOWN_SOFTWARE[name]
-                    const host = info?.domains?.[0]?.split('/')[0] ?? ''
-                    const isActive = idx === activeIndex
-                    return (
-                      <div
-                        key={name}
-                        onMouseEnter={() => setActiveIndex(idx)}
-                        onMouseDown={(e) => {
-                          e.preventDefault()
-                          handleSelect(name)
-                        }}
-                        style={{
-                          padding: '0.75rem 1.25rem',
-                          cursor: 'pointer',
-                          fontSize: '0.85rem',
-                          fontFamily: 'var(--font-sans)',
-                          color: isActive ? '#ffffff' : 'rgba(255,255,255,0.7)',
-                          background: isActive ? 'rgba(0, 229, 255, 0.12)' : 'transparent',
-                          borderBottom: '1px solid rgba(255,255,255,0.06)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          transition: 'all 0.15s',
-                        }}
-                      >
-                        <span style={{ fontWeight: 500 }}>{name}</span>
-                        {host && (
-                          <span
-                            style={{
-                              fontSize: '0.7rem',
-                              color: 'rgba(255,255,255,0.35)',
-                              fontFamily: 'var(--font-mono)',
-                            }}
-                          >
-                            {host}
-                          </span>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              )}
             </div>
             <button
               type="submit"
@@ -391,53 +273,7 @@ export default function LogoSearchHero({ onSearch, isRunning, mode, onModeChange
             </button>
           </form>
 
-          {/* Quick tags — 软件名 */}
-          <div
-            className="no-scrollbar"
-            style={{
-              display: 'flex',
-              gap: '0.5rem',
-              marginTop: '0.75rem',
-              overflowX: 'auto',
-              scrollbarWidth: 'none',
-              paddingBottom: '0.25rem',
-            }}
-          >
-            {['vscode', 'github', 'docker', 'react', 'vue', 'angular', 'tailwind', 'figma', 'notion', 'postman', 'kubernetes', 'vercel', 'netlify', 'nodejs', 'python', 'gitlab', 'slack', 'discord', 'redis', 'mysql', 'postgresql', 'nginx', 'grafana', 'cloudflare', 'obsidian'].map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                onClick={() => { setQuery(tag); onSearch(tag) }}
-                disabled={isRunning}
-                style={{
-                  flexShrink: 0,
-                  padding: '0.3rem 0.75rem',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.03)',
-                  color: 'rgba(255,255,255,0.4)',
-                  fontSize: '0.75rem',
-                  fontFamily: 'var(--font-mono)',
-                  cursor: isRunning ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.2s',
-                }}
-                onMouseEnter={(e) => {
-                  if (!isRunning) {
-                    e.currentTarget.style.borderColor = 'rgba(0, 229, 255, 0.3)'
-                    e.currentTarget.style.color = 'var(--accent-cyan)'
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.4)'
-                }}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-
-          {/* Quick tags — 链接 / 域名 */}
+          {/* Quick tags — 常用域名 */}
           <div
             className="no-scrollbar"
             style={{

@@ -4,11 +4,10 @@ import { isValidSvg } from '../lib/utils'
 
 interface LogoResultsProps {
   results: LogoResult[]
-  onDownloadSvg: (result: LogoResult) => void
   onDownloadPng: (result: LogoResult) => void
 }
 
-export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: LogoResultsProps) {
+export default function LogoResults({ results, onDownloadPng }: LogoResultsProps) {
   if (results.length === 0) return null
 
   return (
@@ -57,7 +56,6 @@ export default function LogoResults({ results, onDownloadSvg, onDownloadPng }: L
           <LogoCard
             key={result.id}
             result={result}
-            onDownloadSvg={onDownloadSvg}
             onDownloadPng={onDownloadPng}
           />
         ))}
@@ -84,14 +82,11 @@ function getPreviewUrls(result: LogoResult): string[] {
 
 function LogoCard({
   result,
-  onDownloadSvg,
   onDownloadPng,
 }: {
   result: LogoResult
-  onDownloadSvg: (r: LogoResult) => void
   onDownloadPng: (r: LogoResult) => void
 }) {
-  const hasSvg = true
   const [urlIndex, setUrlIndex] = useState(0)
   const [loadFailed, setLoadFailed] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -206,6 +201,8 @@ function LogoCard({
             src={currentUrl}
             alt={result.title}
             onError={handleError}
+            onClick={() => onDownloadPng(result)}
+            title="Click to download PNG"
             style={{
               maxWidth: '100%',
               maxHeight: '100%',
@@ -214,6 +211,7 @@ function LogoCard({
               zIndex: 1,
               filter: isHovered ? 'brightness(1.05)' : 'brightness(1)',
               transition: 'filter 0.35s',
+              cursor: 'pointer',
             }}
           />
         )}
@@ -269,53 +267,17 @@ function LogoCard({
           >
             Download format
           </div>
-          {hasSvg && (
-            <button
-              onClick={() => onDownloadSvg(result)}
-              style={{
-                width: '100%',
-                padding: '0.6rem 0.85rem',
-                borderRadius: '8px',
-                border: 'none',
-                background: 'var(--accent-cyan)',
-                color: '#0a0a0f',
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.4rem',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = '0.9'
-                e.currentTarget.style.transform = 'scale(1.02)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = '1'
-                e.currentTarget.style.transform = 'scale(1)'
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download SVG
-            </button>
-          )}
           <button
             onClick={() => onDownloadPng(result)}
             style={{
               width: '100%',
               padding: '0.6rem 0.85rem',
               borderRadius: '8px',
-              border: '1px solid var(--border-color)',
-              background: 'transparent',
-              color: 'var(--text-secondary)',
+              border: 'none',
+              background: 'var(--accent-cyan)',
+              color: '#0a0a0f',
               fontSize: '0.78rem',
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: 'pointer',
               transition: 'all 0.2s',
               display: 'flex',
@@ -324,14 +286,12 @@ function LogoCard({
               gap: '0.4rem',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--accent-cyan)'
-              e.currentTarget.style.color = 'var(--accent-cyan)'
-              e.currentTarget.style.background = 'rgba(0, 229, 255, 0.05)'
+              e.currentTarget.style.opacity = '0.9'
+              e.currentTarget.style.transform = 'scale(1.02)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--border-color)'
-              e.currentTarget.style.color = 'var(--text-secondary)'
-              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.opacity = '1'
+              e.currentTarget.style.transform = 'scale(1)'
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

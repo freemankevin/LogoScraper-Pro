@@ -6,7 +6,7 @@ import LogoResults from './sections/LogoResults'
 import { useScraper } from './hooks/useScraper'
 
 export default function App() {
-  const { state, runScraper, downloadAsSvg, downloadAsPng, setMode } = useScraper()
+  const { state, runScraper, downloadAsPng, setMode } = useScraper()
 
   const handleSearch = useCallback((query: string) => {
     if (state.isRunning) return
@@ -45,7 +45,6 @@ export default function App() {
         {state.results.length > 0 && (
           <LogoResults
             results={state.results}
-            onDownloadSvg={downloadAsSvg}
             onDownloadPng={downloadAsPng}
           />
         )}
